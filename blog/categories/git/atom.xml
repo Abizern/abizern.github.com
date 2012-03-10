@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Git | Abizer Nasir]]></title>
+  <link href="http://Abizern.github.com/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://Abizern.github.com/"/>
+  <updated>2012-03-10T01:04:02+00:00</updated>
+  <id>http://Abizern.github.com/</id>
+  <author>
+    <name><![CDATA[]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Just Enough GPG for git]]></title>
+    <link href="http://Abizern.github.com/2011/01/17/just-enough-gpg-for-git/"/>
+    <updated>2011-01-17T15:52:38+00:00</updated>
+    <id>http://Abizern.github.com/2011/01/17/just-enough-gpg-for-git</id>
+    <content type="html"><![CDATA[<p>It came about that I wanted to do some work with git and signed tags. It's been
+a while since I had looked at this, I've got some old entries up on keyservers
+that date back to 1999, and never on a Mac.</p>
+
+<p>It turns out that it is quite simple to set up a minimal
+<a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy">GPG</a> environment – one that
+lets you work on the command line without having to set it up for Mail.app. This
+is about all I need it for.</p>
+
+<p>The <a href="http://www.gpgtools.org/index.html">GPGTools project</a> has recently
+resurrected the <a href="http://macgpg.sourceforge.net/">MacGPG project</a> to provide
+email encryption and tools to the Mac. It is still in development, and I didn't
+want to mess about with my Mail installation so rather than install the complete
+set of tools, I chose to install <a href="http://www.gpgtools.org/macgpg2.html">MacGPG2</a>
+and <a href="http://www.gpgtools.org/keychain.html">GPGKeychain Access</a></p>
+
+<p><a href="http://www.gpgtools.org/macgpg2.html">MacGPG2</a> is the
+<a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy#OpenPGP">OpenPGP</a>
+implementation for the Mac. This installs gpg2 into /usr/local/bin and gpg is
+symlinked to gpg2. I only mention this because although the commands can all be
+issued as gpg, you get to the documentation by using man gpg2, not man
+gpg. Installation is through an installer package.</p>
+
+<p><a href="http://www.gpgtools.org/keychain.html">GPGKeychain Access</a> does not integrate
+with the Mac Keychain as the name might suggest, but provides a window to look
+at and manage the keys that you have on your system. These are usually under
+~/.gnupg/ Run the installer, and create your keys. It's quite simple and there
+is a video on the project page. However, there are a couple of things that you
+should keep in mind. If you forget your passphrase you can't use your private
+key anymore. And if you've published the key, you won't be able to revoke it and
+it will just sit around on keyservers. So, set an expiry date on your keys in
+case you do lose the private key or passphrase. As the expiry date comes up just
+extend it again.</p>
+
+<p>There is no key-server configured. There seems to be a ticket for this to be
+implemented in some future milestone. Until then, create a file called gpg.conf
+under ~/.gnupg and put this line in it:</p>
+
+<pre><code>keyserver hkp://pgp.mit.edu
+</code></pre>
+
+<p>And that is just enough so that when you use the menu items that send and get
+keys from keyservers they will work. As far as I know, these servers talk to
+each other, so writing to one makes the key visible on the others.</p>
+
+<p>Synchronisation of keys is an issue. If you are adventurous you could add more
+entries to the gpg.conf file to use a central location for the keyrings,
+somewhere like Dropbox or iDisk, so that all your machines can use the same
+files. But, it's just as easy to export the keys as text and use those files to
+keep different machines in sync. Partcularly if you will be using gpg rarely.</p>
+
+<p>This has been a companion piece to the non-Mac centric
+<a href="http://365git.tumblr.com/">365Git</a> post about
+<a href="http://365git.tumblr.com/post/2796779828/signing-a-git-tag">signed tags</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[DVCS at LiDG]]></title>
+    <link href="http://Abizern.github.com/2010/10/08/dvcs-at-lidg/"/>
+    <updated>2010-10-08T14:19:12+01:00</updated>
+    <id>http://Abizern.github.com/2010/10/08/dvcs-at-lidg</id>
+    <content type="html"><![CDATA[<p>I gave a short presentation to the London iPhone Developer Group at the Apple
+store in London this week.</p>
+
+<p>20 minutes is far too short to cover such a large subject but I did what I
+could. I have been given another opportunity to present in the future and I'm
+going to skip the boring beginner bits and just cover 3 or 4 advanced Git
+techniques which should be more fun.</p>
+
+<p>For what it's worth, here are the slides. Probably not much help unless you were
+there (I prefer more talk and less slides) and I apologise for being weak and
+using bullet points.</p>
+
+<p><a href="http://goo.gl/vCCP">Download the Keynote presentation</a> (540 kb)</p>
+
+<p><a href="http://goo.gl/JPJR">Download the PDF slides</a> (220 kb)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A Year of Git]]></title>
+    <link href="http://Abizern.github.com/2010/03/24/a-year-of-git/"/>
+    <updated>2010-03-24T16:52:31+00:00</updated>
+    <id>http://Abizern.github.com/2010/03/24/a-year-of-git</id>
+    <content type="html"><![CDATA[<p>I've been inspired by Pieter Omvlee of
+<a href="http://bohemiancoding.com">Bohemian Coding</a> and his
+<a href="http://365Cocoa.tumblr.com">365Cocoa</a> to set up my own contribution.</p>
+
+<p>I'm going to try and and fill a year with <a href="http://git-scm.com">git</a> tips and
+inspirations over at <a href="http://365git.tumblr.com">365git</a>. I’ve got a few weeks
+worth of ideas but if anyone wants to know anything or has a suggestion, I’ll
+gratefully consider them.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Integrating git with SubEthaEdit and Changes.app]]></title>
+    <link href="http://Abizern.github.com/2009/11/08/integrating-git-with-subethaedit-and-changes/"/>
+    <updated>2009-11-08T16:41:02+00:00</updated>
+    <id>http://Abizern.github.com/2009/11/08/integrating-git-with-subethaedit-and-changes</id>
+    <content type="html"><![CDATA[<p>A while ago, I read a
+<a href="http://schinckel.net/2008/04/26/mercurial-with-os-x-gui-tools/">nice write up</a>
+about using <a href="http://mercurial.selenic.com/">mercurial</a> with
+<a href="http://www.codingmonkeys.de/subethaedit/">SubEthaEdit</a> and
+<a href="http://connectedflow.com/changes/">Changes</a>. Here's how to do the same thing
+with <a href="http://git-scm.com/">git</a> instead of
+<a href="http://mercurial.selenic.com/">mercurial</a>, separated into two parts in case you
+just want to apply one set of changes.</p>
+
+<h2>Changes Support</h2>
+
+<p><strong>Step One: Make sure chdiff is installed.</strong></p>
+
+<p>Open Changes.app and from the Changes menu select "Install terminal
+utility". This will install the chdiff utility which is used by the script.</p>
+
+<p><strong>Step Two: Create a shell script to send diffs to Changes</strong></p>
+
+<p>Create a shell script with the following contents.</p>
+
+<p>```</p>
+
+<h1>!/bin/sh</h1>
+
+<p>[ $# -eq 7 ] &amp;&amp; /usr/bin/env chdiff "$2" "$5"
+```</p>
+
+<p>Where you save this and what you call it is up to you. Mine is called
+'.gitchanges', saved it at the root of my home directory. Make sure the script
+is executable.</p>
+
+<p><strong>Step Three: Edit the .gitconfig file to use this script to handle diffs.</strong></p>
+
+<p>Open your <code>~/.gitconfig</code> file. This should already exist, at the very least it
+will contain you name and email. under the section called <code>[diff]</code> add the
+location and name of the file.  You may have to edit this to make sure it points
+to the name and location you chose in Step Two. (Make sure to use the correct
+path in your setup)</p>
+
+<p><code>
+[diff]
+external = &lt;path to file&gt;/.gitchanges
+</code></p>
+
+<h2>SubEthaEdit Support</h2>
+
+<p><strong>Step One: Download and install the mode file for SubEthaEdit</strong></p>
+
+<p>I wrote a SubEthaEdit mode for this which you can download from the
+<a href="http://abizern.github.com/gitcommit.mode/">github project page</a>. Please feel
+free to fork it and send me patches.</p>
+
+<p><strong>Step Two: Edit the .gitconfig file to use SebEthaEdit as an external editor.</strong></p>
+
+<p>Open your <code>~/.gitconfig</code> file. This time, under the <code>[core]</code> section, add the
+following line:</p>
+
+<p><code>
+[core]
+editor = /usr/bin/see -w -r -o new-window -j 'git editor' -m gitCommit -g 1:0
+</code></p>
+
+<p>All those flags may seem daunting, but they are quite self-explanatory: the <code>-w</code>
+flag makes the Terminal wait for a response from SubEthaEdit. <code>-r</code> brings
+Terminal to the front after you're done editing. <code>-o new-window</code> opens a new
+window for editing. I prefer this to having a new tab appear in whatever window
+I was working on. <code>-j 'git editor</code>' this sets the text that appears in the title
+bar, which you can change as you wish. <code>-m gitCommit</code> is what sets the mode to
+be used for editing. and <code>-g 1:0</code> puts the caret at the beginning of the file.</p>
+
+<p>Now, when git asks you to write a commit message, or pick commits when running
+<code>git rebase -i</code> a SubEthaEdit window will open as the commit message
+editor. Make whatever changes you need then save the file (⌘-S) and then close
+the window (⌘-W) for these changes to take effect.</p>
+]]></content>
+  </entry>
+  
+</feed>

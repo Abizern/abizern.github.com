@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>Abizer Nasir</title>
+  <meta name="author" content="">
 
   
-  <meta name="description" content=" Blog Archives Recent Posts ">
+  <meta name="description" content="It&#8217;s been over a year that I&#8217;ve been running the NSCoder Night meetings in
+London from here, but I&#8217;ve now moved it to a site of its &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -24,7 +25,7 @@
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="Abizer Nasir" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -35,9 +36,7 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
-  
-    <h2>A blogging framework for hackers.</h2>
+  <h1><a href="/">Abizer Nasir</a></h1>
   
 </hgroup>
 
@@ -65,7 +64,488 @@
       <div class="blog-index">
   
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/04/14/nscoder-night-london-now-has-its-own-page/">NSCoder Night London Now Has It&#8217;s Own Page</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-14T20:01:01+01:00" pubdate data-updated="true">Apr 14<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It&#8217;s been over a year that I&#8217;ve been running the NSCoder Night meetings in
+London from here, but I&#8217;ve now moved it to a site of its own. You can now get
+all the information from
+<a href="http://nscodernightlondon.com">NSCoderNightLondon.com</a>.</p>
+
+<p>Blog style entries never really worked. I hope that having everything together
+in just a few pages on a site makes it easier for people who want to turn up.</p>
+
+<p>XBI hope that it floats up higher in Google Rankings as well. This will also make
+it easier for people who want to turn up.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/01/17/just-enough-gpg-for-git/">Just Enough GPG for Git</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-17T15:52:38+00:00" pubdate data-updated="true">Jan 17<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It came about that I wanted to do some work with git and signed tags. It&#8217;s been
+a while since I had looked at this, I&#8217;ve got some old entries up on keyservers
+that date back to 1999, and never on a Mac.</p>
+
+<p>It turns out that it is quite simple to set up a minimal
+<a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy">GPG</a> environment – one that
+lets you work on the command line without having to set it up for Mail.app. This
+is about all I need it for.</p>
+
+<p>The <a href="http://www.gpgtools.org/index.html">GPGTools project</a> has recently
+resurrected the <a href="http://macgpg.sourceforge.net/">MacGPG project</a> to provide
+email encryption and tools to the Mac. It is still in development, and I didn&#8217;t
+want to mess about with my Mail installation so rather than install the complete
+set of tools, I chose to install <a href="http://www.gpgtools.org/macgpg2.html">MacGPG2</a>
+and <a href="http://www.gpgtools.org/keychain.html">GPGKeychain Access</a></p>
+
+<p><a href="http://www.gpgtools.org/macgpg2.html">MacGPG2</a> is the
+<a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy#OpenPGP">OpenPGP</a>
+implementation for the Mac. This installs gpg2 into /usr/local/bin and gpg is
+symlinked to gpg2. I only mention this because although the commands can all be
+issued as gpg, you get to the documentation by using man gpg2, not man
+gpg. Installation is through an installer package.</p>
+
+<p><a href="http://www.gpgtools.org/keychain.html">GPGKeychain Access</a> does not integrate
+with the Mac Keychain as the name might suggest, but provides a window to look
+at and manage the keys that you have on your system. These are usually under
+~/.gnupg/ Run the installer, and create your keys. It&#8217;s quite simple and there
+is a video on the project page. However, there are a couple of things that you
+should keep in mind. If you forget your passphrase you can&#8217;t use your private
+key anymore. And if you&#8217;ve published the key, you won&#8217;t be able to revoke it and
+it will just sit around on keyservers. So, set an expiry date on your keys in
+case you do lose the private key or passphrase. As the expiry date comes up just
+extend it again.</p>
+
+<p>There is no key-server configured. There seems to be a ticket for this to be
+implemented in some future milestone. Until then, create a file called gpg.conf
+under ~/.gnupg and put this line in it:</p>
+
+<pre><code>keyserver hkp://pgp.mit.edu
+</code></pre>
+
+<p>And that is just enough so that when you use the menu items that send and get
+keys from keyservers they will work. As far as I know, these servers talk to
+each other, so writing to one makes the key visible on the others.</p>
+
+<p>Synchronisation of keys is an issue. If you are adventurous you could add more
+entries to the gpg.conf file to use a central location for the keyrings,
+somewhere like Dropbox or iDisk, so that all your machines can use the same
+files. But, it&#8217;s just as easy to export the keys as text and use those files to
+keep different machines in sync. Partcularly if you will be using gpg rarely.</p>
+
+<p>This has been a companion piece to the non-Mac centric
+<a href="http://365git.tumblr.com/">365Git</a> post about
+<a href="http://365git.tumblr.com/post/2796779828/signing-a-git-tag">signed tags</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/11/21/staying-flash-free-on-a-macbook-air/">Staying Flash-free on a MacBook Air</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-21T17:46:57+00:00" pubdate data-updated="true">Nov 21<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>You may have seen John Gruber&#8217;s posts on
+<a href="http://daringfireball.net/2010/11/flash_free_and_cheating_with_google_chrome">uninstalling system-wide flash</a>
+and
+<a href="http://daringfireball.net/2010/11/masquerading_as_mobile_safari">changing the Safari User Agent</a>
+to view some sites that have Flash content.</p>
+
+<p>The new MacBook Airs don&#8217;t have Flash installed by default so this is a
+<a href="http://en.wikipedia.org/wiki/Wikipedia:Too_long;_didn%27t_read">tl:dr</a> summary
+of those two articles so you don&#8217;t have to download and install the system-wide
+Flash player.</p>
+
+<p>Many sites, such as <a href="http://youtube.com">YouTube</a>, provide content in an
+alternative format for devices that do not have Flash installed. Get access to
+this from Safari by turning on the &#8216;Develop&#8217; menu (Preferences | Advanced) and
+change the User Agent to &#8216;Mobile Safari 3.2.2 iPad&#8217;. This works per tab|window
+so doesn&#8217;t change the display in what you already have open.</p>
+
+<p>If this still doesn&#8217;t work (I&#8217;m looking at you
+<a href="http://www.bbc.co.uk/iplayer/">iPlayer</a>) then you can use Google&#8217;s Chrome
+browser, which comes with its own Flash plug-in.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/10/16/getting-the-address-of-a-shortened-url/">Getting the Address of a Shortened URL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-10-16T22:05:52+01:00" pubdate data-updated="true">Oct 16<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Many times you will see a shortened url but you aren&#8217;t sure what it points
+at. Here&#8217;s a little tip that I picked up from
+<a href="http://tommorris.org">Tom Morris</a>.</p>
+
+<p>Pop open your terminal, or console, or whatever your command-line application is
+and type the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl --head shorturl
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This pops up a short amount of useful information about the target url. For
+example the response for the Google short URL for this site shows this;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~ % curl --head http://goo.gl/oQx8
+</span><span class='line'>HTTP/1.1 301 Moved Permanently
+</span><span class='line'>Content-Type: text/html; <span class="nv">charset</span><span class="o">=</span>UTF-8
+</span><span class='line'>Expires: Sat, 16 Oct 2010 21:01:51 GMT
+</span><span class='line'>Date: Sat, 16 Oct 2010 21:01:51 GMT
+</span><span class='line'>Cache-Control: private, max-age<span class="o">=</span>86400
+</span><span class='line'>Location: http://abizern.org/
+</span><span class='line'>X-Content-Type-Options: nosniff
+</span><span class='line'>X-Frame-Options: SAMEORIGIN
+</span><span class='line'>X-XSS-Protection: 1; <span class="nv">mode</span><span class="o">=</span>block
+</span><span class='line'>Server: GSE
+</span><span class='line'>Transfer-Encoding: chunked
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And you can see that the Location shows that you aren&#8217;t going to get
+Rick-rolled.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/10/08/dvcs-at-lidg/">DVCS at LiDG</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-10-08T14:19:12+01:00" pubdate data-updated="true">Oct 8<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I gave a short presentation to the London iPhone Developer Group at the Apple
+store in London this week.</p>
+
+<p>20 minutes is far too short to cover such a large subject but I did what I
+could. I have been given another opportunity to present in the future and I&#8217;m
+going to skip the boring beginner bits and just cover 3 or 4 advanced Git
+techniques which should be more fun.</p>
+
+<p>For what it&#8217;s worth, here are the slides. Probably not much help unless you were
+there (I prefer more talk and less slides) and I apologise for being weak and
+using bullet points.</p>
+
+<p><a href="http://goo.gl/vCCP">Download the Keynote presentation</a> (540 kb)</p>
+
+<p><a href="http://goo.gl/JPJR">Download the PDF slides</a> (220 kb)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/10/08/blackjack-and-the-python-dojo/">Blackjack and the Python Dojo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-10-08T13:04:38+01:00" pubdate data-updated="true">Oct 8<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>&#8220;A coding dojo is a safe place to deliberately practice and develop your coding
+skills.&#8221;</p>
+
+<p>I went to my first
+<a href="http://ldnpydojo.eventwax.com/london-python-code-dojo-season-2-episode-2">London Python Dojo</a>
+last night and had a better time than I expected. I know a little
+<a href="http://en.wikipedia.org/wiki/Python_(programming_language">Python</a>) (just
+enough to hurt myself). I was intrigued by this event where the idea was to
+learn together rather than just share knowledge.</p>
+
+<p>The evening started off with beer and pizza, thanks to our hosts
+<a href="http://www.fry-it.com/">Fry-IT</a>, and then moved on to two short
+presentations. The first was on FluidDb and the second was something to do with
+creating Python packages. Yes, both were over my head.</p>
+
+<p>After that there was a short discussion about a problem to attempt. A blackjack
+game was suggested and we split into 5 groups of four and had a little under an
+hour to solve this. I didn&#8217;t have much confidence that we could do it. One
+person sat at a laptop, we spent about 5 minutes deciding on the approach to use
+and then the typing started.</p>
+
+<p>I wouldn&#8217;t have been able to write the code as quickly as it was being knocked
+out, but I could understand it. And although we were all talking there were no
+arguments and we pushed through and got a working program done (with one easily
+fixed bug) just in time. Although not strictly <a href="Pair%0Aprogramming">pair programming</a>, I can see why that approach can generate quality code quickly.</p>
+
+<p>But that wasn&#8217;t it. Each team demoed their solution and showed their code. This
+was just as useful as writing the program in the first place. Because we had all
+been thinking about the same problem it was easy to understand the different
+approaches that were presented. There were class based solutions as well as
+functional ones (some had tests!) and we even saw the major development
+environments - Macs running vi, Linux machines with Emacs, and Notepad++ on
+Windows. We also saw a solution using Python3.</p>
+
+<p>I enjoyed this more than I expected. It was nice to be able to contribute even
+though I&#8217;m not that experienced with Python, and I learned plenty just by
+watching and asking questions. It was a welcoming bunch and I will certainly be
+going again. And this time I&#8217;ll pay more attention to people&#8217;s names.</p>
+
+<p>I don&#8217;t think anybody used version control, though&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/03/24/a-year-of-git/">A Year of Git</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-24T16:52:31+00:00" pubdate data-updated="true">Mar 24<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve been inspired by Pieter Omvlee of
+<a href="http://bohemiancoding.com">Bohemian Coding</a> and his
+<a href="http://365Cocoa.tumblr.com">365Cocoa</a> to set up my own contribution.</p>
+
+<p>I&#8217;m going to try and and fill a year with <a href="http://git-scm.com">git</a> tips and
+inspirations over at <a href="http://365git.tumblr.com">365git</a>. I’ve got a few weeks
+worth of ideas but if anyone wants to know anything or has a suggestion, I’ll
+gratefully consider them.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/03/06/renaming-an-xcode-project/">Renaming an Xcode Project</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-06T16:48:19+00:00" pubdate data-updated="true">Mar 6<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>You may have occasion to rename an Xcode project.</p>
+
+<p>You can find step-by-step instructions and scripts with a little bit of
+Googling. But there is another way. If you&#8217;re running Xcode 3.2 on Snow Leopard
+there is a menu item you can use instead. Have a look at the Project > Rename…
+menu item instead.</p>
+
+<p><img src="http://images.abizern.org.s3.amazonaws.com/2010/03/XcodeRename.png" alt="Project &gt; Rename…" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -76,6 +556,26 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2011/04/14/nscoder-night-london-now-has-its-own-page/">NSCoder Night London Now Has It&#8217;s Own Page</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/01/17/just-enough-gpg-for-git/">Just Enough GPG for git</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/11/21/staying-flash-free-on-a-macbook-air/">Staying Flash-free on a MacBook Air</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/10/16/getting-the-address-of-a-shortened-url/">Getting the address of a shortened URL</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2010/10/08/dvcs-at-lidg/">DVCS at LiDG</a>
+      </li>
     
   </ul>
 </section>
@@ -91,7 +591,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Your Name -
+  Copyright &copy; 2012 -  -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

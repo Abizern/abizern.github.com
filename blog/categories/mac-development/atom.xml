@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Mac Development | Abizer Nasir]]></title>
+  <link href="http://Abizern.github.com/blog/categories/mac-development/atom.xml" rel="self"/>
+  <link href="http://Abizern.github.com/"/>
+  <updated>2012-03-10T01:04:02+00:00</updated>
+  <id>http://Abizern.github.com/</id>
+  <author>
+    <name><![CDATA[]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Just Enough GPG for git]]></title>
+    <link href="http://Abizern.github.com/2011/01/17/just-enough-gpg-for-git/"/>
+    <updated>2011-01-17T15:52:38+00:00</updated>
+    <id>http://Abizern.github.com/2011/01/17/just-enough-gpg-for-git</id>
+    <content type="html"><![CDATA[<p>It came about that I wanted to do some work with git and signed tags. It's been
+a while since I had looked at this, I've got some old entries up on keyservers
+that date back to 1999, and never on a Mac.</p>
+
+<p>It turns out that it is quite simple to set up a minimal
+<a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy">GPG</a> environment – one that
+lets you work on the command line without having to set it up for Mail.app. This
+is about all I need it for.</p>
+
+<p>The <a href="http://www.gpgtools.org/index.html">GPGTools project</a> has recently
+resurrected the <a href="http://macgpg.sourceforge.net/">MacGPG project</a> to provide
+email encryption and tools to the Mac. It is still in development, and I didn't
+want to mess about with my Mail installation so rather than install the complete
+set of tools, I chose to install <a href="http://www.gpgtools.org/macgpg2.html">MacGPG2</a>
+and <a href="http://www.gpgtools.org/keychain.html">GPGKeychain Access</a></p>
+
+<p><a href="http://www.gpgtools.org/macgpg2.html">MacGPG2</a> is the
+<a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy#OpenPGP">OpenPGP</a>
+implementation for the Mac. This installs gpg2 into /usr/local/bin and gpg is
+symlinked to gpg2. I only mention this because although the commands can all be
+issued as gpg, you get to the documentation by using man gpg2, not man
+gpg. Installation is through an installer package.</p>
+
+<p><a href="http://www.gpgtools.org/keychain.html">GPGKeychain Access</a> does not integrate
+with the Mac Keychain as the name might suggest, but provides a window to look
+at and manage the keys that you have on your system. These are usually under
+~/.gnupg/ Run the installer, and create your keys. It's quite simple and there
+is a video on the project page. However, there are a couple of things that you
+should keep in mind. If you forget your passphrase you can't use your private
+key anymore. And if you've published the key, you won't be able to revoke it and
+it will just sit around on keyservers. So, set an expiry date on your keys in
+case you do lose the private key or passphrase. As the expiry date comes up just
+extend it again.</p>
+
+<p>There is no key-server configured. There seems to be a ticket for this to be
+implemented in some future milestone. Until then, create a file called gpg.conf
+under ~/.gnupg and put this line in it:</p>
+
+<pre><code>keyserver hkp://pgp.mit.edu
+</code></pre>
+
+<p>And that is just enough so that when you use the menu items that send and get
+keys from keyservers they will work. As far as I know, these servers talk to
+each other, so writing to one makes the key visible on the others.</p>
+
+<p>Synchronisation of keys is an issue. If you are adventurous you could add more
+entries to the gpg.conf file to use a central location for the keyrings,
+somewhere like Dropbox or iDisk, so that all your machines can use the same
+files. But, it's just as easy to export the keys as text and use those files to
+keep different machines in sync. Partcularly if you will be using gpg rarely.</p>
+
+<p>This has been a companion piece to the non-Mac centric
+<a href="http://365git.tumblr.com/">365Git</a> post about
+<a href="http://365git.tumblr.com/post/2796779828/signing-a-git-tag">signed tags</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Renaming an Xcode Project]]></title>
+    <link href="http://Abizern.github.com/2010/03/06/renaming-an-xcode-project/"/>
+    <updated>2010-03-06T16:48:19+00:00</updated>
+    <id>http://Abizern.github.com/2010/03/06/renaming-an-xcode-project</id>
+    <content type="html"><![CDATA[<p>You may have occasion to rename an Xcode project.</p>
+
+<p>You can find step-by-step instructions and scripts with a little bit of
+Googling. But there is another way. If you're running Xcode 3.2 on Snow Leopard
+there is a menu item you can use instead. Have a look at the Project > Rename…
+menu item instead.</p>
+
+<p><img src="http://images.abizern.org.s3.amazonaws.com/2010/03/XcodeRename.png" alt="Project &gt; Rename…" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A Year Of Objective-C Snippets ]]></title>
+    <link href="http://Abizern.github.com/2010/02/27/a-year-of-objective-c-snippets/"/>
+    <updated>2010-02-27T17:20:29+00:00</updated>
+    <id>http://Abizern.github.com/2010/02/27/a-year-of-objective-c-snippets</id>
+    <content type="html"><![CDATA[<p>Pieter Omvlee of <a href="http://www.bohemiancoding.com/">Bohemian Coding</a> has been
+inspired to post a snippet of Objective-C/Cocoa code every day for a year.</p>
+
+<p>It’s a great idea and starts with a useful category on NSArray. Go and see what
+you can learn over at
+<a href="http://365cocoa.tumblr.com/">http://365cocoa.tumblr.com/</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Some tips for lazy Xcoders]]></title>
+    <link href="http://Abizern.github.com/2009/11/11/some-tips-for-lazy-xcoders/"/>
+    <updated>2009-11-11T12:40:53+00:00</updated>
+    <id>http://Abizern.github.com/2009/11/11/some-tips-for-lazy-xcoders</id>
+    <content type="html"><![CDATA[<p>We all know what we should be doing when writing code. Each methodology you
+choose to use has it's own best practices, whether it's working from full
+specifications, writing unit tests first, programming in pairs, yadda,
+yadda. But, as developers, we're only human, and we're lazy. We have tools to
+make things easy for us. Here are a few tips that you can use to help when
+you're not as rigorous in your coding as you should be.</p>
+
+<h2>Use the static analyser.</h2>
+
+<p>You can use the
+<a href="http://arstechnica.com/apple/reviews/2009/08/mac-os-x-10-6.ars/9#compilers">Clang Static Analyser</a>
+in Xcode by setting a build option. This will find a whole host of errors in
+your code, even down to unconventionally named functions.</p>
+
+<p><img src="http://images.abizern.org.s3.amazonaws.com/2009/11/ClangBuildSetting.png" alt="ClangBuildSetting.png" /></p>
+
+<p>Now you can just code away and have the compiler pick up your mistakes when you
+run 'Build and Analyze' (⌘+Shift+A).</p>
+
+<h2>Find your mistakes quickly.</h2>
+
+<p>Any real application you develop will have a large number of resources that need
+to be copied to your application bundle. The default projects that Xcode create
+for you will copy these files first before compiling.</p>
+
+<p><img src="http://images.abizern.org.s3.amazonaws.com/2009/11/XcodeDefault.png" alt="XcodeDefault.png" /></p>
+
+<p>But, the lazy Xcoder knows that there are probably errors in the code that need
+to get flagged by the compiler, so this copying is a waste of time. Reorder the
+build steps by dragging so that the compilation is done first.</p>
+
+<p><img src="http://images.abizern.org.s3.amazonaws.com/2009/11/XcodeRecommended.png" alt="XcodeRecommended.png" /></p>
+
+<p>Your builds will now break early (and often!).</p>
+
+<h2>Don't fear the version controller.</h2>
+
+<p>I'm going to stick my neck out and say that if you're not using version control
+you're an idiot. The lazy Xcoder uses a powerful system that lets him or her
+branch easily, make lots of little changes, and lots of mistakes (that can be
+backed out). These changes can then be bundled into larger commits to be merged
+into the main branch so that your co-workers don't see what an idiot you've
+been.</p>
+
+<p>One such version control system is <a href="http://git-scm.com/">git</a>. The lazy Xcoder
+writes a bit of code, checks it in out of habit and then compiles. The compiler
+picks up the mistakes, and he or she fixes them. Rather than make a new commit,
+and retype the commit message, just call:</p>
+
+<p><code>bash
+git commit --amend -a -C HEAD
+</code></p>
+
+<p>This will bring up the previous commit message in the editor, which you can
+amend if you wish. This new commit will replace the previous one. The <code>-a</code>
+option means you don't even need to do a git add and the <code>-C HEAD</code> option means
+it will use the commit message from the last commit.</p>
+
+<p>Of course, if you're a rockstar programmer, you don't make mistakes at this
+level. But I'm not, and I prefer to work with human nature rather than against
+it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Integrating git with SubEthaEdit and Changes.app]]></title>
+    <link href="http://Abizern.github.com/2009/11/08/integrating-git-with-subethaedit-and-changes/"/>
+    <updated>2009-11-08T16:41:02+00:00</updated>
+    <id>http://Abizern.github.com/2009/11/08/integrating-git-with-subethaedit-and-changes</id>
+    <content type="html"><![CDATA[<p>A while ago, I read a
+<a href="http://schinckel.net/2008/04/26/mercurial-with-os-x-gui-tools/">nice write up</a>
+about using <a href="http://mercurial.selenic.com/">mercurial</a> with
+<a href="http://www.codingmonkeys.de/subethaedit/">SubEthaEdit</a> and
+<a href="http://connectedflow.com/changes/">Changes</a>. Here's how to do the same thing
+with <a href="http://git-scm.com/">git</a> instead of
+<a href="http://mercurial.selenic.com/">mercurial</a>, separated into two parts in case you
+just want to apply one set of changes.</p>
+
+<h2>Changes Support</h2>
+
+<p><strong>Step One: Make sure chdiff is installed.</strong></p>
+
+<p>Open Changes.app and from the Changes menu select "Install terminal
+utility". This will install the chdiff utility which is used by the script.</p>
+
+<p><strong>Step Two: Create a shell script to send diffs to Changes</strong></p>
+
+<p>Create a shell script with the following contents.</p>
+
+<p>```</p>
+
+<h1>!/bin/sh</h1>
+
+<p>[ $# -eq 7 ] &amp;&amp; /usr/bin/env chdiff "$2" "$5"
+```</p>
+
+<p>Where you save this and what you call it is up to you. Mine is called
+'.gitchanges', saved it at the root of my home directory. Make sure the script
+is executable.</p>
+
+<p><strong>Step Three: Edit the .gitconfig file to use this script to handle diffs.</strong></p>
+
+<p>Open your <code>~/.gitconfig</code> file. This should already exist, at the very least it
+will contain you name and email. under the section called <code>[diff]</code> add the
+location and name of the file.  You may have to edit this to make sure it points
+to the name and location you chose in Step Two. (Make sure to use the correct
+path in your setup)</p>
+
+<p><code>
+[diff]
+external = &lt;path to file&gt;/.gitchanges
+</code></p>
+
+<h2>SubEthaEdit Support</h2>
+
+<p><strong>Step One: Download and install the mode file for SubEthaEdit</strong></p>
+
+<p>I wrote a SubEthaEdit mode for this which you can download from the
+<a href="http://abizern.github.com/gitcommit.mode/">github project page</a>. Please feel
+free to fork it and send me patches.</p>
+
+<p><strong>Step Two: Edit the .gitconfig file to use SebEthaEdit as an external editor.</strong></p>
+
+<p>Open your <code>~/.gitconfig</code> file. This time, under the <code>[core]</code> section, add the
+following line:</p>
+
+<p><code>
+[core]
+editor = /usr/bin/see -w -r -o new-window -j 'git editor' -m gitCommit -g 1:0
+</code></p>
+
+<p>All those flags may seem daunting, but they are quite self-explanatory: the <code>-w</code>
+flag makes the Terminal wait for a response from SubEthaEdit. <code>-r</code> brings
+Terminal to the front after you're done editing. <code>-o new-window</code> opens a new
+window for editing. I prefer this to having a new tab appear in whatever window
+I was working on. <code>-j 'git editor</code>' this sets the text that appears in the title
+bar, which you can change as you wish. <code>-m gitCommit</code> is what sets the mode to
+be used for editing. and <code>-g 1:0</code> puts the caret at the beginning of the file.</p>
+
+<p>Now, when git asks you to write a commit message, or pick commits when running
+<code>git rebase -i</code> a SubEthaEdit window will open as the commit message
+editor. Make whatever changes you need then save the file (⌘-S) and then close
+the window (⌘-W) for these changes to take effect.</p>
+]]></content>
+  </entry>
+  
+</feed>
