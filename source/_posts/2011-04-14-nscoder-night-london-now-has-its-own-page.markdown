@@ -15,5 +15,5 @@ all the information from
 Blog style entries never really worked. I hope that having everything together
 in just a few pages on a site makes it easier for people who want to turn up.
 
-XBI hope that it floats up higher in Google Rankings as well. This will also make
+I hope that it floats up higher in Google Rankings as well. This will also make
 it easier for people who want to turn up.
