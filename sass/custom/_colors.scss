@@ -44,5 +44,7 @@ $solar-green:     #859900;
 
 $myBackground: #002b36;
 
-$page-bg: $base03;
-$header-bg: $base02;
+// Everything should be based on the light background.
+$page-bg: $base3;
+$header-bg: $base3;
+$main-bg: $base3;
