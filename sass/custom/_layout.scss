@@ -20,3 +20,25 @@ $sidebar-width-medium: 0px;
 $sidebar-pad-medium: 0px;
 $sidebar-pad-wide: 0px;
 $sidebar-width-wide: 0px;
+
+body > header h1:before {
+    content:"";
+    position:absolute;
+    left:0em;
+    right:0;
+    top:1.5em;
+    height:110px;
+    width:110px;
+    overflow:hidden;
+    text-align:right;
+    background-image:url('/images/ao_logo.png');
+    background-repeat:no-repeat;
+    @media only screen and (min-width: 432px) {
+        text-align:left;
+        padding-left:3.9hhem;
+    }
+    @media only screen and (min-width: 768px) {
+        padding-left:5em;
+    }
+
+}
