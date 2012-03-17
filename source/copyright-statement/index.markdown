@@ -13,5 +13,5 @@ reuse the content on this site without asking me for permission as long as:
 
 - You don't use it for commercial purposes.
 - You attribute the work to me by name with a link back to this website.
-- If you want to re-use this under any other conditions - just contact me. You
+- If you want to re-use this under any other conditions - just contact me by <a href='&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#98;&#105;&#122;&#101;&#114;&#110;&#64;&#97;&#98;&#105;&#122;&#101;&#114;&#110;&#46;&#111;&#114;&#103;'>&#101;&#109;&#97;&#105;&#108;</a>. You
   might be surprised!
