@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: General Programming | Abizer Nasir]]></title>
-  <link href="http://Abizern.github.com/categories/general-programming/atom.xml" rel="self"/>
-  <link href="http://Abizern.github.com/"/>
-  <updated>2012-03-17T04:39:42+00:00</updated>
-  <id>http://Abizern.github.com/</id>
+  <link href="http://abizern.org/categories/general-programming/atom.xml" rel="self"/>
+  <link href="http://abizern.org/"/>
+  <updated>2012-03-17T15:48:44+00:00</updated>
+  <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Getting the address of a shortened URL]]></title>
-    <link href="http://Abizern.github.com/2010/10/16/getting-the-address-of-a-shortened-url/"/>
+    <link href="http://abizern.org/2010/10/16/getting-the-address-of-a-shortened-url/"/>
     <updated>2010-10-16T22:05:52+01:00</updated>
-    <id>http://Abizern.github.com/2010/10/16/getting-the-address-of-a-shortened-url</id>
+    <id>http://abizern.org/2010/10/16/getting-the-address-of-a-shortened-url</id>
     <content type="html"><![CDATA[<p>Many times you will see a shortened url but you aren't sure what it points
 at. Here's a little tip that I picked up from
 <a href="http://tommorris.org">Tom Morris</a>.</p>
@@ -54,9 +54,9 @@ Rick-rolled.</p>
   
   <entry>
     <title type="html"><![CDATA[A Simple Answer Is Not Always Best]]></title>
-    <link href="http://Abizern.github.com/2010/01/08/a-simple-answer-is-not-always-best/"/>
+    <link href="http://abizern.org/2010/01/08/a-simple-answer-is-not-always-best/"/>
     <updated>2010-01-08T22:01:26+00:00</updated>
-    <id>http://Abizern.github.com/2010/01/08/a-simple-answer-is-not-always-best</id>
+    <id>http://abizern.org/2010/01/08/a-simple-answer-is-not-always-best</id>
     <content type="html"><![CDATA[<p>On New Year's eve, Dámasa asked me to calculate some fraction of a fraction and
 provide the answer as a fraction in eighths. The post had just arrived so I
 flipped over an envelope and started working it out.</p>

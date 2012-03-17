@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Technology | Abizer Nasir]]></title>
-  <link href="http://Abizern.github.com/categories/technology/atom.xml" rel="self"/>
-  <link href="http://Abizern.github.com/"/>
-  <updated>2012-03-17T04:39:42+00:00</updated>
-  <id>http://Abizern.github.com/</id>
+  <link href="http://abizern.org/categories/technology/atom.xml" rel="self"/>
+  <link href="http://abizern.org/"/>
+  <updated>2012-03-17T15:48:44+00:00</updated>
+  <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Staying Flash-free on a MacBook Air]]></title>
-    <link href="http://Abizern.github.com/2010/11/21/staying-flash-free-on-a-macbook-air/"/>
+    <link href="http://abizern.org/2010/11/21/staying-flash-free-on-a-macbook-air/"/>
     <updated>2010-11-21T17:46:57+00:00</updated>
-    <id>http://Abizern.github.com/2010/11/21/staying-flash-free-on-a-macbook-air</id>
+    <id>http://abizern.org/2010/11/21/staying-flash-free-on-a-macbook-air</id>
     <content type="html"><![CDATA[<p>You may have seen John Gruber's posts on
 <a href="http://daringfireball.net/2010/11/flash_free_and_cheating_with_google_chrome">uninstalling system-wide flash</a>
 and

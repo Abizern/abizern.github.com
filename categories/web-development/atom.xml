@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Web Development | Abizer Nasir]]></title>
-  <link href="http://Abizern.github.com/categories/web-development/atom.xml" rel="self"/>
-  <link href="http://Abizern.github.com/"/>
-  <updated>2012-03-17T04:39:42+00:00</updated>
-  <id>http://Abizern.github.com/</id>
+  <link href="http://abizern.org/categories/web-development/atom.xml" rel="self"/>
+  <link href="http://abizern.org/"/>
+  <updated>2012-03-17T15:48:44+00:00</updated>
+  <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Just Enough GPG for git]]></title>
-    <link href="http://Abizern.github.com/2011/01/17/just-enough-gpg-for-git/"/>
+    <link href="http://abizern.org/2011/01/17/just-enough-gpg-for-git/"/>
     <updated>2011-01-17T15:52:38+00:00</updated>
-    <id>http://Abizern.github.com/2011/01/17/just-enough-gpg-for-git</id>
+    <id>http://abizern.org/2011/01/17/just-enough-gpg-for-git</id>
     <content type="html"><![CDATA[<p>It came about that I wanted to do some work with git and signed tags. It's been
 a while since I had looked at this, I've got some old entries up on keyservers
 that date back to 1999, and never on a Mac.</p>

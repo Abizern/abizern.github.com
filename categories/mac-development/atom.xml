@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Mac Development | Abizer Nasir]]></title>
-  <link href="http://Abizern.github.com/categories/mac-development/atom.xml" rel="self"/>
-  <link href="http://Abizern.github.com/"/>
-  <updated>2012-03-17T04:39:42+00:00</updated>
-  <id>http://Abizern.github.com/</id>
+  <link href="http://abizern.org/categories/mac-development/atom.xml" rel="self"/>
+  <link href="http://abizern.org/"/>
+  <updated>2012-03-17T15:48:44+00:00</updated>
+  <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Just Enough GPG for git]]></title>
-    <link href="http://Abizern.github.com/2011/01/17/just-enough-gpg-for-git/"/>
+    <link href="http://abizern.org/2011/01/17/just-enough-gpg-for-git/"/>
     <updated>2011-01-17T15:52:38+00:00</updated>
-    <id>http://Abizern.github.com/2011/01/17/just-enough-gpg-for-git</id>
+    <id>http://abizern.org/2011/01/17/just-enough-gpg-for-git</id>
     <content type="html"><![CDATA[<p>It came about that I wanted to do some work with git and signed tags. It's been
 a while since I had looked at this, I've got some old entries up on keyservers
 that date back to 1999, and never on a Mac.</p>
@@ -77,9 +77,9 @@ keep different machines in sync. Partcularly if you will be using gpg rarely.</p
   
   <entry>
     <title type="html"><![CDATA[Renaming an Xcode Project]]></title>
-    <link href="http://Abizern.github.com/2010/03/06/renaming-an-xcode-project/"/>
+    <link href="http://abizern.org/2010/03/06/renaming-an-xcode-project/"/>
     <updated>2010-03-06T16:48:19+00:00</updated>
-    <id>http://Abizern.github.com/2010/03/06/renaming-an-xcode-project</id>
+    <id>http://abizern.org/2010/03/06/renaming-an-xcode-project</id>
     <content type="html"><![CDATA[<p>You may have occasion to rename an Xcode project.</p>
 
 <p>You can find step-by-step instructions and scripts with a little bit of
@@ -93,9 +93,9 @@ menu item instead.</p>
   
   <entry>
     <title type="html"><![CDATA[A Year Of Objective-C Snippets ]]></title>
-    <link href="http://Abizern.github.com/2010/02/27/a-year-of-objective-c-snippets/"/>
+    <link href="http://abizern.org/2010/02/27/a-year-of-objective-c-snippets/"/>
     <updated>2010-02-27T17:20:29+00:00</updated>
-    <id>http://Abizern.github.com/2010/02/27/a-year-of-objective-c-snippets</id>
+    <id>http://abizern.org/2010/02/27/a-year-of-objective-c-snippets</id>
     <content type="html"><![CDATA[<p>Pieter Omvlee of <a href="http://www.bohemiancoding.com/">Bohemian Coding</a> has been
 inspired to post a snippet of Objective-C/Cocoa code every day for a year.</p>
 
@@ -107,9 +107,9 @@ you can learn over at
   
   <entry>
     <title type="html"><![CDATA[Some tips for lazy Xcoders]]></title>
-    <link href="http://Abizern.github.com/2009/11/11/some-tips-for-lazy-xcoders/"/>
+    <link href="http://abizern.org/2009/11/11/some-tips-for-lazy-xcoders/"/>
     <updated>2009-11-11T12:40:53+00:00</updated>
-    <id>http://Abizern.github.com/2009/11/11/some-tips-for-lazy-xcoders</id>
+    <id>http://abizern.org/2009/11/11/some-tips-for-lazy-xcoders</id>
     <content type="html"><![CDATA[<p>We all know what we should be doing when writing code. Each methodology you
 choose to use has it's own best practices, whether it's working from full
 specifications, writing unit tests first, programming in pairs, yadda,
@@ -176,9 +176,9 @@ it.</p>
   
   <entry>
     <title type="html"><![CDATA[Integrating git with SubEthaEdit and Changes.app]]></title>
-    <link href="http://Abizern.github.com/2009/11/08/integrating-git-with-subethaedit-and-changes/"/>
+    <link href="http://abizern.org/2009/11/08/integrating-git-with-subethaedit-and-changes/"/>
     <updated>2009-11-08T16:41:02+00:00</updated>
-    <id>http://Abizern.github.com/2009/11/08/integrating-git-with-subethaedit-and-changes</id>
+    <id>http://abizern.org/2009/11/08/integrating-git-with-subethaedit-and-changes</id>
     <content type="html"><![CDATA[<p>A while ago, I read a
 <a href="http://schinckel.net/2008/04/26/mercurial-with-os-x-gui-tools/">nice write up</a>
 about using <a href="http://mercurial.selenic.com/">mercurial</a> with
