@@ -42,3 +42,5 @@ $nav-bg: $base1;
 
 /* Footer */
 $footer-bg: $base1;
+$footer-link-color: darken($footer-bg, 38) !default;
+$footer-color: $footer-link-color;
