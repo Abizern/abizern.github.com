@@ -1,4 +1,4 @@
-// Here you can easily change your sites's layout.
+// Here you can easily change your sites`s layout.
 // To give it a try, uncomment some of the lines below, make changes, rebuild your blog, and see how it works.
 
 //$header-font-size: 1em;
@@ -9,10 +9,10 @@ $max-width: 980px;
 //$indented-lists: true;
 
 // Padding used for layout margins
-//$pad-min: 18px;
-//$pad-narrow: 25px;
-//$pad-medium: 35px;
-//$pad-wide: 55px;
+$pad-min: 18px;
+$pad-narrow: 25px;
+$pad-medium: 35px;
+$pad-wide: 55px;
 
 // Sidebar widths used in media queries
 // Since we aren`t usiing a sidebar - kill the width
@@ -21,24 +21,45 @@ $sidebar-pad-medium: 0px;
 $sidebar-pad-wide: 0px;
 $sidebar-width-wide: 0px;
 
-body > header h1:before {
-    content:"";
-    position:absolute;
-    left:0em;
-    right:0;
-    top:1.5em;
-    height:110px;
-    width:110px;
-    overflow:hidden;
+
+body > header h1 {
+  padding-left:2em;
+  text-align:right;
+  @media only screen and (min-width: 480px) {
+    padding-left:2.5em;
     text-align:right;
-    background-image:url('/images/ao_logo.png');
-    background-repeat:no-repeat;
-    @media only screen and (min-width: 432px) {
-        text-align:left;
-        padding-left:3.9hhem;
-    }
-    @media only screen and (min-width: 768px) {
-        padding-left:5em;
-    }
+  }
+  @media only screen and (min-width: 768px) {
+    padding-left:2em;
+  }
+  @media only screen and (min-width: 992px) {
+    padding-left:2em;
+  }
+
+}
+
+body > header h1:before {
+  content:"";
+  position:absolute;
+  left:0em;
+  right:0;
+  top:.25em;
+  height:110px;
+  width:110px;
+  overflow:hidden;
+  text-align:right;
+  background-image:url('/images/ao_logo.png');
+  background-repeat:no-repeat;
+  @media only screen and (min-width: 480px) {
+    left:$pad-narrow;
+    top:.3em;
+  }
+  @media only screen and (min-width: 768px) {
+    left:$pad-medium;
+  }
+  @media only screen and (min-width: 992px) {
+    left:$pad-wide;
+    top: .55em;
+  }
 
 }
