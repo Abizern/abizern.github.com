@@ -4,7 +4,7 @@
   <title><![CDATA[Abizer Nasir]]></title>
   <link href="http://abizern.org/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-03-17T18:00:11+00:00</updated>
+  <updated>2012-03-17T18:11:59+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hello Octopress]]></title>
+    <link href="http://abizern.org/2012/03/17/hello-octopress/"/>
+    <updated>2012-03-17T18:02:00+00:00</updated>
+    <id>http://abizern.org/2012/03/17/hello-octopress</id>
+    <content type="html"><![CDATA[<p>This is the obligatory post announcing that I&#8217;ve moved this site off Wordpress
+to <a href="http://Octopress.org" title="Octopress - The blogging framework for
+hackers">Octopress</a>. It&#8217;s been almost a year since I posted anything. And most of what I
+did publish was about <a href="http://nscodernightlondon.com" title="NSCoder
+Night London's page">NSCoder Night</a>.</p>
+
+<p>The old site had the Solarized Dark theme - and once I saw that the code
+formatting on Octopress was that by default I decided to make the move. Now I
+can happily write Markdown formatted posts with Emacs and see an almost live
+preview of how it will look when published. I get to keep it on
+<a href="http://github.com" title="GitHub">GitHub</a> and have it in a repository.</p>
+
+<p>I&#8217;ve tried to set the general colours to Solarized Light. Seems okay so far but
+still plenty of room for tweeking.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[NSCoder Night London Now Has It's Own Page]]></title>
