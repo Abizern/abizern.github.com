@@ -2,72 +2,76 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://Abizern.github.com/2009/09/21/nscoder-night-london/</loc>
-        <lastmod>2012-03-09T21:59:50+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://Abizern.github.com/2009/09/25/nscoder-night-london-report/</loc>
-        <lastmod>2012-03-09T22:36:24+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
     <url>
         <loc>
             http://Abizern.github.com/2009/11/08/integrating-git-with-subethaedit-and-changes/
         </loc>
-        <lastmod>2012-03-09T22:46:49+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://Abizern.github.com/2009/11/11/some-tips-for-lazy-xcoders/</loc>
-        <lastmod>2012-03-10T00:01:24+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://Abizern.github.com/2009/12/12/hello-heinlein/</loc>
-        <lastmod>2012-03-10T00:32:41+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://Abizern.github.com/2010/01/08/a-simple-answer-is-not-always-best/</loc>
-        <lastmod>2012-03-10T00:10:27+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://Abizern.github.com/2010/02/27/a-year-of-objective-c-snippets/</loc>
-        <lastmod>2012-03-10T00:12:25+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://Abizern.github.com/2010/03/06/renaming-an-xcode-project/</loc>
-        <lastmod>2012-03-10T00:15:36+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://Abizern.github.com/2010/03/24/a-year-of-git/</loc>
-        <lastmod>2012-03-10T00:17:21+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://Abizern.github.com/2010/10/08/blackjack-and-the-python-dojo/</loc>
-        <lastmod>2012-03-10T00:19:30+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://Abizern.github.com/2010/10/08/dvcs-at-lidg/</loc>
-        <lastmod>2012-03-10T00:20:56+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://Abizern.github.com/2010/10/16/getting-the-address-of-a-shortened-url/</loc>
-        <lastmod>2012-03-10T00:23:49+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://Abizern.github.com/2010/11/21/staying-flash-free-on-a-macbook-air/</loc>
-        <lastmod>2012-03-10T00:25:20+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://Abizern.github.com/2011/01/17/just-enough-gpg-for-git/</loc>
-        <lastmod>2012-03-10T00:28:15+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
     <url>
         <loc>http://Abizern.github.com/2011/04/14/nscoder-night-london-now-has-its-own-page/</loc>
-        <lastmod>2012-03-10T00:29:14+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
     <url>
-        <loc>http://Abizern.github.com/blog/archives/</loc>
-        <lastmod>2012-03-10T00:32:41+00:00</lastmod>
+        <loc>http://Abizern.github.com/archives/</loc>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://Abizern.github.com/copyright-statement/</loc>
+        <lastmod>2012-03-16T17:25:32+00:00</lastmod>
     </url>
     <url>
         <loc>http://Abizern.github.com/</loc>
-        <lastmod>2012-03-10T00:32:41+00:00</lastmod>
+        <lastmod>2012-03-16T01:29:05+00:00</lastmod>
     </url>
 </urlset>

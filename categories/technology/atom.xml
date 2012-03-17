@@ -2,12 +2,12 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Technology | Abizer Nasir]]></title>
-  <link href="http://Abizern.github.com/blog/categories/technology/atom.xml" rel="self"/>
+  <link href="http://Abizern.github.com/categories/technology/atom.xml" rel="self"/>
   <link href="http://Abizern.github.com/"/>
-  <updated>2012-03-10T01:04:02+00:00</updated>
+  <updated>2012-03-17T01:24:58+00:00</updated>
   <id>http://Abizern.github.com/</id>
   <author>
-    <name><![CDATA[]]></name>
+    <name><![CDATA[Abizer Nasir]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
