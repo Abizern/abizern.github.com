@@ -18,4 +18,4 @@ preview of how it will look when published. I get to keep it on
 [GitHub](http://github.com "GitHub") and have it in a repository.
 
 I've tried to set the general colours to Solarized Light. Seems okay so far but
-still plenty of room for tweeking.
+still plenty of room for tweaking.
