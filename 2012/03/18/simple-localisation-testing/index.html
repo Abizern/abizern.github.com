@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hello Octopress - Abizer Nasir</title>
+  <title>Simple Localisation Testing - Abizer Nasir</title>
   <meta name="author" content="Abizer Nasir">
 
   
-  <meta name="description" content="This is the obligatory post announcing that I&#8217;ve moved this site off Wordpress
-to <a href="http://Octopress.org" title="Octopress - The &hellip;">
+  <meta name="description" content="Sometimes you want to test your localisations but you don&#8217;t want to go through the hassle of
+changing the settings on the simulator, or device &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ to <a href="http://Octopress.org" title="Octopress - The &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://abizern.org/2012/03/17/hello-octopress">
+  <link rel="canonical" href="http://abizern.org/2012/03/18/simple-localisation-testing">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -77,7 +77,7 @@ to <a href="http://Octopress.org" title="Octopress - The &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Hello Octopress</h1>
+      <h1 class="entry-title">Simple Localisation Testing</h1>
     
     
       <p class="meta">
@@ -93,27 +93,47 @@ to <a href="http://Octopress.org" title="Octopress - The &hellip;">
   
 
 
-<time datetime="2012-03-17T18:02:00+00:00" pubdate data-updated="true">Mar 17<span>th</span>, 2012</time>
+<time datetime="2012-03-18T08:44:00+00:00" pubdate data-updated="true">Mar 18<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>This is the obligatory post announcing that I&#8217;ve moved this site off Wordpress
-to <a href="http://Octopress.org" title="Octopress - The blogging framework for
-hackers">Octopress</a>. It&#8217;s been almost a year since I posted anything. And most of what I
-did publish was about <a href="http://nscodernightlondon.com" title="NSCoder
-Night London's page">NSCoder Night</a>.</p>
+<div class="entry-content"><p>Sometimes you want to test your localisations but you don&#8217;t want to go through the hassle of
+changing the settings on the simulator, or device, or your Mac for each one. There&#8217;s always the fear
+of setting some language that you don&#8217;t understand.</p>
 
-<p>The old site had the Solarized Dark theme - and once I saw that the code
-formatting on Octopress was that by default I decided to make the move. Now I
-can happily write Markdown formatted posts with Emacs and see an almost live
-preview of how it will look when published. I get to keep it on
-<a href="http://github.com" title="GitHub">GitHub</a> and have it in a repository.</p>
+<p>But, with Xcode4 schemes and a little argument passing this is a lot easier than it used to be. You
+can set up a scheme for each localisation which will let you run your iOS or Mac app under that
+localisation without having to change any settings.</p>
 
-<p>I&#8217;ve tried to set the general colours to Solarized Light. Seems okay so far but
-still plenty of room for tweeking.</p>
+<!-- more -->
+
+
+<p>Just to make it easier, you can have a look at an example Xcode Workspace that I&#8217;ve
+<a href="https://github.com/Abizern/SimpleLocalisationTesting" title="Simple Localisation
+Testing">put up on Github</a>. This has two projects within it, one for the Mac and one for the iPhone.</p>
+
+<p><img src="http://images.abizern.org/2012/03/Schemes.png" width="631" height="111" title="Xcode Schemes" ></p>
+
+<p>Start by having a look at the schemes. There are two projects with two schemes each, one for each
+localisation. Handily named so you can tell which is for which.</p>
+
+<p><img class="top" src="http://images.abizern.org/2012/03/RunAction_en.png" width="525" height="135" title="en run action" ></p>
+
+<p><img class="top" src="http://images.abizern.org/2012/03/RunAction_es.png" width="525" height="133" title="en run action" ></p>
+
+<p>If you have a a look at the run action for these schemes you can see the arguments that I am
+passing. First the <code>-AppleLanguages</code> argument and then the two character country code (with the
+brackets back-slash escaped).</p>
+
+<p>That&#8217;s all there is to it. Now you just have to pick the scheme to run and it will load up that
+localisation without you having to change it on the simulator. It even works for running debug
+builds on the device.</p>
+
+<p>Of course, you should test it properly eventually, but while you are developing, it&#8217;s a quick way to
+get feedback about how your localisations appear.</p>
 </div>
 
 
@@ -136,12 +156,12 @@ still plenty of room for tweeking.</p>
   
 
 
-<time datetime="2012-03-17T18:02:00+00:00" pubdate data-updated="true">Mar 17<span>th</span>, 2012</time>
+<time datetime="2012-03-18T08:44:00+00:00" pubdate data-updated="true">Mar 18<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/categories/meta/'>Meta</a>
+    <a class='category' href='/categories/mac-development/'>Mac Development</a>, <a class='category' href='/categories/ios-development/'>iOS Development</a>
   
 </span>
 
@@ -150,7 +170,7 @@ still plenty of room for tweeking.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://abizern.org/2012/03/17/hello-octopress/" data-via="" data-counturl="http://abizern.org/2012/03/17/hello-octopress/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://abizern.org/2012/03/18/simple-localisation-testing/" data-via="" data-counturl="http://abizern.org/2012/03/18/simple-localisation-testing/" >Tweet</a>
   
   
   
@@ -159,10 +179,8 @@ still plenty of room for tweeking.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2011/04/14/nscoder-night-london-now-has-its-own-page/" title="Previous Post: NSCoder Night London Now Has It's Own Page">&laquo; NSCoder Night London Now Has It's Own Page</a>
+        <a class="basic-alignment left" href="/2012/03/17/hello-octopress/" title="Previous Post: Hello Octopress">&laquo; Hello Octopress</a>
       
-      
-        <a class="basic-alignment right" href="/2012/03/18/simple-localisation-testing/" title="Next Post: Simple Localisation Testing">Simple Localisation Testing &raquo;</a>
       
     </p>
   </footer>

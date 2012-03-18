@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Mac Development | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/mac-development/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-03-17T18:11:59+00:00</updated>
+  <updated>2012-03-18T09:30:44+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -12,6 +12,48 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Simple Localisation Testing]]></title>
+    <link href="http://abizern.org/2012/03/18/simple-localisation-testing/"/>
+    <updated>2012-03-18T08:44:00+00:00</updated>
+    <id>http://abizern.org/2012/03/18/simple-localisation-testing</id>
+    <content type="html"><![CDATA[<p>Sometimes you want to test your localisations but you don't want to go through the hassle of
+changing the settings on the simulator, or device, or your Mac for each one. There's always the fear
+of setting some language that you don't understand.</p>
+
+<p>But, with Xcode4 schemes and a little argument passing this is a lot easier than it used to be. You
+can set up a scheme for each localisation which will let you run your iOS or Mac app under that
+localisation without having to change any settings.</p>
+
+<!-- more -->
+
+
+<p>Just to make it easier, you can have a look at an example Xcode Workspace that I've
+<a href="https://github.com/Abizern/SimpleLocalisationTesting" title="Simple Localisation
+Testing">put up on Github</a>. This has two projects within it, one for the Mac and one for the iPhone.</p>
+
+<p><img src="http://images.abizern.org/2012/03/Schemes.png" width="631" height="111" title="Xcode Schemes" ></p>
+
+<p>Start by having a look at the schemes. There are two projects with two schemes each, one for each
+localisation. Handily named so you can tell which is for which.</p>
+
+<p><img class="top" src="http://images.abizern.org/2012/03/RunAction_en.png" width="525" height="135" title="en run action" ></p>
+
+<p><img class="top" src="http://images.abizern.org/2012/03/RunAction_es.png" width="525" height="133" title="en run action" ></p>
+
+<p>If you have a a look at the run action for these schemes you can see the arguments that I am
+passing. First the <code>-AppleLanguages</code> argument and then the two character country code (with the
+brackets back-slash escaped).</p>
+
+<p>That's all there is to it. Now you just have to pick the scheme to run and it will load up that
+localisation without you having to change it on the simulator. It even works for running debug
+builds on the device.</p>
+
+<p>Of course, you should test it properly eventually, but while you are developing, it's a quick way to
+get feedback about how your localisations appear.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Just Enough GPG for git]]></title>
@@ -171,88 +213,6 @@ it will use the commit message from the last commit.</p>
 <p>Of course, if you're a rockstar programmer, you don't make mistakes at this
 level. But I'm not, and I prefer to work with human nature rather than against
 it.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Integrating git with SubEthaEdit and Changes.app]]></title>
-    <link href="http://abizern.org/2009/11/08/integrating-git-with-subethaedit-and-changes/"/>
-    <updated>2009-11-08T16:41:02+00:00</updated>
-    <id>http://abizern.org/2009/11/08/integrating-git-with-subethaedit-and-changes</id>
-    <content type="html"><![CDATA[<p>A while ago, I read a
-<a href="http://schinckel.net/2008/04/26/mercurial-with-os-x-gui-tools/">nice write up</a>
-about using <a href="http://mercurial.selenic.com/">mercurial</a> with
-<a href="http://www.codingmonkeys.de/subethaedit/">SubEthaEdit</a> and
-<a href="http://connectedflow.com/changes/">Changes</a>. Here's how to do the same thing
-with <a href="http://git-scm.com/">git</a> instead of
-<a href="http://mercurial.selenic.com/">mercurial</a>, separated into two parts in case you
-just want to apply one set of changes.</p>
-
-<h2>Changes Support</h2>
-
-<p><strong>Step One: Make sure chdiff is installed.</strong></p>
-
-<p>Open Changes.app and from the Changes menu select "Install terminal
-utility". This will install the chdiff utility which is used by the script.</p>
-
-<p><strong>Step Two: Create a shell script to send diffs to Changes</strong></p>
-
-<p>Create a shell script with the following contents.</p>
-
-<p>```</p>
-
-<h1>!/bin/sh</h1>
-
-<p>[ $# -eq 7 ] &amp;&amp; /usr/bin/env chdiff "$2" "$5"
-```</p>
-
-<p>Where you save this and what you call it is up to you. Mine is called
-'.gitchanges', saved it at the root of my home directory. Make sure the script
-is executable.</p>
-
-<p><strong>Step Three: Edit the .gitconfig file to use this script to handle diffs.</strong></p>
-
-<p>Open your <code>~/.gitconfig</code> file. This should already exist, at the very least it
-will contain you name and email. under the section called <code>[diff]</code> add the
-location and name of the file.  You may have to edit this to make sure it points
-to the name and location you chose in Step Two. (Make sure to use the correct
-path in your setup)</p>
-
-<p><code>
-[diff]
-external = &lt;path to file&gt;/.gitchanges
-</code></p>
-
-<h2>SubEthaEdit Support</h2>
-
-<p><strong>Step One: Download and install the mode file for SubEthaEdit</strong></p>
-
-<p>I wrote a SubEthaEdit mode for this which you can download from the
-<a href="http://abizern.github.com/gitcommit.mode/">github project page</a>. Please feel
-free to fork it and send me patches.</p>
-
-<p><strong>Step Two: Edit the .gitconfig file to use SebEthaEdit as an external editor.</strong></p>
-
-<p>Open your <code>~/.gitconfig</code> file. This time, under the <code>[core]</code> section, add the
-following line:</p>
-
-<p><code>
-[core]
-editor = /usr/bin/see -w -r -o new-window -j 'git editor' -m gitCommit -g 1:0
-</code></p>
-
-<p>All those flags may seem daunting, but they are quite self-explanatory: the <code>-w</code>
-flag makes the Terminal wait for a response from SubEthaEdit. <code>-r</code> brings
-Terminal to the front after you're done editing. <code>-o new-window</code> opens a new
-window for editing. I prefer this to having a new tab appear in whatever window
-I was working on. <code>-j 'git editor</code>' this sets the text that appears in the title
-bar, which you can change as you wish. <code>-m gitCommit</code> is what sets the mode to
-be used for editing. and <code>-g 1:0</code> puts the caret at the beginning of the file.</p>
-
-<p>Now, when git asks you to write a commit message, or pick commits when running
-<code>git rebase -i</code> a SubEthaEdit window will open as the commit message
-editor. Make whatever changes you need then save the file (⌘-S) and then close
-the window (⌘-W) for these changes to take effect.</p>
 ]]></content>
   </entry>
   
