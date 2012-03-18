@@ -253,53 +253,12 @@ that date back to 1999, and never on a Mac.</p>
 lets you work on the command line without having to set it up for Mail.app. This
 is about all I need it for.</p>
 
-<p>The <a href="http://www.gpgtools.org/index.html">GPGTools project</a> has recently
-resurrected the <a href="http://macgpg.sourceforge.net/">MacGPG project</a> to provide
-email encryption and tools to the Mac. It is still in development, and I didn&#8217;t
-want to mess about with my Mail installation so rather than install the complete
-set of tools, I chose to install <a href="http://www.gpgtools.org/macgpg2.html">MacGPG2</a>
-and <a href="http://www.gpgtools.org/keychain.html">GPGKeychain Access</a></p>
-
-<p><a href="http://www.gpgtools.org/macgpg2.html">MacGPG2</a> is the
-<a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy#OpenPGP">OpenPGP</a>
-implementation for the Mac. This installs gpg2 into /usr/local/bin and gpg is
-symlinked to gpg2. I only mention this because although the commands can all be
-issued as gpg, you get to the documentation by using man gpg2, not man
-gpg. Installation is through an installer package.</p>
-
-<p><a href="http://www.gpgtools.org/keychain.html">GPGKeychain Access</a> does not integrate
-with the Mac Keychain as the name might suggest, but provides a window to look
-at and manage the keys that you have on your system. These are usually under
-~/.gnupg/ Run the installer, and create your keys. It&#8217;s quite simple and there
-is a video on the project page. However, there are a couple of things that you
-should keep in mind. If you forget your passphrase you can&#8217;t use your private
-key anymore. And if you&#8217;ve published the key, you won&#8217;t be able to revoke it and
-it will just sit around on keyservers. So, set an expiry date on your keys in
-case you do lose the private key or passphrase. As the expiry date comes up just
-extend it again.</p>
-
-<p>There is no key-server configured. There seems to be a ticket for this to be
-implemented in some future milestone. Until then, create a file called gpg.conf
-under ~/.gnupg and put this line in it:</p>
-
-<pre><code>keyserver hkp://pgp.mit.edu
-</code></pre>
-
-<p>And that is just enough so that when you use the menu items that send and get
-keys from keyservers they will work. As far as I know, these servers talk to
-each other, so writing to one makes the key visible on the others.</p>
-
-<p>Synchronisation of keys is an issue. If you are adventurous you could add more
-entries to the gpg.conf file to use a central location for the keyrings,
-somewhere like Dropbox or iDisk, so that all your machines can use the same
-files. But, it&#8217;s just as easy to export the keys as text and use those files to
-keep different machines in sync. Partcularly if you will be using gpg rarely.</p>
-
-<p>This has been a companion piece to the non-Mac centric
-<a href="http://365git.tumblr.com/">365Git</a> post about
-<a href="http://365git.tumblr.com/post/2796779828/signing-a-git-tag">signed tags</a>.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/2011/01/17/just-enough-gpg-for-git/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -527,38 +486,12 @@ last night and had a better time than I expected. I know a little
 enough to hurt myself). I was intrigued by this event where the idea was to
 learn together rather than just share knowledge.</p>
 
-<p>The evening started off with beer and pizza, thanks to our hosts
-<a href="http://www.fry-it.com/">Fry-IT</a>, and then moved on to two short
-presentations. The first was on FluidDb and the second was something to do with
-creating Python packages. Yes, both were over my head.</p>
-
-<p>After that there was a short discussion about a problem to attempt. A blackjack
-game was suggested and we split into 5 groups of four and had a little under an
-hour to solve this. I didn&#8217;t have much confidence that we could do it. One
-person sat at a laptop, we spent about 5 minutes deciding on the approach to use
-and then the typing started.</p>
-
-<p>I wouldn&#8217;t have been able to write the code as quickly as it was being knocked
-out, but I could understand it. And although we were all talking there were no
-arguments and we pushed through and got a working program done (with one easily
-fixed bug) just in time. Although not strictly <a href="Pair%0Aprogramming">pair programming</a>, I can see why that approach can generate quality code quickly.</p>
-
-<p>But that wasn&#8217;t it. Each team demoed their solution and showed their code. This
-was just as useful as writing the program in the first place. Because we had all
-been thinking about the same problem it was easy to understand the different
-approaches that were presented. There were class based solutions as well as
-functional ones (some had tests!) and we even saw the major development
-environments - Macs running vi, Linux machines with Emacs, and Notepad++ on
-Windows. We also saw a solution using Python3.</p>
-
-<p>I enjoyed this more than I expected. It was nice to be able to contribute even
-though I&#8217;m not that experienced with Python, and I learned plenty just by
-watching and asking questions. It was a welcoming bunch and I will certainly be
-going again. And this time I&#8217;ll pay more attention to people&#8217;s names.</p>
-
-<p>I don&#8217;t think anybody used version control, though&#8230;</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/2010/10/08/blackjack-and-the-python-dojo/">Read on &rarr;</a>
+    </footer>
   
 
 
