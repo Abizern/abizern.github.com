@@ -18,6 +18,8 @@ It turns out that it is quite simple to set up a minimal
 lets you work on the command line without having to set it up for Mail.app. This
 is about all I need it for.
 
+<!-- more  -->
+
 The [GPGTools project](http://www.gpgtools.org/index.html) has recently
 resurrected the [MacGPG project](http://macgpg.sourceforge.net/) to provide
 email encryption and tools to the Mac. It is still in development, and I didn't
