@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Git | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/git/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-03-18T14:52:33+00:00</updated>
+  <updated>2012-03-19T23:46:51+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Git Ignore file]]></title>
+    <link href="http://abizern.org/2012/03/19/git-ignore-file/"/>
+    <updated>2012-03-19T23:27:00+00:00</updated>
+    <id>http://abizern.org/2012/03/19/git-ignore-file</id>
+    <content type="html"><![CDATA[<p>A while ago I answered a couple of questions on Stack Overflow using my
+<code>.gitignore</code> file as an example. I find it strangely satisfying to find that
+there are projects on GitHub that use it, and even the odd blogs has put it up
+as well.</p>
+
+<p>I might as well have it on my own site:</p>
+
+<p><div><script src='https://gist.github.com/708713.js?file='></script>
+<noscript><pre><code># Mac OS X
+*.DS_Store
+
+# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+
+# Generated files
+*.o
+*.pyc
+
+#Python modules
+MANIFEST
+dist/
+build/
+
+# Backup files
+*~.nib
+\#*#
+.#*
+</code></pre></noscript></div>
+</p>
+
+<p>It's particularly suited for Xcode. It excludes the workspace settings, which
+also includes the breakpoints, so don't be surprised if they don't carry over in
+clones. It also excludes the build schemes unless you mark them as shared.</p>
+
+<p>I've got this as a global ignore file for my system - and if I'm going to push a
+repository elsewhere I just copy it into the repo's directory.</p>
+
+<p>It's simple to do. If you're not familiar with ignore files I've written about
+the
+<a href="http://365git.tumblr.com/post/519016351/three-ways-of-excluding-files">Three ways of excluding files with Git</a>
+elsewhere.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Just Enough GPG for git]]></title>
