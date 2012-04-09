@@ -24,4 +24,8 @@ you'll know that's nothing new).
 
 {% youtube _tgv3HVgOMc  %}
 
+Here's the cleaned up source file.
+
+{% gist 2344363 %}
+
 I need to learn more Emacs shortcuts :(
