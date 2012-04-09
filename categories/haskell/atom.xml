@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Haskell | Abizer Nasir]]></title>
+  <link href="http://abizern.org/categories/haskell/atom.xml" rel="self"/>
+  <link href="http://abizern.org/"/>
+  <updated>2012-04-09T16:02:13+01:00</updated>
+  <id>http://abizern.org/</id>
+  <author>
+    <name><![CDATA[Abizer Nasir]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Reverse Words With Haskell]]></title>
+    <link href="http://abizern.org/2012/04/09/reverse-words-with-haskell/"/>
+    <updated>2012-04-09T15:41:00+01:00</updated>
+    <id>http://abizern.org/2012/04/09/reverse-words-with-haskell</id>
+    <content type="html"><![CDATA[<p>As part of my preparation for <a href="http://code.google.com/codejam">Google Code Jam</a>
+I've been working through the practice problems with Haskell.</p>
+
+<p>I make a screencast on solving the
+<a href="http://code.google.com/codejam/contest/351101/dashboard#s=p1">Reverse Words</a>
+problem, along with the mechanics of getting the problem inputs and submitting solutions. The style was heavily influenced by a sequence on
+<a href="http://youtu.be/045422s6xik?hd=1">Data Driven Programming in Haskell</a> by
+<a href="http://entirelysubjective.com/programming/data-driven-programming-haskell-1/">Jonas Tullus</a></p>
+
+<!-- more -->
+
+
+<p>I moved at a slower pace, and talking and typing seem to have confused my brain
+so I think I lapsed into gibberish in a couple of places. (If you know me,
+you'll know that's nothing new).</p>
+
+<p><iframe width="640" height="510" src="http://www.youtube.com/embed/_tgv3HVgOMc  " frameborder="0" allowfullscreen></iframe></p>
+
+<p>I need to learn more Emacs shortcuts :(</p>
+]]></content>
+  </entry>
+  
+</feed>
