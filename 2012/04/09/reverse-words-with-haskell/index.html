@@ -119,6 +119,44 @@ you&#8217;ll know that&#8217;s nothing new).</p>
 <iframe width="640" height="510" src="http://www.youtube.com/embed/_tgv3HVgOMc  " frameborder="0" allowfullscreen></iframe>
 
 
+<p>Here&#8217;s the cleaned up source file.</p>
+
+<div><script src='https://gist.github.com/2344363.js?file='></script>
+<noscript><pre><code>module Main where
+
+{-
+ - http://code.google.com/codejam/contest/351101/dashboard#s=p1
+ -}
+
+{-
+ - Usage either compile or use runhaskell / runghc
+ - Pass the input file as the sole command line argument
+ - Redirect output if you want the results to go in a file
+ -}
+
+import IO
+import System.Environment
+import Data.List
+
+reverseWords :: String -&gt; String
+reverseWords = unwords . reverse . words
+
+boilerPlate :: [String]
+boilerPlate = [&quot;Case #&quot; ++ show n ++ &quot;: &quot; | n &lt;- [1..]]
+
+standardOutput :: [String] -&gt; [String]
+standardOutput = zipWith (++) boilerPlate
+
+main =  do
+  (f:_) &lt;- getArgs
+  file  &lt;- readFile f
+
+  let cases     = tail $ lines file
+      solutions = standardOutput $ map reverseWords cases
+  putStrLn $ unlines $ solutions
+</code></pre></noscript></div>
+
+
 <p>I need to learn more Emacs shortcuts :(</p>
 </div>
 
