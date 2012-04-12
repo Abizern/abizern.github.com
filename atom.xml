@@ -4,7 +4,7 @@
   <title><![CDATA[Abizer Nasir]]></title>
   <link href="http://abizern.org/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-04-09T16:52:20+01:00</updated>
+  <updated>2012-04-12T17:19:10+01:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -39,7 +39,7 @@ you&#8217;ll know that&#8217;s nothing new).</p>
 
 <p>Here&#8217;s the cleaned up source file.</p>
 
-<div><script src='https://gist.github.com/2344363.js?file='></script>
+<div><script src='https://gist.github.com/2368757.js?file='></script>
 <noscript><pre><code>module Main where
 
 {-
