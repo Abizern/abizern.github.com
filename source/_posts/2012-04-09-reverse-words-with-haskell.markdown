@@ -26,6 +26,6 @@ you'll know that's nothing new).
 
 Here's the cleaned up source file.
 
-{% gist 2344363 %}
+{% gist 2368757 %}
 
 I need to learn more Emacs shortcuts :(
