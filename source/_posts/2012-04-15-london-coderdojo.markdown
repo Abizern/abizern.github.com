@@ -8,7 +8,7 @@ categories:
 ---
 
 I mentored at [CoderDojo London](http://zen.coderdojo.com/dojo/74) this
-weekend. These are just some of my thoughs about it.
+weekend. These are just some of my thoughts about it.
 
 <!-- more -->
 
