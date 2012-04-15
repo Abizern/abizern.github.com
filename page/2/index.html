@@ -9,8 +9,9 @@
   <meta name="author" content="Abizer Nasir">
 
   
-  <meta name="description" content="I gave a short presentation to the London iPhone Developer Group at the Apple
-store in London this week. 20 minutes is far too short to cover such a &hellip;">
+  <meta name="description" content="Many times you will see a shortened url but you aren&#8217;t sure what it points
+at. Here&#8217;s a little tip that I picked up from
+Tom Morris. Pop &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +75,85 @@ store in London this week. 20 minutes is far too short to cover such a &hellip;"
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/10/16/getting-the-address-of-a-shortened-url/">Getting the Address of a Shortened URL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-10-16T22:05:52+01:00" pubdate data-updated="true">Oct 16<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Many times you will see a shortened url but you aren&#8217;t sure what it points
+at. Here&#8217;s a little tip that I picked up from
+<a href="http://tommorris.org">Tom Morris</a>.</p>
+
+<p>Pop open your terminal, or console, or whatever your command-line application is
+and type the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl --head shorturl
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This pops up a short amount of useful information about the target url. For
+example the response for the Google short URL for this site shows this;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~ % curl --head http://goo.gl/oQx8
+</span><span class='line'>HTTP/1.1 301 Moved Permanently
+</span><span class='line'>Content-Type: text/html; <span class="nv">charset</span><span class="o">=</span>UTF-8
+</span><span class='line'>Expires: Sat, 16 Oct 2010 21:01:51 GMT
+</span><span class='line'>Date: Sat, 16 Oct 2010 21:01:51 GMT
+</span><span class='line'>Cache-Control: private, max-age<span class="o">=</span>86400
+</span><span class='line'>Location: http://abizern.org/
+</span><span class='line'>X-Content-Type-Options: nosniff
+</span><span class='line'>X-Frame-Options: SAMEORIGIN
+</span><span class='line'>X-XSS-Protection: 1; <span class="nv">mode</span><span class="o">=</span>block
+</span><span class='line'>Server: GSE
+</span><span class='line'>Transfer-Encoding: chunked
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And you can see that the Location shows that you aren&#8217;t going to get
+Rick-rolled.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -494,116 +574,6 @@ it.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/11/08/integrating-git-with-subethaedit-and-changes/">Integrating Git With SubEthaEdit and Changes.app</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-11-08T16:41:02+00:00" pubdate data-updated="true">Nov 8<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>A while ago, I read a
-<a href="http://schinckel.net/2008/04/26/mercurial-with-os-x-gui-tools/">nice write up</a>
-about using <a href="http://mercurial.selenic.com/">mercurial</a> with
-<a href="http://www.codingmonkeys.de/subethaedit/">SubEthaEdit</a> and
-<a href="http://connectedflow.com/changes/">Changes</a>. Here&#8217;s how to do the same thing
-with <a href="http://git-scm.com/">git</a> instead of
-<a href="http://mercurial.selenic.com/">mercurial</a>, separated into two parts in case you
-just want to apply one set of changes.</p>
-
-<h2>Changes Support</h2>
-
-<p><strong>Step One: Make sure chdiff is installed.</strong></p>
-
-<p>Open Changes.app and from the Changes menu select &#8220;Install terminal
-utility&#8221;. This will install the chdiff utility which is used by the script.</p>
-
-<p><strong>Step Two: Create a shell script to send diffs to Changes</strong></p>
-
-<p>Create a shell script with the following contents.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/sh
-</span><span class='line'>[ $# -eq 7 ] && /usr/bin/env chdiff "$2" "$5"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Where you save this and what you call it is up to you. Mine is called
-&#8216;.gitchanges&#8217;, saved it at the root of my home directory. Make sure the script
-is executable.</p>
-
-<p><strong>Step Three: Edit the .gitconfig file to use this script to handle diffs.</strong></p>
-
-<p>Open your <code>~/.gitconfig</code> file. This should already exist, at the very least it
-will contain you name and email. under the section called <code>[diff]</code> add the
-location and name of the file.  You may have to edit this to make sure it points
-to the name and location you chose in Step Two. (Make sure to use the correct
-path in your setup)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[diff]
-</span><span class='line'>external = &lt;path to file&gt;/.gitchanges</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>SubEthaEdit Support</h2>
-
-<p><strong>Step One: Download and install the mode file for SubEthaEdit</strong></p>
-
-<p>I wrote a SubEthaEdit mode for this which you can download from the
-<a href="http://abizern.github.com/gitcommit.mode/">github project page</a>. Please feel
-free to fork it and send me patches.</p>
-
-<p><strong>Step Two: Edit the .gitconfig file to use SebEthaEdit as an external editor.</strong></p>
-
-<p>Open your <code>~/.gitconfig</code> file. This time, under the <code>[core]</code> section, add the
-following line:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[core]
-</span><span class='line'>editor = /usr/bin/see -w -r -o new-window -j 'git editor' -m gitCommit -g 1:0</span></code></pre></td></tr></table></div></figure>
-
-
-<p>All those flags may seem daunting, but they are quite self-explanatory: the <code>-w</code>
-flag makes the Terminal wait for a response from SubEthaEdit. <code>-r</code> brings
-Terminal to the front after you&#8217;re done editing. <code>-o new-window</code> opens a new
-window for editing. I prefer this to having a new tab appear in whatever window
-I was working on. <code>-j 'git editor</code>&#8217; this sets the text that appears in the title
-bar, which you can change as you wish. <code>-m gitCommit</code> is what sets the mode to
-be used for editing. and <code>-g 1:0</code> puts the caret at the beginning of the file.</p>
-
-<p>Now, when git asks you to write a commit message, or pick commits when running
-<code>git rebase -i</code> a SubEthaEdit window will open as the commit message
-editor. Make whatever changes you need then save the file (⌘-S) and then close
-the window (⌘-W) for these changes to take effect.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/page/3/">&larr; Older</a>
@@ -623,7 +593,7 @@ the window (⌘-W) for these changes to take effect.</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 Abizer Nasir
+  Copyright &copy; 2009 - 2012 Abizer Nasir
   <a href="/copyright-statement">Some rights reserved</a> &mdash;
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>

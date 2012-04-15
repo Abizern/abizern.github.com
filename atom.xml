@@ -4,7 +4,7 @@
   <title><![CDATA[Abizer Nasir]]></title>
   <link href="http://abizern.org/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-04-12T17:19:10+01:00</updated>
+  <updated>2012-04-15T16:17:29+01:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -12,6 +12,113 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rotate a String with Haskell]]></title>
+    <link href="http://abizern.org/2012/04/15/rotate-a-string-with-haskell/"/>
+    <updated>2012-04-15T15:08:00+01:00</updated>
+    <id>http://abizern.org/2012/04/15/rotate-a-string-with-haskell</id>
+    <content type="html"><![CDATA[<p>I qualified for <a href="http://code.google.com/codejam">Google Code Jam</a> this year
+answering 3 out of 4 questions. I have no illusions about progressing very far,
+but I&#8217;m using it as an excuse to learn some Haskell and to write code faster.</p>
+
+<p>As part of the learning process, I took one of my correct solutions over to the
+nice folks at the #haskell channel over on freenode and asked if there was a
+better way to do it. I learned something surprising.</p>
+
+<!-- more -->
+
+
+<p>As part of the solution to the
+<a href="http://code.google.com/codejam/contest/1460488/dashboard#s=p2">Recycled Numbers</a>
+problem required turning a number such as 1234 into a list of numbers with the
+digits rotated [4123, 3412, 2341]. User TSC2 in the channel gave me this simple
+way of doing it:</p>
+
+<figure class='code'><figcaption><span>ghci console</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ghci&gt; <span class="o">(</span><span class="se">\x</span>s -&gt; <span class="nb">let </span><span class="nv">n</span> <span class="o">=</span> length xs in <span class="o">(</span>tail . take n . map <span class="o">(</span>take n<span class="o">)</span> . tails . cycle<span class="o">)</span> xs<span class="o">)</span> <span class="s2">&quot;abcde&quot;</span>
+</span><span class='line'><span class="o">[</span><span class="s2">&quot;bcdea&quot;</span>,<span class="s2">&quot;cdeab&quot;</span>,<span class="s2">&quot;deabc&quot;</span>,<span class="s2">&quot;eabcd&quot;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&#8217;m still new to this so I had to work it out on paper, but here is a step by
+step explanation of what is happening: working from right to left as the
+functions are evaluated:</p>
+
+<figure class='code'><figcaption><span>xs </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"abcde"</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>xs</code> is just the input string.</p>
+
+<figure class='code'><figcaption><span>cycle </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"abcdeabcde..."</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>cycle</code> creates an infinite list out of the input list by repeating it. Haskell
+is lazy. It doesn&#8217;t actually create the list until it actually needs it, so I&#8217;ve
+added the ellpises just to show the concept that this is repeated infinitely.</p>
+
+<figure class='code'><figcaption><span>tails </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>["abcdeabcde...", "bcdeabcdea...", "cdeabcdeab...", "deabcdeabc...", ...]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is where things start to get interesting. <code>tails</code> creates a list out of
+successive tails of a list. If you were to do this on a finite list you&#8217;d get a
+list of smaller and smaller elements. For example:</p>
+
+<figure class='code'><figcaption><span>ghci console</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ghci&gt; tails <span class="s2">&quot;abcde&quot;</span>
+</span><span class='line'><span class="o">[</span><span class="s2">&quot;abcde&quot;</span>,<span class="s2">&quot;bcde&quot;</span>,<span class="s2">&quot;cde&quot;</span>,<span class="s2">&quot;de&quot;</span>,<span class="s2">&quot;e&quot;</span>,<span class="s2">&quot;&quot;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But since our input is an infinite we now have an infinite list of infinite
+lists, each element starting at one letter in from the original list. Remember,
+this hasn&#8217;t actually been worked out yet.</p>
+
+<figure class='code'><figcaption><span>map (take n) </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>["abcde", "bcdea", "cdeab", "deabc", "eabcd" "abcde", ...]</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>take n</code> takes the first <code>n</code> elemets of a list. Our lambda expression defines
+this as the length of the list, which is 5. And <code>map</code> applies this to each
+element of the list. So now we have a infiite list of 5 element lists. which is
+closer to our required final output.</p>
+
+<figure class='code'><figcaption><span>take n </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>["abcde", "bcdea", "cdeab", "deabc", "eabcd"]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>appying <code>take n</code> again to the infinite list takes the first 5 elements of the
+finite list</p>
+
+<figure class='code'><figcaption><span>tail </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>["bcdea", "cdeab", "deabc", "eabcd"]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Applying <code>tail</code> to the finite list takes all but the first element, and we get
+the output that we were looking for. Even though along the way we had an
+infinite list of infinite lists.</p>
+
+<p>And yet all Haskell did was provide a promise (a <em>thunk</em> in functional terms)
+that it would provide the answer when it was asked for, and as the function
+progressed the infinite list of infinite list became an infinite list of finite
+lists and then a finite list. And still it didn&#8217;t actually resolve all those
+calls until it was actually needed. In this case, when the <em>ghci</em> interpreter
+tried to get a string to display on the screen.</p>
+
+<p>Freaky or what?</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reverse Words With Haskell]]></title>
