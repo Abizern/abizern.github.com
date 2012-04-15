@@ -69,14 +69,14 @@ this hasn't actually been worked out yet.
 
 `take n` takes the first `n` elemets of a list. Our lambda expression defines
 this as the length of the list, which is 5. And `map` applies this to each
-element of the list. So now we have a infiite list of 5 element lists. which is
+element of the list. So now we have an infinite list of 5 element lists. which is
 closer to our required final output.
 
 {% codeblock take n %}
 ["abcde", "bcdea", "cdeab", "deabc", "eabcd"]
 {% endcodeblock %}
 
-appying `take n` again to the infinite list takes the first 5 elements of the
+Applying `take n` again to the infinite list takes the first 5 elements of the
 finite list
 
 {% codeblock tail %}
