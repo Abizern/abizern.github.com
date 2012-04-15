@@ -9,12 +9,8 @@
   <meta name="author" content="Abizer Nasir">
 
   
-  <meta name="description" content="A while ago, I read a
-nice write up
-about using mercurial with
-SubEthaEdit and
-Changes. Here&#8217;s how to do the same thing
-with git instead of &hellip;">
+  <meta name="description" content="We all know what we should be doing when writing code. Each methodology you
+choose to use has it&#8217;s own best practices, whether it&#8217;s &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +74,103 @@ with git instead of &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/11/11/some-tips-for-lazy-xcoders/">Some Tips for Lazy Xcoders</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-11T12:40:53+00:00" pubdate data-updated="true">Nov 11<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>We all know what we should be doing when writing code. Each methodology you
+choose to use has it&#8217;s own best practices, whether it&#8217;s working from full
+specifications, writing unit tests first, programming in pairs, yadda,
+yadda. But, as developers, we&#8217;re only human, and we&#8217;re lazy. We have tools to
+make things easy for us. Here are a few tips that you can use to help when
+you&#8217;re not as rigorous in your coding as you should be.</p>
+
+<h2>Use the static analyser.</h2>
+
+<p>You can use the
+<a href="http://arstechnica.com/apple/reviews/2009/08/mac-os-x-10-6.ars/9#compilers">Clang Static Analyser</a>
+in Xcode by setting a build option. This will find a whole host of errors in
+your code, even down to unconventionally named functions.</p>
+
+<p><img src="http://images.abizern.org.s3.amazonaws.com/2009/11/ClangBuildSetting.png" alt="ClangBuildSetting.png" /></p>
+
+<p>Now you can just code away and have the compiler pick up your mistakes when you
+run &#8216;Build and Analyze&#8217; (⌘+Shift+A).</p>
+
+<h2>Find your mistakes quickly.</h2>
+
+<p>Any real application you develop will have a large number of resources that need
+to be copied to your application bundle. The default projects that Xcode create
+for you will copy these files first before compiling.</p>
+
+<p><img src="http://images.abizern.org.s3.amazonaws.com/2009/11/XcodeDefault.png" alt="XcodeDefault.png" /></p>
+
+<p>But, the lazy Xcoder knows that there are probably errors in the code that need
+to get flagged by the compiler, so this copying is a waste of time. Reorder the
+build steps by dragging so that the compilation is done first.</p>
+
+<p><img src="http://images.abizern.org.s3.amazonaws.com/2009/11/XcodeRecommended.png" alt="XcodeRecommended.png" /></p>
+
+<p>Your builds will now break early (and often!).</p>
+
+<h2>Don&#8217;t fear the version controller.</h2>
+
+<p>I&#8217;m going to stick my neck out and say that if you&#8217;re not using version control
+you&#8217;re an idiot. The lazy Xcoder uses a powerful system that lets him or her
+branch easily, make lots of little changes, and lots of mistakes (that can be
+backed out). These changes can then be bundled into larger commits to be merged
+into the main branch so that your co-workers don&#8217;t see what an idiot you&#8217;ve
+been.</p>
+
+<p>One such version control system is <a href="http://git-scm.com/">git</a>. The lazy Xcoder
+writes a bit of code, checks it in out of habit and then compiles. The compiler
+picks up the mistakes, and he or she fixes them. Rather than make a new commit,
+and retype the commit message, just call:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git commit --amend -a -C HEAD
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will bring up the previous commit message in the editor, which you can
+amend if you wish. This new commit will replace the previous one. The <code>-a</code>
+option means you don&#8217;t even need to do a git add and the <code>-C HEAD</code> option means
+it will use the commit message from the last commit.</p>
+
+<p>Of course, if you&#8217;re a rockstar programmer, you don&#8217;t make mistakes at this
+level. But I&#8217;m not, and I prefer to work with human nature rather than against
+it.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
