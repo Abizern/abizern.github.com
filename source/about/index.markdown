@@ -17,13 +17,20 @@ really have had a shave, but it's me.
 My DVCS of choice is [Git](http://git-scm.com "Main Git site"), and I
 intermittently blog about it at [365Git](http://365git.tumblr.com).
 
+I type using the Dvorak keyboard layout - but my actualy keyboard is still in
+the QWERTY configuration. It stops me looking at the keyboard. It took a good
+few months before I was able to type properly, but I'm glad I did it. I only
+wish iOS devices had the Dvorak option.
+
 I  organise the monthly [NSCoder Night London](http://nscodernightlondon.com
 "NSCoder Night London") meetings where Cocoa develepers can get together to
 share some knowledge and have a litle downtime.
 
-There are no comments on this site. Rather - there are no unmoderated comments on this site. I used to have a Wordpress blog with comments, but the signal got drowned out in the noise. Feel free to <a href='&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#98;&#105;&#122;&#101;&#114;&#110;&#64;&#97;&#98;&#105;&#122;&#101;&#114;&#110;&#46;&#111;&#114;&#103;'>&#101;&#109;&#97;&#105;&#108;</a> me instead.
-
-You can find me around the net; I've managed to get the username `abizern` almost everywhere:
+There are no comments on this site. Rather - there are no unmoderated comments
+on this site. I used to have a Wordpress blog with comments, but the signal got
+drowned out in the noise. Feel free to <a
+href='&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#98;&#105;&#122;&#101;&#114;&#110;&#64;&#97;&#98;&#105;&#122;&#101;&#114;&#110;&#46;&#111;&#114;&#103;'>&#101;&#109;&#97;&#105;&#108;</a>
+me instead.
 
 - Most of the time you can get me on [Twitter](http://twitter.com/#!/abizern "Twitter page").
 - You can see my code on [Github](http://git.io/abizern "GitHub page").
