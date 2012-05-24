@@ -10,7 +10,7 @@ categories:
 As part of my preparation for [Google Code Jam](http://code.google.com/codejam)
 I've been working through the practice problems with Haskell.
 
-I make a screencast on solving the
+I made a screencast on solving the
 [Reverse Words](http://code.google.com/codejam/contest/351101/dashboard#s=p1)
 problem, along with the mechanics of getting the problem inputs and submitting solutions. The style was heavily influenced by a sequence on
 [Data Driven Programming in Haskell](http://youtu.be/045422s6xik?hd=1) by
