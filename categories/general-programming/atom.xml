@@ -4,7 +4,7 @@
   <title><![CDATA[Category: General Programming | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/general-programming/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-05-21T15:52:24+01:00</updated>
+  <updated>2012-05-24T17:37:38+01:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -70,7 +70,7 @@ should be.</p>
 back she proudly showed me that she'd put two filled circles above the
 arc to make a smiley face. Without being told to or shown how.</p>
 
-<p><span class='pullquote-right' data-pullquote='Helping kids program is hard. You can&#8217;t tell them to RTFM '>
+<p><span class='pullquote-right' data-pullquote='Helping kids program is hard. You can&#8217;t tell them to RTFM'>
 One of the extra tasks was to modify a function to draw on the canvas when the
 mouse was pressed. I saw one boy go to Stack Overflow, find a similar solution,
 and then, rather than just copy-pasting the code, he turned to me and asked me
