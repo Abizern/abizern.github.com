@@ -1,0 +1,8 @@
+/* Adding custom embedded fonts */
+
+@font-face {
+    font-family: 'Bariol-Regular';
+    src: url('/assets/fontface/Bariol_Regular.otf') format('opentype');
+    font-style: regular;
+    font-weight: regular;
+}
