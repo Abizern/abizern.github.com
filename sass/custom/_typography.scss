@@ -3,6 +3,27 @@
 @font-face {
     font-family: 'Bariol-Regular';
     src: url('/assets/fontface/Bariol_Regular.otf') format('opentype');
-    font-style: regular;
-    font-weight: regular;
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Bariol-Bold';
+    src: url('/assets/fontface/Bariol_Bold.otf') format('opentype');
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Bariol-Light';
+    src: url('/assets/fontface/Bariol_Light.otf') format('opentype');
+    font-style: normal;
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: 'Bariol-Thin';
+    src: url('/assets/fontface/Bariol_Thin.otf') format('opentype');
+    font-style: normal;
+    font-weight: lighter;
 }
