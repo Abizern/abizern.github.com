@@ -27,3 +27,19 @@
     font-style: normal;
     font-weight: lighter;
 }
+
+blockquote {
+  font-family: $italic;
+  cite {
+    font-family: $italic;
+  }
+}
+
+.pullquoute-left {
+  font-family: $real-serif;
+}
+
+.pullquote-right {
+  font-family: $real-serif;
+
+}
