@@ -17,7 +17,7 @@ really have had a shave, but it's me.
 My DVCS of choice is [Git](http://git-scm.com "Main Git site"), and I
 intermittently blog about it at [365Git](http://365git.tumblr.com).
 
-I type using the Dvorak keyboard layout - but my actualy keyboard is still in
+I type using the Dvorak keyboard layout - but my actual keyboard is still in
 the QWERTY configuration. It stops me looking at the keyboard. It took a good
 few months before I was able to type properly, but I'm glad I did it. I only
 wish iOS devices had the Dvorak option.
