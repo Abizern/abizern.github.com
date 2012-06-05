@@ -1,0 +1,26 @@
+---
+layout: post
+title: "Book Stack June 2012"
+date: 2012-06-05 12:57
+comments: false
+categories:
+- Personal
+- Books
+---
+
+I seem to have accrued a stack of fiction that I haven't got around to
+reading. This is just a stick in the ground so I remember to dig them up and
+read them at some time:
+
+<!-- more -->
+
+- **Reamde** by Neal Stephenson
+- **Embassytown** by China Mieville
+- **Kraken** by China Mieville
+- **Zoo City** by Lauren Beukes
+- **The Namesake** by Jhumpa Lahiri
+- **Vellum** by Hal Duncan
+- **Zero History** by William Gibson
+
+I'm sure there are a couple more that I've missed out, but these are the ones
+that I'm aware of.
