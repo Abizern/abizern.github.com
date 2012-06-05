@@ -4,7 +4,7 @@
   <title><![CDATA[Abizer Nasir]]></title>
   <link href="http://abizern.org/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-05-30T18:07:15+01:00</updated>
+  <updated>2012-06-05T14:04:29+01:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Book Stack June 2012]]></title>
+    <link href="http://abizern.org/2012/06/05/book-stack-june-2012/"/>
+    <updated>2012-06-05T12:57:00+01:00</updated>
+    <id>http://abizern.org/2012/06/05/book-stack-june-2012</id>
+    <content type="html"><![CDATA[<p>I seem to have accrued a stack of fiction that I haven&#8217;t got around to
+reading. This is just a stick in the ground so I remember to dig them up and
+read them at some time:</p>
+
+<!-- more -->
+
+
+<ul>
+<li><strong>Reamde</strong> by Neal Stephenson</li>
+<li><strong>Embassytown</strong> by China Mieville</li>
+<li><strong>Kraken</strong> by China Mieville</li>
+<li><strong>Zoo City</strong> by Lauren Beukes</li>
+<li><strong>The Namesake</strong> by Jhumpa Lahiri</li>
+<li><strong>Vellum</strong> by Hal Duncan</li>
+<li><strong>Zero History</strong> by William Gibson</li>
+</ul>
+
+
+<p>I&#8217;m sure there are a couple more that I&#8217;ve missed out, but these are the ones
+that I&#8217;m aware of.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[London CoderDojo]]></title>
@@ -918,40 +946,6 @@ in the fun. There was a mix of indies, learners, small Mac shops and students.</
 <p>Thanks everyone for coming out. It was a great night and I hope you all went home with as much enthusiasm for coding as I did.</p>
 
 <p>So, until the next time; follow <a href="http://twitter.com/nscodernightlon">@NSCoderNightLon</a> on Twitter and subscribe to the <a href="http://tinyurl.com/m5g6jb">iCal calender</a> to stay up to date.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[NSCoder Night London]]></title>
-    <link href="http://abizern.org/2009/09/21/nscoder-night-london/"/>
-    <updated>2009-09-21T23:02:08+01:00</updated>
-    <id>http://abizern.org/2009/09/21/nscoder-night-london</id>
-    <content type="html"><![CDATA[<p>It&#8217;s surprising that there isn&#8217;t an <a href="http://nscodernight.com">NSCoder Night</a>
-chapter in London. There is a monthly CocoaHeads meeting in Swindon, and the UK
-Mac Dev meeting once a month in Central London, but I think that there is a gap
-for an evening of coding in a social setting.</p>
-
-<p>So, in the spirit of &#8220;If you build it, they will come&#8221; I&#8217;m going to try and get
-this started. So, this Tuesday, September 22, from about 7, let&#8217;s get together
-at the <a href="http://bunchofgrapesborough.com">Bunch of Grapes</a> pub just behind London
-Bridge Station
-<a href="http://maps.google.co.uk/maps?source=s_q&amp;hl=en&amp;geocode=&amp;q=bunch+of+grapes+borough&amp;sll=51.50722,-0.089006&amp;sspn=0.006357,0.016973&amp;ie=UTF8&amp;radius=0.36&amp;split=1&amp;filter=0&amp;rq=1&amp;ev=zi&amp;ll=51.507454,-0.088019&amp;spn=0.006691,0.016973&amp;z=16&amp;iwloc=A&amp;iwd=1&amp;cid=16443485918241557592&amp;dtab=2">map</a>. Bring
-a laptop (charged) and you can either sit and code or just chat with anyone
-else. You can work on what you want. You don&#8217;t have to show anyone what you&#8217;re
-working on; but feel free to ask and answer questions.</p>
-
-<p>But, this is still just an experiment. Don&#8217;t know whether it will be a weekly or
-a monthly event. I&#8217;m not even sure about the location. I was there last week and
-the WiFi was a little flaky. There was a party upstairs so it was busy, but
-there was a high turnover (as you would expect for a pub near a train
-station). I still managed to get a table. But, unless we try and get together,
-we won&#8217;t be able to answer these questions.</p>
-
-<p>So, Come along tomorrow night. Follow
-<a href="http://twitter.com/nscodernightlon">@NSCoderNightLon</a> on Twitter and subscribe
-to the <a href="http://tinyurl.com/m5g6jb">iCal calender</a> for future meetings.</p>
-
-<p>See you there.</p>
 ]]></content>
   </entry>
   
