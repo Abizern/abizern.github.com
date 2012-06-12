@@ -14,6 +14,7 @@ read them at some time:
 
 <!-- more -->
 
+- **Anathem** by Neal Stephenson
 - **Reamde** by Neal Stephenson
 - **Embassytown** by China Mieville
 - **Kraken** by China Mieville
