@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS Development | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/ios-development/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-06-18T16:07:05+01:00</updated>
+  <updated>2012-07-01T11:44:37+01:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Coding Conventions]]></title>
+    <link href="http://abizern.org/2012/07/01/coding-conventions/"/>
+    <updated>2012-07-01T11:32:00+01:00</updated>
+    <id>http://abizern.org/2012/07/01/coding-conventions</id>
+    <content type="html"><![CDATA[<p>I've just published my
+<a href="/cocoa-coding-conventions">Cocoa Coding Conventions</a>.</p>
+
+<!-- more -->
+
+
+<p>Not so that it can be followed, but to provide an idea of what can be done so
+that others can write their own, just as I've based mine on published
+conventions.</p>
+
+<p>The idea isn't to create a rod for your back when writing code, but to put some
+thought into the choices that are made when writing code so that it is consistent.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Simple Localisation Testing]]></title>

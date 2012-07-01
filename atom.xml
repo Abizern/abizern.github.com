@@ -4,7 +4,7 @@
   <title><![CDATA[Abizer Nasir]]></title>
   <link href="http://abizern.org/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-06-18T16:07:05+01:00</updated>
+  <updated>2012-07-01T11:44:37+01:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Coding Conventions]]></title>
+    <link href="http://abizern.org/2012/07/01/coding-conventions/"/>
+    <updated>2012-07-01T11:32:00+01:00</updated>
+    <id>http://abizern.org/2012/07/01/coding-conventions</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve just published my
+<a href="http://abizern.org/cocoa-coding-conventions">Cocoa Coding Conventions</a>.</p>
+
+<!-- more -->
+
+
+<p>Not so that it can be followed, but to provide an idea of what can be done so
+that others can write their own, just as I&#8217;ve based mine on published
+conventions.</p>
+
+<p>The idea isn&#8217;t to create a rod for your back when writing code, but to put some
+thought into the choices that are made when writing code so that it is consistent.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Book Stack June 2012]]></title>
@@ -925,28 +945,6 @@ be used for editing. and <code>-g 1:0</code> puts the caret at the beginning of 
 <code>git rebase -i</code> a SubEthaEdit window will open as the commit message
 editor. Make whatever changes you need then save the file (⌘-S) and then close
 the window (⌘-W) for these changes to take effect.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[NSCoder Night London - Report]]></title>
-    <link href="http://abizern.org/2009/09/25/nscoder-night-london-report/"/>
-    <updated>2009-09-25T14:11:46+01:00</updated>
-    <id>http://abizern.org/2009/09/25/nscoder-night-london-report</id>
-    <content type="html"><![CDATA[<p><a href="http://www.flickr.com/photos/15729248@N00/3952499655"><img src="http://farm3.static.flickr.com/2671/3952499655_33ed3b7b29.jpg" alt="NSCoder Night" /></a></p>
-
-<p>The first London NSCoder Night was a success!</p>
-
-<p>Eleven people turned up, travelling from as far as Brighton and Reading to join
-in the fun. There was a mix of indies, learners, small Mac shops and students.</p>
-
-<p>We started off upstairs at the <a href="http://bunchofgrapesborough.com/">Bunch of Grapes</a> and then moved to the outside area for more room. The tables outside are at a comfortable height for standing around so people were able to move around to different groups. There was a food, drink and talk and the laptops came out a few times as well.</p>
-
-<p>We decided that this is going to be a regular event, held at the same place on the <strong>third Tuesday of the month</strong>. Next time I&#8217;ll book a table upstairs so we can sit down more comfortably. You don&#8217;t need to tell me you&#8217;re coming, but I&#8217;d appreciate an idea of how many people are going to make it so I can reserve approximately the right number of seats.</p>
-
-<p>Thanks everyone for coming out. It was a great night and I hope you all went home with as much enthusiasm for coding as I did.</p>
-
-<p>So, until the next time; follow <a href="http://twitter.com/nscodernightlon">@NSCoderNightLon</a> on Twitter and subscribe to the <a href="http://tinyurl.com/m5g6jb">iCal calender</a> to stay up to date.</p>
 ]]></content>
   </entry>
   

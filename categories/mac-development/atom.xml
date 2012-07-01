@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Mac Development | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/mac-development/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-06-18T16:07:05+01:00</updated>
+  <updated>2012-07-01T11:44:37+01:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Coding Conventions]]></title>
+    <link href="http://abizern.org/2012/07/01/coding-conventions/"/>
+    <updated>2012-07-01T11:32:00+01:00</updated>
+    <id>http://abizern.org/2012/07/01/coding-conventions</id>
+    <content type="html"><![CDATA[<p>I've just published my
+<a href="/cocoa-coding-conventions">Cocoa Coding Conventions</a>.</p>
+
+<!-- more -->
+
+
+<p>Not so that it can be followed, but to provide an idea of what can be done so
+that others can write their own, just as I've based mine on published
+conventions.</p>
+
+<p>The idea isn't to create a rod for your back when writing code, but to put some
+thought into the choices that are made when writing code so that it is consistent.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Simple Localisation Testing]]></title>
@@ -147,75 +167,6 @@ inspired to post a snippet of Objective-C/Cocoa code every day for a year.</p>
 <p>It’s a great idea and starts with a useful category on NSArray. Go and see what
 you can learn over at
 <a href="http://365cocoa.tumblr.com/">http://365cocoa.tumblr.com/</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Some tips for lazy Xcoders]]></title>
-    <link href="http://abizern.org/2009/11/11/some-tips-for-lazy-xcoders/"/>
-    <updated>2009-11-11T12:40:53+00:00</updated>
-    <id>http://abizern.org/2009/11/11/some-tips-for-lazy-xcoders</id>
-    <content type="html"><![CDATA[<p>We all know what we should be doing when writing code. Each methodology you
-choose to use has it's own best practices, whether it's working from full
-specifications, writing unit tests first, programming in pairs, yadda,
-yadda. But, as developers, we're only human, and we're lazy. We have tools to
-make things easy for us. Here are a few tips that you can use to help when
-you're not as rigorous in your coding as you should be.</p>
-
-<h2>Use the static analyser.</h2>
-
-<p>You can use the
-<a href="http://arstechnica.com/apple/reviews/2009/08/mac-os-x-10-6.ars/9#compilers">Clang Static Analyser</a>
-in Xcode by setting a build option. This will find a whole host of errors in
-your code, even down to unconventionally named functions.</p>
-
-<p><img src="http://images.abizern.org.s3.amazonaws.com/2009/11/ClangBuildSetting.png" alt="ClangBuildSetting.png" /></p>
-
-<p>Now you can just code away and have the compiler pick up your mistakes when you
-run 'Build and Analyze' (⌘+Shift+A).</p>
-
-<h2>Find your mistakes quickly.</h2>
-
-<p>Any real application you develop will have a large number of resources that need
-to be copied to your application bundle. The default projects that Xcode create
-for you will copy these files first before compiling.</p>
-
-<p><img src="http://images.abizern.org.s3.amazonaws.com/2009/11/XcodeDefault.png" alt="XcodeDefault.png" /></p>
-
-<p>But, the lazy Xcoder knows that there are probably errors in the code that need
-to get flagged by the compiler, so this copying is a waste of time. Reorder the
-build steps by dragging so that the compilation is done first.</p>
-
-<p><img src="http://images.abizern.org.s3.amazonaws.com/2009/11/XcodeRecommended.png" alt="XcodeRecommended.png" /></p>
-
-<p>Your builds will now break early (and often!).</p>
-
-<h2>Don't fear the version controller.</h2>
-
-<p>I'm going to stick my neck out and say that if you're not using version control
-you're an idiot. The lazy Xcoder uses a powerful system that lets him or her
-branch easily, make lots of little changes, and lots of mistakes (that can be
-backed out). These changes can then be bundled into larger commits to be merged
-into the main branch so that your co-workers don't see what an idiot you've
-been.</p>
-
-<p>One such version control system is <a href="http://git-scm.com/">git</a>. The lazy Xcoder
-writes a bit of code, checks it in out of habit and then compiles. The compiler
-picks up the mistakes, and he or she fixes them. Rather than make a new commit,
-and retype the commit message, just call:</p>
-
-<p><code>bash
-git commit --amend -a -C HEAD
-</code></p>
-
-<p>This will bring up the previous commit message in the editor, which you can
-amend if you wish. This new commit will replace the previous one. The <code>-a</code>
-option means you don't even need to do a git add and the <code>-C HEAD</code> option means
-it will use the commit message from the last commit.</p>
-
-<p>Of course, if you're a rockstar programmer, you don't make mistakes at this
-level. But I'm not, and I prefer to work with human nature rather than against
-it.</p>
 ]]></content>
   </entry>
   

@@ -85,12 +85,20 @@
         <lastmod>2012-06-16T22:09:08+01:00</lastmod>
     </url>
     <url>
+        <loc>http://abizern.org/2012/07/01/coding-conventions/</loc>
+        <lastmod>2012-07-01T11:42:59+01:00</lastmod>
+    </url>
+    <url>
         <loc>http://abizern.org/about/</loc>
         <lastmod>2012-05-30T16:38:53+01:00</lastmod>
     </url>
     <url>
         <loc>http://abizern.org/archives/</loc>
-        <lastmod>2012-06-16T22:09:08+01:00</lastmod>
+        <lastmod>2012-07-01T11:42:59+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://abizern.org/cocoa-coding-conventions/</loc>
+        <lastmod>2012-07-01T11:27:08+01:00</lastmod>
     </url>
     <url>
         <loc>http://abizern.org/copyright-statement/</loc>
@@ -98,6 +106,6 @@
     </url>
     <url>
         <loc>http://abizern.org/</loc>
-        <lastmod>2012-06-16T22:09:08+01:00</lastmod>
+        <lastmod>2012-07-01T11:42:59+01:00</lastmod>
     </url>
 </urlset>
