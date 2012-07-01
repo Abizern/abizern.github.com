@@ -266,11 +266,11 @@ For bitmask enumerations, use the shift-left operator (<<):
 
 ``` objective-c
 typedef enum : NSUInteger {
-    ABCAlignmentNone   = 0,
-    ABCAlignmentLeft   = 1 << 0,
-    ABCAlignmentCentre = 1 << 1,
-    ABCAlignmentRight  = 1 << 2
-} ABCAlignment;
+    ABCOutputNone    = 0,
+    ABCOutputSeconds = 1 << 0,
+    ABCOutputMinutes = 1 << 1,
+    ABCOunpunHours   = 1 << 2
+} ABCOutput;
 ```
 
 ### TODOs
