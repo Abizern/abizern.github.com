@@ -320,7 +320,7 @@ happening and should be used to explain situations that are not trivial.
 If you need to use a comment to explain what a variable does - then it's likely
 that you haven't used a descriptive enough name for it.
 
-For writing inline documentation use [AppleDoc](http://www.gentlebytes.com/home/appledocapp/).
+For writing inline documentation use [AppleDoc](http://gentlebytes.com/appledoc/).
 
 If you can't be bothered to keep the comments updated don't have them at
 all. Bad or out of date comments are worse than none at all.
