@@ -1,0 +1,511 @@
+---
+layout: page
+title: "cocoa coding conventions"
+footer: false
+---
+
+## Purpose
+
+Consistent coding conventions are one way to keep code readable and
+maintainable. Written coding conventions provide a handy reference for the times
+when you can't remember what convention you are supposed to be using.
+
+This is a living document, and if I find that I am breaking the conventions I've
+set for myself, then I'll update the document to match what I'm doing. This is
+more a record of my choices than a rod for my own back.
+
+In line with George Orwell's last rule in
+[Politics and the English Language (1946)](http://www.resort.com/~prime8/Orwell/patee.html)
+Break any of these rules sooner than doing anything barbarous.
+
+## Xcode Project Settings
+
+### Static Analyser
+
+Run the Static Analyser automatically with builds. Strive for zero
+warnings and errors with the default warnings and errors turned on. Use the
+Clang pragmas to silence warnings where you really have to.
+
+### Automatic Reference Counting
+
+All new projects use ARC.
+
+### Unit Testing
+
+Use the Unit Testing option when creating new projects from the templates. You
+may not always use strict TDD, but when the time comes where something needs to
+be tested automatically, rather than running through a series of steps with a
+running app, having this set up will be a timesaver.
+
+That said, Unit Testing is a useful discipline, use it where you can. Don't let
+the lack of a complete set of tests put you off writing any unit
+tests. Something is better than nothing, as long as you remember that the tests
+are not comprehensive.
+
+### Standard Files
+
+The Application Delegate class is named `AppDelegate`.
+
+The project templates create standard files - a pch file, a main file, a plist
+file. Regardless of what the templates are set up to do rename them to
+`Prefix.pch`, `main.m` and `Info.plist`. Some changes will need to be made to
+the project settings that reference these files to make them work. Similar files
+are created for unit testing or other targets, but these need not be renamed;
+the simplified names are only be used for the main target of the project.
+
+There are common macros that are used throughout my projects. This header file
+should be added to all projects and imported into the `Prefix.pch` file. The most
+up to date version is available on Github:
+
+{% gist 325926 %}
+
+### Schemes
+
+Xcode creates a standard scheme named after the project for development. As part
+of setting up the project create a Release Scheme (and a TestFlight scheme if
+appropriate) and set them up to use the correct signing keys. Make these schemes
+shared and add them to version control.
+
+### Compiler
+
+Use the most up to date compiler possible and all the associated benefits,
+Literals, ARC, auto-synthesis, the static analyser, auto-layout, storyboards, etc.
+
+## Code Style
+
+### imports
+
+Although the common framework imports should be in the pch file, put all the
+required imports into the source files. I find it helps to see what frameworks a
+class is set up to deal with.
+
+Only put superclass imports and protocol imports into the header file. Forward
+declarations should use the `@class` statement. The remaining headers should go
+into the .m file.
+
+### iVars
+
+Avoid using iVars, certainly not as part of the public interface. Prefer the use
+of properties.
+
+If using iVars treat them as private and add them to a class extension or the
+@implementation section if using a compiler that supports it.
+
+``` objective-c
+// Bad - declared in the public header
+
+@interface MyClass : NSObject {
+    NSString *aString;
+}
+
+// Better - declared in the .m file as part of a class extension
+
+@interface MyClass () {
+    NSString *aString;
+}
+
+// Best - declared in the class implementation itself
+
+@implementation MyClass {
+    NSString *aString;
+}
+```
+
+### Properties ###
+
+Prefer immutable to mutable types, and use `copy` not `retain` for types that
+are part of a mutable / immutable class cluster unless you **really** need a
+mutable type.
+
+The memory management declaration should come first.
+
+Prefer nonatomic to atomic type declarations.
+
+Choose a different getters for `BOOL` types where appropriate.
+
+``` objective-c
+@property (strong, nonatomic) UIColor *colour;
+@property (copy, nonatomic) NSString *title;
+@property (weak, nonatomic) id <DelegateProtocol> delegate;
+@property (assign, nonatomic, getter=isDownloading) BOOL downloading;
+```
+
+Only expose as much in the public interface as needed. It's easier to have a
+smaller surface area of change when working through code, especially during
+discovery. If a property needs to be publicly readonly but readwrite for the
+class, redeclare the property as readwrite within a class extension.
+
+``` objective-c
+// In the .h file
+@interface MyClass : NSObject
+
+@property (nonatomic, copy, readonly) NSString *aString;
+
+@end
+
+// In the .m file
+@interface MyClass ()
+
+@property (nonatomic, copy, readwrite) NSString *aString;
+
+@end
+```
+
+Auto-synthesised properties generate an iVar with a leading underscore. If not
+using a compiler that supports auto-synthesis @sythesise backing stores in the
+same way.
+
+### Method and Variable Naming
+
+Don't fear long descriptive names, Xcode has auto-completion.
+
+Follow the conventions in Apple's
+[Coding Guidelines for Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html#//apple_ref/doc/uid/10000146-SW1)
+
+### Dot Notation
+
+Use it, but don't abuse it.
+
+If it's possible to chain properties together neatly then use it. If the dots
+and brackets are becoming interleaved or nested too deep use brackets. This one
+is hard to nail down but if you look at the resulting line and you have to pick
+apart the calls - change it to all brackets - which should always work.
+
+Only use dot notation for properties.
+
+### Method Signatures
+
+Left aligned, with a space after the scope. There should be a space between the
+method segments, and if a parameter is a pointer, then there should be a space
+before the asterisk
+
+``` objective-c
+// BAD
+-(void)doSomethingWithString:(NSString*)aString;
+
+// GOOD
+- (void)doSomethingWithString:(NSString *)aString;
+```
+### Private Methods
+
+These should not be declared in the public interface or a class extension.
+
+Put them at the end of the class implementation in their own `#pragma` section.
+
+### Empty Methods
+
+If there is a method that has no implementation, or is just a call to `super`
+then it should be removed.
+
+### Types
+
+#### integer
+
+Use `NSInteger` and `NSUInteger` in preference to these. Make sure you use the
+standard framework methods with `integer` instead of `int` to get the correct
+types back.
+
+For Foundation types, when iterating use `CFIndex`.
+
+#### BOOL
+
+Use `YES` and `NO` not true, false, 1, -1 or anything like that.
+
+Don't compare `BOOL` returns against `BOOL`s:
+
+``` objective-c
+// GOOD
+if ([self aMethodReturningBOOL]) {
+
+// THE DEVIL'S WORK
+if ([self aMethodReturningBOOL] == YES) {
+```
+
+#### floats
+
+Use `CGFloat` instead of `float`.
+
+### Error Handling
+
+Use `NSError` wherever possible. Exceptions and Asserts are used to find
+programmer errors. Use the `ALog` and `ZAssert` macros (c.f. Standard Macros)
+for convenience.
+
+### Static Strings
+
+Use static declarations in preference to #defines.
+
+Use `extern` to declare a public constant that is defined within the class. Use
+a simple static otherwise
+
+``` objective-c
+// declared in header defined in implementation
+// .h
+extern NSString *const kMyConstant;
+
+// .m
+NSString *const kMyConstant = @"MyConstant";
+
+// For internal use
+static NSString *someString;
+```
+
+### Enums
+
+Use the new typed enumerations:
+
+``` objective-c
+typedef enum : unsigned char {
+    Red,
+    Green,
+    Blue
+} kColours;
+```
+
+For bitmask enumerations, use the shift-left operator (<<):
+
+``` objective-c
+typedef enum : NSUInteger {
+    ABCAlignmentNone   = 0,
+    ABCAlignmentLeft   = 1 << 0,
+    ABCAlignmentCentre = 1 << 1,
+    ABCAlignmentRight  = 1 << 2
+} ABCAlignment;
+```
+
+### TODOs
+
+Put `// TODO: ` comments to remind yourself of things and use search to find
+them.
+
+If you want to mark critical parts that need to be implemented, don't bother
+with using build scripts to find the TODOs - just use a `#warning` instead:
+
+``` objective-c
+#warning This method needs to be implemented.
+```
+
+This will raise a convenient warning with the message when building.
+
+## Code layout
+
+### #pragma Is Your Friend
+
+Group methods into related groups and section them up with #pragma
+descriptions.
+
+### Method Ordering
+
+- Class methods.
+- Instance methods.
+  - initialisers.
+  - dealloc (if needed).
+  - For controllers - their common methods: i.e. view lifecycle methods for view
+    controllers, table view delegate and datasource methods for table view
+    controllers, etc.
+  - Public methods declared in the header file.
+  - Other delegate and protocol methods that the class implements.
+  - Private methods for the class's own internal use.
+
+Try and keep the order of the methods in the header file the same as in the
+implementation file. This is a handy thing to look for when you want to follow
+the Boyscout Rule.
+
+### Comments
+
+One-line comments `//` are preferred to multiline `/**/` comments. Comments
+should be used to document **why** something is happening and not what is
+happening and should be used to explain situations that are not trivial.
+
+If you need to use a comment to explain what a variable does - then it's likely
+that you haven't used a descriptive enough name for it.
+
+For writing inline documentation use [AppleDoc](http://www.gentlebytes.com/home/appledocapp/).
+
+If you can't be bothered to keep the comments updated don't have them at
+all. Bad or out of date comments are worse than none at all.
+
+### Horizontal Spacing
+
+Use 4 spaces to indent code, not tabs.
+
+Long lines aren't a problem. Let Xcode autowrap them. If you do decide to wrap
+lines containing methods - make sure the colons are aligned.
+
+### Vertical Spacing
+
+Use a single blank line between methods. There is no need to leave a blank line
+at the start of a methed definition.
+
+Group lines of codes together when they are related. Think of it like writing,
+where sentences that relate to a topic are grouped into paragraphs.
+
+### Braces
+
+A brace is always opened on the same line after a space (the exceptions is block
+definitions). The closing brace is on a separate line and indented to the same
+level as the line with the opening brace.
+
+``` objective-c
+- (BOOL)someMethod {
+    return YES;
+}
+```
+
+There should **always** be a space after the control structure (i.e. `if`,
+`else`, etc). The `else` and `else if` statements should be on the same line as
+the closing brace of the `if` statement.
+
+### Control Structures
+
+See the section on the Golden Path for more usage guides with control structures.
+
+#### if/else
+
+``` objective-c
+if (button.enabled) {
+    // do something
+} else if (otherButton.enabled) {
+    // do something else
+} else {
+    // do something by default
+}
+```
+
+Always use a multiline if/else statement with the clauses in braces. This is not
+only clearer to read but easier to make changes to.
+
+#### The Ternary operator
+
+A handy structure, but should be used sparingly where it aids readability.
+
+#### Switch
+
+```objective-c
+switch (something.state) {
+    case 0: {
+        // Something
+        break;
+    }
+
+    case 1: {
+        // Something
+        break;
+    }
+
+    case 2:
+    case 3: {
+        // Something
+        break;
+    }
+
+    default: {
+        // Something
+        break;
+    }
+}
+```
+
+Brackets are desired around each case. If multiple cases are used, they should
+be on separate lines. `default` should **always** be the last case and should
+**always** be included.
+
+#### For
+
+```objective-c
+for (NSInteger idx = 0; idx < 10; idx++) {
+    // Do something
+}
+
+
+for (NSString *key in dictionary) {
+    // Do something
+}
+```
+
+When iterating using integers, it is preferred to start at `0` and use `<`
+rather than starting at `1` and using `<=`. Also, use `idx` instead of `i`. Fast
+enumeration is generally preferred because it is easier on the eyes as well as
+faster. Also consider using block enumeration where applicable.
+
+#### While
+
+```objective-c
+while (something < somethingElse) {
+    // Do something
+}
+```
+
+### Golden Path
+
+When using conditionals, the left hand margin of the code should be the
+**golden** or **happy path**. This is the part of the code that should be
+commonly executed.  For example, the common way of writing initialisers doesn't
+follow this:
+
+``` objective-c
+// BAD
+- (id)init {
+    self = [super init];
+    if (self) {
+        // initialisations here
+    }
+    return self;
+}
+
+// GOOD
+- (id)init {
+    if (!(self == [super init])) {
+        return nil;
+    }
+    // initialisations here
+    return self;
+}
+```
+
+This keeps the main part of the code furthest to the left, with the exceptional
+conditions further to the right.
+
+### Multiple Returns
+
+Purists say that there should be only one return point from a function. There
+are times where multiple returns are not a problem. Look at the example
+initialiser above. The good example contains multiple returns values - in the
+case where the super class initialiser returns the nil, the method returns a nil
+straight away. I find that this makes it clearer when reading the code that the
+function will return at this point and I don't have to look through the method
+any more to see if the value of self is changed later on before returning.
+
+## Version Control
+
+You have no excuse for not using version control.
+
+Aim for all commits on the master branch to compile cleanly and work (for some
+definition of 'work').
+
+Develop on branches. Commit early and commit often, don't be afraid to rebase
+commits. Unlike the master branch, these don't all have to compile
+cleanly. You'll be rebasing them onto master anyway so they'll be tidied up then.
+
+When writing commit messages use the correct
+[conventions](http://365git.tumblr.com/post/3308646748/writing-git-commit-messages)
+
+## The Boyscout Rule
+
+The Boyscouts say: "Always leave a campsite cleaner than you found it". A similar
+rule is said to apply to programming - "Always check in a module cleaner than
+you checked it out".
+
+In these days of distributed version control, I'd say that means if you see a
+problem in code - fix it. Don't leave it for later, don't leave it for someone
+else. Version control, unit tests, comments are all structures
+that support making changes like this.
+
+## Credits
+
+The basis for these standards were taken from
+
++ Zarra Studios'
+[ZDS Code Style Guide](http://www.cimgf.com/zds-code-style-guide/)
++ NOUSguide's
+[Coding-Conventions](http://github.com/NOUSguide/Coding-Conventions)
