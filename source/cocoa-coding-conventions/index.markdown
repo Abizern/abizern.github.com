@@ -501,6 +501,14 @@ problem in code - fix it. Don't leave it for later, don't leave it for someone
 else. Version control, unit tests, comments are all structures
 that support making changes like this.
 
+## Revision History
+
+Last updated July 2, 2012
+
+Full history
+[available on GitHub](https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions
+ "Commit history for the file").
+
 ## Credits
 
 The basis for these standards were taken from
