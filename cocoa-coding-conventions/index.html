@@ -569,6 +569,13 @@ only clearer to read but easier to make changes to.</p>
 
 <h4>Switch</h4>
 
+<p>Brackets don&#8217;t need to be added around each case statement. In some cases, when
+using ARC and declaring varibles within a case block an error may be thrown
+&#8220;Switch case is in protected scope&#8221; and then surrounding the case statement with
+brackets should clear up the error.</p>
+
+<p>The <code>defualt</code> case should <strong>always</strong> be the last case and should <strong>always</strong> be included.</p>
+
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -585,40 +592,24 @@ only clearer to read but easier to make changes to.</p>
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
 </pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="k">switch</span> <span class="p">(</span><span class="n">something</span><span class="p">.</span><span class="n">state</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">case</span> <span class="mi">0</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">// Something</span>
+</span><span class='line'>        <span class="c1">// braced block where required by the compiler</span>
 </span><span class='line'>        <span class="k">break</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
 </span><span class='line'>        <span class="c1">// Something</span>
 </span><span class='line'>        <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
 </span><span class='line'>    <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
-</span><span class='line'>    <span class="k">case</span> <span class="mi">3</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
 </span><span class='line'>        <span class="c1">// Something</span>
 </span><span class='line'>        <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">default</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">default</span><span class="o">:</span>
 </span><span class='line'>        <span class="c1">// Something</span>
 </span><span class='line'>        <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-<p>Brackets are desired around each case. If multiple cases are used, they should
-be on separate lines. <code>default</code> should <strong>always</strong> be the last case and should
-<strong>always</strong> be included.</p>
 
 <h4>For</h4>
 
@@ -629,11 +620,9 @@ be on separate lines. <code>default</code> should <strong>always</strong> be the
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-<span class='line-number'>8</span>
 </pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">idx</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="c1">// Do something</span>
 </span><span class='line'><span class="p">}</span>
-</span><span class='line'>
 </span><span class='line'>
 </span><span class='line'><span class="k">for</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">key</span> <span class="k">in</span> <span class="n">dictionary</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="c1">// Do something</span>
@@ -741,7 +730,7 @@ that support making changes like this.</p>
 
 <h2>Revision History</h2>
 
-<p>Last updated July 2, 2012</p>
+<p>Last updated July 5, 2012</p>
 
 <p>Full history
 <a href="https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions" title="Commit history for the file">available on GitHub</a>.</p>
