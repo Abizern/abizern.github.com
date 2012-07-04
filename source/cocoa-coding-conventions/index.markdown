@@ -381,34 +381,30 @@ A handy structure, but should be used sparingly where it aids readability.
 
 #### Switch
 
+Brackets don't need to be added around each case statement. In some cases, when
+using ARC and declaring varibles within a case block an error may be thrown
+"Switch case is in protected scope" and then surrounding the case statement with
+brackets should clear up the error.
+
+The `defualt` case should **always** be the last case and should **always** be included.
+
 ```objective-c
 switch (something.state) {
     case 0: {
-        // Something
+        // braced block where required by the compiler
         break;
     }
-
-    case 1: {
+    case 1:
         // Something
         break;
-    }
-
     case 2:
-    case 3: {
+    case 3:
         // Something
         break;
-    }
-
-    default: {
+    default:
         // Something
-        break;
-    }
 }
 ```
-
-Brackets are desired around each case. If multiple cases are used, they should
-be on separate lines. `default` should **always** be the last case and should
-**always** be included.
 
 #### For
 
@@ -416,7 +412,6 @@ be on separate lines. `default` should **always** be the last case and should
 for (NSInteger idx = 0; idx < 10; idx++) {
     // Do something
 }
-
 
 for (NSString *key in dictionary) {
     // Do something
@@ -503,7 +498,7 @@ that support making changes like this.
 
 ## Revision History
 
-Last updated July 2, 2012
+Last updated July 5, 2012
 
 Full history
 [available on GitHub](https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions
