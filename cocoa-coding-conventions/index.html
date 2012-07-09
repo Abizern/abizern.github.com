@@ -411,7 +411,7 @@ a simple static otherwise</p>
 
 <h3>Enums</h3>
 
-<p>Use the new typed enumerations:</p>
+<p>Use the new typed enumerations.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -426,7 +426,10 @@ a simple static otherwise</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>For bitmask enumerations, use the shift-left operator (&lt;&lt;):</p>
+<p>For simple enumerations there is no need to assign values to the values unless
+they are really needed in specific situations. The exception is for bitmask
+enumerations which should specify the initial value and the remaining values
+should use the shift-left operator (&lt;&lt;).</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -728,7 +731,7 @@ that support making changes like this.</p>
 
 <h2>Revision History</h2>
 
-<p>Last updated July 5, 2012</p>
+<p>Last updated July 9, 2012</p>
 
 <p>Full history
 <a href="https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions" title="Commit history for the file">available on GitHub</a>.</p>
