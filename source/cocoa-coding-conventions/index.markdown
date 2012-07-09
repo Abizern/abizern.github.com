@@ -252,7 +252,7 @@ static NSString *someString;
 
 ### Enums
 
-Use the new typed enumerations:
+Use the new typed enumerations.
 
 ``` objective-c
 typedef enum : unsigned char {
@@ -262,7 +262,10 @@ typedef enum : unsigned char {
 } kColours;
 ```
 
-For bitmask enumerations, use the shift-left operator (<<):
+For simple enumerations there is no need to assign values to the values unless
+they are really needed in specific situations. The exception is for bitmask
+enumerations which should specify the initial value and the remaining values
+should use the shift-left operator (<<).
 
 ``` objective-c
 typedef enum : NSUInteger {
@@ -498,7 +501,7 @@ that support making changes like this.
 
 ## Revision History
 
-Last updated July 5, 2012
+Last updated July 9, 2012
 
 Full history
 [available on GitHub](https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions
