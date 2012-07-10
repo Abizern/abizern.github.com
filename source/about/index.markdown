@@ -14,6 +14,8 @@ You can find me online, mostly with the username `abizern`, and the avatar image
 use almost everywhere is based on this photograph of me. A bit old, and I should
 really have had a shave, but it's me.
 
+{% img right http://images.abizern.org.s3.amazonaws.com/site/bike_dunwich.jpg 240 180 'Bike on Dunwich Beach' %}
+
 My DVCS of choice is [Git](http://git-scm.com "Main Git site"), and I
 intermittently blog about it at [365Git](http://365git.tumblr.com).
 
