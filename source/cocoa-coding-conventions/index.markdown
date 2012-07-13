@@ -316,12 +316,16 @@ the Boyscout Rule.
 
 ### Comments
 
-One-line comments `//` are preferred to multiline `/**/` comments. Comments
-should be used to document **why** something is happening and not what is
-happening and should be used to explain situations that are not trivial.
+One-line comments `//` are preferred to multiline `/**/` comments. There should
+be one space between the comment marker and the comment text.
+
+Comments should be used to document **why** something is happening and not what
+is happening and should be used to explain situations that are not trivial.
 
 If you need to use a comment to explain what a variable does - then it's likely
-that you haven't used a descriptive enough name for it.
+that you haven't used a descriptive enough name for it. If there is a comment to
+explain a section of code in a method, consider moving that section of code to a
+well named private method instead.
 
 For writing inline documentation use [AppleDoc](http://gentlebytes.com/appledoc/).
 
@@ -501,7 +505,7 @@ that support making changes like this.
 
 ## Revision History
 
-Last updated July 9, 2012
+Last updated July 13, 2012
 
 Full history
 [available on GitHub](https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions
