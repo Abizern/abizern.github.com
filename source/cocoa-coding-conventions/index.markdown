@@ -519,3 +519,13 @@ The basis for these standards were taken from
 [ZDS Code Style Guide](http://www.cimgf.com/zds-code-style-guide/)
 + NOUSguide's
 [Coding-Conventions](http://github.com/NOUSguide/Coding-Conventions)
+
+## Footnote
+
+I realise that these conventions are not to everyones' tastes, and there is no
+comment section on this blog for you to tell me how wrong I am. It's okay for
+you to disagree with me. These are **my** conventions and I encourage you to use
+this as a template to create and evolve your own guidelines.
+
+But, my contact details are on the about page if you do want to give me a piece
+of your mind. I'm not above changing my opinion about these.
