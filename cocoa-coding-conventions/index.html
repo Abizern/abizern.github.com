@@ -399,10 +399,10 @@ a simple static otherwise</p>
 <span class='line-number'>9</span>
 </pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="c1">// declared in header defined in implementation</span>
 </span><span class='line'><span class="c1">// .h</span>
-</span><span class='line'><span class="k">extern</span> <span class="n">NSString</span> <span class="o">*</span><span class="k">const</span> <span class="n">kMyConstant</span><span class="p">;</span>
+</span><span class='line'><span class="k">extern</span> <span class="n">NSString</span> <span class="o">*</span> <span class="k">const</span> <span class="n">kMyConstant</span><span class="p">;</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// .m</span>
-</span><span class='line'><span class="n">NSString</span> <span class="o">*</span><span class="k">const</span> <span class="n">kMyConstant</span> <span class="o">=</span> <span class="s">@&quot;MyConstant&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="n">NSString</span> <span class="o">*</span> <span class="k">const</span> <span class="n">kMyConstant</span> <span class="o">=</span> <span class="s">@&quot;MyConstant&quot;</span><span class="p">;</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// For internal use</span>
 </span><span class='line'><span class="k">static</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">someString</span><span class="p">;</span>
