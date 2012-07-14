@@ -241,10 +241,10 @@ a simple static otherwise
 ``` objective-c
 // declared in header defined in implementation
 // .h
-extern NSString *const kMyConstant;
+extern NSString * const kMyConstant;
 
 // .m
-NSString *const kMyConstant = @"MyConstant";
+NSString * const kMyConstant = @"MyConstant";
 
 // For internal use
 static NSString *someString;
