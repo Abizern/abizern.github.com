@@ -344,6 +344,10 @@ lines containing methods - make sure the colons are aligned.
 Use a single blank line between methods. There is no need to leave a blank line
 at the start of a methed definition.
 
+Use two blank spaces for organisation at a large scale, such as to separate
+static definitions from implementation blocks, or to separate the end of the
+@property declarations from the method declarations in a header file.
+
 Group lines of codes together when they are related. Think of it like writing,
 where sentences that relate to a topic are grouped into paragraphs.
 
@@ -505,7 +509,7 @@ that support making changes like this.
 
 ## Revision History
 
-Last updated July 13, 2012
+Last updated July 15, 2012
 
 Full history
 [available on GitHub](https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions
