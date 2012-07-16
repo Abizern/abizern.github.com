@@ -75,6 +75,8 @@ Literals, ARC, auto-synthesis, the static analyser, auto-layout, storyboards, et
 
 ### imports
 
+See the code layout section to see how to lay out the imports in the .h and .m files
+
 Although the common framework imports should be in the pch file, put all the
 required imports into the source files. I find it helps to see what frameworks a
 class is set up to deal with.
@@ -297,6 +299,21 @@ This will raise a convenient warning with the message when building.
 Group methods into related groups and section them up with #pragma
 descriptions.
 
+### Import Ordering
+
+See the code style section for what to import and where.
+
+The header files should have the minimal number of imports, as forward declarations are 
+preferred. In any case  this is the way to lay them out:
+
+- Framework headers (These should be in the .pch file anyway)
+- The interface header (i.e. the .h file for the current .m file)
+- A blank line
+- The other imports.
+
+If a suitable tool is available the Framework headers and the other imports may be
+ordered alphabetically
+
 ### Method Ordering
 
 - Class methods.
@@ -313,6 +330,13 @@ descriptions.
 Try and keep the order of the methods in the header file the same as in the
 implementation file. This is a handy thing to look for when you want to follow
 the Boyscout Rule.
+
+### Unit Test Classes
+
+The Xcode templates create these with a .h and a .m file. In almost all cases this isn't
+needed. Unit tests are self contained and having a .h file which can be shared just
+increased complexity. So, for unit test classes - put the interface and implementation
+in the same .m file for each test class.
 
 ### Comments
 
@@ -509,7 +533,7 @@ that support making changes like this.
 
 ## Revision History
 
-Last updated July 15, 2012
+Last updated July 16, 2012
 
 Full history
 [available on GitHub](https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions
