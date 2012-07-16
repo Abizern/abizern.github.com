@@ -180,6 +180,8 @@ Literals, ARC, auto-synthesis, the static analyser, auto-layout, storyboards, et
 
 <h3>imports</h3>
 
+<p>See the code layout section to see how to lay out the imports in the .h and .m files</p>
+
 <p>Although the common framework imports should be in the pch file, put all the
 required imports into the source files. I find it helps to see what frameworks a
 class is set up to deal with.</p>
@@ -468,6 +470,24 @@ with using build scripts to find the TODOs - just use a <code>#warning</code> in
 <p>Group methods into related groups and section them up with #pragma
 descriptions.</p>
 
+<h3>Import Ordering</h3>
+
+<p>See the code style section for what to import and where.</p>
+
+<p>The header files should have the minimal number of imports, as forward declarations are
+preferred. In any case  this is the way to lay them out:</p>
+
+<ul>
+<li>Framework headers (These should be in the .pch file anyway)</li>
+<li>The interface header (i.e. the .h file for the current .m file)</li>
+<li>A blank line</li>
+<li>The other imports.</li>
+</ul>
+
+
+<p>If a suitable tool is available the Framework headers and the other imports may be
+ordered alphabetically</p>
+
 <h3>Method Ordering</h3>
 
 <ul>
@@ -491,6 +511,13 @@ controllers, etc.</li>
 <p>Try and keep the order of the methods in the header file the same as in the
 implementation file. This is a handy thing to look for when you want to follow
 the Boyscout Rule.</p>
+
+<h3>Unit Test Classes</h3>
+
+<p>The Xcode templates create these with a .h and a .m file. In almost all cases this isn&#8217;t
+needed. Unit tests are self contained and having a .h file which can be shared just
+increased complexity. So, for unit test classes - put the interface and implementation
+in the same .m file for each test class.</p>
 
 <h3>Comments</h3>
 
@@ -521,6 +548,10 @@ lines containing methods - make sure the colons are aligned.</p>
 
 <p>Use a single blank line between methods. There is no need to leave a blank line
 at the start of a methed definition.</p>
+
+<p>Use two blank spaces for organisation at a large scale, such as to separate
+static definitions from implementation blocks, or to separate the end of the
+@property declarations from the method declarations in a header file.</p>
 
 <p>Group lines of codes together when they are related. Think of it like writing,
 where sentences that relate to a topic are grouped into paragraphs.</p>
@@ -735,7 +766,7 @@ that support making changes like this.</p>
 
 <h2>Revision History</h2>
 
-<p>Last updated July 13, 2012</p>
+<p>Last updated July 16, 2012</p>
 
 <p>Full history
 <a href="https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions" title="Commit history for the file">available on GitHub</a>.</p>
