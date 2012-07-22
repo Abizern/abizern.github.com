@@ -475,10 +475,10 @@ descriptions.</p>
 <p>See the code style section for what to import and where.</p>
 
 <p>The header files should have the minimal number of imports, as forward declarations are
-preferred. In any case  this is the way to lay them out:</p>
+preferred. In any case  this is the way to lay them out.</p>
 
 <ul>
-<li>Framework headers (These should be in the .pch file anyway)</li>
+<li>Framework headers (These should also be in the .pch file).</li>
 <li>The interface header (i.e. the .h file for the current .m file)</li>
 <li>A blank line</li>
 <li>The other imports.</li>
@@ -486,7 +486,8 @@ preferred. In any case  this is the way to lay them out:</p>
 
 
 <p>If a suitable tool is available the Framework headers and the other imports may be
-ordered alphabetically</p>
+ordered alphabetically within each of these groups, but it&#8217;s not often worth the
+effort, unless you are looking for some boyscouting to do.</p>
 
 <h3>Method Ordering</h3>
 
@@ -501,6 +502,8 @@ ordered alphabetically</p>
 controllers, table view delegate and datasource methods for table view
 controllers, etc.</li>
 <li>Public methods declared in the header file.</li>
+<li>Custom accessors (setters and/or getters) for declared properties that you
+don&#8217;t want to leave to auto-synthesize.</li>
 <li>Other delegate and protocol methods that the class implements.</li>
 <li>Private methods for the class&#8217;s own internal use.</li>
 </ul>
