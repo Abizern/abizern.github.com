@@ -440,6 +440,22 @@ only clearer to read but easier to make changes to.
 
 A handy structure, but should be used sparingly where it aids readability.
 
+``` objective-c
+// Acceptable
+NSString *boolString = nil;
+
+if (someBool) {
+    boolString = @"YES";
+} else {
+    boolString = @"NO";
+}
+
+DLog(@"The BOOL value is %@", boolString);
+
+// Better. Succinct and readable
+DLog(@"The BOOL value is %@", someBool ? @"YES" : @"NO");
+```
+
 #### Switch
 
 Brackets don't need to be added around each case statement. In some cases, when
