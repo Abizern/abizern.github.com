@@ -164,6 +164,29 @@ Don't fear long descriptive names, Xcode has auto-completion.
 Follow the conventions in Apple's
 [Coding Guidelines for Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html#//apple_ref/doc/uid/10000146-SW1)
 
+The cocoa frameworks follow an American spelling convention. That means that
+there are classes such as `NSColor` and `NSNotificationCenter`. That doesn't
+mean that this convention should be followed blindly. Use British spelling:
+
+``` objective-c
+// The usual
+UIColor *someColor = [UIColor whiteColor];
+NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+
+// Better
+UIColor *someColour = [UIColor whiteColor];
+NSNotificationCenter *notificationCentre = [NSNotificationCenter defaultCenter];
+```
+
+The downside to the preffered choice is that there is an inconsistency on the
+declaration line and there will be two spellings in use throughout the
+code. But, it's more natural for me to write with British Spellings, and let
+autocompletion use the correct spellings for the system.
+
+However - overall consistency and project style should take precedence. If this
+is your code, your project; then use the British spellings. If you are
+contributing to somebody else's code - use whatever is currently in use.
+
 ### Dot Notation
 
 Use it, but don't abuse it.
@@ -536,7 +559,7 @@ that support making changes like this.
 
 ## Revision History
 
-Last updated July 16, 2012
+Last updated July 30, 2012
 
 Full history
 [available on GitHub](https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions
