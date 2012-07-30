@@ -303,6 +303,36 @@ same way.</p>
 <p>Follow the conventions in Apple&#8217;s
 <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html#//apple_ref/doc/uid/10000146-SW1">Coding Guidelines for Cocoa</a></p>
 
+<p>The cocoa frameworks follow an American spelling convention. That means that
+there are classes such as <code>NSColor</code> and <code>NSNotificationCenter</code>. That doesn&#8217;t
+mean that this convention should be followed blindly. Use British spelling:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="c1">// The usual</span>
+</span><span class='line'><span class="n">UIColor</span> <span class="o">*</span><span class="n">someColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">whiteColor</span><span class="p">];</span>
+</span><span class='line'><span class="n">NSNotificationCenter</span> <span class="o">*</span><span class="n">notificationCenter</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Better</span>
+</span><span class='line'><span class="n">UIColor</span> <span class="o">*</span><span class="n">someColour</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">whiteColor</span><span class="p">];</span>
+</span><span class='line'><span class="n">NSNotificationCenter</span> <span class="o">*</span><span class="n">notificationCentre</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The downside to the preffered choice is that there is an inconsistency on the
+declaration line and there will be two spellings in use throughout the
+code. But, it&#8217;s more natural for me to write with British Spellings, and let
+autocompletion use the correct spellings for the system.</p>
+
+<p>However - overall consistency and project style should take precedence. If this
+is your code, your project; then use the British spellings. If you are
+contributing to somebody else&#8217;s code - use whatever is currently in use.</p>
+
 <h3>Dot Notation</h3>
 
 <p>Use it, but don&#8217;t abuse it.</p>
@@ -608,6 +638,35 @@ only clearer to read but easier to make changes to.</p>
 
 <p>A handy structure, but should be used sparingly where it aids readability.</p>
 
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="c1">// Acceptable</span>
+</span><span class='line'><span class="n">NSString</span> <span class="o">*</span><span class="n">boolString</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">someBool</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">boolString</span> <span class="o">=</span> <span class="s">@&quot;YES&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">boolString</span> <span class="o">=</span> <span class="s">@&quot;NO&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">DLog</span><span class="p">(</span><span class="s">@&quot;The BOOL value is %@&quot;</span><span class="p">,</span> <span class="n">boolString</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Better. Succinct and readable</span>
+</span><span class='line'><span class="n">DLog</span><span class="p">(</span><span class="s">@&quot;The BOOL value is %@&quot;</span><span class="p">,</span> <span class="n">someBool</span> <span class="o">?</span> <span class="s">@&quot;YES&quot;</span> <span class="o">:</span> <span class="s">@&quot;NO&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <h4>Switch</h4>
 
 <p>Brackets don&#8217;t need to be added around each case statement. In some cases, when
@@ -769,7 +828,7 @@ that support making changes like this.</p>
 
 <h2>Revision History</h2>
 
-<p>Last updated July 16, 2012</p>
+<p>Last updated July 30, 2012</p>
 
 <p>Full history
 <a href="https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions" title="Commit history for the file">available on GitHub</a>.</p>
