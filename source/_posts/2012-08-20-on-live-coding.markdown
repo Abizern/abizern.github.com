@@ -38,7 +38,7 @@ you evolve code.
 I did my own small one about
 [reversing words in Haskell](http://abizern.org/2012/04/09/reverse-words-with-haskell/)
 a few months ago and I found that it's harder to do than it looks. I credited
-[Jonas Tullus](http:CodingUncut.com) as an influence for that screencast and now
+[Jonas Tullus](http://entirelysubjective.com) as an influence for that screencast and now
 see that he has started [Coding Uncut](http://codinguncut.com), where he takes
 on a problem and screencasts his solution in Haskell. This is harder to do than
 the Peepcode ones, because without anyone asking you questions you become more
