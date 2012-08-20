@@ -4,7 +4,7 @@
   <title><![CDATA[Abizer Nasir]]></title>
   <link href="http://abizern.org/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-07-30T14:42:30+01:00</updated>
+  <updated>2012-08-20T14:48:56+01:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -12,6 +12,67 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[On Live Coding]]></title>
+    <link href="http://abizern.org/2012/08/20/on-live-coding/"/>
+    <updated>2012-08-20T12:34:00+01:00</updated>
+    <id>http://abizern.org/2012/08/20/on-live-coding</id>
+    <content type="html"><![CDATA[<p>I read somewhere that part of the popularity of
+<a href="http://en.wikipedia.org/wiki/The_West_Wing">The West Wing</a> was that it was
+entertaining to watch smart people solve difficult problems. I think that&#8217;s part
+of the reason why I find watching live coding videos so entertaining - It&#8217;s more
+fun to watch someone solve a problem than doing it yourself.</p>
+
+<!-- more -->
+
+
+<p>There are plenty of screencasts you can find - <a href="http://youtubecom">YouTube</a> is
+an obvious one, but don&#8217;t forget <a href="http://vimeo.com">Vimeo</a>.</p>
+
+<p>Some good ones to watch are the ones are the
+<a href="https://peepcode.com/screencasts/play-by-play">Play-By-Play</a> produced by
+<a href="http://peepcode.com">Peepcode</a> These screencasts have a developer solving a
+problem set by the host as he talks to them about the choices they make and the
+tools they use. Mostly Ruby / Railsy, but there are exceptions - Zed Shaw and
+Python, Ryan Singer designing a UX workflow for the Web, Kyle Neath on
+UI Workflow, and the latest has Tim Caswell creating a node.js web app.</p>
+
+<p>These are not only interesting screencasts, with plenty to learn from, but I
+find they are great for background noise. I work at home, and having the sounds
+of a keyboard clacking and techy conversation pushes back the silence. Also,
+when you look at a tutorial type blog post - or something on GitHub, all you see
+is the finished product. But when you watch someone working, you realise that it
+doesn&#8217;t come out fully formed like that, it sort of evolves. The same way that
+you evolve code.</p>
+
+<p>I did my own small one about
+<a href="http://abizern.org/2012/04/09/reverse-words-with-haskell/">reversing words in Haskell</a>
+a few months ago and I found that it&#8217;s harder to do than it looks. I credited
+<a href="http:CodingUncut.com">Jonas Tullus</a> as an influence for that screencast and now
+see that he has started <a href="http://codinguncut.com">Coding Uncut</a>, where he takes
+on a problem and screencasts his solution in Haskell. This is harder to do than
+the Peepcode ones, because without anyone asking you questions you become more
+self-conscious about vocalising your thoughts.</p>
+
+<p>Some of the things I&#8217;ve picked up from watching these are:</p>
+
+<ul>
+<li>It&#8217;s okay to spend your time looking up the documentation. Knowing roughly
+what approach to take to a solution and then looking up the details is more
+important.</li>
+<li>It&#8217;s faster to try something and see what happens rather than overthinking
+everything from the beginning.</li>
+<li>Version control is not an optional extra (okay, I already believe this, but
+it&#8217;s nice to see that I&#8217;m not the only one).</li>
+<li>It&#8217;s not the tool that matters - Emacs, Vim, JEdit, Paper and Sharpie - but
+how you use it.</li>
+<li>&#8220;It&#8217;s not about the code. It&#8217;s your understanding of the problem that you&#8217;re
+working on.&#8221; - Zed Shaw</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Coding Conventions]]></title>
@@ -862,89 +923,6 @@ it will use the commit message from the last commit.</p>
 <p>Of course, if you&#8217;re a rockstar programmer, you don&#8217;t make mistakes at this
 level. But I&#8217;m not, and I prefer to work with human nature rather than against
 it.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Integrating git with SubEthaEdit and Changes.app]]></title>
-    <link href="http://abizern.org/2009/11/08/integrating-git-with-subethaedit-and-changes/"/>
-    <updated>2009-11-08T16:41:02+00:00</updated>
-    <id>http://abizern.org/2009/11/08/integrating-git-with-subethaedit-and-changes</id>
-    <content type="html"><![CDATA[<p>A while ago, I read a
-<a href="http://schinckel.net/2008/04/26/mercurial-with-os-x-gui-tools/">nice write up</a>
-about using <a href="http://mercurial.selenic.com/">mercurial</a> with
-<a href="http://www.codingmonkeys.de/subethaedit/">SubEthaEdit</a> and
-<a href="http://connectedflow.com/changes/">Changes</a>. Here&#8217;s how to do the same thing
-with <a href="http://git-scm.com/">git</a> instead of
-<a href="http://mercurial.selenic.com/">mercurial</a>, separated into two parts in case you
-just want to apply one set of changes.</p>
-
-<h2>Changes Support</h2>
-
-<p><strong>Step One: Make sure chdiff is installed.</strong></p>
-
-<p>Open Changes.app and from the Changes menu select &#8220;Install terminal
-utility&#8221;. This will install the chdiff utility which is used by the script.</p>
-
-<p><strong>Step Two: Create a shell script to send diffs to Changes</strong></p>
-
-<p>Create a shell script with the following contents.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/sh
-</span><span class='line'>[ $# -eq 7 ] && /usr/bin/env chdiff "$2" "$5"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Where you save this and what you call it is up to you. Mine is called
-&#8216;.gitchanges&#8217;, saved it at the root of my home directory. Make sure the script
-is executable.</p>
-
-<p><strong>Step Three: Edit the .gitconfig file to use this script to handle diffs.</strong></p>
-
-<p>Open your <code>~/.gitconfig</code> file. This should already exist, at the very least it
-will contain you name and email. under the section called <code>[diff]</code> add the
-location and name of the file.  You may have to edit this to make sure it points
-to the name and location you chose in Step Two. (Make sure to use the correct
-path in your setup)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[diff]
-</span><span class='line'>external = &lt;path to file&gt;/.gitchanges</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>SubEthaEdit Support</h2>
-
-<p><strong>Step One: Download and install the mode file for SubEthaEdit</strong></p>
-
-<p>I wrote a SubEthaEdit mode for this which you can download from the
-<a href="http://abizern.github.com/gitcommit.mode/">github project page</a>. Please feel
-free to fork it and send me patches.</p>
-
-<p><strong>Step Two: Edit the .gitconfig file to use SebEthaEdit as an external editor.</strong></p>
-
-<p>Open your <code>~/.gitconfig</code> file. This time, under the <code>[core]</code> section, add the
-following line:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[core]
-</span><span class='line'>editor = /usr/bin/see -w -r -o new-window -j 'git editor' -m gitCommit -g 1:0</span></code></pre></td></tr></table></div></figure>
-
-
-<p>All those flags may seem daunting, but they are quite self-explanatory: the <code>-w</code>
-flag makes the Terminal wait for a response from SubEthaEdit. <code>-r</code> brings
-Terminal to the front after you&#8217;re done editing. <code>-o new-window</code> opens a new
-window for editing. I prefer this to having a new tab appear in whatever window
-I was working on. <code>-j 'git editor</code>&#8217; this sets the text that appears in the title
-bar, which you can change as you wish. <code>-m gitCommit</code> is what sets the mode to
-be used for editing. and <code>-g 1:0</code> puts the caret at the beginning of the file.</p>
-
-<p>Now, when git asks you to write a commit message, or pick commits when running
-<code>git rebase -i</code> a SubEthaEdit window will open as the commit message
-editor. Make whatever changes you need then save the file (⌘-S) and then close
-the window (⌘-W) for these changes to take effect.</p>
 ]]></content>
   </entry>
   
