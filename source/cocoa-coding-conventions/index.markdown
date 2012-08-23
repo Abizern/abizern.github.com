@@ -463,7 +463,7 @@ using ARC and declaring varibles within a case block an error may be thrown
 "Switch case is in protected scope" and then surrounding the case statement with
 brackets should clear up the error.
 
-The `defualt` case should **always** be the last case and should **always** be included.
+The `default` case should **always** be the last case and should **always** be included.
 
 ```objective-c
 switch (something.state) {
