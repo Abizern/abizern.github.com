@@ -97,21 +97,26 @@ If using iVars treat them as private and add them to a class extension or the
 // Bad - declared in the public header
 
 @interface MyClass : NSObject {
-    NSString *aString;
+    NSString *_aString;
 }
 
 // Better - declared in the .m file as part of a class extension
 
 @interface MyClass () {
-    NSString *aString;
+    NSString *_aString;
 }
 
 // Best - declared in the class implementation itself
 
 @implementation MyClass {
-    NSString *aString;
+    NSString *_aString;
 }
 ```
+
+Note the underscore prefix for iVars. I've gradually come around to the idea of
+using them. what they do is a)make clear that you are using an iVar and not a
+local varliable, and b)remove the need to rename local variables or paramaters
+to avoid clashing with iVars.
 
 ### Properties ###
 
