@@ -115,7 +115,7 @@ If using iVars treat them as private and add them to a class extension or the
 
 Note the underscore prefix for iVars. I've gradually come around to the idea of
 using them. what they do is a)make clear that you are using an iVar and not a
-local varliable, and b)remove the need to rename local variables or paramaters
+local varliable, and b)remove the need to rename local variables or parameters
 to avoid clashing with iVars.
 
 ### Properties ###
