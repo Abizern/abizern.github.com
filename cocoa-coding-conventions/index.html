@@ -136,7 +136,14 @@ up to date version is available on Github:</p>
 
 <div><script src='https://gist.github.com/325926.js?file='></script>
 <noscript><pre><code>// Useful Macros.
+// The best place to import this is in your project's pch file.
 // See http://www.cimgf.com/2010/05/02/my-current-prefix-pch-file/ for details.
+// Most current version at https://gist.github.com/325926 along with usage notes.
+
+#ifndef jcscommonmacros
+#define jcscommonmacros_1_0  10000
+#define jcscommonmacros      jcscommonmacros_1_0
+#endif
 
 #ifdef DEBUG
   #define DLog(...) NSLog(@&quot;%s %@&quot;, __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
