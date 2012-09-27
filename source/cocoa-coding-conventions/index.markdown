@@ -580,11 +580,16 @@ that support making changes like this.
 
 ## Revision History
 
-Last updated July 30, 2012
+Last updated September 27, 2012
 
 Full history
 [available on GitHub](https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions
  "Commit history for the file").
+
+## Source
+
+If you feel like creating your own, you can grab the latest markdown for this
+page from [Github](https://github.com/Abizern/abizern.github.com/blob/source/source/cocoa-coding-conventions/index.markdown).
 
 ## Credits
 
