@@ -4,11 +4,62 @@ title: "cocoa coding conventions"
 footer: false
 ---
 
-## Purpose
+## Table of contents
+
++ [Purpose](#Purpose)
++ [Xcode Project Settings](#ProjectSettings)
+  + [Static Analyser](#StaticAnalyser)
+  + [Automatic Reference Counting](#ARC)
+  + [Unit Testing](#UnitTesting)
+  + [Standard Files](#StandardFiles)
+  + [Schemes](#Schemes)
+  + [Compiler](#Compiler)
++ [Code Style](#CodeStyle)
+  + [imports](#imports)
+  + [iVars](#iVars)
+  + [Properties](#Properties)
+  + [Method and Variable Naming](#Naming)
+  + [Dot Notatation](#DotNotation)
+  + [Method Signatures](#MethodSignatures)
+  + [Private Methods](#PrivateMethods)
+  + [Empty Methods](#EmptyMethods)
+  + [Types](#Types)
+    + [integer](#integer)
+    + [BOOL](#BOOL)
+    + [floats](#floats)
+  + [Error Handling](#ErrorHandling)
+  + [Static Strings](#StaticStrings)
+  + [Enums](#Enums)
+  + [TODOs](#TODOs)
++ [Code Layout](#CodeLayout)
+  + [#pragma Is Your Friend](#Pragma)
+  + [Import Ordering](#ImportOrdering)
+  + [Method Ordering](#MethodOrdering)
+  + [Unit Test Classes](#UnitTestClasses)
+  + [Comments](#Comments)
+  + [Horizontal Spacing](#HorizontalSpacing)
+  + [Vertical Spacing](#VerticalSpacing)
+  + [Braces](#Braces)
+  + [Control Structures](#ControlStructures)
+    + [if/else](#ifelse)
+    + [The Ternary Operator](#Ternary)
+    + [Switch](#Switch)
+    + [For](#For)
+    + [While](#While)
+  + [Golden Path](#GoldenPath)
+  + [Multiple Returns](#MultipleReturns)
++ [Version Control](#VersionControl)
++ [The Boyscout Rule](#BoyscoutRule)
++ [Source](#Source)
++ [Credits](#Credits)
++ [Footnote](#Footnote)
++ [Revision History](#RevisionHistory)
+
+## <a id="Purpose"></a>Purpose
 
 Consistent coding conventions are one way to keep code readable and
 maintainable. Written coding conventions provide a handy reference for the times
-when you can't remember what convention you are supposed to be using.
+when one can't remember what conventions apply.
 
 This is a living document, and if I find that I am breaking the conventions I've
 set for myself, then I'll update the document to match what I'm doing. This is
@@ -18,19 +69,19 @@ In line with George Orwell's last rule in
 [Politics and the English Language (1946)](http://www.resort.com/~prime8/Orwell/patee.html)
 Break any of these rules sooner than doing anything barbarous.
 
-## Xcode Project Settings
+## <a id="ProjectSettings"></a>Xcode Project Settings
 
-### Static Analyser
+### <a id="StaticAnalyser"></a>Static Analyser
 
 Run the Static Analyser automatically with builds. Strive for zero
 warnings and errors with the default warnings and errors turned on. Use the
 Clang pragmas to silence warnings where you really have to.
 
-### Automatic Reference Counting
+### <a id="ARC"></a>Automatic Reference Counting
 
-All new projects use ARC.
+All new projects use ARC. The compiler is better placed to insert boilerplate code.
 
-### Unit Testing
+### <a id="UnitTesting"></a>Unit Testing
 
 Use the Unit Testing option when creating new projects from the templates. You
 may not always use strict TDD, but when the time comes where something needs to
@@ -42,7 +93,7 @@ the lack of a complete set of tests put you off writing any unit
 tests. Something is better than nothing, as long as you remember that the tests
 are not comprehensive.
 
-### Standard Files
+### <a id="StandardFiles"></a>Standard Files
 
 The Application Delegate class is named `AppDelegate`.
 
@@ -59,21 +110,21 @@ up to date version is available on Github:
 
 {% gist 325926 %}
 
-### Schemes
+### <a id="Schemes"></a>Schemes
 
 Xcode creates a standard scheme named after the project for development. As part
 of setting up the project create a Release Scheme (and a TestFlight scheme if
 appropriate) and set them up to use the correct signing keys. Make these schemes
 shared and add them to version control.
 
-### Compiler
+### <a id="Compiler"></a>Compiler
 
 Use the most up to date compiler possible and all the associated benefits,
 Literals, ARC, auto-synthesis, the static analyser, auto-layout, storyboards, etc.
 
-## Code Style
+## <a id="CodeStyle"></a>Code Style
 
-### imports
+### <a id="imports"></a>imports
 
 See the code layout section to see how to lay out the imports in the .h and .m files
 
@@ -85,7 +136,7 @@ Only put superclass imports and protocol imports into the header file. Forward
 declarations should use the `@class` statement. The remaining headers should go
 into the .m file.
 
-### iVars
+### <a id="iVars"></a>iVars
 
 Avoid using iVars, certainly not as part of the public interface. Prefer the use
 of properties.
@@ -118,7 +169,7 @@ using them. what they do is a)make clear that you are using an iVar and not a
 local varliable, and b)remove the need to rename local variables or parameters
 to avoid clashing with iVars.
 
-### Properties ###
+### <a id="Properties"></a>Properties ###
 
 Prefer immutable to mutable types, and use `copy` not `retain` for types that
 are part of a mutable / immutable class cluster unless you **really** need a
@@ -162,7 +213,7 @@ Auto-synthesised properties generate an iVar with a leading underscore. If not
 using a compiler that supports auto-synthesis @sythesise backing stores in the
 same way.
 
-### Method and Variable Naming
+### <a id="Naming"></a>Method and Variable Naming
 
 Don't fear long descriptive names, Xcode has auto-completion.
 
@@ -192,7 +243,7 @@ However - overall consistency and project style should take precedence. If this
 is your code, your project; then use the British spellings. If you are
 contributing to somebody else's code - use whatever is currently in use.
 
-### Dot Notation
+### <a id="DotNotation"></a>Dot Notation
 
 Use it, but don't abuse it.
 
@@ -203,7 +254,7 @@ apart the calls - change it to all brackets - which should always work.
 
 Only use dot notation for properties.
 
-### Method Signatures
+### <a id="MethodSignatures"></a>Method Signatures
 
 Left aligned, with a space after the scope. There should be a space between the
 method segments, and if a parameter is a pointer, then there should be a space
@@ -216,20 +267,20 @@ before the asterisk
 // GOOD
 - (void)doSomethingWithString:(NSString *)aString;
 ```
-### Private Methods
+### <a id="PrivateMethods"></a>Private Methods
 
 These should not be declared in the public interface or a class extension.
 
 Put them at the end of the class implementation in their own `#pragma` section.
 
-### Empty Methods
+### <a id="EmptyMethods"></a>Empty Methods
 
 If there is a method that has no implementation, or is just a call to `super`
 then it should be removed.
 
-### Types
+### <a id="Types"></a>Types
 
-#### integer
+#### <a id="integer"></a>integer
 
 Use `NSInteger` and `NSUInteger` in preference to these. Make sure you use the
 standard framework methods with `integer` instead of `int` to get the correct
@@ -237,7 +288,7 @@ types back.
 
 For Foundation types, when iterating use `CFIndex`.
 
-#### BOOL
+#### <a id="BOOL"></a>BOOL
 
 Use `YES` and `NO` not true, false, 1, -1 or anything like that.
 
@@ -251,17 +302,17 @@ if ([self aMethodReturningBOOL]) {
 if ([self aMethodReturningBOOL] == YES) {
 ```
 
-#### floats
+#### <a id="floats"></a>floats
 
 Use `CGFloat` instead of `float`.
 
-### Error Handling
+### <a id="ErrorHandling"></a>Error Handling
 
 Use `NSError` wherever possible. Exceptions and Asserts are used to find
 programmer errors. Use the `ALog` and `ZAssert` macros (c.f. Standard Macros)
 for convenience.
 
-### Static Strings
+### <a id="StaticStrings"></a>Static Strings
 
 Use static declarations in preference to #defines.
 
@@ -280,7 +331,7 @@ NSString * const kMyConstant = @"MyConstant";
 static NSString *someString;
 ```
 
-### Enums
+### <a id="Enums"></a>Enums
 
 Use the new typed enumerations.
 
@@ -289,7 +340,7 @@ typedef enum : unsigned char {
     Red,
     Green,
     Blue
-} kColours;
+} StandardColours;
 ```
 
 For simple enumerations there is no need to assign values to the values unless
@@ -306,7 +357,7 @@ typedef enum : NSUInteger {
 } ABCOutput;
 ```
 
-### TODOs
+### <a id="TODOs"></a>TODOs
 
 Put `// TODO: ` comments to remind yourself of things and use search to find
 them.
@@ -320,14 +371,14 @@ with using build scripts to find the TODOs - just use a `#warning` instead:
 
 This will raise a convenient warning with the message when building.
 
-## Code layout
+## <a id="CodeLayout"></a>Code layout
 
-### #pragma Is Your Friend
+### <a id="Pragma"></a>#pragma Is Your Friend
 
 Group methods into related groups and section them up with #pragma
 descriptions.
 
-### Import Ordering
+### <a id="ImportOrdering"></a>Import Ordering
 
 See the code style section for what to import and where.
 
@@ -343,7 +394,7 @@ If a suitable tool is available the Framework headers and the other imports may 
 ordered alphabetically within each of these groups, but it's not often worth the
 effort, unless you are looking for some boyscouting to do.
 
-### Method Ordering
+### <a id="MethodOrdering"></a>Method Ordering
 
 - Class methods.
 - Instance methods.
@@ -362,14 +413,14 @@ Try and keep the order of the methods in the header file the same as in the
 implementation file. This is a handy thing to look for when you want to follow
 the Boyscout Rule.
 
-### Unit Test Classes
+### <a id="UnitTestClasses"></a>Unit Test Classes
 
 The Xcode templates create these with a .h and a .m file. In almost all cases this isn't
 needed. Unit tests are self contained and having a .h file which can be shared just
 increased complexity. So, for unit test classes - put the interface and implementation
 in the same .m file for each test class.
 
-### Comments
+### <a id="Comments"></a>Comments
 
 One-line comments `//` are preferred to multiline `/**/` comments. There should
 be one space between the comment marker and the comment text.
@@ -387,14 +438,14 @@ For writing inline documentation use [AppleDoc](http://gentlebytes.com/appledoc/
 If you can't be bothered to keep the comments updated don't have them at
 all. Bad or out of date comments are worse than none at all.
 
-### Horizontal Spacing
+### <a id="HorizontalSpacing"></a>Horizontal Spacing
 
 Use 4 spaces to indent code, not tabs.
 
 Long lines aren't a problem. Let Xcode autowrap them. If you do decide to wrap
 lines containing methods - make sure the colons are aligned.
 
-### Vertical Spacing
+### <a id="VerticalSpacing"></a>Vertical Spacing
 
 Use a single blank line between methods. There is no need to leave a blank line
 at the start of a methed definition.
@@ -406,7 +457,7 @@ static definitions from implementation blocks, or to separate the end of the
 Group lines of codes together when they are related. Think of it like writing,
 where sentences that relate to a topic are grouped into paragraphs.
 
-### Braces
+### <a id="Braces"></a>Braces
 
 A brace is always opened on the same line after a space (the exceptions is block
 definitions). The closing brace is on a separate line and indented to the same
@@ -422,11 +473,11 @@ There should **always** be a space after the control structure (i.e. `if`,
 `else`, etc). The `else` and `else if` statements should be on the same line as
 the closing brace of the `if` statement.
 
-### Control Structures
+### <a id="ControlStructures"></a>Control Structures
 
 See the section on the Golden Path for more usage guides with control structures.
 
-#### if/else
+#### <a id="ifelse"></a>if/else
 
 ``` objective-c
 if (button.enabled) {
@@ -441,7 +492,7 @@ if (button.enabled) {
 Always use a multiline if/else statement with the clauses in braces. This is not
 only clearer to read but easier to make changes to.
 
-#### The Ternary operator
+#### <a id="Ternary"></a>The Ternary operator
 
 A handy structure, but should be used sparingly where it aids readability.
 
@@ -461,7 +512,7 @@ DLog(@"The BOOL value is %@", boolString);
 DLog(@"The BOOL value is %@", someBool ? @"YES" : @"NO");
 ```
 
-#### Switch
+#### <a id="Switch"></a>Switch
 
 Brackets don't need to be added around each case statement. In some cases, when
 using ARC and declaring varibles within a case block an error may be thrown
@@ -488,7 +539,7 @@ switch (something.state) {
 }
 ```
 
-#### For
+#### <a id="For"></a>For
 
 ```objective-c
 for (NSInteger idx = 0; idx < 10; idx++) {
@@ -505,7 +556,7 @@ rather than starting at `1` and using `<=`. Also, use `idx` instead of `i`. Fast
 enumeration is generally preferred because it is easier on the eyes as well as
 faster. Also consider using block enumeration where applicable.
 
-#### While
+#### <a id="While"></a>While
 
 ```objective-c
 while (something < somethingElse) {
@@ -513,7 +564,7 @@ while (something < somethingElse) {
 }
 ```
 
-### Golden Path
+### <a id="GoldenPath"></a>Golden Path
 
 When using conditionals, the left hand margin of the code should be the
 **golden** or **happy path**. This is the part of the code that should be
@@ -524,7 +575,7 @@ follow this:
 // BAD
 - (id)init {
     self = [super init];
-    if (self) {
+   if (self) {
         // initialisations here
     }
     return self;
@@ -543,7 +594,7 @@ follow this:
 This keeps the main part of the code furthest to the left, with the exceptional
 conditions further to the right.
 
-### Multiple Returns
+### <a id="MultipleReturns"></a>Multiple Returns
 
 Purists say that there should be only one return point from a function. There
 are times where multiple returns are not a problem. Look at the example
@@ -553,7 +604,7 @@ straight away. I find that this makes it clearer when reading the code that the
 function will return at this point and I don't have to look through the method
 any more to see if the value of self is changed later on before returning.
 
-## Version Control
+## <a id="VersionControl"></a>Version Control
 
 You have no excuse for not using version control.
 
@@ -567,7 +618,7 @@ cleanly. You'll be rebasing them onto master anyway so they'll be tidied up then
 When writing commit messages use the correct
 [conventions](http://365git.tumblr.com/post/3308646748/writing-git-commit-messages)
 
-## The Boyscout Rule
+## <a id="BoyscoutRule"></a>The Boyscout Rule
 
 The Boyscouts say: "Always leave a campsite cleaner than you found it". A similar
 rule is said to apply to programming - "Always check in a module cleaner than
@@ -578,20 +629,12 @@ problem in code - fix it. Don't leave it for later, don't leave it for someone
 else. Version control, unit tests, comments are all structures
 that support making changes like this.
 
-## Revision History
-
-Last updated September 27, 2012
-
-Full history
-[available on GitHub](https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions
- "Commit history for the file").
-
-## Source
+## <a id="Source"></a>Source
 
 If you feel like creating your own, you can grab the latest markdown for this
 page from [Github](https://github.com/Abizern/abizern.github.com/blob/source/source/cocoa-coding-conventions/index.markdown).
 
-## Credits
+## <a id="Credits"></a>Credits
 
 The basis for these standards were taken from
 
@@ -600,7 +643,7 @@ The basis for these standards were taken from
 + NOUSguide's
 [Coding-Conventions](http://github.com/NOUSguide/Coding-Conventions)
 
-## Footnote
+## <a id="Footnote"></a>Footnote
 
 I realise that these conventions are not to everyones' tastes, and there is no
 comment section on this blog for you to tell me how wrong I am. It's okay for
@@ -609,3 +652,11 @@ this as a template to create and evolve your own guidelines.
 
 But, my contact details are on the about page if you do want to give me a piece
 of your mind. I'm not above changing my opinion about these.
+
+## <a id="RevisionHistory"></a>Revision History
+
+Last updated September 27, 2012
+
+Full history
+[available on GitHub](https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions
+ "Commit history for the file").
