@@ -9,8 +9,11 @@
   <meta name="author" content="Abizer Nasir">
 
   
-  <meta name="description" content="Cocoa Coding Conventions Purpose Consistent coding conventions are one way to keep code readable and
-maintainable. Written coding conventions &hellip;">
+  <meta name="description" content="Cocoa Coding Conventions Table of contents Purpose
+Xcode Project Settings Static Analyser
+Automatic Reference Counting
+Unit Testing
+Standard Files &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,11 +84,85 @@ maintainable. Written coding conventions &hellip;">
     
   </header>
   
-  <h2>Purpose</h2>
+  <h2>Table of contents</h2>
+
+<ul>
+<li><a href="#Purpose">Purpose</a></li>
+<li><a href="#ProjectSettings">Xcode Project Settings</a>
+
+<ul>
+<li><a href="#StaticAnalyser">Static Analyser</a></li>
+<li><a href="#ARC">Automatic Reference Counting</a></li>
+<li><a href="#UnitTesting">Unit Testing</a></li>
+<li><a href="#StandardFiles">Standard Files</a></li>
+<li><a href="#Schemes">Schemes</a></li>
+<li><a href="#Compiler">Compiler</a></li>
+</ul>
+</li>
+<li><a href="#CodeStyle">Code Style</a>
+
+<ul>
+<li><a href="#imports">imports</a></li>
+<li><a href="#iVars">iVars</a></li>
+<li><a href="#Properties">Properties</a></li>
+<li><a href="#Naming">Method and Variable Naming</a></li>
+<li><a href="#DotNotation">Dot Notatation</a></li>
+<li><a href="#MethodSignatures">Method Signatures</a></li>
+<li><a href="#PrivateMethods">Private Methods</a></li>
+<li><a href="#EmptyMethods">Empty Methods</a></li>
+<li><a href="#Types">Types</a>
+
+<ul>
+<li><a href="#integer">integer</a></li>
+<li><a href="#BOOL">BOOL</a></li>
+<li><a href="#floats">floats</a></li>
+</ul>
+</li>
+<li><a href="#ErrorHandling">Error Handling</a></li>
+<li><a href="#StaticStrings">Static Strings</a></li>
+<li><a href="#Enums">Enums</a></li>
+<li><a href="#TODOs">TODOs</a></li>
+</ul>
+</li>
+<li><a href="#CodeLayout">Code Layout</a>
+
+<ul>
+<li><a href="#Pragma">#pragma Is Your Friend</a></li>
+<li><a href="#ImportOrdering">Import Ordering</a></li>
+<li><a href="#MethodOrdering">Method Ordering</a></li>
+<li><a href="#UnitTestClasses">Unit Test Classes</a></li>
+<li><a href="#Comments">Comments</a></li>
+<li><a href="#HorizontalSpacing">Horizontal Spacing</a></li>
+<li><a href="#VerticalSpacing">Vertical Spacing</a></li>
+<li><a href="#Braces">Braces</a></li>
+<li><a href="#ControlStructures">Control Structures</a>
+
+<ul>
+<li><a href="#ifelse">if/else</a></li>
+<li><a href="#Ternary">The Ternary Operator</a></li>
+<li><a href="#Switch">Switch</a></li>
+<li><a href="#For">For</a></li>
+<li><a href="#While">While</a></li>
+</ul>
+</li>
+<li><a href="#GoldenPath">Golden Path</a></li>
+<li><a href="#MultipleReturns">Multiple Returns</a></li>
+</ul>
+</li>
+<li><a href="#VersionControl">Version Control</a></li>
+<li><a href="#BoyscoutRule">The Boyscout Rule</a></li>
+<li><a href="#Source">Source</a></li>
+<li><a href="#Credits">Credits</a></li>
+<li><a href="#Footnote">Footnote</a></li>
+<li><a href="#RevisionHistory">Revision History</a></li>
+</ul>
+
+
+<h2><a id="Purpose"></a>Purpose</h2>
 
 <p>Consistent coding conventions are one way to keep code readable and
 maintainable. Written coding conventions provide a handy reference for the times
-when you can&#8217;t remember what convention you are supposed to be using.</p>
+when one can&#8217;t remember what conventions apply.</p>
 
 <p>This is a living document, and if I find that I am breaking the conventions I&#8217;ve
 set for myself, then I&#8217;ll update the document to match what I&#8217;m doing. This is
@@ -95,19 +172,19 @@ more a record of my choices than a rod for my own back.</p>
 <a href="http://www.resort.com/~prime8/Orwell/patee.html">Politics and the English Language (1946)</a>
 Break any of these rules sooner than doing anything barbarous.</p>
 
-<h2>Xcode Project Settings</h2>
+<h2><a id="ProjectSettings"></a>Xcode Project Settings</h2>
 
-<h3>Static Analyser</h3>
+<h3><a id="StaticAnalyser"></a>Static Analyser</h3>
 
 <p>Run the Static Analyser automatically with builds. Strive for zero
 warnings and errors with the default warnings and errors turned on. Use the
 Clang pragmas to silence warnings where you really have to.</p>
 
-<h3>Automatic Reference Counting</h3>
+<h3><a id="ARC"></a>Automatic Reference Counting</h3>
 
-<p>All new projects use ARC.</p>
+<p>All new projects use ARC. The compiler is better placed to insert boilerplate code.</p>
 
-<h3>Unit Testing</h3>
+<h3><a id="UnitTesting"></a>Unit Testing</h3>
 
 <p>Use the Unit Testing option when creating new projects from the templates. You
 may not always use strict TDD, but when the time comes where something needs to
@@ -119,7 +196,7 @@ the lack of a complete set of tests put you off writing any unit
 tests. Something is better than nothing, as long as you remember that the tests
 are not comprehensive.</p>
 
-<h3>Standard Files</h3>
+<h3><a id="StandardFiles"></a>Standard Files</h3>
 
 <p>The Application Delegate class is named <code>AppDelegate</code>.</p>
 
@@ -171,21 +248,21 @@ static inline BOOL isEmpty(id thing) {
 }</code></pre></noscript></div>
 
 
-<h3>Schemes</h3>
+<h3><a id="Schemes"></a>Schemes</h3>
 
 <p>Xcode creates a standard scheme named after the project for development. As part
 of setting up the project create a Release Scheme (and a TestFlight scheme if
 appropriate) and set them up to use the correct signing keys. Make these schemes
 shared and add them to version control.</p>
 
-<h3>Compiler</h3>
+<h3><a id="Compiler"></a>Compiler</h3>
 
 <p>Use the most up to date compiler possible and all the associated benefits,
 Literals, ARC, auto-synthesis, the static analyser, auto-layout, storyboards, etc.</p>
 
-<h2>Code Style</h2>
+<h2><a id="CodeStyle"></a>Code Style</h2>
 
-<h3>imports</h3>
+<h3><a id="imports"></a>imports</h3>
 
 <p>See the code layout section to see how to lay out the imports in the .h and .m files</p>
 
@@ -197,7 +274,7 @@ class is set up to deal with.</p>
 declarations should use the <code>@class</code> statement. The remaining headers should go
 into the .m file.</p>
 
-<h3>iVars</h3>
+<h3><a id="iVars"></a>iVars</h3>
 
 <p>Avoid using iVars, certainly not as part of the public interface. Prefer the use
 of properties.</p>
@@ -247,7 +324,7 @@ using them. what they do is a)make clear that you are using an iVar and not a
 local varliable, and b)remove the need to rename local variables or parameters
 to avoid clashing with iVars.</p>
 
-<h3>Properties</h3>
+<h3><a id="Properties"></a>Properties</h3>
 
 <p>Prefer immutable to mutable types, and use <code>copy</code> not <code>retain</code> for types that
 are part of a mutable / immutable class cluster unless you <strong>really</strong> need a
@@ -308,7 +385,7 @@ class, redeclare the property as readwrite within a class extension.</p>
 using a compiler that supports auto-synthesis @sythesise backing stores in the
 same way.</p>
 
-<h3>Method and Variable Naming</h3>
+<h3><a id="Naming"></a>Method and Variable Naming</h3>
 
 <p>Don&#8217;t fear long descriptive names, Xcode has auto-completion.</p>
 
@@ -345,7 +422,7 @@ autocompletion use the correct spellings for the system.</p>
 is your code, your project; then use the British spellings. If you are
 contributing to somebody else&#8217;s code - use whatever is currently in use.</p>
 
-<h3>Dot Notation</h3>
+<h3><a id="DotNotation"></a>Dot Notation</h3>
 
 <p>Use it, but don&#8217;t abuse it.</p>
 
@@ -356,7 +433,7 @@ apart the calls - change it to all brackets - which should always work.</p>
 
 <p>Only use dot notation for properties.</p>
 
-<h3>Method Signatures</h3>
+<h3><a id="MethodSignatures"></a>Method Signatures</h3>
 
 <p>Left aligned, with a space after the scope. There should be a space between the
 method segments, and if a parameter is a pointer, then there should be a space
@@ -375,20 +452,20 @@ before the asterisk</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Private Methods</h3>
+<h3><a id="PrivateMethods"></a>Private Methods</h3>
 
 <p>These should not be declared in the public interface or a class extension.</p>
 
 <p>Put them at the end of the class implementation in their own <code>#pragma</code> section.</p>
 
-<h3>Empty Methods</h3>
+<h3><a id="EmptyMethods"></a>Empty Methods</h3>
 
 <p>If there is a method that has no implementation, or is just a call to <code>super</code>
 then it should be removed.</p>
 
-<h3>Types</h3>
+<h3><a id="Types"></a>Types</h3>
 
-<h4>integer</h4>
+<h4><a id="integer"></a>integer</h4>
 
 <p>Use <code>NSInteger</code> and <code>NSUInteger</code> in preference to these. Make sure you use the
 standard framework methods with <code>integer</code> instead of <code>int</code> to get the correct
@@ -396,7 +473,7 @@ types back.</p>
 
 <p>For Foundation types, when iterating use <code>CFIndex</code>.</p>
 
-<h4>BOOL</h4>
+<h4><a id="BOOL"></a>BOOL</h4>
 
 <p>Use <code>YES</code> and <code>NO</code> not true, false, 1, -1 or anything like that.</p>
 
@@ -415,17 +492,17 @@ types back.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h4>floats</h4>
+<h4><a id="floats"></a>floats</h4>
 
 <p>Use <code>CGFloat</code> instead of <code>float</code>.</p>
 
-<h3>Error Handling</h3>
+<h3><a id="ErrorHandling"></a>Error Handling</h3>
 
 <p>Use <code>NSError</code> wherever possible. Exceptions and Asserts are used to find
 programmer errors. Use the <code>ALog</code> and <code>ZAssert</code> macros (c.f. Standard Macros)
 for convenience.</p>
 
-<h3>Static Strings</h3>
+<h3><a id="StaticStrings"></a>Static Strings</h3>
 
 <p>Use static declarations in preference to #defines.</p>
 
@@ -453,7 +530,7 @@ a simple static otherwise</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Enums</h3>
+<h3><a id="Enums"></a>Enums</h3>
 
 <p>Use the new typed enumerations.</p>
 
@@ -466,7 +543,7 @@ a simple static otherwise</p>
 </span><span class='line'>    <span class="n">Red</span><span class="p">,</span>
 </span><span class='line'>    <span class="n">Green</span><span class="p">,</span>
 </span><span class='line'>    <span class="n">Blue</span>
-</span><span class='line'><span class="p">}</span> <span class="n">kColours</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span> <span class="n">StandardColours</span><span class="p">;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -490,7 +567,7 @@ should use the shift-left operator (&lt;&lt;).</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3>TODOs</h3>
+<h3><a id="TODOs"></a>TODOs</h3>
 
 <p>Put <code>// TODO:</code> comments to remind yourself of things and use search to find
 them.</p>
@@ -505,14 +582,14 @@ with using build scripts to find the TODOs - just use a <code>#warning</code> in
 
 <p>This will raise a convenient warning with the message when building.</p>
 
-<h2>Code layout</h2>
+<h2><a id="CodeLayout"></a>Code layout</h2>
 
-<h3>#pragma Is Your Friend</h3>
+<h3><a id="Pragma"></a>#pragma Is Your Friend</h3>
 
 <p>Group methods into related groups and section them up with #pragma
 descriptions.</p>
 
-<h3>Import Ordering</h3>
+<h3><a id="ImportOrdering"></a>Import Ordering</h3>
 
 <p>See the code style section for what to import and where.</p>
 
@@ -531,7 +608,7 @@ preferred. In any case  this is the way to lay them out.</p>
 ordered alphabetically within each of these groups, but it&#8217;s not often worth the
 effort, unless you are looking for some boyscouting to do.</p>
 
-<h3>Method Ordering</h3>
+<h3><a id="MethodOrdering"></a>Method Ordering</h3>
 
 <ul>
 <li>Class methods.</li>
@@ -557,14 +634,14 @@ don&#8217;t want to leave to auto-synthesize.</li>
 implementation file. This is a handy thing to look for when you want to follow
 the Boyscout Rule.</p>
 
-<h3>Unit Test Classes</h3>
+<h3><a id="UnitTestClasses"></a>Unit Test Classes</h3>
 
 <p>The Xcode templates create these with a .h and a .m file. In almost all cases this isn&#8217;t
 needed. Unit tests are self contained and having a .h file which can be shared just
 increased complexity. So, for unit test classes - put the interface and implementation
 in the same .m file for each test class.</p>
 
-<h3>Comments</h3>
+<h3><a id="Comments"></a>Comments</h3>
 
 <p>One-line comments <code>//</code> are preferred to multiline <code>/**/</code> comments. There should
 be one space between the comment marker and the comment text.</p>
@@ -582,14 +659,14 @@ well named private method instead.</p>
 <p>If you can&#8217;t be bothered to keep the comments updated don&#8217;t have them at
 all. Bad or out of date comments are worse than none at all.</p>
 
-<h3>Horizontal Spacing</h3>
+<h3><a id="HorizontalSpacing"></a>Horizontal Spacing</h3>
 
 <p>Use 4 spaces to indent code, not tabs.</p>
 
 <p>Long lines aren&#8217;t a problem. Let Xcode autowrap them. If you do decide to wrap
 lines containing methods - make sure the colons are aligned.</p>
 
-<h3>Vertical Spacing</h3>
+<h3><a id="VerticalSpacing"></a>Vertical Spacing</h3>
 
 <p>Use a single blank line between methods. There is no need to leave a blank line
 at the start of a methed definition.</p>
@@ -601,7 +678,7 @@ static definitions from implementation blocks, or to separate the end of the
 <p>Group lines of codes together when they are related. Think of it like writing,
 where sentences that relate to a topic are grouped into paragraphs.</p>
 
-<h3>Braces</h3>
+<h3><a id="Braces"></a>Braces</h3>
 
 <p>A brace is always opened on the same line after a space (the exceptions is block
 definitions). The closing brace is on a separate line and indented to the same
@@ -620,11 +697,11 @@ level as the line with the opening brace.</p>
 <code>else</code>, etc). The <code>else</code> and <code>else if</code> statements should be on the same line as
 the closing brace of the <code>if</code> statement.</p>
 
-<h3>Control Structures</h3>
+<h3><a id="ControlStructures"></a>Control Structures</h3>
 
 <p>See the section on the Golden Path for more usage guides with control structures.</p>
 
-<h4>if/else</h4>
+<h4><a id="ifelse"></a>if/else</h4>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -646,7 +723,7 @@ the closing brace of the <code>if</code> statement.</p>
 <p>Always use a multiline if/else statement with the clauses in braces. This is not
 only clearer to read but easier to make changes to.</p>
 
-<h4>The Ternary operator</h4>
+<h4><a id="Ternary"></a>The Ternary operator</h4>
 
 <p>A handy structure, but should be used sparingly where it aids readability.</p>
 
@@ -679,7 +756,7 @@ only clearer to read but easier to make changes to.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h4>Switch</h4>
+<h4><a id="Switch"></a>Switch</h4>
 
 <p>Brackets don&#8217;t need to be added around each case statement. In some cases, when
 using ARC and declaring varibles within a case block an error may be thrown
@@ -721,7 +798,7 @@ brackets should clear up the error.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h4>For</h4>
+<h4><a id="For"></a>For</h4>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -745,7 +822,7 @@ rather than starting at <code>1</code> and using <code>&lt;=</code>. Also, use <
 enumeration is generally preferred because it is easier on the eyes as well as
 faster. Also consider using block enumeration where applicable.</p>
 
-<h4>While</h4>
+<h4><a id="While"></a>While</h4>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -756,7 +833,7 @@ faster. Also consider using block enumeration where applicable.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Golden Path</h3>
+<h3><a id="GoldenPath"></a>Golden Path</h3>
 
 <p>When using conditionals, the left hand margin of the code should be the
 <strong>golden</strong> or <strong>happy path</strong>. This is the part of the code that should be
@@ -783,7 +860,7 @@ follow this:</p>
 </pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="c1">// BAD</span>
 </span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">init</span> <span class="p">{</span>
 </span><span class='line'>    <span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="n">init</span><span class="p">];</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>   <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>        <span class="c1">// initialisations here</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'>    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
@@ -803,7 +880,7 @@ follow this:</p>
 <p>This keeps the main part of the code furthest to the left, with the exceptional
 conditions further to the right.</p>
 
-<h3>Multiple Returns</h3>
+<h3><a id="MultipleReturns"></a>Multiple Returns</h3>
 
 <p>Purists say that there should be only one return point from a function. There
 are times where multiple returns are not a problem. Look at the example
@@ -813,7 +890,7 @@ straight away. I find that this makes it clearer when reading the code that the
 function will return at this point and I don&#8217;t have to look through the method
 any more to see if the value of self is changed later on before returning.</p>
 
-<h2>Version Control</h2>
+<h2><a id="VersionControl"></a>Version Control</h2>
 
 <p>You have no excuse for not using version control.</p>
 
@@ -827,7 +904,7 @@ cleanly. You&#8217;ll be rebasing them onto master anyway so they&#8217;ll be ti
 <p>When writing commit messages use the correct
 <a href="http://365git.tumblr.com/post/3308646748/writing-git-commit-messages">conventions</a></p>
 
-<h2>The Boyscout Rule</h2>
+<h2><a id="BoyscoutRule"></a>The Boyscout Rule</h2>
 
 <p>The Boyscouts say: &#8220;Always leave a campsite cleaner than you found it&#8221;. A similar
 rule is said to apply to programming - &#8220;Always check in a module cleaner than
@@ -838,19 +915,12 @@ problem in code - fix it. Don&#8217;t leave it for later, don&#8217;t leave it f
 else. Version control, unit tests, comments are all structures
 that support making changes like this.</p>
 
-<h2>Revision History</h2>
-
-<p>Last updated September 27, 2012</p>
-
-<p>Full history
-<a href="https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions" title="Commit history for the file">available on GitHub</a>.</p>
-
-<h2>Source</h2>
+<h2><a id="Source"></a>Source</h2>
 
 <p>If you feel like creating your own, you can grab the latest markdown for this
 page from <a href="https://github.com/Abizern/abizern.github.com/blob/source/source/cocoa-coding-conventions/index.markdown">Github</a>.</p>
 
-<h2>Credits</h2>
+<h2><a id="Credits"></a>Credits</h2>
 
 <p>The basis for these standards were taken from</p>
 
@@ -862,7 +932,7 @@ page from <a href="https://github.com/Abizern/abizern.github.com/blob/source/sou
 </ul>
 
 
-<h2>Footnote</h2>
+<h2><a id="Footnote"></a>Footnote</h2>
 
 <p>I realise that these conventions are not to everyones&#8217; tastes, and there is no
 comment section on this blog for you to tell me how wrong I am. It&#8217;s okay for
@@ -871,6 +941,13 @@ this as a template to create and evolve your own guidelines.</p>
 
 <p>But, my contact details are on the about page if you do want to give me a piece
 of your mind. I&#8217;m not above changing my opinion about these.</p>
+
+<h2><a id="RevisionHistory"></a>Revision History</h2>
+
+<p>Last updated September 27, 2012</p>
+
+<p>Full history
+<a href="https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions" title="Commit history for the file">available on GitHub</a>.</p>
 
   
 </article>
