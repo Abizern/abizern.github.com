@@ -7,3 +7,7 @@
 html {
   background: $page-bg image-url('BubblesBG.png') top left;
 }
+
+body > div > div { 
+  border-right-width: 0px;
+}
