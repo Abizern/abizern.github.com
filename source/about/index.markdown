@@ -37,7 +37,7 @@ me instead.
 - Most of the time you can get me on [Twitter](http://twitter.com/#!/abizern "Twitter page").
 - You can see my code on [Github](http://git.io/abizern "GitHub page").
 - I'm active on [Stack Overflow](http://stackoverflow.com/users/41116/abizern" title="Stack Overflow "Stack Overflow").
-- I'm on [Google+](https://plus.google.com/104413546681044086393/posts "Google+ page").
+- I'm on [Google+](https://plus.google.com/114978774242418167340/posts "Google+ page").
 - No, I don't have a Facebook page.
 - Have a look at my pictures on [Flickr](http://www.flickr.com/people/stompy/ "Flickr page").
 - Do you want to connect with me at [LinkedIn](http://www.linkedin.com/e/fpf/82724921 "LinkedIn")?
