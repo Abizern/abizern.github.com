@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Mac Development | Abizer Nasir]]></title>
-  <link href="http://abizern.org/categories/mac-development/atom.xml" rel="self"/>
+  <title><![CDATA[Category: OS X Development | Abizer Nasir]]></title>
+  <link href="http://abizern.org/categories/os-x-development/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-10-15T17:28:09+01:00</updated>
+  <updated>2012-10-25T13:27:03+01:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -12,6 +12,74 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[UUID Strings with Cocoa]]></title>
+    <link href="http://abizern.org/2012/10/25/uuid-strings-with-cocoa/"/>
+    <updated>2012-10-25T11:52:00+01:00</updated>
+    <id>http://abizern.org/2012/10/25/uuid-strings-with-cocoa</id>
+    <content type="html"><![CDATA[<p>This used to be a thing until the iOS 6 and OS X 10.8 compatible
+<a href="http://developer.apple.com/library/mac/#documentation/Foundation/Reference/NSUUID_Class/Reference/Reference.html">NSUUID Class</a>
+became available.</p>
+
+<h2>New</h2>
+
+<p>This is how you can do it now:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>UUID from NSUUID  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">NSString</span> <span class="o">*</span><span class="n">uuidString</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSUUID</span> <span class="n">UUID</span><span class="p">]</span> <span class="n">UUIDString</span><span class="p">];</span>
+</span><span class='line'><span class="c1">// Generates: 7E60066C-C7F3-438A-95B1-DDE8634E1072</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2>Old</h2>
+
+<p>Here's a method you can put in a class, with the correct ARC casts on ownership, that
+returns a UUID. It's a fairly common technique, and you'll even see versions of
+it where people have created a category on NSString for this.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>UUID from a method   </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">uuidString</span> <span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="c1">// Returns a UUID</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">CFUUIDRef</span> <span class="n">uuid</span> <span class="o">=</span> <span class="n">CFUUIDCreate</span><span class="p">(</span><span class="n">kCFAllocatorDefault</span><span class="p">);</span>
+</span><span class='line'><span class="n">NSString</span> <span class="o">*</span><span class="n">uuidStr</span> <span class="o">=</span> <span class="p">(</span><span class="n">__bridge_transfer</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">CFUUIDCreateString</span><span class="p">(</span><span class="n">kCFAllocatorDefault</span><span class="p">,</span> <span class="n">uuid</span><span class="p">);</span>
+</span><span class='line'><span class="n">CFRelease</span><span class="p">(</span><span class="n">uuid</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">return</span> <span class="n">uuidStr</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>And to use it:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>UUID from a method usage  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">NSString</span> <span class="o">*</span><span class="n">uuidString</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span> <span class="n">uuidString</span><span class="p">];</span>
+</span><span class='line'><span class="c1">// Generates D5CB0560-206F-4581-AA25-1D6A873F3526</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Coding Conventions]]></title>
@@ -153,20 +221,6 @@ there is a menu item you can use instead. Have a look at the Project > Rename…
 menu item instead.</p>
 
 <p><img src="http://images.abizern.org.s3.amazonaws.com/2010/03/XcodeRename.png" alt="Project &gt; Rename…" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A Year Of Objective-C Snippets ]]></title>
-    <link href="http://abizern.org/2010/02/27/a-year-of-objective-c-snippets/"/>
-    <updated>2010-02-27T17:20:29+00:00</updated>
-    <id>http://abizern.org/2010/02/27/a-year-of-objective-c-snippets</id>
-    <content type="html"><![CDATA[<p>Pieter Omvlee of <a href="http://www.bohemiancoding.com/">Bohemian Coding</a> has been
-inspired to post a snippet of Objective-C/Cocoa code every day for a year.</p>
-
-<p>It’s a great idea and starts with a useful category on NSArray. Go and see what
-you can learn over at
-<a href="http://365cocoa.tumblr.com/">http://365cocoa.tumblr.com/</a>.</p>
 ]]></content>
   </entry>
   
