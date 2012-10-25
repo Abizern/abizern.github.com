@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS Development | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/ios-development/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-10-25T13:27:03+01:00</updated>
+  <updated>2012-10-25T13:31:04+01:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -21,6 +21,9 @@
     <content type="html"><![CDATA[<p>This used to be a thing until the iOS 6 and OS X 10.8 compatible
 <a href="http://developer.apple.com/library/mac/#documentation/Foundation/Reference/NSUUID_Class/Reference/Reference.html">NSUUID Class</a>
 became available.</p>
+
+<!-- more -->
+
 
 <h2>New</h2>
 
