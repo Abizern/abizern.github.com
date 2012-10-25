@@ -4,7 +4,7 @@ layout: post
 status: publish
 title: Just Enough GPG for git
 categories:
-- Mac Development
+- OS X Development
 - Web Development
 - Git
 ---

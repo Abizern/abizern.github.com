@@ -4,7 +4,7 @@ layout: post
 status: publish
 title: 'A Year Of Objective-C Snippets '
 categories:
-- Mac Development
+- OS X Development
 ---
 
 Pieter Omvlee of [Bohemian Coding](http://www.bohemiancoding.com/) has been

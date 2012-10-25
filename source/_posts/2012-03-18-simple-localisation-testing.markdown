@@ -3,7 +3,7 @@ layout: post
 title: "Simple Localisation Testing"
 date: 2012-03-18 08:44
 categories:
-- Mac Development
+- OS X Development
 - iOS Development
 ---
 

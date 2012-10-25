@@ -4,7 +4,7 @@ layout: post
 status: publish
 title: Renaming an Xcode Project
 categories:
-- Mac Development
+- OS X Development
 ---
 
 You may have occasion to rename an Xcode project.

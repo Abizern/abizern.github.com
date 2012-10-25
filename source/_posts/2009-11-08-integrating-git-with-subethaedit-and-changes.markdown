@@ -4,7 +4,7 @@ layout: post
 status: publish
 title: Integrating git with SubEthaEdit and Changes.app
 categories:
-- Mac Development
+- OS X Development
 - Git
 ---
 

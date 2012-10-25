@@ -4,7 +4,7 @@ layout: post
 status: publish
 title: Some tips for lazy Xcoders
 categories:
-- Mac Development
+- OS X Development
 ---
 
 We all know what we should be doing when writing code. Each methodology you
