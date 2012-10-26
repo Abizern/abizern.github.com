@@ -43,10 +43,23 @@ it where people have created a category on NSString for this.
 {% endcodeblock %}
 
 
-
 And to use it:
 
 {% codeblock UUID from a method usage lang:objc %}
 NSString *uuidString = [self uuidString];
 // Generates D5CB0560-206F-4581-AA25-1D6A873F3526
+{% endcodeblock %}
+
+## NSProcessInfo
+
+A common use for unique strings is to name files and directories
+within a program so that they do not clash. Since iOS 2 and OS X 10.0 there has
+been the `globallyUniqueString` method in
+[NSProcessInfo](https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSProcessInfo_Class/Reference/Reference.html)
+which returns a string that is unique for the network and process. So, for a
+_good enough_ unique string this is probably a better method to use:
+
+{% codeblock Unique String from NSProcessInfo lang:objc %}
+NSString *uuidStr = [[NSProcessInfo processInfo] globallyUniqueString];
+// generates 56341C6E-35A7-4C97-9C5E-7AC79673EAB2-539-000001F95B327819
 {% endcodeblock %}
