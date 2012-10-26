@@ -159,6 +159,23 @@ it where people have created a category on NSString for this.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
+<h2>NSProcessInfo</h2>
+
+<p>A common use for unique strings is to name files and directories
+within a program so that they do not clash. Since iOS 2 and OS X 10.0 there has
+been the <code>globallyUniqueString</code> method in
+<a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSProcessInfo_Class/Reference/Reference.html">NSProcessInfo</a>
+which returns a string that is unique for the network and process. So, for a
+<em>good enough</em> unique string this is probably a better method to use:</p>
+
+<figure class='code'><figcaption><span>Unique String from NSProcessInfo  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">NSString</span> <span class="o">*</span><span class="n">uuidStr</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSProcessInfo</span> <span class="n">processInfo</span><span class="p">]</span> <span class="n">globallyUniqueString</span><span class="p">];</span>
+</span><span class='line'><span class="c1">// generates 56341C6E-35A7-4C97-9C5E-7AC79673EAB2-539-000001F95B327819</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 
 </div>
 
