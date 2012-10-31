@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Video | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/video/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-10-31T10:14:39+00:00</updated>
+  <updated>2012-10-31T11:53:11+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -42,10 +42,9 @@ you'll know that's nothing new).</p>
 <noscript><pre><code>module Main where
 
 {-
+ - Problem Statement:
  - http://code.google.com/codejam/contest/351101/dashboard#s=p1
- -}
-
-{-
+ -
  - Usage either compile or use runhaskell / runghc
  - Pass the input file as the sole command line argument
  - Redirect output if you want the results to go in a file
