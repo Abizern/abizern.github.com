@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Haskell | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/haskell/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-10-26T09:48:18+01:00</updated>
+  <updated>2012-10-31T10:14:39+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[An improved Reverse Words Script]]></title>
+    <link href="http://abizern.org/2012/10/31/an-improved-reverse-words-script/"/>
+    <updated>2012-10-31T09:19:00+00:00</updated>
+    <id>http://abizern.org/2012/10/31/an-improved-reverse-words-script</id>
+    <content type="html"><![CDATA[<p>About 6 months ago I posted
+<a href="http://abizern.org/2012/04/09/reverse-words-with-haskell/">a solution</a> to the
+Google Code Jam problem
+<a href="http://code.google.com/codejam/contest/351101/dashboard#s=p1" title="Original problem statement">Reverse Words</a></p>
+
+<p>I've become more comfortable with Haskell since then, so here's an improved solution.</p>
+
+<!-- more -->
+
+
+<p><div><script src='https://gist.github.com/3986006.js?file='></script>
+<noscript><pre><code>module Main where
+
+{-
+Problem statement:
+http://code.google.com/codejam/contest/351101/dashboard#s=p1
+
+Run as a script with runghc, or compile with ghc --make -O2
+
+input and output is by redirection;
+
+$ ./reverse_words &lt; input_file &gt; output_file
+ -}
+
+import Control.Monad
+
+main :: IO ()
+main = do
+  n &lt;- readLn
+  forM_ [1..n] $ \i -&gt; do
+    solution &lt;- fmap (unwords . reverse . words) getLine
+    putStrLn $ &quot;Case #&quot; ++ show i ++ &quot;: &quot; ++ solution
+</code></pre></noscript></div>
+</p>
+
+<p>I'm not one who believes that shorter, terser code is necessarily better, but
+that isn't what makes this version an improvement. Nor even the use of Monads;
+Haskell's sexy buzzword. I think this code is better because it has less noise
+than the original solution.</p>
+
+<p>Code Jam problems have well defined inputs and required outputs, and there is no
+need to load the whole input file when the script starts. Normally, I would be
+all for splitting out code into smaller, descriptively named functions, but in
+this small case that's just more typing and more lines getting in the way of the
+actual solution. I think that this version is more readable because there are
+less lines of code that don't contribute directly to the solution.</p>
+
+<p>And Code Jam has a time limit, so smaller code is faster to write and easier to
+debug.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[On Live Coding]]></title>
