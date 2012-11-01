@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Haskell | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/haskell/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-11-01T18:59:04+00:00</updated>
+  <updated>2012-11-01T19:07:24+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -132,7 +132,7 @@ working on." - Zed Shaw</li>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Rotate a String with Haskell]]></title>
+    <title type="html"><![CDATA[Rotate A String with Haskell]]></title>
     <link href="http://abizern.org/2012/04/15/rotate-a-string-with-haskell/"/>
     <updated>2012-04-15T15:08:00+01:00</updated>
     <id>http://abizern.org/2012/04/15/rotate-a-string-with-haskell</id>
