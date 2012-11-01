@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Rotate a String with Haskell"
+title: "Rotate A String with Haskell"
 date: 2012-04-15 15:08
 comments: false
 categories:
