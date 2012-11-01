@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: emacs | Abizer Nasir]]></title>
+  <link href="http://abizern.org/categories/emacs/atom.xml" rel="self"/>
+  <link href="http://abizern.org/"/>
+  <updated>2012-11-01T18:59:04+00:00</updated>
+  <id>http://abizern.org/</id>
+  <author>
+    <name><![CDATA[Abizer Nasir]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[A Reason To Learn Lisp]]></title>
+    <link href="http://abizern.org/2012/11/01/a-reason-to-learn-lisp/"/>
+    <updated>2012-11-01T18:49:00+00:00</updated>
+    <id>http://abizern.org/2012/11/01/a-reason-to-learn-lisp</id>
+    <content type="html"><![CDATA[<p>A short video from a live demo of Emacs from Web Rebels in Oslo 2012.</p>
+
+<p>As the description says: "Crappy sound. Swearing. A noisy bar", but an example
+of strong content overcoming presentation difficulties.</p>
+
+<!-- more -->
+
+
+<p><iframe width="640" height="510" src="http://www.youtube.com/embed/p3Te_a-AGqM " frameborder="0" allowfullscreen></iframe></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -4,7 +4,7 @@
   <title><![CDATA[Abizer Nasir]]></title>
   <link href="http://abizern.org/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-10-31T11:53:11+00:00</updated>
+  <updated>2012-11-01T18:59:04+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A Reason To Learn Lisp]]></title>
+    <link href="http://abizern.org/2012/11/01/a-reason-to-learn-lisp/"/>
+    <updated>2012-11-01T18:49:00+00:00</updated>
+    <id>http://abizern.org/2012/11/01/a-reason-to-learn-lisp</id>
+    <content type="html"><![CDATA[<p>A short video from a live demo of Emacs from Web Rebels in Oslo 2012.</p>
+
+<p>As the description says: &#8220;Crappy sound. Swearing. A noisy bar&#8221;, but an example
+of strong content overcoming presentation difficulties.</p>
+
+<!-- more -->
+
+
+
+
+<iframe width="640" height="510" src="http://www.youtube.com/embed/p3Te_a-AGqM " frameborder="0" allowfullscreen></iframe>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[An improved Reverse Words Script]]></title>
@@ -911,20 +931,6 @@ there is a menu item you can use instead. Have a look at the Project > Rename…
 menu item instead.</p>
 
 <p><img src="http://images.abizern.org.s3.amazonaws.com/2010/03/XcodeRename.png" alt="Project &gt; Rename…" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A Year Of Objective-C Snippets ]]></title>
-    <link href="http://abizern.org/2010/02/27/a-year-of-objective-c-snippets/"/>
-    <updated>2010-02-27T17:20:29+00:00</updated>
-    <id>http://abizern.org/2010/02/27/a-year-of-objective-c-snippets</id>
-    <content type="html"><![CDATA[<p>Pieter Omvlee of <a href="http://www.bohemiancoding.com/">Bohemian Coding</a> has been
-inspired to post a snippet of Objective-C/Cocoa code every day for a year.</p>
-
-<p>It’s a great idea and starts with a useful category on NSArray. Go and see what
-you can learn over at
-<a href="http://365cocoa.tumblr.com/">http://365cocoa.tumblr.com/</a>.</p>
 ]]></content>
   </entry>
   

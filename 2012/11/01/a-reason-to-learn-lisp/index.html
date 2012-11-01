@@ -5,14 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>An improved Reverse Words Script - Abizer Nasir</title>
+  <title>A Reason To Learn Lisp - Abizer Nasir</title>
   <meta name="author" content="Abizer Nasir">
 
   
-  <meta name="description" content="About 6 months ago I posted
-a solution to the
-Google Code Jam problem
-Reverse Words I&#8217;ve become more comfortable with Haskell since then, so &hellip;">
+  <meta name="description" content="A short video from a live demo of Emacs from Web Rebels in Oslo 2012. As the description says: &#8220;Crappy sound. Swearing. A noisy bar&#8221;, but &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ Reverse Words I&#8217;ve become more comfortable with Haskell since then, so &he
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://abizern.org/2012/10/31/an-improved-reverse-words-script/">
+  <link rel="canonical" href="http://abizern.org/2012/11/01/a-reason-to-learn-lisp/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -80,7 +77,7 @@ Reverse Words I&#8217;ve become more comfortable with Haskell since then, so &he
   
   <header>
     
-      <h1 class="entry-title">An Improved Reverse Words Script</h1>
+      <h1 class="entry-title">A Reason to Learn Lisp</h1>
     
     
       <p class="meta">
@@ -96,64 +93,25 @@ Reverse Words I&#8217;ve become more comfortable with Haskell since then, so &he
   
 
 
-<time datetime="2012-10-31T09:19:00+00:00" pubdate data-updated="true">Oct 31<span>st</span>, 2012</time>
+<time datetime="2012-11-01T18:49:00+00:00" pubdate data-updated="true">Nov 1<span>st</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>About 6 months ago I posted
-<a href="http://abizern.org/2012/04/09/reverse-words-with-haskell/">a solution</a> to the
-Google Code Jam problem
-<a href="http://code.google.com/codejam/contest/351101/dashboard#s=p1" title="Original problem statement">Reverse Words</a></p>
+<div class="entry-content"><p>A short video from a live demo of Emacs from Web Rebels in Oslo 2012.</p>
 
-<p>I&#8217;ve become more comfortable with Haskell since then, so here&#8217;s an improved solution.</p>
+<p>As the description says: &#8220;Crappy sound. Swearing. A noisy bar&#8221;, but an example
+of strong content overcoming presentation difficulties.</p>
 
 <!-- more -->
 
 
 
 
-<div><script src='https://gist.github.com/3986006.js?file='></script>
-<noscript><pre><code>module Main where
+<iframe width="640" height="510" src="http://www.youtube.com/embed/p3Te_a-AGqM " frameborder="0" allowfullscreen></iframe>
 
-{-
-Problem statement:
-http://code.google.com/codejam/contest/351101/dashboard#s=p1
-
-Run as a script with runghc, or compile with ghc --make -O2
-
-input and output is by redirection;
-
-$ ./reverse_words &lt; input_file &gt; output_file
- -}
-
-import Control.Monad
-
-main :: IO ()
-main = do
-  n &lt;- readLn
-  forM_ [1..n] $ \i -&gt; do
-    solution &lt;- fmap (unwords . reverse . words) getLine
-    putStrLn $ &quot;Case #&quot; ++ show i ++ &quot;: &quot; ++ solution
-</code></pre></noscript></div>
-
-
-<p>I&#8217;m not one who believes that shorter, terser code is necessarily better, but
-that isn&#8217;t what makes this version an improvement. Nor even the use of Monads;
-Haskell&#8217;s sexy buzzword. I think this code is better because it has less noise
-than the original solution.</p>
-
-<p>Code Jam problems have well defined inputs and required outputs, and there is no
-need to load the whole input file when the script starts. Normally, I would be
-all for splitting out code into smaller, descriptively named functions, but in
-this small case that&#8217;s just more typing and more lines getting in the way of the
-actual solution. I think that this version is more readable because there are
-less lines of code that don&#8217;t contribute directly to the solution.</p>
-
-<p>And Code Jam has a time limit, so smaller code is faster to write and easier to
-debug.</p>
 </div>
 
 
@@ -176,12 +134,12 @@ debug.</p>
   
 
 
-<time datetime="2012-10-31T09:19:00+00:00" pubdate data-updated="true">Oct 31<span>st</span>, 2012</time>
+<time datetime="2012-11-01T18:49:00+00:00" pubdate data-updated="true">Nov 1<span>st</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/categories/haskell/'>Haskell</a>
+    <a class='category' href='/categories/emacs/'>emacs</a>
   
 </span>
 
@@ -197,10 +155,8 @@ debug.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2012/10/25/uuid-strings-with-cocoa/" title="Previous Post: UUID Strings with Cocoa">&laquo; UUID Strings with Cocoa</a>
+        <a class="basic-alignment left" href="/2012/10/31/an-improved-reverse-words-script/" title="Previous Post: An improved Reverse Words Script">&laquo; An improved Reverse Words Script</a>
       
-      
-        <a class="basic-alignment right" href="/2012/11/01/a-reason-to-learn-lisp/" title="Next Post: A Reason To Learn Lisp">A Reason To Learn Lisp &raquo;</a>
       
     </p>
   </footer>
