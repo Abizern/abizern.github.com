@@ -9,8 +9,12 @@
   <meta name="author" content="Abizer Nasir">
 
   
-  <meta name="description" content="The first London NSCoder Night was a success! Eleven people turned up, travelling from as far as Brighton and Reading to join
-in the fun. There was &hellip;">
+  <meta name="description" content="A while ago, I read a
+nice write up
+about using mercurial with
+SubEthaEdit and
+Changes. Here&#8217;s how to do the same thing
+with git instead of &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +79,116 @@ in the fun. There was &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/11/08/integrating-git-with-subethaedit-and-changes/">Integrating Git With SubEthaEdit and Changes.app</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-08T16:41:02+00:00" pubdate data-updated="true">Nov 8<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A while ago, I read a
+<a href="http://schinckel.net/2008/04/26/mercurial-with-os-x-gui-tools/">nice write up</a>
+about using <a href="http://mercurial.selenic.com/">mercurial</a> with
+<a href="http://www.codingmonkeys.de/subethaedit/">SubEthaEdit</a> and
+<a href="http://connectedflow.com/changes/">Changes</a>. Here&#8217;s how to do the same thing
+with <a href="http://git-scm.com/">git</a> instead of
+<a href="http://mercurial.selenic.com/">mercurial</a>, separated into two parts in case you
+just want to apply one set of changes.</p>
+
+<h2>Changes Support</h2>
+
+<p><strong>Step One: Make sure chdiff is installed.</strong></p>
+
+<p>Open Changes.app and from the Changes menu select &#8220;Install terminal
+utility&#8221;. This will install the chdiff utility which is used by the script.</p>
+
+<p><strong>Step Two: Create a shell script to send diffs to Changes</strong></p>
+
+<p>Create a shell script with the following contents.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/sh
+</span><span class='line'>[ $# -eq 7 ] && /usr/bin/env chdiff "$2" "$5"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Where you save this and what you call it is up to you. Mine is called
+&#8216;.gitchanges&#8217;, saved it at the root of my home directory. Make sure the script
+is executable.</p>
+
+<p><strong>Step Three: Edit the .gitconfig file to use this script to handle diffs.</strong></p>
+
+<p>Open your <code>~/.gitconfig</code> file. This should already exist, at the very least it
+will contain you name and email. under the section called <code>[diff]</code> add the
+location and name of the file.  You may have to edit this to make sure it points
+to the name and location you chose in Step Two. (Make sure to use the correct
+path in your setup)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[diff]
+</span><span class='line'>external = &lt;path to file&gt;/.gitchanges</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>SubEthaEdit Support</h2>
+
+<p><strong>Step One: Download and install the mode file for SubEthaEdit</strong></p>
+
+<p>I wrote a SubEthaEdit mode for this which you can download from the
+<a href="http://abizern.github.com/gitcommit.mode/">github project page</a>. Please feel
+free to fork it and send me patches.</p>
+
+<p><strong>Step Two: Edit the .gitconfig file to use SebEthaEdit as an external editor.</strong></p>
+
+<p>Open your <code>~/.gitconfig</code> file. This time, under the <code>[core]</code> section, add the
+following line:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[core]
+</span><span class='line'>editor = /usr/bin/see -w -r -o new-window -j 'git editor' -m gitCommit -g 1:0</span></code></pre></td></tr></table></div></figure>
+
+
+<p>All those flags may seem daunting, but they are quite self-explanatory: the <code>-w</code>
+flag makes the Terminal wait for a response from SubEthaEdit. <code>-r</code> brings
+Terminal to the front after you&#8217;re done editing. <code>-o new-window</code> opens a new
+window for editing. I prefer this to having a new tab appear in whatever window
+I was working on. <code>-j 'git editor</code>&#8217; this sets the text that appears in the title
+bar, which you can change as you wish. <code>-m gitCommit</code> is what sets the mode to
+be used for editing. and <code>-g 1:0</code> puts the caret at the beginning of the file.</p>
+
+<p>Now, when git asks you to write a commit message, or pick commits when running
+<code>git rebase -i</code> a SubEthaEdit window will open as the commit message
+editor. Make whatever changes you need then save the file (⌘-S) and then close
+the window (⌘-W) for these changes to take effect.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>

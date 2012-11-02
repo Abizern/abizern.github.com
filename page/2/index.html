@@ -9,8 +9,9 @@
   <meta name="author" content="Abizer Nasir">
 
   
-  <meta name="description" content="As part of my preparation for Google Code Jam
-I&#8217;ve been working through the practice problems with Haskell. I made a screencast on solving the &hellip;">
+  <meta name="description" content="I qualified for Google Code Jam this year
+answering 3 out of 4 questions. I have no illusions about progressing very far,
+but I&#8217;m using it as &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +76,53 @@ I&#8217;ve been working through the practice problems with Haskell. I made a scr
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/04/15/rotate-a-string-with-haskell/">Rotate a String With Haskell</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-15T15:08:00+01:00" pubdate data-updated="true">Apr 15<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I qualified for <a href="http://code.google.com/codejam">Google Code Jam</a> this year
+answering 3 out of 4 questions. I have no illusions about progressing very far,
+but I&#8217;m using it as an excuse to learn some Haskell and to write code faster.</p>
+
+<p>As part of the learning process, I took one of my correct solutions over to the
+nice folks at the #haskell channel over on freenode and asked if there was a
+better way to do it. I learned something surprising.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2012/04/15/rotate-a-string-with-haskell/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -407,85 +455,6 @@ so doesn&#8217;t change the display in what you already have open.</p>
 <p>If this still doesn&#8217;t work (I&#8217;m looking at you
 <a href="http://www.bbc.co.uk/iplayer/">iPlayer</a>) then you can use Google&#8217;s Chrome
 browser, which comes with its own Flash plug-in.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/10/16/getting-the-address-of-a-shortened-url/">Getting the Address of a Shortened URL</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-10-16T22:05:52+01:00" pubdate data-updated="true">Oct 16<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Many times you will see a shortened url but you aren&#8217;t sure what it points
-at. Here&#8217;s a little tip that I picked up from
-<a href="http://tommorris.org">Tom Morris</a>.</p>
-
-<p>Pop open your terminal, or console, or whatever your command-line application is
-and type the following:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl --head shorturl
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This pops up a short amount of useful information about the target url. For
-example the response for the Google short URL for this site shows this;</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>~ % curl --head http://goo.gl/oQx8
-</span><span class='line'>HTTP/1.1 301 Moved Permanently
-</span><span class='line'>Content-Type: text/html; <span class="nv">charset</span><span class="o">=</span>UTF-8
-</span><span class='line'>Expires: Sat, 16 Oct 2010 21:01:51 GMT
-</span><span class='line'>Date: Sat, 16 Oct 2010 21:01:51 GMT
-</span><span class='line'>Cache-Control: private, max-age<span class="o">=</span>86400
-</span><span class='line'>Location: http://abizern.org/
-</span><span class='line'>X-Content-Type-Options: nosniff
-</span><span class='line'>X-Frame-Options: SAMEORIGIN
-</span><span class='line'>X-XSS-Protection: 1; <span class="nv">mode</span><span class="o">=</span>block
-</span><span class='line'>Server: GSE
-</span><span class='line'>Transfer-Encoding: chunked
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And you can see that the Location shows that you aren&#8217;t going to get
-Rick-rolled.</p>
 </div>
   
   
