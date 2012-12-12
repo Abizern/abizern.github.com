@@ -403,6 +403,7 @@ effort, unless you are looking for some boyscouting to do.
   - For controllers - their common methods: i.e. view lifecycle methods for view
     controllers, table view delegate and datasource methods for table view
     controllers, etc.
+  - Super class overrides.
   - Public methods declared in the header file.
   - Custom accessors (setters and/or getters) for declared properties that you
     don't want to leave to auto-synthesize.
