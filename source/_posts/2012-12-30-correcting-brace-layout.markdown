@@ -15,15 +15,19 @@ statement.
 
 So now I can correct all the Xcode generated stubs that look like:
 
-    - (void)someMethod
-    {
-        // some code here
-    }
+``` objective-c
+- (void)someMethod
+{
+    // some code here
+}
+```
 
 Into my preferred format:
 
-    - (void)someMethod {
-        // some code here
-    }
+``` objective-c
+- (void)someMethod {
+    // some code here
+}
+```
 
 Which fits with my personal coding standards.
