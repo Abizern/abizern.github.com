@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Git | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/git/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-12-30T11:24:13+00:00</updated>
+  <updated>2012-12-30T12:37:48+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -28,7 +28,7 @@ as well.</p>
 <!-- more -->
 
 
-<p><div><script src='https://gist.github.com/708713.js?file='></script>
+<p><div><script src='https://gist.github.com/708713.js'></script>
 <noscript><pre><code># Mac OS X
 *.DS_Store
 

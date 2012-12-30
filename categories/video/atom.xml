@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Video | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/video/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-12-30T11:24:13+00:00</updated>
+  <updated>2012-12-30T12:37:48+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -38,7 +38,7 @@ you'll know that's nothing new).</p>
 
 <p>Here's the cleaned up source file.</p>
 
-<p><div><script src='https://gist.github.com/2368757.js?file='></script>
+<p><div><script src='https://gist.github.com/2368757.js'></script>
 <noscript><pre><code>module Main where
 
 {-
