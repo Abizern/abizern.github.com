@@ -9,8 +9,9 @@ categories:
 - General Programming
 ---
 
-I wrote a [small rubygem](http://abizern.org/fixbraces/) to move the opening brace of a conditional to the same
-line as the opening statement.
+I wrote a [small rubygem](http://abizern.org/fixbraces/) called _fixbraces_ to
+move the opening brace of a conditional to the same line as the opening
+statement.
 
 So now I can correct all the Xcode generated stub that look like:
 
