@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/ruby/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-12-12T11:18:02+00:00</updated>
+  <updated>2012-12-30T11:24:13+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Correcting Brace Layout]]></title>
+    <link href="http://abizern.org/2012/12/30/correcting-brace-layout/"/>
+    <updated>2012-12-30T11:09:00+00:00</updated>
+    <id>http://abizern.org/2012/12/30/correcting-brace-layout</id>
+    <content type="html"><![CDATA[<p>I wrote a <a href="http://abizern.org/fixbraces/">small rubygem</a> called <em>fixbraces</em> to
+move the opening brace of a conditional to the same line as the opening
+statement.</p>
+
+<p>So now I can correct all the Xcode generated stub that look like:</p>
+
+<pre><code>- (void)someMethod
+{
+    // some code here
+}
+</code></pre>
+
+<p>Into my preferred format:</p>
+
+<pre><code>- (void)someMethod {
+    // some code here
+}
+</code></pre>
+
+<p>Which fits with my personal coding standards.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[On Live Coding]]></title>
