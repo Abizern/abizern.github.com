@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Objective-C | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/objective-c/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2012-12-30T13:10:26+00:00</updated>
+  <updated>2012-12-30T13:19:30+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -24,18 +24,26 @@ statement.</p>
 
 <p>So now I can correct all the Xcode generated stubs that look like:</p>
 
-<pre><code>- (void)someMethod
-{
-    // some code here
-}
+<p>``` objective-c
+- (void)someMethod
+{</p>
+
+<pre><code>// some code here
 </code></pre>
+
+<p>}
+```</p>
 
 <p>Into my preferred format:</p>
 
-<pre><code>- (void)someMethod {
-    // some code here
-}
+<p>``` objective-c
+- (void)someMethod {</p>
+
+<pre><code>// some code here
 </code></pre>
+
+<p>}
+```</p>
 
 <p>Which fits with my personal coding standards.</p>
 ]]></content>
