@@ -474,6 +474,11 @@ There should **always** be a space after the control structure (i.e. `if`,
 `else`, etc). The `else` and `else if` statements should be on the same line as
 the closing brace of the `if` statement.
 
+Xcode is inconsistent about the opening brace, and some of your colleagues may
+be to. I wrote a small ruby gem called
+[fixbraces](http://abizern.org/fixbraces/) which will correctly position the
+braces on the opening line.
+
 ### <a id="ControlStructures"></a>Control Structures
 
 See the section on the Golden Path for more usage guides with control structures.
