@@ -4,7 +4,7 @@
   <title><![CDATA[Category: OS X Development | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/os-x-development/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2013-01-11T19:16:14+00:00</updated>
+  <updated>2013-01-29T11:57:36+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Missing Xcode Toolbar]]></title>
+    <link href="http://abizern.org/2013/01/29/missing-xcode-toolbar/"/>
+    <updated>2013-01-29T11:23:00+00:00</updated>
+    <id>http://abizern.org/2013/01/29/missing-xcode-toolbar</id>
+    <content type="html"><![CDATA[<p>I'm sure you've been there.</p>
+
+<p>You're working in Xcode, and you have a file opened on another monitor in
+another window. Unfortunately, you forget about it, and when you close your
+project and reopen it again, the toolbar is missing.</p>
+
+<!-- more -->
+
+
+<p><img class="top" src="http://images.abizern.org/2013/01/Missing%20Xcode%20Toolbar.png" width="579" height="45" title="Missing Toolbar" ></p>
+
+<p>It can be frustrating, because Xcode remembers this, and every time you open the
+project it will open without a toolbar. You can put it back by right-clicking in
+what is left of the toolbar and choosing one of the options.</p>
+
+<p><img class="top" src="http://images.abizern.org/2013/01/Xcode%20Toolbar%20Menu.png" width="534" height="112" title="Toolbar Menu" ></p>
+
+<p>But the gotcha that has bit me twice now, and prompted me to write this to
+remind myself of it, is that you need to choose the "Show Toolbar" menu item
+rather than one of the other two preferences. I was incorrectly choosing my
+preference of "Icon Only" and wondering why my preference wasn't sticking.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[UUID Strings with Cocoa]]></title>
@@ -224,22 +253,6 @@ keep different machines in sync. Partcularly if you will be using gpg rarely.</p
 <p>This has been a companion piece to the non-Mac centric
 <a href="http://365git.tumblr.com/">365Git</a> post about
 <a href="http://365git.tumblr.com/post/2796779828/signing-a-git-tag">signed tags</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Renaming an Xcode Project]]></title>
-    <link href="http://abizern.org/2010/03/06/renaming-an-xcode-project/"/>
-    <updated>2010-03-06T16:48:19+00:00</updated>
-    <id>http://abizern.org/2010/03/06/renaming-an-xcode-project</id>
-    <content type="html"><![CDATA[<p>You may have occasion to rename an Xcode project.</p>
-
-<p>You can find step-by-step instructions and scripts with a little bit of
-Googling. But there is another way. If you're running Xcode 3.2 on Snow Leopard
-there is a menu item you can use instead. Have a look at the Project > Rename…
-menu item instead.</p>
-
-<p><img src="http://images.abizern.org.s3.amazonaws.com/2010/03/XcodeRename.png" alt="Project &gt; Rename…" /></p>
 ]]></content>
   </entry>
   

@@ -113,12 +113,16 @@
         <lastmod>2013-01-06T18:53:02+00:00</lastmod>
     </url>
     <url>
+        <loc>http://abizern.org/2013/01/29/missing-xcode-toolbar/</loc>
+        <lastmod>2013-01-29T11:55:30+00:00</lastmod>
+    </url>
+    <url>
         <loc>http://abizern.org/about/</loc>
         <lastmod>2013-01-06T18:53:02+00:00</lastmod>
     </url>
     <url>
         <loc>http://abizern.org/archives/</loc>
-        <lastmod>2013-01-06T18:53:02+00:00</lastmod>
+        <lastmod>2013-01-29T11:55:30+00:00</lastmod>
     </url>
     <url>
         <loc>http://abizern.org/cocoa-coding-conventions/</loc>
@@ -130,6 +134,6 @@
     </url>
     <url>
         <loc>http://abizern.org/</loc>
-        <lastmod>2013-01-06T18:53:02+00:00</lastmod>
+        <lastmod>2013-01-29T11:55:30+00:00</lastmod>
     </url>
 </urlset>
