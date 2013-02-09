@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Haskell - Abizer Nasir</title>
+  <title>Reverse Words Redux - Abizer Nasir</title>
   <meta name="author" content="Abizer Nasir">
 
   
-  <meta name="description" content="Category: Haskell">
+  <meta name="description" content="Gearing up for this year&#8217;s Google Code Jam I revisited some of the older Haskell
+code that I wrote for practice previously. One that I put up &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://abizern.orgcategories/haskell/">
+  <link rel="canonical" href="http://abizern.org/2013/02/09/reverse-words-redux/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -73,94 +74,111 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Haskell</h1>
+    
+      <h1 class="entry-title">Reverse Words Redux</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-09T12:34:00+00:00" pubdate data-updated="true">Feb 9<span>th</span>, 2013</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>Gearing up for this year&#8217;s Google Code Jam I revisited some of the older Haskell
+code that I wrote for practice previously. One that I put up here, about the
+<a href="http://abizern.org/2012/04/09/reverse-words-with-haskell/" title="Reverse words post">Reverse Words</a> problem was a little wordier than I would do now:</p>
 
-  
-  <h2>2013</h2>
+<div><script src='https://gist.github.com/4745085.js'></script>
+<noscript><pre><code>import Control.Monad
+-- http://code.google.com/codejam/contest/351101/dashboard#s=p1
+--
+-- Compile with:
+--     ghc -O reverse_words.hs
+--
+-- Run as:
+--     ./reverse_words &lt; input_file &gt; output_file
+--
+-- Unless otherwise indicated, all modules used are either bundled with
+-- the Haskell Platform (http://hackage.haskell.org/platform/) or available
+-- as a separate download from Hackage (http://hackage.haskell.org/).
 
-<article>
-  
-<h1><a href="/2013/02/09/reverse-words-redux/">Reverse Words Redux</a></h1>
-<time datetime="2013-02-09T12:34:00+00:00" pubdate><span class='month'>Feb</span> <span class='day'>09</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/categories/haskell/'>Haskell</a></span>
-</footer>
-
-
-</article>
-
-
-
-  
-  <h2>2012</h2>
-
-<article>
-  
-<h1><a href="/2012/10/31/an-improved-reverse-words-script/">An improved Reverse Words Script</a></h1>
-<time datetime="2012-10-31T09:19:00+00:00" pubdate><span class='month'>Oct</span> <span class='day'>31</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/categories/haskell/'>Haskell</a></span>
-</footer>
+main :: IO ()
+main = do
+  n &lt;- fmap read getLine
+  forM_ [1..n] $ \case_no -&gt; do
+    solution &lt;- fmap (unwords . reverse . words) getLine
+    putStrLn $ concat [&quot;Case #&quot;, show case_no, &quot;: &quot;, solution]
+</code></pre></noscript></div>
 
 
-</article>
+<p>Shorter code, simple input and output indirection, and a monadic for loop.</p>
 
-
-
-<article>
-  
-<h1><a href="/2012/08/20/on-live-coding/">On Live Coding</a></h1>
-<time datetime="2012-08-20T12:34:00+01:00" pubdate><span class='month'>Aug</span> <span class='day'>20</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/categories/general-programming/'>General Programming</a>, <a class='category' href='/categories/haskell/'>Haskell</a>, <a class='category' href='/categories/ruby/'>Ruby</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/2012/04/15/rotate-a-string-with-haskell/">Rotate A String with Haskell</a></h1>
-<time datetime="2012-04-15T15:08:00+01:00" pubdate><span class='month'>Apr</span> <span class='day'>15</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/categories/haskell/'>Haskell</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/2012/04/09/reverse-words-with-haskell/">Reverse Words With Haskell</a></h1>
-<time datetime="2012-04-09T15:41:00+01:00" pubdate><span class='month'>Apr</span> <span class='day'>09</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/categories/haskell/'>Haskell</a>, <a class='category' href='/categories/video/'>Video</a></span>
-</footer>
-
-
-</article>
-
+<p>What a difference (less than) a year makes.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Abizer Nasir</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-09T12:34:00+00:00" pubdate data-updated="true">Feb 9<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/haskell/'>Haskell</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/01/29/missing-xcode-toolbar/" title="Previous Post: Missing Xcode Toolbar">&laquo; Missing Xcode Toolbar</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

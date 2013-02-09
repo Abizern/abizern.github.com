@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Haskell | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/haskell/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2013-01-29T12:22:44+00:00</updated>
+  <updated>2013-02-09T12:42:47+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reverse Words Redux]]></title>
+    <link href="http://abizern.org/2013/02/09/reverse-words-redux/"/>
+    <updated>2013-02-09T12:34:00+00:00</updated>
+    <id>http://abizern.org/2013/02/09/reverse-words-redux</id>
+    <content type="html"><![CDATA[<p>Gearing up for this year's Google Code Jam I revisited some of the older Haskell
+code that I wrote for practice previously. One that I put up here, about the
+<a href="http://abizern.org/2012/04/09/reverse-words-with-haskell/" title="Reverse words post">Reverse Words</a> problem was a little wordier than I would do now:</p>
+
+<p><div><script src='https://gist.github.com/4745085.js'></script>
+<noscript><pre><code>import Control.Monad
+-- http://code.google.com/codejam/contest/351101/dashboard#s=p1
+--
+-- Compile with:
+--     ghc -O reverse_words.hs
+--
+-- Run as:
+--     ./reverse_words &lt; input_file &gt; output_file
+--
+-- Unless otherwise indicated, all modules used are either bundled with
+-- the Haskell Platform (http://hackage.haskell.org/platform/) or available
+-- as a separate download from Hackage (http://hackage.haskell.org/).
+
+main :: IO ()
+main = do
+  n &lt;- fmap read getLine
+  forM_ [1..n] $ \case_no -&gt; do
+    solution &lt;- fmap (unwords . reverse . words) getLine
+    putStrLn $ concat [&quot;Case #&quot;, show case_no, &quot;: &quot;, solution]
+</code></pre></noscript></div>
+</p>
+
+<p>Shorter code, simple input and output indirection, and a monadic for loop.</p>
+
+<p>What a difference (less than) a year makes.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[An improved Reverse Words Script]]></title>
