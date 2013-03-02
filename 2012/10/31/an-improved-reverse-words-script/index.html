@@ -116,28 +116,7 @@ Google Code Jam problem
 
 
 <div><script src='https://gist.github.com/3986006.js'></script>
-<noscript><pre><code>module Main where
-
-{-
-Problem statement:
-http://code.google.com/codejam/contest/351101/dashboard#s=p1
-
-Run as a script with runghc, or compile with ghc --make -O2
-
-input and output is by redirection;
-
-$ ./reverse_words &lt; input_file &gt; output_file
- -}
-
-import Control.Monad
-
-main :: IO ()
-main = do
-  n &lt;- readLn
-  forM_ [1..n] $ \i -&gt; do
-    solution &lt;- fmap (unwords . reverse . words) getLine
-    putStrLn $ &quot;Case #&quot; ++ show i ++ &quot;: &quot; ++ solution
-</code></pre></noscript></div>
+<noscript><pre><code></code></pre></noscript></div>
 
 
 <p>I&#8217;m not one who believes that shorter, terser code is necessarily better, but

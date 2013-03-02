@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Haskell | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/haskell/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2013-02-09T12:47:30+00:00</updated>
+  <updated>2013-03-02T12:02:27+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -29,28 +29,7 @@ Google Code Jam problem
 
 
 <p><div><script src='https://gist.github.com/3986006.js'></script>
-<noscript><pre><code>module Main where
-
-{-
-Problem statement:
-http://code.google.com/codejam/contest/351101/dashboard#s=p1
-
-Run as a script with runghc, or compile with ghc --make -O2
-
-input and output is by redirection;
-
-$ ./reverse_words &lt; input_file &gt; output_file
- -}
-
-import Control.Monad
-
-main :: IO ()
-main = do
-  n &lt;- readLn
-  forM_ [1..n] $ \i -&gt; do
-    solution &lt;- fmap (unwords . reverse . words) getLine
-    putStrLn $ &quot;Case #&quot; ++ show i ++ &quot;: &quot; ++ solution
-</code></pre></noscript></div>
+<noscript><pre><code></code></pre></noscript></div>
 </p>
 
 <p>I'm not one who believes that shorter, terser code is necessarily better, but
@@ -254,38 +233,7 @@ you'll know that's nothing new).</p>
 <p>Here's the cleaned up source file.</p>
 
 <p><div><script src='https://gist.github.com/2368757.js'></script>
-<noscript><pre><code>module Main where
-
-{-
- - Problem Statement:
- - http://code.google.com/codejam/contest/351101/dashboard#s=p1
- -
- - Usage either compile or use runhaskell / runghc
- - Pass the input file as the sole command line argument
- - Redirect output if you want the results to go in a file
- -}
-
-import IO
-import System.Environment
-import Data.List
-
-reverseWords :: String -&gt; String
-reverseWords = unwords . reverse . words
-
-boilerPlate :: [String]
-boilerPlate = [&quot;Case #&quot; ++ show n ++ &quot;: &quot; | n &lt;- [1..]]
-
-standardOutput :: [String] -&gt; [String]
-standardOutput = zipWith (++) boilerPlate
-
-main =  do
-  (f:_) &lt;- getArgs
-  file  &lt;- readFile f
-
-  let cases     = tail $ lines file
-      solutions = standardOutput $ map reverseWords cases
-  putStrLn $ unlines $ solutions
-</code></pre></noscript></div>
+<noscript><pre><code></code></pre></noscript></div>
 </p>
 
 <p>I need to learn more Emacs shortcuts :(</p>
