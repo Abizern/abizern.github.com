@@ -17,7 +17,30 @@ I've become more comfortable with Haskell since then, so here's an improved solu
 
 <!-- more -->
 
-{% gist 3986006 %}
+``` haskell Improved reverse words with haskell https://gist.github.com/Abizern/3986006 View gist
+module Main where
+
+{-
+Problem statement:
+http://code.google.com/codejam/contest/351101/dashboard#s=p1
+
+Run as a script with runghc, or compile with ghc --make -O2
+
+input and output is by redirection;
+
+$ ./reverse_words < input_file > output_file
+ -}
+
+import Control.Monad
+
+main :: IO ()
+main = do
+  n <- readLn
+  forM_ [1..n] $ \i -> do
+    solution <- fmap (unwords . reverse . words) getLine
+    putStrLn $ "Case #" ++ show i ++ ": " ++ solution
+
+```
 
 I'm not one who believes that shorter, terser code is necessarily better, but
 that isn't what makes this version an improvement. Nor even the use of Monads;
