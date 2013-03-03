@@ -15,7 +15,34 @@ I might as well have it on my own site:
 
 <!-- more -->
 
-{% gist 708713 %}
+```
+# Mac OS X
+*.DS_Store
+
+# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+
+# Generated files
+*.o
+*.pyc
+*.hi
+
+#Python modules
+MANIFEST
+dist/
+build/
+
+# Backup files
+*~.nib
+\#*#
+.#*
+```
 
 It's particularly suited for Xcode. It excludes the workspace settings, which
 also includes the breakpoints, so don't be surprised if they don't carry over in
