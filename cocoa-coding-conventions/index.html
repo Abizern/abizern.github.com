@@ -211,8 +211,75 @@ the simplified names are only be used for the main target of the project.</p>
 should be added to all projects and imported into the <code>Prefix.pch</code> file. The most
 up to date version is available on Github:</p>
 
-<div><script src='https://gist.github.com/325926.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
+<figure class='code'><figcaption><span>Common Macros</span><a href='https://gist.github.com/Abizern/325926'>View Gist</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">// Useful Macros.</span>
+</span><span class='line'><span class="c1">// The best place to import this is in your project&#39;s pch file.</span>
+</span><span class='line'><span class="c1">// See http://www.cimgf.com/2010/05/02/my-current-prefix-pch-file/ for details.</span>
+</span><span class='line'><span class="c1">// Most current version at https://gist.github.com/325926 along with usage notes.</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">#ifndef jcscommonmacros</span>
+</span><span class='line'><span class="cp">#define jcscommonmacros_1_0  10000</span>
+</span><span class='line'><span class="cp">#define jcscommonmacros      jcscommonmacros_1_0</span>
+</span><span class='line'><span class="cp">#endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">#ifdef DEBUG</span>
+</span><span class='line'>  <span class="err">#</span><span class="n">define</span> <span class="n">DLog</span><span class="p">(...)</span> <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%s %@&quot;</span><span class="p">,</span> <span class="n">__PRETTY_FUNCTION__</span><span class="p">,</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat:</span><span class="n">__VA_ARGS__</span><span class="p">])</span>
+</span><span class='line'>  <span class="err">#</span><span class="n">define</span> <span class="n">ALog</span><span class="p">(...)</span> <span class="p">[[</span><span class="n">NSAssertionHandler</span> <span class="n">currentHandler</span><span class="p">]</span> <span class="nl">handleFailureInFunction:</span><span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithCString:</span><span class="n">__PRETTY_FUNCTION__</span> <span class="nl">encoding:</span><span class="n">NSUTF8StringEncoding</span><span class="p">]</span> <span class="nl">file:</span><span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithCString:</span><span class="n">__FILE__</span> <span class="nl">encoding:</span><span class="n">NSUTF8StringEncoding</span><span class="p">]</span> <span class="nl">lineNumber:</span><span class="n">__LINE__</span> <span class="nl">description:</span><span class="n">__VA_ARGS__</span><span class="p">]</span>
+</span><span class='line'><span class="cp">#else</span>
+</span><span class='line'>  <span class="err">#</span><span class="n">define</span> <span class="n">DLog</span><span class="p">(...)</span> <span class="k">do</span> <span class="p">{</span> <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>  <span class="err">#</span><span class="n">ifndef</span> <span class="n">NS_BLOCK_ASSERTIONS</span>
+</span><span class='line'>    <span class="err">#</span><span class="n">define</span> <span class="n">NS_BLOCK_ASSERTIONS</span>
+</span><span class='line'>  <span class="err">#</span><span class="n">endif</span>
+</span><span class='line'>  <span class="err">#</span><span class="n">define</span> <span class="n">ALog</span><span class="p">(...)</span> <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%s %@&quot;</span><span class="p">,</span> <span class="n">__PRETTY_FUNCTION__</span><span class="p">,</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat:</span><span class="n">__VA_ARGS__</span><span class="p">])</span>
+</span><span class='line'><span class="cp">#endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">#define ZAssert(condition, ...) do { if (!(condition)) { ALog(__VA_ARGS__); }} while(0)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">// This is a general test for emptiness</span>
+</span><span class='line'><span class="c1">// Courtesy of Wil Shipley http://www.wilshipley.com/blog/2005/10/pimp-my-code-interlude-free-code.html</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">static</span> <span class="kr">inline</span> <span class="kt">BOOL</span> <span class="n">isEmpty</span><span class="p">(</span><span class="kt">id</span> <span class="n">thing</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">thing</span> <span class="o">==</span> <span class="nb">nil</span>
+</span><span class='line'>        <span class="o">||</span> <span class="p">([</span><span class="n">thing</span> <span class="nl">respondsToSelector:</span><span class="k">@selector</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span>
+</span><span class='line'>        <span class="o">&amp;&amp;</span> <span class="p">[(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="n">thing</span> <span class="n">length</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>        <span class="o">||</span> <span class="p">([</span><span class="n">thing</span> <span class="nl">respondsToSelector:</span><span class="k">@selector</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
+</span><span class='line'>        <span class="o">&amp;&amp;</span> <span class="p">[(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="n">thing</span> <span class="n">count</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h3><a id="Schemes"></a>Schemes</h3>

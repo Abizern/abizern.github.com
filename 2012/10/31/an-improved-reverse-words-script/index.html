@@ -115,8 +115,49 @@ Google Code Jam problem
 
 
 
-<div><script src='https://gist.github.com/3986006.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
+<figure class='code'><figcaption><span>Improved reverse words with haskell</span><a href='https://gist.github.com/Abizern/3986006'>View gist</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='haskell'><span class='line'><span class="kr">module</span> <span class="nn">Main</span> <span class="kr">where</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">{-</span>
+</span><span class='line'><span class="cm">Problem statement:</span>
+</span><span class='line'><span class="cm">http://code.google.com/codejam/contest/351101/dashboard#s=p1</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">Run as a script with runghc, or compile with ghc --make -O2</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">input and output is by redirection;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">$ ./reverse_words &lt; input_file &gt; output_file</span>
+</span><span class='line'><span class="cm"> -}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kr">import</span> <span class="nn">Control.Monad</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">main</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="nb">()</span>
+</span><span class='line'><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
+</span><span class='line'>  <span class="n">n</span> <span class="ow">&lt;-</span> <span class="n">readLn</span>
+</span><span class='line'>  <span class="n">forM_</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="n">n</span><span class="p">]</span> <span class="o">$</span> <span class="nf">\</span><span class="n">i</span> <span class="ow">-&gt;</span> <span class="kr">do</span>
+</span><span class='line'>    <span class="n">solution</span> <span class="ow">&lt;-</span> <span class="n">fmap</span> <span class="p">(</span><span class="n">unwords</span> <span class="o">.</span> <span class="n">reverse</span> <span class="o">.</span> <span class="n">words</span><span class="p">)</span> <span class="n">getLine</span>
+</span><span class='line'>    <span class="n">putStrLn</span> <span class="o">$</span> <span class="s">&quot;Case #&quot;</span> <span class="o">++</span> <span class="n">show</span> <span class="n">i</span> <span class="o">++</span> <span class="s">&quot;: &quot;</span> <span class="o">++</span> <span class="n">solution</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>I&#8217;m not one who believes that shorter, terser code is necessarily better, but

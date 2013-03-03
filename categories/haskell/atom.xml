@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Haskell | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/haskell/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2013-03-02T12:43:28+00:00</updated>
+  <updated>2013-03-03T10:08:10+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -28,9 +28,32 @@ Google Code Jam problem
 <!-- more -->
 
 
-<p><div><script src='https://gist.github.com/3986006.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
-</p>
+<p>``` haskell Improved reverse words with haskell https://gist.github.com/Abizern/3986006 View gist
+module Main where</p>
+
+<p>{-
+Problem statement:
+http://code.google.com/codejam/contest/351101/dashboard#s=p1</p>
+
+<p>Run as a script with runghc, or compile with ghc --make -O2</p>
+
+<p>input and output is by redirection;</p>
+
+<p>$ ./reverse_words &lt; input_file > output_file
+ -}</p>
+
+<p>import Control.Monad</p>
+
+<p>main :: IO ()
+main = do
+  n <- readLn
+  forM_ [1..n] $ \i -> do</p>
+
+<pre><code>solution &lt;- fmap (unwords . reverse . words) getLine
+putStrLn $ "Case #" ++ show i ++ ": " ++ solution
+</code></pre>
+
+<p>```</p>
 
 <p>I'm not one who believes that shorter, terser code is necessarily better, but
 that isn't what makes this version an improvement. Nor even the use of Monads;
@@ -232,9 +255,43 @@ you'll know that's nothing new).</p>
 
 <p>Here's the cleaned up source file.</p>
 
-<p><div><script src='https://gist.github.com/2368757.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
-</p>
+<p>``` haskell Reverse words with haskell
+module Main where</p>
+
+<p>{-
+ - Problem Statement:
+ - http://code.google.com/codejam/contest/351101/dashboard#s=p1
+ -
+ - Usage either compile or use runhaskell / runghc
+ - Pass the input file as the sole command line argument
+ - Redirect output if you want the results to go in a file
+ -}</p>
+
+<p>import IO
+import System.Environment
+import Data.List</p>
+
+<p>reverseWords :: String -> String
+reverseWords = unwords . reverse . words</p>
+
+<p>boilerPlate :: [String]
+boilerPlate = ["Case #" ++ show n ++ ": " | n &lt;- [1..]]</p>
+
+<p>standardOutput :: [String] -> [String]
+standardOutput = zipWith (++) boilerPlate</p>
+
+<p>main =  do
+  (f:_) &lt;- getArgs
+  file  &lt;- readFile f</p>
+
+<p>  let cases     = tail $ lines file</p>
+
+<pre><code>  solutions = standardOutput $ map reverseWords cases
+</code></pre>
+
+<p>  putStrLn $ unlines $ solutions</p>
+
+<p>```</p>
 
 <p>I need to learn more Emacs shortcuts :(</p>
 ]]></content>

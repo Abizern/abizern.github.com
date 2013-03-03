@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Git | Abizer Nasir]]></title>
   <link href="http://abizern.org/categories/git/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2013-03-02T12:43:28+00:00</updated>
+  <updated>2013-03-03T10:08:10+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -28,9 +28,40 @@ as well.</p>
 <!-- more -->
 
 
-<p><div><script src='https://gist.github.com/708713.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
-</p>
+<p>```</p>
+
+<h1>Mac OS X</h1>
+
+<p>*.DS_Store</p>
+
+<h1>Xcode</h1>
+
+<p><em>.pbxuser
+</em>.mode1v3
+<em>.mode2v3
+</em>.perspectivev3
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/</p>
+
+<h1>Generated files</h1>
+
+<p><em>.o
+</em>.pyc
+*.hi</p>
+
+<h1>Python modules</h1>
+
+<p>MANIFEST
+dist/
+build/</p>
+
+<h1>Backup files</h1>
+
+<p><em>~.nib
+#</em>#
+.#*
+```</p>
 
 <p>It's particularly suited for Xcode. It excludes the workspace settings, which
 also includes the breakpoints, so don't be surprised if they don't carry over in

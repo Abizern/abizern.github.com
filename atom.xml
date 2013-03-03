@@ -4,7 +4,7 @@
   <title><![CDATA[Abizer Nasir]]></title>
   <link href="http://abizern.org/atom.xml" rel="self"/>
   <link href="http://abizern.org/"/>
-  <updated>2013-03-02T12:43:28+00:00</updated>
+  <updated>2013-03-03T10:08:10+00:00</updated>
   <id>http://abizern.org/</id>
   <author>
     <name><![CDATA[Abizer Nasir]]></name>
@@ -139,8 +139,49 @@ Google Code Jam problem
 
 
 
-<div><script src='https://gist.github.com/3986006.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
+<figure class='code'><figcaption><span>Improved reverse words with haskell</span><a href='https://gist.github.com/Abizern/3986006'>View gist</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='haskell'><span class='line'><span class="kr">module</span> <span class="nn">Main</span> <span class="kr">where</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">{-</span>
+</span><span class='line'><span class="cm">Problem statement:</span>
+</span><span class='line'><span class="cm">http://code.google.com/codejam/contest/351101/dashboard#s=p1</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">Run as a script with runghc, or compile with ghc --make -O2</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">input and output is by redirection;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">$ ./reverse_words &lt; input_file &gt; output_file</span>
+</span><span class='line'><span class="cm"> -}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kr">import</span> <span class="nn">Control.Monad</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">main</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="nb">()</span>
+</span><span class='line'><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
+</span><span class='line'>  <span class="n">n</span> <span class="ow">&lt;-</span> <span class="n">readLn</span>
+</span><span class='line'>  <span class="n">forM_</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="n">n</span><span class="p">]</span> <span class="o">$</span> <span class="nf">\</span><span class="n">i</span> <span class="ow">-&gt;</span> <span class="kr">do</span>
+</span><span class='line'>    <span class="n">solution</span> <span class="ow">&lt;-</span> <span class="n">fmap</span> <span class="p">(</span><span class="n">unwords</span> <span class="o">.</span> <span class="n">reverse</span> <span class="o">.</span> <span class="n">words</span><span class="p">)</span> <span class="n">getLine</span>
+</span><span class='line'>    <span class="n">putStrLn</span> <span class="o">$</span> <span class="s">&quot;Case #&quot;</span> <span class="o">++</span> <span class="n">show</span> <span class="n">i</span> <span class="o">++</span> <span class="s">&quot;: &quot;</span> <span class="o">++</span> <span class="n">solution</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>I&#8217;m not one who believes that shorter, terser code is necessarily better, but
@@ -569,8 +610,69 @@ you&#8217;ll know that&#8217;s nothing new).</p>
 
 <p>Here&#8217;s the cleaned up source file.</p>
 
-<div><script src='https://gist.github.com/2368757.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
+<figure class='code'><figcaption><span>Reverse words with haskell</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='haskell'><span class='line'><span class="kr">module</span> <span class="nn">Main</span> <span class="kr">where</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">{-</span>
+</span><span class='line'><span class="cm"> - Problem Statement:</span>
+</span><span class='line'><span class="cm"> - http://code.google.com/codejam/contest/351101/dashboard#s=p1</span>
+</span><span class='line'><span class="cm"> -</span>
+</span><span class='line'><span class="cm"> - Usage either compile or use runhaskell / runghc</span>
+</span><span class='line'><span class="cm"> - Pass the input file as the sole command line argument</span>
+</span><span class='line'><span class="cm"> - Redirect output if you want the results to go in a file</span>
+</span><span class='line'><span class="cm"> -}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kr">import</span> <span class="nn">IO</span>
+</span><span class='line'><span class="kr">import</span> <span class="nn">System.Environment</span>
+</span><span class='line'><span class="kr">import</span> <span class="nn">Data.List</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">reverseWords</span> <span class="ow">::</span> <span class="kt">String</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+</span><span class='line'><span class="nf">reverseWords</span> <span class="ow">=</span> <span class="n">unwords</span> <span class="o">.</span> <span class="n">reverse</span> <span class="o">.</span> <span class="n">words</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">boilerPlate</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span>
+</span><span class='line'><span class="nf">boilerPlate</span> <span class="ow">=</span> <span class="p">[</span><span class="s">&quot;Case #&quot;</span> <span class="o">++</span> <span class="n">show</span> <span class="n">n</span> <span class="o">++</span> <span class="s">&quot;: &quot;</span> <span class="o">|</span> <span class="n">n</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="p">]]</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">standardOutput</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span>
+</span><span class='line'><span class="nf">standardOutput</span> <span class="ow">=</span> <span class="n">zipWith</span> <span class="p">(</span><span class="o">++</span><span class="p">)</span> <span class="n">boilerPlate</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">main</span> <span class="ow">=</span>  <span class="kr">do</span>
+</span><span class='line'>  <span class="p">(</span><span class="n">f</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span> <span class="ow">&lt;-</span> <span class="n">getArgs</span>
+</span><span class='line'>  <span class="n">file</span>  <span class="ow">&lt;-</span> <span class="n">readFile</span> <span class="n">f</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kr">let</span> <span class="n">cases</span>     <span class="ow">=</span> <span class="n">tail</span> <span class="o">$</span> <span class="n">lines</span> <span class="n">file</span>
+</span><span class='line'>      <span class="n">solutions</span> <span class="ow">=</span> <span class="n">standardOutput</span> <span class="o">$</span> <span class="n">map</span> <span class="n">reverseWords</span> <span class="n">cases</span>
+</span><span class='line'>  <span class="n">putStrLn</span> <span class="o">$</span> <span class="n">unlines</span> <span class="o">$</span> <span class="n">solutions</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>I need to learn more Emacs shortcuts :(</p>
@@ -594,8 +696,58 @@ as well.</p>
 
 
 
-<div><script src='https://gist.github.com/708713.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Mac OS X
+</span><span class='line'>*.DS_Store
+</span><span class='line'>
+</span><span class='line'># Xcode
+</span><span class='line'>*.pbxuser
+</span><span class='line'>*.mode1v3
+</span><span class='line'>*.mode2v3
+</span><span class='line'>*.perspectivev3
+</span><span class='line'>*.xcuserstate
+</span><span class='line'>project.xcworkspace/
+</span><span class='line'>xcuserdata/
+</span><span class='line'>
+</span><span class='line'># Generated files
+</span><span class='line'>*.o
+</span><span class='line'>*.pyc
+</span><span class='line'>*.hi
+</span><span class='line'>
+</span><span class='line'>#Python modules
+</span><span class='line'>MANIFEST
+</span><span class='line'>dist/
+</span><span class='line'>build/
+</span><span class='line'>
+</span><span class='line'># Backup files
+</span><span class='line'>*~.nib
+</span><span class='line'>\#*#
+</span><span class='line'>.#*</span></code></pre></td></tr></table></div></figure>
 
 
 <p>It&#8217;s particularly suited for Xcode. It excludes the workspace settings, which
