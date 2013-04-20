@@ -403,14 +403,14 @@ class, redeclare the property as readwrite within a class extension.</p>
 </pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="c1">// In the .h file</span>
 </span><span class='line'><span class="k">@interface</span> <span class="nc">MyClass</span> : <span class="nc">NSObject</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">aString</span><span class="p">;</span>
+</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">aString</span><span class="p">;</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">@end</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// In the .m file</span>
 </span><span class='line'><span class="k">@interface</span> <span class="nc">MyClass</span> <span class="p">()</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">aString</span><span class="p">;</span>
+</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">aString</span><span class="p">;</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">@end</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -632,8 +632,8 @@ descriptions.</p>
 preferred. In any case  this is the way to lay them out.</p>
 
 <ul>
-<li>Framework headers (These should also be in the .pch file).</li>
 <li>The interface header (i.e. the .h file for the current .m file)</li>
+<li>Framework headers (These should also be in the .pch file).</li>
 <li>A blank line</li>
 <li>The other imports.</li>
 </ul>
@@ -657,6 +657,7 @@ controllers, table view delegate and datasource methods for table view
 controllers, etc.</li>
 <li>Super class overrides.</li>
 <li>Public methods declared in the header file.</li>
+<li>Action methods declared in the header file.</li>
 <li>Custom accessors (setters and/or getters) for declared properties that you
 don&#8217;t want to leave to auto-synthesize.</li>
 <li>Other delegate and protocol methods that the class implements.</li>
@@ -705,7 +706,7 @@ lines containing methods - make sure the colons are aligned.</p>
 <h3><a id="VerticalSpacing"></a>Vertical Spacing</h3>
 
 <p>Use a single blank line between methods. There is no need to leave a blank line
-at the start of a methed definition.</p>
+at the start of a method definition.</p>
 
 <p>Use two blank spaces for organisation at a large scale, such as to separate
 static definitions from implementation blocks, or to separate the end of the
@@ -740,7 +741,12 @@ braces on the opening line.</p>
 
 <h3><a id="ControlStructures"></a>Control Structures</h3>
 
-<p>See the section on the Golden Path for more usage guides with control structures.</p>
+<p>See the section on the Golden Path for more usage guides with control
+structures.</p>
+
+<p>I originally specified no blank lines between clauses, but I&#8217;ve been turned
+around on this. When you are looking at a block of code, the blank link makes
+the changed indentation level more obvious.</p>
 
 <h4><a id="ifelse"></a>if/else</h4>
 
@@ -751,12 +757,18 @@ braces on the opening line.</p>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
 </pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">button</span><span class="p">.</span><span class="n">enabled</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="c1">// do something</span>
+</span><span class='line'>
 </span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">otherButton</span><span class="p">.</span><span class="n">enabled</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="c1">// do something else</span>
+</span><span class='line'>
 </span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 </span><span class='line'>    <span class="c1">// do something by default</span>
+</span><span class='line'>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -781,13 +793,17 @@ only clearer to read but easier to make changes to.</p>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
 </pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="c1">// Acceptable</span>
 </span><span class='line'><span class="n">NSString</span> <span class="o">*</span><span class="n">boolString</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">someBool</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="n">boolString</span> <span class="o">=</span> <span class="s">@&quot;YES&quot;</span><span class="p">;</span>
+</span><span class='line'>
 </span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 </span><span class='line'>    <span class="n">boolString</span> <span class="o">=</span> <span class="s">@&quot;NO&quot;</span><span class="p">;</span>
+</span><span class='line'>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">DLog</span><span class="p">(</span><span class="s">@&quot;The BOOL value is %@&quot;</span><span class="p">,</span> <span class="n">boolString</span><span class="p">);</span>
@@ -821,20 +837,30 @@ brackets should clear up the error.</p>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
 </pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="k">switch</span> <span class="p">(</span><span class="n">something</span><span class="p">.</span><span class="n">state</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">case</span> <span class="mi">0</span><span class="o">:</span> <span class="p">{</span>
 </span><span class='line'>        <span class="c1">// braced block where required by the compiler</span>
 </span><span class='line'>        <span class="k">break</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
 </span><span class='line'>    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
 </span><span class='line'>        <span class="c1">// Something</span>
 </span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>
 </span><span class='line'>    <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+</span><span class='line'>
 </span><span class='line'>    <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
 </span><span class='line'>        <span class="c1">// Something</span>
 </span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>
 </span><span class='line'>    <span class="k">default</span><span class="o">:</span>
 </span><span class='line'>        <span class="c1">// Something</span>
+</span><span class='line'>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -898,20 +924,28 @@ follow this:</p>
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
 </pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="c1">// BAD</span>
 </span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">init</span> <span class="p">{</span>
 </span><span class='line'>    <span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="n">init</span><span class="p">];</span>
 </span><span class='line'>   <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>        <span class="c1">// initialisations here</span>
+</span><span class='line'>
 </span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
 </span><span class='line'>    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// GOOD</span>
 </span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">init</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="n">init</span><span class="p">]))</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span> <span class="c1">// Bail!</span>
+</span><span class='line'>
 </span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
 </span><span class='line'>    <span class="c1">// initialisations here</span>
 </span><span class='line'>    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
@@ -985,7 +1019,7 @@ of your mind. I&#8217;m not above changing my opinion about these.</p>
 
 <h2><a id="RevisionHistory"></a>Revision History</h2>
 
-<p>Last updated September 27, 2012</p>
+<p>Last updated April 20, 2013</p>
 
 <p>Full history
 <a href="https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions" title="Commit history for the file">available on GitHub</a>.</p>
