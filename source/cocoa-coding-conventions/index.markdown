@@ -232,14 +232,14 @@ class, redeclare the property as readwrite within a class extension.
 // In the .h file
 @interface MyClass : NSObject
 
-@property (nonatomic, copy, readonly) NSString *aString;
+@property (copy, readonly, nonatomic) NSString *aString;
 
 @end
 
 // In the .m file
 @interface MyClass ()
 
-@property (nonatomic, copy, readwrite) NSString *aString;
+@property (copy, readonly, nonatomic) NSString *aString;
 
 @end
 ```
