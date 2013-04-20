@@ -239,7 +239,7 @@ class, redeclare the property as readwrite within a class extension.
 // In the .m file
 @interface MyClass ()
 
-@property (copy, readonly, nonatomic) NSString *aString;
+@property (copy, readwrite, nonatomic) NSString *aString;
 
 @end
 ```
