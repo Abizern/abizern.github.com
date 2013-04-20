@@ -34,7 +34,9 @@ drowned out in the noise. Feel free to <a
 href='&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#98;&#105;&#122;&#101;&#114;&#110;&#64;&#97;&#98;&#105;&#122;&#101;&#114;&#110;&#46;&#111;&#114;&#103;'>&#101;&#109;&#97;&#105;&#108;</a>
 me instead.
 
-- Most of the time you can get me on [Twitter](http://twitter.com/#!/abizern "Twitter page").
+- Most of the time you can get me on [Twitter](http://twitter.com/#!/abizern
+  "Twitter page").
+- Also [App.net](https://alpha.app.net/abizern)
 - You can see my code on [Github](http://git.io/abizern "GitHub page").
 - I'm active on [Stack Overflow](http://stackoverflow.com/users/41116/abizern" title="Stack Overflow "Stack Overflow").
 - I'm on [Google+](https://plus.google.com/114978774242418167340/posts "Google+ page").
