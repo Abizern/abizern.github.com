@@ -511,7 +511,7 @@ There should **always** be a space after the control structure (i.e. `if`,
 the closing brace of the `if` statement.
 
 Xcode is inconsistent about the opening brace, and some of your colleagues may
-be to. I wrote a small ruby gem called
+be too. I wrote a small ruby gem called
 [fixbraces](http://abizern.org/fixbraces/) which will correctly position the
 braces on the opening line.
 
