@@ -410,7 +410,7 @@ class, redeclare the property as readwrite within a class extension.</p>
 </span><span class='line'><span class="c1">// In the .m file</span>
 </span><span class='line'><span class="k">@interface</span> <span class="nc">MyClass</span> <span class="p">()</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">aString</span><span class="p">;</span>
+</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">aString</span><span class="p">;</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">@end</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -735,7 +735,7 @@ level as the line with the opening brace.</p>
 the closing brace of the <code>if</code> statement.</p>
 
 <p>Xcode is inconsistent about the opening brace, and some of your colleagues may
-be to. I wrote a small ruby gem called
+be too. I wrote a small ruby gem called
 <a href="http://abizern.org/fixbraces/">fixbraces</a> which will correctly position the
 braces on the opening line.</p>
 
