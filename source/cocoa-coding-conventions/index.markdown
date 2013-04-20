@@ -420,8 +420,8 @@ See the code style section for what to import and where.
 The header files should have the minimal number of imports, as forward declarations are
 preferred. In any case  this is the way to lay them out.
 
-- Framework headers (These should also be in the .pch file).
 - The interface header (i.e. the .h file for the current .m file)
+- Framework headers (These should also be in the .pch file).
 - A blank line
 - The other imports.
 
@@ -440,6 +440,7 @@ effort, unless you are looking for some boyscouting to do.
     controllers, etc.
   - Super class overrides.
   - Public methods declared in the header file.
+  - Action methods declared in the header file.
   - Custom accessors (setters and/or getters) for declared properties that you
     don't want to leave to auto-synthesize.
   - Other delegate and protocol methods that the class implements.
@@ -484,7 +485,7 @@ lines containing methods - make sure the colons are aligned.
 ### <a id="VerticalSpacing"></a>Vertical Spacing
 
 Use a single blank line between methods. There is no need to leave a blank line
-at the start of a methed definition.
+at the start of a method definition.
 
 Use two blank spaces for organisation at a large scale, such as to separate
 static definitions from implementation blocks, or to separate the end of the
@@ -516,17 +517,25 @@ braces on the opening line.
 
 ### <a id="ControlStructures"></a>Control Structures
 
-See the section on the Golden Path for more usage guides with control structures.
+See the section on the Golden Path for more usage guides with control
+structures.
+
+I originally specified no blank lines between clauses, but I've been turned
+around on this. When you are looking at a block of code, the blank link makes
+the changed indentation level more obvious.
 
 #### <a id="ifelse"></a>if/else
 
 ``` objective-c
 if (button.enabled) {
     // do something
+
 } else if (otherButton.enabled) {
     // do something else
+
 } else {
     // do something by default
+
 }
 ```
 
@@ -543,8 +552,10 @@ NSString *boolString = nil;
 
 if (someBool) {
     boolString = @"YES";
+
 } else {
     boolString = @"NO";
+
 }
 
 DLog(@"The BOOL value is %@", boolString);
@@ -568,15 +579,20 @@ switch (something.state) {
         // braced block where required by the compiler
         break;
     }
+
     case 1:
         // Something
         break;
+
     case 2:
+
     case 3:
         // Something
         break;
+
     default:
         // Something
+
 }
 ```
 
@@ -618,15 +634,19 @@ follow this:
     self = [super init];
    if (self) {
         // initialisations here
+
     }
+
     return self;
 }
 
 // GOOD
 - (id)init {
     if (!(self = [super init])) {
-        return nil;
+        return nil; // Bail!
+
     }
+
     // initialisations here
     return self;
 }
@@ -696,7 +716,7 @@ of your mind. I'm not above changing my opinion about these.
 
 ## <a id="RevisionHistory"></a>Revision History
 
-Last updated September 27, 2012
+Last updated April 20, 2013
 
 Full history
 [available on GitHub](https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions
