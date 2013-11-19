@@ -368,14 +368,22 @@ static NSString *someString;
 
 ### <a id="Enums"></a>Enums
 
-Use the new typed enumerations.
+Use the new typed enumerations, or even better, use the Apple provided macros
 
 ``` objective-c
+// Good
 typedef enum : unsigned char {
     Red,
     Green,
     Blue
 } StandardColours;
+
+// Better
+typedef NS_ENUM(unsigned char, StandardColours) {
+    Red,
+    Green,
+    Blue
+};
 ```
 
 For simple enumerations there is no need to assign values to the values unless
@@ -384,12 +392,21 @@ enumerations which should specify the initial value and the remaining values
 should use the shift-left operator (<<).
 
 ``` objective-c
+// Good
 typedef enum : NSUInteger {
     ABCOutputNone    = 0,
     ABCOutputSeconds = 1 << 0,
     ABCOutputMinutes = 1 << 1,
     ABCOunpunHours   = 1 << 2
 } ABCOutput;
+
+// Better
+typedef NS_OPTIONS(NSUInteger, ABCOutput) {
+    ABCOutputNone    = 0,
+    ABCOutputSeconds = 1 << 0,
+    ABCOutputMinutes = 1 << 1,
+    ABCOunpunHours   = 1 << 2
+};
 ```
 
 ### <a id="TODOs"></a>TODOs
