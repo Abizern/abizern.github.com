@@ -1,245 +1,76 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The developer and personal blog of
+                                          Abizer Nasir, a freelance iOS and OS X
+                                          developer in London, UK">
+        <meta name="author" content="Abizer Nasir">
+        <title>Abizern.org - Just Enough GPG for git</title>
+        <link rel="canonical" href="http://abizern.org">
+        <link href="../../../../favicon.png" rel="icon">
+        <link rel="stylesheet" type="text/css" href="../../../../css/main.css">
+        <script type="text/javascript">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Just Enough GPG for git - Abizer Nasir</title>
-  <meta name="author" content="Abizer Nasir">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5015208-5']);
+  _gaq.push(['_trackPageview']);
 
-  
-  <meta name="description" content="It came about that I wanted to do some work with git and signed tags. It&#8217;s been
-a while since I had looked at this, I&#8217;ve got some old &hellip;">
-  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+        </script>
+    </head>
 
-  
-  <link rel="canonical" href="http://abizern.org/2011/01/17/just-enough-gpg-for-git">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Abizer Nasir" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5015208-5']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Abizer Nasir</a></h1>
-  
-</hgroup>
-
+    <body>
+        <header id="page_header">
+    <h1><a href="../../../../" title="Home">Abizer Nasir</a></h1>
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:abizern.org" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Home</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/archives">Archives</a></li>
-  <li><a href="/cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
-</ul>
 
+        <nav id="page_navigation">
+    <ul>
+        <li><a href="../../../../">Home</a></li>
+        <li><a href="../../../../about">About</a></li>
+        <li><a href="../../../../archive">Archive</a></li>
+        <li><a href="../../../../cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
+    </ul>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
-  
-  <header>
-    
-      <h1 class="entry-title">Just Enough GPG for Git</h1>
-    
-    
-      <p class="meta">
+
         
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-01-17T15:52:38+00:00" pubdate data-updated="true">Jan 17<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-<div class="entry-content"><p>It came about that I wanted to do some work with git and signed tags. It&#8217;s been
-a while since I had looked at this, I&#8217;ve got some old entries up on keyservers
-that date back to 1999, and never on a Mac.</p>
-
-<p>It turns out that it is quite simple to set up a minimal
-<a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy">GPG</a> environment – one that
-lets you work on the command line without having to set it up for Mail.app. This
-is about all I need it for.</p>
-
-<!-- more  -->
-
-
-<p>The <a href="http://www.gpgtools.org/index.html">GPGTools project</a> has recently
-resurrected the <a href="http://macgpg.sourceforge.net/">MacGPG project</a> to provide
-email encryption and tools to the Mac. It is still in development, and I didn&#8217;t
-want to mess about with my Mail installation so rather than install the complete
-set of tools, I chose to install <a href="http://www.gpgtools.org/macgpg2.html">MacGPG2</a>
-and <a href="http://www.gpgtools.org/keychain.html">GPGKeychain Access</a></p>
-
-<p><a href="http://www.gpgtools.org/macgpg2.html">MacGPG2</a> is the
-<a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy#OpenPGP">OpenPGP</a>
-implementation for the Mac. This installs gpg2 into /usr/local/bin and gpg is
-symlinked to gpg2. I only mention this because although the commands can all be
-issued as gpg, you get to the documentation by using man gpg2, not man
-gpg. Installation is through an installer package.</p>
-
-<p><a href="http://www.gpgtools.org/keychain.html">GPGKeychain Access</a> does not integrate
-with the Mac Keychain as the name might suggest, but provides a window to look
-at and manage the keys that you have on your system. These are usually under
-~/.gnupg/ Run the installer, and create your keys. It&#8217;s quite simple and there
-is a video on the project page. However, there are a couple of things that you
-should keep in mind. If you forget your passphrase you can&#8217;t use your private
-key anymore. And if you&#8217;ve published the key, you won&#8217;t be able to revoke it and
-it will just sit around on keyservers. So, set an expiry date on your keys in
-case you do lose the private key or passphrase. As the expiry date comes up just
-extend it again.</p>
-
-<p>There is no key-server configured. There seems to be a ticket for this to be
-implemented in some future milestone. Until then, create a file called gpg.conf
-under ~/.gnupg and put this line in it:</p>
-
-<pre><code>keyserver hkp://pgp.mit.edu
-</code></pre>
-
-<p>And that is just enough so that when you use the menu items that send and get
-keys from keyservers they will work. As far as I know, these servers talk to
-each other, so writing to one makes the key visible on the others.</p>
-
-<p>Synchronisation of keys is an issue. If you are adventurous you could add more
-entries to the gpg.conf file to use a central location for the keyrings,
-somewhere like Dropbox or iDisk, so that all your machines can use the same
-files. But, it&#8217;s just as easy to export the keys as text and use those files to
-keep different machines in sync. Partcularly if you will be using gpg rarely.</p>
-
-<p>This has been a companion piece to the non-Mac centric
-<a href="http://365git.tumblr.com/">365Git</a> post about
-<a href="http://365git.tumblr.com/post/2796779828/signing-a-git-tag">signed tags</a>.</p>
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Abizer Nasir</span></span>
-
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-01-17T15:52:38+00:00" pubdate data-updated="true">Jan 17<span>th</span>, 2011</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/categories/git/'>Git</a>, <a class='category' href='/categories/os-x-development/'>OS X Development</a>, <a class='category' href='/categories/web-development/'>Web Development</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/2010/11/21/staying-flash-free-on-a-macbook-air/" title="Previous Post: Staying Flash-free on a MacBook Air">&laquo; Staying Flash-free on a MacBook Air</a>
-      
-      
-        <a class="basic-alignment right" href="/2011/04/14/nscoder-night-london-now-has-its-own-page/" title="Next Post: NSCoder Night London Now Has It's Own Page">NSCoder Night London Now Has It's Own Page &raquo;</a>
-      
-    </p>
-  </footer>
+        <section id="content">
+            <article>
+    <header>
+        <h1>Just Enough GPG for git</h1>
+        <span class="post-date">January 17, 2011</span> in 
+        <span class="post-tags">osx, git</span>
+    </header>
+    <p>It came about that I wanted to do some work with git and signed tags. It’s been a while since I had looked at this, I’ve got some old entries up on keyservers that date back to 1999, and never on a Mac.</p>
+<p>It turns out that it is quite simple to set up a minimal <a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy">GPG</a> environment – one that lets you work on the command line without having to set it up for Mail.app. This is about all I need it for.</p>
+<p>The <a href="http://www.gpgtools.org/index.html">GPGTools project</a> has recently resurrected the <a href="http://macgpg.sourceforge.net/">MacGPG project</a> to provide email encryption and tools to the Mac. It is still in development, and I didn’t want to mess about with my Mail installation so rather than install the complete set of tools, I chose to install <a href="http://www.gpgtools.org/macgpg2.html">MacGPG2</a> and <a href="http://www.gpgtools.org/keychain.html">GPGKeychain Access</a></p>
+<p><a href="http://www.gpgtools.org/macgpg2.html">MacGPG2</a> is the <a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy#OpenPGP">OpenPGP</a> implementation for the Mac. This installs gpg2 into /usr/local/bin and gpg is symlinked to gpg2. I only mention this because although the commands can all be issued as gpg, you get to the documentation by using man gpg2, not man gpg. Installation is through an installer package.</p>
+<p><a href="http://www.gpgtools.org/keychain.html">GPGKeychain Access</a> does not integrate with the Mac Keychain as the name might suggest, but provides a window to look at and manage the keys that you have on your system. These are usually under ~/.gnupg/ Run the installer, and create your keys. It’s quite simple and there is a video on the project page. However, there are a couple of things that you should keep in mind. If you forget your passphrase you can’t use your private key anymore. And if you’ve published the key, you won’t be able to revoke it and it will just sit around on keyservers. So, set an expiry date on your keys in case you do lose the private key or passphrase. As the expiry date comes up just extend it again.</p>
+<p>There is no key-server configured. There seems to be a ticket for this to be implemented in some future milestone. Until then, create a file called gpg.conf under ~/.gnupg and put this line in it:</p>
+<pre><code>keyserver hkp://pgp.mit.edu</code></pre>
+<p>And that is just enough so that when you use the menu items that send and get keys from keyservers they will work. As far as I know, these servers talk to each other, so writing to one makes the key visible on the others.</p>
+<p>Synchronisation of keys is an issue. If you are adventurous you could add more entries to the gpg.conf file to use a central location for the keyrings, somewhere like Dropbox or iDisk, so that all your machines can use the same files. But, it’s just as easy to export the keys as text and use those files to keep different machines in sync. Partcularly if you will be using gpg rarely.</p>
+<p>This has been a companion piece to the non-Mac centric <a href="http://365git.tumblr.com/">365Git</a> post about <a href="http://365git.tumblr.com/post/2796779828/signing-a-git-tag">signed tags</a>.</p>
 </article>
 
-</div>
+        </section>
 
-<aside class="sidebar">
-  
-    
-  
-</aside>
-
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2009 - 2013 Abizer Nasir
-  <a href="/copyright-statement">Some rights reserved</a> &mdash;
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
+        <footer id="page_footer">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC-4.0</a>
+    —
+    Built with 
+    <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
+    —
+    Source on 
+    <a href="https://github.com/Abizern/hblog">GitHub</a>.
 </footer>
-  
 
-
-
-
-
-
-
-
-
-
-
-</body>
+    </body>
 </html>

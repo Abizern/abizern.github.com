@@ -1,233 +1,83 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The developer and personal blog of
+                                          Abizer Nasir, a freelance iOS and OS X
+                                          developer in London, UK">
+        <meta name="author" content="Abizer Nasir">
+        <title>Abizern.org - Getting the address of a shortened URL</title>
+        <link rel="canonical" href="http://abizern.org">
+        <link href="../../../../favicon.png" rel="icon">
+        <link rel="stylesheet" type="text/css" href="../../../../css/main.css">
+        <script type="text/javascript">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Getting the address of a shortened URL - Abizer Nasir</title>
-  <meta name="author" content="Abizer Nasir">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5015208-5']);
+  _gaq.push(['_trackPageview']);
 
-  
-  <meta name="description" content="Many times you will see a shortened url but you aren&#8217;t sure what it points
-at. Here&#8217;s a little tip that I picked up from
-Tom Morris. Pop &hellip;">
-  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+        </script>
+    </head>
 
-  
-  <link rel="canonical" href="http://abizern.org/2010/10/16/getting-the-address-of-a-shortened-url">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Abizer Nasir" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5015208-5']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Abizer Nasir</a></h1>
-  
-</hgroup>
-
+    <body>
+        <header id="page_header">
+    <h1><a href="../../../../" title="Home">Abizer Nasir</a></h1>
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:abizern.org" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Home</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/archives">Archives</a></li>
-  <li><a href="/cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
-</ul>
 
+        <nav id="page_navigation">
+    <ul>
+        <li><a href="../../../../">Home</a></li>
+        <li><a href="../../../../about">About</a></li>
+        <li><a href="../../../../archive">Archive</a></li>
+        <li><a href="../../../../cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
+    </ul>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
-  
-  <header>
-    
-      <h1 class="entry-title">Getting the Address of a Shortened URL</h1>
-    
-    
-      <p class="meta">
+
         
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-10-16T22:05:52+01:00" pubdate data-updated="true">Oct 16<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-<div class="entry-content"><p>Many times you will see a shortened url but you aren&#8217;t sure what it points
-at. Here&#8217;s a little tip that I picked up from
-<a href="http://tommorris.org">Tom Morris</a>.</p>
-
-<p>Pop open your terminal, or console, or whatever your command-line application is
-and type the following:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl --head shorturl
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This pops up a short amount of useful information about the target url. For
-example the response for the Google short URL for this site shows this;</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>~ % curl --head http://goo.gl/oQx8
-</span><span class='line'>HTTP/1.1 301 Moved Permanently
-</span><span class='line'>Content-Type: text/html; <span class="nv">charset</span><span class="o">=</span>UTF-8
-</span><span class='line'>Expires: Sat, 16 Oct 2010 21:01:51 GMT
-</span><span class='line'>Date: Sat, 16 Oct 2010 21:01:51 GMT
-</span><span class='line'>Cache-Control: private, max-age<span class="o">=</span>86400
-</span><span class='line'>Location: http://abizern.org/
-</span><span class='line'>X-Content-Type-Options: nosniff
-</span><span class='line'>X-Frame-Options: SAMEORIGIN
-</span><span class='line'>X-XSS-Protection: 1; <span class="nv">mode</span><span class="o">=</span>block
-</span><span class='line'>Server: GSE
-</span><span class='line'>Transfer-Encoding: chunked
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And you can see that the Location shows that you aren&#8217;t going to get
-Rick-rolled.</p>
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Abizer Nasir</span></span>
-
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-10-16T22:05:52+01:00" pubdate data-updated="true">Oct 16<span>th</span>, 2010</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/categories/general-programming/'>General Programming</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/2010/10/08/dvcs-at-lidg/" title="Previous Post: DVCS at LiDG">&laquo; DVCS at LiDG</a>
-      
-      
-        <a class="basic-alignment right" href="/2010/11/21/staying-flash-free-on-a-macbook-air/" title="Next Post: Staying Flash-free on a MacBook Air">Staying Flash-free on a MacBook Air &raquo;</a>
-      
-    </p>
-  </footer>
+        <section id="content">
+            <article>
+    <header>
+        <h1>Getting the address of a shortened URL</h1>
+        <span class="post-date">October 16, 2010</span> in 
+        <span class="post-tags">programming</span>
+    </header>
+    <p>Many times you will see a shortened url but you aren’t sure what it points at. Here’s a little tip that I picked up from <a href="http://tommorris.org">Tom Morris</a>.</p>
+<p>Pop open your terminal, or console, or whatever your command-line application is and type the following:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> --head shorturl</code></pre>
+<p>This pops up a short amount of useful information about the target url. For example the response for the Google short URL for this site shows this;</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span> <span class="kw">%</span> curl --head http://goo.gl/oQx8
+<span class="kw">HTTP/1.1</span> 301 Moved Permanently
+<span class="kw">Content-Type</span>: text/html<span class="kw">;</span> <span class="ot">charset=</span>UTF-8
+<span class="kw">Expires</span>: Sat, 16 Oct 2010 21:01:51 GMT
+<span class="kw">Date</span>: Sat, 16 Oct 2010 21:01:51 GMT
+<span class="kw">Cache-Control</span>: private, max-age=86400
+<span class="kw">Location</span>: http://abizern.org/
+<span class="kw">X-Content-Type-Options</span>: nosniff
+<span class="kw">X-Frame-Options</span>: SAMEORIGIN
+<span class="kw">X-XSS-Protection</span>: 1<span class="kw">;</span> <span class="ot">mode=</span>block
+<span class="kw">Server</span>: GSE
+<span class="kw">Transfer-Encoding</span>: chunked</code></pre>
+<p>And you can see that the Location shows that you aren’t going to get Rick-rolled.</p>
 </article>
 
-</div>
+        </section>
 
-<aside class="sidebar">
-  
-    
-  
-</aside>
-
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2009 - 2013 Abizer Nasir
-  <a href="/copyright-statement">Some rights reserved</a> &mdash;
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
+        <footer id="page_footer">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC-4.0</a>
+    —
+    Built with 
+    <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
+    —
+    Source on 
+    <a href="https://github.com/Abizern/hblog">GitHub</a>.
 </footer>
-  
 
-
-
-
-
-
-
-
-
-
-
-</body>
+    </body>
 </html>

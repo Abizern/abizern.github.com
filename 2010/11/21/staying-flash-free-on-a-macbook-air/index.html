@@ -1,211 +1,70 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The developer and personal blog of
+                                          Abizer Nasir, a freelance iOS and OS X
+                                          developer in London, UK">
+        <meta name="author" content="Abizer Nasir">
+        <title>Abizern.org - Staying Flash-free on a MacBook Air</title>
+        <link rel="canonical" href="http://abizern.org">
+        <link href="../../../../favicon.png" rel="icon">
+        <link rel="stylesheet" type="text/css" href="../../../../css/main.css">
+        <script type="text/javascript">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Staying Flash-free on a MacBook Air - Abizer Nasir</title>
-  <meta name="author" content="Abizer Nasir">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5015208-5']);
+  _gaq.push(['_trackPageview']);
 
-  
-  <meta name="description" content="You may have seen John Gruber&#8217;s posts on
-uninstalling system-wide flash
-and
-changing the Safari User Agent
-to view some sites that have Flash &hellip;">
-  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+        </script>
+    </head>
 
-  
-  <link rel="canonical" href="http://abizern.org/2010/11/21/staying-flash-free-on-a-macbook-air">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Abizer Nasir" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5015208-5']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Abizer Nasir</a></h1>
-  
-</hgroup>
-
+    <body>
+        <header id="page_header">
+    <h1><a href="../../../../" title="Home">Abizer Nasir</a></h1>
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:abizern.org" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Home</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/archives">Archives</a></li>
-  <li><a href="/cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
-</ul>
 
+        <nav id="page_navigation">
+    <ul>
+        <li><a href="../../../../">Home</a></li>
+        <li><a href="../../../../about">About</a></li>
+        <li><a href="../../../../archive">Archive</a></li>
+        <li><a href="../../../../cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
+    </ul>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
-  
-  <header>
-    
-      <h1 class="entry-title">Staying Flash-free on a MacBook Air</h1>
-    
-    
-      <p class="meta">
+
         
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-11-21T17:46:57+00:00" pubdate data-updated="true">Nov 21<span>st</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-<div class="entry-content"><p>You may have seen John Gruber&#8217;s posts on
-<a href="http://daringfireball.net/2010/11/flash_free_and_cheating_with_google_chrome">uninstalling system-wide flash</a>
-and
-<a href="http://daringfireball.net/2010/11/masquerading_as_mobile_safari">changing the Safari User Agent</a>
-to view some sites that have Flash content.</p>
-
-<p>The new MacBook Airs don&#8217;t have Flash installed by default so this is a
-<a href="http://en.wikipedia.org/wiki/Wikipedia:Too_long;_didn%27t_read">tl:dr</a> summary
-of those two articles so you don&#8217;t have to download and install the system-wide
-Flash player.</p>
-
-<p>Many sites, such as <a href="http://youtube.com">YouTube</a>, provide content in an
-alternative format for devices that do not have Flash installed. Get access to
-this from Safari by turning on the &#8216;Develop&#8217; menu (Preferences | Advanced) and
-change the User Agent to &#8216;Mobile Safari 3.2.2 iPad&#8217;. This works per tab|window
-so doesn&#8217;t change the display in what you already have open.</p>
-
-<p>If this still doesn&#8217;t work (I&#8217;m looking at you
-<a href="http://www.bbc.co.uk/iplayer/">iPlayer</a>) then you can use Google&#8217;s Chrome
-browser, which comes with its own Flash plug-in.</p>
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Abizer Nasir</span></span>
-
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-11-21T17:46:57+00:00" pubdate data-updated="true">Nov 21<span>st</span>, 2010</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/categories/technology/'>Technology</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/2010/10/16/getting-the-address-of-a-shortened-url/" title="Previous Post: Getting the address of a shortened URL">&laquo; Getting the address of a shortened URL</a>
-      
-      
-        <a class="basic-alignment right" href="/2011/01/17/just-enough-gpg-for-git/" title="Next Post: Just Enough GPG for git">Just Enough GPG for git &raquo;</a>
-      
-    </p>
-  </footer>
+        <section id="content">
+            <article>
+    <header>
+        <h1>Staying Flash-free on a MacBook Air</h1>
+        <span class="post-date">November 21, 2010</span> in 
+        <span class="post-tags">technology</span>
+    </header>
+    <p>You may have seen John Gruber’s posts on <a href="http://daringfireball.net/2010/11/flash_free_and_cheating_with_google_chrome">uninstalling system-wide flash</a> and <a href="http://daringfireball.net/2010/11/masquerading_as_mobile_safari">changing the Safari User Agent</a> to view some sites that have Flash content.</p>
+<p>The new MacBook Airs don’t have Flash installed by default so this is a <a href="http://en.wikipedia.org/wiki/Wikipedia:Too_long;_didn%27t_read">tl:dr</a> summary of those two articles so you don’t have to download and install the system-wide Flash player.</p>
+<p>Many sites, such as <a href="http://youtube.com">YouTube</a>, provide content in an alternative format for devices that do not have Flash installed. Get access to this from Safari by turning on the ‘Develop’ menu (Preferences | Advanced) and change the User Agent to ‘Mobile Safari 3.2.2 iPad’. This works per tab|window so doesn’t change the display in what you already have open.</p>
+<p>If this still doesn’t work (I’m looking at you <a href="http://www.bbc.co.uk/iplayer/">iPlayer</a>) then you can use Google’s Chrome browser, which comes with its own Flash plug-in.</p>
 </article>
 
-</div>
+        </section>
 
-<aside class="sidebar">
-  
-    
-  
-</aside>
-
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2009 - 2013 Abizer Nasir
-  <a href="/copyright-statement">Some rights reserved</a> &mdash;
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
+        <footer id="page_footer">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC-4.0</a>
+    —
+    Built with 
+    <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
+    —
+    Source on 
+    <a href="https://github.com/Abizern/hblog">GitHub</a>.
 </footer>
-  
 
-
-
-
-
-
-
-
-
-
-
-</body>
+    </body>
 </html>

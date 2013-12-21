@@ -1,4 +1,2 @@
 User-agent: *
-Disallow: 
-
-Sitemap: http://abizern.org/sitemap.xml 
+Disallow:

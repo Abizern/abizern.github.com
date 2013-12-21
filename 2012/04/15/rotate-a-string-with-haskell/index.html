@@ -1,288 +1,89 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The developer and personal blog of
+                                          Abizer Nasir, a freelance iOS and OS X
+                                          developer in London, UK">
+        <meta name="author" content="Abizer Nasir">
+        <title>Abizern.org - Rotate A String with Haskell</title>
+        <link rel="canonical" href="http://abizern.org">
+        <link href="../../../../favicon.png" rel="icon">
+        <link rel="stylesheet" type="text/css" href="../../../../css/main.css">
+        <script type="text/javascript">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Rotate A String with Haskell - Abizer Nasir</title>
-  <meta name="author" content="Abizer Nasir">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5015208-5']);
+  _gaq.push(['_trackPageview']);
 
-  
-  <meta name="description" content="I qualified for Google Code Jam this year
-answering 3 out of 4 questions. I have no illusions about progressing very far,
-but I&#8217;m using it as &hellip;">
-  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+        </script>
+    </head>
 
-  
-  <link rel="canonical" href="http://abizern.org/2012/04/15/rotate-a-string-with-haskell">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Abizer Nasir" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5015208-5']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Abizer Nasir</a></h1>
-  
-</hgroup>
-
+    <body>
+        <header id="page_header">
+    <h1><a href="../../../../" title="Home">Abizer Nasir</a></h1>
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:abizern.org" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Home</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/archives">Archives</a></li>
-  <li><a href="/cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
-</ul>
 
+        <nav id="page_navigation">
+    <ul>
+        <li><a href="../../../../">Home</a></li>
+        <li><a href="../../../../about">About</a></li>
+        <li><a href="../../../../archive">Archive</a></li>
+        <li><a href="../../../../cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
+    </ul>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
-  
-  <header>
-    
-      <h1 class="entry-title">Rotate a String With Haskell</h1>
-    
-    
-      <p class="meta">
+
         
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-04-15T15:08:00+01:00" pubdate data-updated="true">Apr 15<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-<div class="entry-content"><p>I qualified for <a href="http://code.google.com/codejam">Google Code Jam</a> this year
-answering 3 out of 4 questions. I have no illusions about progressing very far,
-but I&#8217;m using it as an excuse to learn some Haskell and to write code faster.</p>
-
-<p>As part of the learning process, I took one of my correct solutions over to the
-nice folks at the #haskell channel over on freenode and asked if there was a
-better way to do it. I learned something surprising.</p>
-
-<!-- more -->
-
-
-<p>As part of the solution to the
-<a href="http://code.google.com/codejam/contest/1460488/dashboard#s=p2">Recycled Numbers</a>
-problem required turning a number such as 1234 into a list of numbers with the
-digits rotated [4123, 3412, 2341]. User TSC2 in the channel gave me this simple
-way of doing it:</p>
-
-<figure class='code'><figcaption><span>ghci console</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>ghci&gt; <span class="o">(</span><span class="se">\x</span>s -&gt; <span class="nb">let </span><span class="nv">n</span> <span class="o">=</span> length xs in <span class="o">(</span>tail . take n . map <span class="o">(</span>take n<span class="o">)</span> . tails . cycle<span class="o">)</span> xs<span class="o">)</span> <span class="s2">&quot;abcde&quot;</span>
-</span><span class='line'><span class="o">[</span><span class="s2">&quot;bcdea&quot;</span>,<span class="s2">&quot;cdeab&quot;</span>,<span class="s2">&quot;deabc&quot;</span>,<span class="s2">&quot;eabcd&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>I&#8217;m still new to this so I had to work it out on paper, but here is a step by
-step explanation of what is happening: working from right to left as the
-functions are evaluated:</p>
-
-<figure class='code'><figcaption><span>xs </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>"abcde"</span></code></pre></td></tr></table></div></figure>
-
-
+        <section id="content">
+            <article>
+    <header>
+        <h1>Rotate A String with Haskell</h1>
+        <span class="post-date">April 15, 2012</span> in 
+        <span class="post-tags">haskell</span>
+    </header>
+    <p>I qualified for <a href="http://code.google.com/codejam">Google Code Jam</a> this year answering 3 out of 4 questions. I have no illusions about progressing very far, but I’m using it as an excuse to learn some Haskell and to write code faster.</p>
+<p>As part of the learning process, I took one of my correct solutions over to the nice folks at the #haskell channel over on freenode and asked if there was a better way to do it. I learned something surprising.</p>
+<p>As part of the solution to the <a href="http://code.google.com/codejam/contest/1460488/dashboard#s=p2">Recycled Numbers</a> problem required turning a number such as 1234 into a list of numbers with the digits rotated [4123, 3412, 2341]. User TSC2 in the channel gave me this simple way of doing it:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">ghci<span class="fu">&gt;</span> (\xs <span class="ot">-&gt;</span> <span class="kw">let</span> n <span class="fu">=</span> length xs <span class="kw">in</span> (tail <span class="fu">.</span> take n <span class="fu">.</span> map (take n) <span class="fu">.</span> tails <span class="fu">.</span> cycle) xs) <span class="st">&quot;abcde&quot;</span>
+[<span class="st">&quot;bcdea&quot;</span>,<span class="st">&quot;cdeab&quot;</span>,<span class="st">&quot;deabc&quot;</span>,<span class="st">&quot;eabcd&quot;</span>]</code></pre>
+<p>I’m still new to this so I had to work it out on paper, but here is a step by step explanation of what is happening: working from right to left as the functions are evaluated:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="st">&quot;abcde&quot;</span></code></pre>
 <p><code>xs</code> is just the input string.</p>
-
-<figure class='code'><figcaption><span>cycle </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>"abcdeabcde..."</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>cycle</code> creates an infinite list out of the input list by repeating it. Haskell
-is lazy. It doesn&#8217;t actually create the list until it actually needs it, so I&#8217;ve
-added the ellpises just to show the concept that this is repeated infinitely.</p>
-
-<figure class='code'><figcaption><span>tails </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>["abcdeabcde...", "bcdeabcdea...", "cdeabcdeab...", "deabcdeabc...", ...]</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This is where things start to get interesting. <code>tails</code> creates a list out of
-successive tails of a list. If you were to do this on a finite list you&#8217;d get a
-list of smaller and smaller elements. For example:</p>
-
-<figure class='code'><figcaption><span>ghci console</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>ghci&gt; tails <span class="s2">&quot;abcde&quot;</span>
-</span><span class='line'><span class="o">[</span><span class="s2">&quot;abcde&quot;</span>,<span class="s2">&quot;bcde&quot;</span>,<span class="s2">&quot;cde&quot;</span>,<span class="s2">&quot;de&quot;</span>,<span class="s2">&quot;e&quot;</span>,<span class="s2">&quot;&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>But since our input is an infinite we now have an infinite list of infinite
-lists, each element starting at one letter in from the original list. Remember,
-this hasn&#8217;t actually been worked out yet.</p>
-
-<figure class='code'><figcaption><span>map (take n) </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>["abcde", "bcdea", "cdeab", "deabc", "eabcd" "abcde", ...]</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>take n</code> takes the first <code>n</code> elemets of a list. Our lambda expression defines
-this as the length of the list, which is 5. And <code>map</code> applies this to each
-element of the list. So now we have an infinite list of 5 element lists. which is
-closer to our required final output.</p>
-
-<figure class='code'><figcaption><span>take n </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>["abcde", "bcdea", "cdeab", "deabc", "eabcd"]</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Applying <code>take n</code> again to the infinite list takes the first 5 elements of the
-finite list</p>
-
-<figure class='code'><figcaption><span>tail </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>["bcdea", "cdeab", "deabc", "eabcd"]</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Applying <code>tail</code> to the finite list takes all but the first element, and we get
-the output that we were looking for. Even though along the way we had an
-infinite list of infinite lists.</p>
-
-<p>And yet all Haskell did was provide a promise (a <em>thunk</em> in functional terms)
-that it would provide the answer when it was asked for, and as the function
-progressed the infinite list of infinite list became an infinite list of finite
-lists and then a finite list. And still it didn&#8217;t actually resolve all those
-calls until it was actually needed. In this case, when the <em>ghci</em> interpreter
-tried to get a string to display on the screen.</p>
-
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="st">&quot;abcdeabcde...&quot;</span></code></pre>
+<p><code>cycle</code> creates an infinite list out of the input list by repeating it. Haskell is lazy. It doesn’t actually create the list until it actually needs it, so I’ve added the ellpises just to show the concept that this is repeated infinitely.</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">[<span class="st">&quot;abcdeabcde...&quot;</span>, <span class="st">&quot;bcdeabcdea...&quot;</span>, <span class="st">&quot;cdeabcdeab...&quot;</span>, <span class="st">&quot;deabcdeabc...&quot;</span>, <span class="fu">...</span>]</code></pre>
+<p>This is where things start to get interesting. <code>tails</code> creates a list out of successive tails of a list. If you were to do this on a finite list you’d get a list of smaller and smaller elements. For example:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">ghci<span class="fu">&gt;</span> tails <span class="st">&quot;abcde&quot;</span>
+[<span class="st">&quot;abcde&quot;</span>,<span class="st">&quot;bcde&quot;</span>,<span class="st">&quot;cde&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;e&quot;</span>,<span class="st">&quot;&quot;</span>]</code></pre>
+<p>But since our input is an infinite we now have an infinite list of infinite lists, each element starting at one letter in from the original list. Remember, this hasn’t actually been worked out yet.</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">[<span class="st">&quot;abcde&quot;</span>, <span class="st">&quot;bcdea&quot;</span>, <span class="st">&quot;cdeab&quot;</span>, <span class="st">&quot;deabc&quot;</span>, <span class="st">&quot;eabcd&quot;</span> <span class="st">&quot;abcde&quot;</span>, <span class="fu">...</span>]</code></pre>
+<p><code>take n</code> takes the first <code>n</code> elements of a list. Our lambda expression defines this as the length of the list, which is 5. And <code>map</code> applies this to each element of the list. So now we have an infinite list of 5 element lists. which is closer to our required final output.</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">[<span class="st">&quot;abcde&quot;</span>, <span class="st">&quot;bcdea&quot;</span>, <span class="st">&quot;cdeab&quot;</span>, <span class="st">&quot;deabc&quot;</span>, <span class="st">&quot;eabcd&quot;</span>]</code></pre>
+<p>Applying <code>take n</code> again to the infinite list takes the first 5 elements of the finite list</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">[<span class="st">&quot;bcdea&quot;</span>, <span class="st">&quot;cdeab&quot;</span>, <span class="st">&quot;deabc&quot;</span>, <span class="st">&quot;eabcd&quot;</span>]</code></pre>
+<p>Applying <code>tail</code> to the finite list takes all but the first element, and we get the output that we were looking for. Even though along the way we had an infinite list of infinite lists.</p>
+<p>And yet all Haskell did was provide a promise (a <em>thunk</em> in functional terms) that it would provide the answer when it was asked for, and as the function progressed the infinite list of infinite list became an infinite list of finite lists and then a finite list. And still it didn’t actually resolve all those calls until it was actually needed. In this case, when the <em>ghci</em> interpreter tried to get a string to display on the screen.</p>
 <p>Freaky or what?</p>
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Abizer Nasir</span></span>
-
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-04-15T15:08:00+01:00" pubdate data-updated="true">Apr 15<span>th</span>, 2012</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/categories/haskell/'>Haskell</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/2012/04/09/reverse-words-with-haskell/" title="Previous Post: Reverse Words With Haskell">&laquo; Reverse Words With Haskell</a>
-      
-      
-        <a class="basic-alignment right" href="/2012/04/15/london-coderdojo/" title="Next Post: London CoderDojo">London CoderDojo &raquo;</a>
-      
-    </p>
-  </footer>
 </article>
 
-</div>
+        </section>
 
-<aside class="sidebar">
-  
-    
-  
-</aside>
-
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2009 - 2013 Abizer Nasir
-  <a href="/copyright-statement">Some rights reserved</a> &mdash;
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
+        <footer id="page_footer">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC-4.0</a>
+    —
+    Built with 
+    <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
+    —
+    Source on 
+    <a href="https://github.com/Abizern/hblog">GitHub</a>.
 </footer>
-  
 
-
-
-
-
-
-
-
-
-
-
-</body>
+    </body>
 </html>

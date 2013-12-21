@@ -1,222 +1,76 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The developer and personal blog of
+                                          Abizer Nasir, a freelance iOS and OS X
+                                          developer in London, UK">
+        <meta name="author" content="Abizer Nasir">
+        <title>Abizern.org - Simple Localisation Testing</title>
+        <link rel="canonical" href="http://abizern.org">
+        <link href="../../../../favicon.png" rel="icon">
+        <link rel="stylesheet" type="text/css" href="../../../../css/main.css">
+        <script type="text/javascript">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Simple Localisation Testing - Abizer Nasir</title>
-  <meta name="author" content="Abizer Nasir">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5015208-5']);
+  _gaq.push(['_trackPageview']);
 
-  
-  <meta name="description" content="Sometimes you want to test your localisations but you don&#8217;t want to go through the hassle of
-changing the settings on the simulator, or device &hellip;">
-  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+        </script>
+    </head>
 
-  
-  <link rel="canonical" href="http://abizern.org/2012/03/18/simple-localisation-testing">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Abizer Nasir" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5015208-5']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Abizer Nasir</a></h1>
-  
-</hgroup>
-
+    <body>
+        <header id="page_header">
+    <h1><a href="../../../../" title="Home">Abizer Nasir</a></h1>
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:abizern.org" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Home</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/archives">Archives</a></li>
-  <li><a href="/cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
-</ul>
 
+        <nav id="page_navigation">
+    <ul>
+        <li><a href="../../../../">Home</a></li>
+        <li><a href="../../../../about">About</a></li>
+        <li><a href="../../../../archive">Archive</a></li>
+        <li><a href="../../../../cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
+    </ul>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
-  
-  <header>
-    
-      <h1 class="entry-title">Simple Localisation Testing</h1>
-    
-    
-      <p class="meta">
+
         
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-18T08:44:00+00:00" pubdate data-updated="true">Mar 18<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-<div class="entry-content"><p>Sometimes you want to test your localisations but you don&#8217;t want to go through the hassle of
-changing the settings on the simulator, or device, or your Mac for each one. There&#8217;s always the fear
-of setting some language that you don&#8217;t understand.</p>
-
-<p>But, with Xcode4 schemes and a little argument passing this is a lot easier than it used to be. You
-can set up a scheme for each localisation which will let you run your iOS or Mac app under that
-localisation without having to change any settings.</p>
-
-<!-- more -->
-
-
-<p>Just to make it easier, you can have a look at an example Xcode Workspace that I&#8217;ve
-<a href="https://github.com/Abizern/SimpleLocalisationTesting" title="Simple Localisation
-Testing">put up on Github</a>. This has two projects within it, one for the Mac and one for the iPhone.</p>
-
-<p><img src="http://images.abizern.org/2012/03/Schemes.png" width="631" height="111" title="Xcode Schemes" ></p>
-
-<p>Start by having a look at the schemes. There are two projects with two schemes each, one for each
-localisation. Handily named so you can tell which is for which.</p>
-
-<p><img class="top" src="http://images.abizern.org/2012/03/RunAction_en.png" width="525" height="135" title="en run action" ></p>
-
-<p><img class="top" src="http://images.abizern.org/2012/03/RunAction_es.png" width="525" height="133" title="en run action" ></p>
-
-<p>If you have a a look at the run action for these schemes you can see the arguments that I am
-passing. First the <code>-AppleLanguages</code> argument and then the two character country code (with the
-brackets back-slash escaped).</p>
-
-<p>That&#8217;s all there is to it. Now you just have to pick the scheme to run and it will load up that
-localisation without you having to change it on the simulator. It even works for running debug
-builds on the device.</p>
-
-<p>Of course, you should test it properly eventually, but while you are developing, it&#8217;s a quick way to
-get feedback about how your localisations appear.</p>
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Abizer Nasir</span></span>
-
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-18T08:44:00+00:00" pubdate data-updated="true">Mar 18<span>th</span>, 2012</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/categories/os-x-development/'>OS X Development</a>, <a class='category' href='/categories/ios-development/'>iOS Development</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/2012/03/17/hello-octopress/" title="Previous Post: Hello Octopress">&laquo; Hello Octopress</a>
-      
-      
-        <a class="basic-alignment right" href="/2012/03/19/git-ignore-file/" title="Next Post: Git Ignore file">Git Ignore file &raquo;</a>
-      
-    </p>
-  </footer>
+        <section id="content">
+            <article>
+    <header>
+        <h1>Simple Localisation Testing</h1>
+        <span class="post-date">March 18, 2012</span> in 
+        <span class="post-tags">osx, ios</span>
+    </header>
+    <p>Sometimes you want to test your localisations but you don’t want to go through the hassle of changing the settings on the simulator, or device, or your Mac for each one. There’s always the fear of setting some language that you don’t understand.</p>
+<p>But, with Xcode4 schemes and a little argument passing this is a lot easier than it used to be. You can set up a scheme for each localisation which will let you run your iOS or Mac app under that localisation without having to change any settings.</p>
+<p>Just to make it easier, you can have a look at an example Xcode Workspace that I’ve <a href="https://github.com/Abizern/SimpleLocalisationTesting" title="Simple Localisation Testing">put up on Github</a>. This has two projects within it, one for the Mac and one for the iPhone.</p>
+<p>{% img http://images.abizern.org/2012/03/Schemes.png 631 111 Xcode Schemes %}</p>
+<p>Start by having a look at the schemes. There are two projects with two schemes each, one for each localisation. Handily named so you can tell which is for which.</p>
+<p>{% img top http://images.abizern.org/2012/03/RunAction_en.png 525 135 en run action %}</p>
+<p>{% img top http://images.abizern.org/2012/03/RunAction_es.png 525 133 en run action %}</p>
+<p>If you have a a look at the run action for these schemes you can see the arguments that I am passing. First the <code>-AppleLanguages</code> argument and then the two character country code (with the brackets back-slash escaped).</p>
+<p>That’s all there is to it. Now you just have to pick the scheme to run and it will load up that localisation without you having to change it on the simulator. It even works for running debug builds on the device.</p>
+<p>Of course, you should test it properly eventually, but while you are developing, it’s a quick way to get feedback about how your localisations appear.</p>
 </article>
 
-</div>
+        </section>
 
-<aside class="sidebar">
-  
-    
-  
-</aside>
-
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2009 - 2013 Abizer Nasir
-  <a href="/copyright-statement">Some rights reserved</a> &mdash;
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
+        <footer id="page_footer">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC-4.0</a>
+    —
+    Built with 
+    <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
+    —
+    Source on 
+    <a href="https://github.com/Abizern/hblog">GitHub</a>.
 </footer>
-  
 
-
-
-
-
-
-
-
-
-
-
-</body>
+    </body>
 </html>

@@ -1,1061 +1,445 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The developer and personal blog of
+                                          Abizer Nasir, a freelance iOS and OS X
+                                          developer in London, UK">
+        <meta name="author" content="Abizer Nasir">
+        <title>Abizern.org - Cocoa Coding Conventions</title>
+        <link rel="canonical" href="http://abizern.org">
+        <link href="../../favicon.png" rel="icon">
+        <link rel="stylesheet" type="text/css" href="../../css/main.css">
+        <script type="text/javascript">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>cocoa coding conventions - Abizer Nasir</title>
-  <meta name="author" content="Abizer Nasir">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5015208-5']);
+  _gaq.push(['_trackPageview']);
 
-  
-  <meta name="description" content="Cocoa Coding Conventions Table of contents Purpose
-Xcode Project Settings Static Analyser
-Automatic Reference Counting
-Unit Testing
-Standard Files &hellip;">
-  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+        </script>
+    </head>
 
-  
-  <link rel="canonical" href="http://abizern.org/cocoa-coding-conventions">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Abizer Nasir" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5015208-5']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Abizer Nasir</a></h1>
-  
-</hgroup>
-
+    <body>
+        <header id="page_header">
+    <h1><a href="../../" title="Home">Abizer Nasir</a></h1>
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:abizern.org" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Home</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/archives">Archives</a></li>
-  <li><a href="/cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
-</ul>
 
+        <nav id="page_navigation">
+    <ul>
+        <li><a href="../../">Home</a></li>
+        <li><a href="../../about">About</a></li>
+        <li><a href="../../archive">Archive</a></li>
+        <li><a href="../../cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
+    </ul>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article role="article">
-  
-  <header>
-    <h1 class="entry-title">Cocoa Coding Conventions</h1>
-    
-  </header>
-  
-  <h2>Table of contents</h2>
 
-<ul>
-<li><a href="#Purpose">Purpose</a></li>
-<li><a href="#ProjectSettings">Xcode Project Settings</a>
-
-<ul>
-<li><a href="#StaticAnalyser">Static Analyser</a></li>
-<li><a href="#ARC">Automatic Reference Counting</a></li>
-<li><a href="#UnitTesting">Unit Testing</a></li>
-<li><a href="#StandardFiles">Standard Files</a></li>
-<li><a href="#Schemes">Schemes</a></li>
-<li><a href="#Compiler">Compiler</a></li>
-</ul>
-</li>
-<li><a href="#CodeStyle">Code Style</a>
-
-<ul>
+        
+        <section id="content">
+            <ul>
+<li><a href="#purpose">Purpose</a></li>
+<li><a href="#xcode-project-settings">Xcode Project Settings</a><ul>
+<li><a href="#static-analyser">Static Analyser</a></li>
+<li><a href="#automatic-reference-counting">Automatic Reference Counting</a></li>
+<li><a href="#unit-testing">Unit Testing</a></li>
+<li><a href="#standard-files">Standard Files</a></li>
+<li><a href="#schemes">Schemes</a></li>
+<li><a href="#compiler">Compiler</a></li>
+</ul></li>
+<li><a href="#code-style">Code Style</a><ul>
 <li><a href="#imports">imports</a></li>
-<li><a href="#iVars">iVars</a></li>
-<li><a href="#Properties">Properties</a></li>
-<li><a href="#Naming">Method and Variable Naming</a></li>
-<li><a href="#DotNotation">Dot Notatation</a></li>
-<li><a href="#MethodSignatures">Method Signatures</a></li>
-<li><a href="#PrivateMethods">Private Methods</a></li>
-<li><a href="#EmptyMethods">Empty Methods</a></li>
-<li><a href="#Types">Types</a>
-
-<ul>
-<li><a href="#integer">integer</a></li>
-<li><a href="#BOOL">BOOL</a></li>
-<li><a href="#floats">floats</a></li>
+<li><a href="#ivars">iVars</a></li>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#method-and-variable-naming">Method and Variable Naming</a></li>
+<li><a href="#dot-notation">Dot Notation</a></li>
+<li><a href="#method-signatures">Method Signatures</a></li>
+<li><a href="#private-methods">Private Methods</a></li>
+<li><a href="#empty-methods">Empty Methods</a></li>
+<li><a href="#types">Types</a></li>
+<li><a href="#error-handling">Error Handling</a></li>
+<li><a href="#static-strings">Static Strings</a></li>
+<li><a href="#enums">Enums</a></li>
+<li><a href="#todos">TODOs</a></li>
+</ul></li>
+<li><a href="#code-layout">Code layout</a><ul>
+<li><a href="#pragma-is-your-friend">#pragma Is Your Friend</a></li>
+<li><a href="#import-ordering">Import Ordering</a></li>
+<li><a href="#method-ordering">Method Ordering</a></li>
+<li><a href="#unit-test-classes">Unit Test Classes</a></li>
+<li><a href="#comments">Comments</a></li>
+<li><a href="#horizontal-spacing">Horizontal Spacing</a></li>
+<li><a href="#vertical-spacing">Vertical Spacing</a></li>
+<li><a href="#braces">Braces</a></li>
+<li><a href="#control-structures">Control Structures</a></li>
+<li><a href="#golden-path">Golden Path</a></li>
+<li><a href="#multiple-returns">Multiple Returns</a></li>
+</ul></li>
+<li><a href="#version-control">Version Control</a></li>
+<li><a href="#the-boyscout-rule">The Boyscout Rule</a></li>
+<li><a href="#source">Source</a></li>
+<li><a href="#credits">Credits</a></li>
+<li><a href="#footnote">Footnote</a></li>
 </ul>
-</li>
-<li><a href="#ErrorHandling">Error Handling</a></li>
-<li><a href="#StaticStrings">Static Strings</a></li>
-<li><a href="#Enums">Enums</a></li>
-<li><a href="#TODOs">TODOs</a></li>
-</ul>
-</li>
-<li><a href="#CodeLayout">Code Layout</a>
-
-<ul>
-<li><a href="#Pragma">#pragma Is Your Friend</a></li>
-<li><a href="#ImportOrdering">Import Ordering</a></li>
-<li><a href="#MethodOrdering">Method Ordering</a></li>
-<li><a href="#UnitTestClasses">Unit Test Classes</a></li>
-<li><a href="#Comments">Comments</a></li>
-<li><a href="#HorizontalSpacing">Horizontal Spacing</a></li>
-<li><a href="#VerticalSpacing">Vertical Spacing</a></li>
-<li><a href="#Braces">Braces</a></li>
-<li><a href="#ControlStructures">Control Structures</a>
-
-<ul>
-<li><a href="#ifelse">if/else</a></li>
-<li><a href="#Ternary">The Ternary Operator</a></li>
-<li><a href="#Switch">Switch</a></li>
-<li><a href="#For">For</a></li>
-<li><a href="#While">While</a></li>
-</ul>
-</li>
-<li><a href="#GoldenPath">Golden Path</a></li>
-<li><a href="#MultipleReturns">Multiple Returns</a></li>
-</ul>
-</li>
-<li><a href="#VersionControl">Version Control</a></li>
-<li><a href="#BoyscoutRule">The Boyscout Rule</a></li>
-<li><a href="#Source">Source</a></li>
-<li><a href="#Credits">Credits</a></li>
-<li><a href="#Footnote">Footnote</a></li>
-<li><a href="#RevisionHistory">Revision History</a></li>
-</ul>
-
-
-<h2><a id="Purpose"></a>Purpose</h2>
-
-<p>Consistent coding conventions are one way to keep code readable and
-maintainable. Written coding conventions provide a handy reference for the times
-when one can&#8217;t remember what conventions apply.</p>
-
-<p>This is a living document, and if I find that I am breaking the conventions I&#8217;ve
-set for myself, then I&#8217;ll update the document to match what I&#8217;m doing. This is
-more a record of my choices than a rod for my own back.</p>
-
-<p>In line with George Orwell&#8217;s last rule in
-<a href="http://www.resort.com/~prime8/Orwell/patee.html">Politics and the English Language (1946)</a>
-Break any of these rules sooner than doing anything barbarous.</p>
-
-<h2><a id="ProjectSettings"></a>Xcode Project Settings</h2>
-
-<h3><a id="StaticAnalyser"></a>Static Analyser</h3>
-
-<p>Run the Static Analyser automatically with builds. Strive for zero
-warnings and errors with the default warnings and errors turned on. Use the
-Clang pragmas to silence warnings where you really have to.</p>
-
-<h3><a id="ARC"></a>Automatic Reference Counting</h3>
-
+<h2 id="purpose"><a href="#purpose">Purpose</a></h2>
+<p>Consistent coding conventions are one way to keep code readable and maintainable. Written coding conventions provide a handy reference for the times when one can’t remember what conventions apply.</p>
+<p>This is a living document, and if I find that I am breaking the conventions I’ve set for myself, then I’ll update the document to match what I’m doing. This is more a record of my choices than a rod for my own back.</p>
+<p>In line with George Orwell’s last rule in <a href="http://www.resort.com/~prime8/Orwell/patee.html">Politics and the English Language (1946)</a> Break any of these rules sooner than doing anything barbarous.</p>
+<h2 id="xcode-project-settings"><a href="#xcode-project-settings">Xcode Project Settings</a></h2>
+<h3 id="static-analyser"><a href="#static-analyser">Static Analyser</a></h3>
+<p>Run the Static Analyser automatically with builds. Strive for zero warnings and errors with the default warnings and errors turned on. Use the Clang pragmas to silence warnings where you really have to.</p>
+<h3 id="automatic-reference-counting"><a href="#automatic-reference-counting">Automatic Reference Counting</a></h3>
 <p>All new projects use ARC. The compiler is better placed to insert boilerplate code.</p>
-
-<h3><a id="UnitTesting"></a>Unit Testing</h3>
-
-<p>Use the Unit Testing option when creating new projects from the templates. You
-may not always use strict TDD, but when the time comes where something needs to
-be tested automatically, rather than running through a series of steps with a
-running app, having this set up will be a timesaver.</p>
-
-<p>That said, Unit Testing is a useful discipline, use it where you can. Don&#8217;t let
-the lack of a complete set of tests put you off writing any unit
-tests. Something is better than nothing, as long as you remember that the tests
-are not comprehensive.</p>
-
-<h3><a id="StandardFiles"></a>Standard Files</h3>
-
+<h3 id="unit-testing"><a href="#unit-testing">Unit Testing</a></h3>
+<p>Use the Unit Testing option when creating new projects from the templates. You may not always use strict TDD, but when the time comes where something needs to be tested automatically, rather than running through a series of steps with a running app, having this set up will be a timesaver.</p>
+<p>That said, Unit Testing is a useful discipline, use it where you can. Don’t let the lack of a complete set of tests put you off writing any unit tests. Something is better than nothing, as long as you remember that the tests are not comprehensive.</p>
+<h3 id="standard-files"><a href="#standard-files">Standard Files</a></h3>
 <p>The Application Delegate class is named <code>AppDelegate</code>.</p>
+<p>The project templates create standard files - a pch file, a main file, a plist file. Regardless of what the templates are set up to do rename them to <code>Prefix.pch</code>, <code>main.m</code> and <code>Info.plist</code>. Some changes will need to be made to the project settings that reference these files to make them work. Similar files are created for unit testing or other targets, but these need not be renamed; the simplified names are only be used for the main target of the project.</p>
+<p>These are common macros that are used throughout my projects. This header file should be added to all projects and imported into the <code>Prefix.pch</code> file. The most up to date version is available as a <a href="https://gist.github.com/Abizern/325926">gist on Github</a>:</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Useful Macros.</span>
+<span class="co">// The best place to import this is in your project's pch file.</span>
+<span class="co">// See http://www.cimgf.com/2010/05/02/my-current-prefix-pch-file/ for details.</span>
+<span class="co">// Most current version at https://gist.github.com/325926 along with usage notes.</span>
 
-<p>The project templates create standard files - a pch file, a main file, a plist
-file. Regardless of what the templates are set up to do rename them to
-<code>Prefix.pch</code>, <code>main.m</code> and <code>Info.plist</code>. Some changes will need to be made to
-the project settings that reference these files to make them work. Similar files
-are created for unit testing or other targets, but these need not be renamed;
-the simplified names are only be used for the main target of the project.</p>
+<span class="ot">#ifndef jcscommonmacros</span>
+<span class="ot">#define jcscommonmacros_1_0  10000</span>
+<span class="ot">#define jcscommonmacros      jcscommonmacros_1_0</span>
+<span class="ot">#endif</span>
 
-<p>There are common macros that are used throughout my projects. This header file
-should be added to all projects and imported into the <code>Prefix.pch</code> file. The most
-up to date version is available on Github:</p>
+<span class="ot">#ifdef DEBUG</span>
+  #define DLog(...) NSLog(<span class="st">@&quot;%s %@&quot;</span>, __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+  #define ALog(...) [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:__VA_ARGS__]
+<span class="ot">#else</span>
+  #define DLog(...) <span class="kw">do</span> { } <span class="kw">while</span> (<span class="dv">0</span>)
+  #ifndef NS_BLOCK_ASSERTIONS
+    #define NS_BLOCK_ASSERTIONS
+  #endif
+  #define ALog(...) NSLog(<span class="st">@&quot;%s %@&quot;</span>, __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+<span class="ot">#endif</span>
 
-<figure class='code'><figcaption><span>Common Macros</span><a href='https://gist.github.com/Abizern/325926'>View Gist</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">// Useful Macros.</span>
-</span><span class='line'><span class="c1">// The best place to import this is in your project&#39;s pch file.</span>
-</span><span class='line'><span class="c1">// See http://www.cimgf.com/2010/05/02/my-current-prefix-pch-file/ for details.</span>
-</span><span class='line'><span class="c1">// Most current version at https://gist.github.com/325926 along with usage notes.</span>
-</span><span class='line'>
-</span><span class='line'><span class="cp">#ifndef jcscommonmacros</span>
-</span><span class='line'><span class="cp">#define jcscommonmacros_1_0  10000</span>
-</span><span class='line'><span class="cp">#define jcscommonmacros      jcscommonmacros_1_0</span>
-</span><span class='line'><span class="cp">#endif</span>
-</span><span class='line'>
-</span><span class='line'><span class="cp">#ifdef DEBUG</span>
-</span><span class='line'>  <span class="err">#</span><span class="n">define</span> <span class="n">DLog</span><span class="p">(...)</span> <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%s %@&quot;</span><span class="p">,</span> <span class="n">__PRETTY_FUNCTION__</span><span class="p">,</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat:</span><span class="n">__VA_ARGS__</span><span class="p">])</span>
-</span><span class='line'>  <span class="err">#</span><span class="n">define</span> <span class="n">ALog</span><span class="p">(...)</span> <span class="p">[[</span><span class="n">NSAssertionHandler</span> <span class="n">currentHandler</span><span class="p">]</span> <span class="nl">handleFailureInFunction:</span><span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithCString:</span><span class="n">__PRETTY_FUNCTION__</span> <span class="nl">encoding:</span><span class="n">NSUTF8StringEncoding</span><span class="p">]</span> <span class="nl">file:</span><span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithCString:</span><span class="n">__FILE__</span> <span class="nl">encoding:</span><span class="n">NSUTF8StringEncoding</span><span class="p">]</span> <span class="nl">lineNumber:</span><span class="n">__LINE__</span> <span class="nl">description:</span><span class="n">__VA_ARGS__</span><span class="p">]</span>
-</span><span class='line'><span class="cp">#else</span>
-</span><span class='line'>  <span class="err">#</span><span class="n">define</span> <span class="n">DLog</span><span class="p">(...)</span> <span class="k">do</span> <span class="p">{</span> <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</span><span class='line'>  <span class="err">#</span><span class="n">ifndef</span> <span class="n">NS_BLOCK_ASSERTIONS</span>
-</span><span class='line'>    <span class="err">#</span><span class="n">define</span> <span class="n">NS_BLOCK_ASSERTIONS</span>
-</span><span class='line'>  <span class="err">#</span><span class="n">endif</span>
-</span><span class='line'>  <span class="err">#</span><span class="n">define</span> <span class="n">ALog</span><span class="p">(...)</span> <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%s %@&quot;</span><span class="p">,</span> <span class="n">__PRETTY_FUNCTION__</span><span class="p">,</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat:</span><span class="n">__VA_ARGS__</span><span class="p">])</span>
-</span><span class='line'><span class="cp">#endif</span>
-</span><span class='line'>
-</span><span class='line'><span class="cp">#define ZAssert(condition, ...) do { if (!(condition)) { ALog(__VA_ARGS__); }} while(0)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">//</span>
-</span><span class='line'><span class="c1">// This is a general test for emptiness</span>
-</span><span class='line'><span class="c1">// Courtesy of Wil Shipley http://www.wilshipley.com/blog/2005/10/pimp-my-code-interlude-free-code.html</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">static</span> <span class="kr">inline</span> <span class="kt">BOOL</span> <span class="n">isEmpty</span><span class="p">(</span><span class="kt">id</span> <span class="n">thing</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">thing</span> <span class="o">==</span> <span class="nb">nil</span>
-</span><span class='line'>        <span class="o">||</span> <span class="p">([</span><span class="n">thing</span> <span class="nl">respondsToSelector:</span><span class="k">@selector</span><span class="p">(</span><span class="n">length</span><span class="p">)]</span>
-</span><span class='line'>        <span class="o">&amp;&amp;</span> <span class="p">[(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="n">thing</span> <span class="n">length</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-</span><span class='line'>        <span class="o">||</span> <span class="p">([</span><span class="n">thing</span> <span class="nl">respondsToSelector:</span><span class="k">@selector</span><span class="p">(</span><span class="n">count</span><span class="p">)]</span>
-</span><span class='line'>        <span class="o">&amp;&amp;</span> <span class="p">[(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="n">thing</span> <span class="n">count</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+<span class="ot">#define ZAssert(condition, ...) do { if (!(condition)) { ALog(__VA_ARGS__); }} while(0)</span>
 
+<span class="co">//</span>
+<span class="co">// This is a general test for emptiness</span>
+<span class="co">// Courtesy of Wil Shipley http://www.wilshipley.com/blog/2005/10/pimp-my-code-interlude-free-code.html</span>
 
-<h3><a id="Schemes"></a>Schemes</h3>
-
-<p>Xcode creates a standard scheme named after the project for development. As part
-of setting up the project create a Release Scheme (and a TestFlight scheme if
-appropriate) and set them up to use the correct signing keys. Make these schemes
-shared and add them to version control.</p>
-
-<h3><a id="Compiler"></a>Compiler</h3>
-
-<p>Use the most up to date compiler possible and all the associated benefits,
-Literals, ARC, auto-synthesis, the static analyser, auto-layout, storyboards, etc.</p>
-
-<h2><a id="CodeStyle"></a>Code Style</h2>
-
-<h3><a id="imports"></a>imports</h3>
-
+<span class="dt">static</span> inline BOOL isEmpty(id thing) {
+    <span class="kw">return</span> thing == nil
+        || ([thing respondsToSelector:<span class="kw">@selector</span>(length)]
+        &amp;&amp; [(NSData *)thing length] == <span class="dv">0</span>)
+        || ([thing respondsToSelector:<span class="kw">@selector</span>(count)]
+        &amp;&amp; [(NSArray *)thing count] == <span class="dv">0</span>);
+}</code></pre>
+<h3 id="schemes"><a href="#schemes">Schemes</a></h3>
+<p>Xcode creates a standard scheme named after the project for development. As part of setting up the project create a Release Scheme (and a TestFlight scheme if appropriate) and set them up to use the correct signing keys. Make these schemes shared and add them to version control.</p>
+<h3 id="compiler"><a href="#compiler">Compiler</a></h3>
+<p>Use the most up to date compiler possible and all the associated benefits, Literals, ARC, auto-synthesis, the static analyser, auto-layout, storyboards, etc.</p>
+<h2 id="code-style"><a href="#code-style">Code Style</a></h2>
+<h3 id="imports"><a href="#imports">imports</a></h3>
 <p>See the code layout section to see how to lay out the imports in the .h and .m files</p>
+<p>Although the common framework imports should be in the pch file, put all the required imports into the source files. I find it helps to see what frameworks a class is set up to deal with.</p>
+<p>Only put superclass imports and protocol imports into the header file. Forward declarations should use the <code>@class</code> statement. The remaining headers should go into the .m file.</p>
+<h3 id="ivars"><a href="#ivars">iVars</a></h3>
+<p>Avoid using iVars, certainly not as part of the public interface. Prefer the use of properties.</p>
+<p>If using iVars treat them as private and add them to a class extension or the <span class="citation">@implementation</span> section if using a compiler that supports it.</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Bad - declared in the public header</span>
 
-<p>Although the common framework imports should be in the pch file, put all the
-required imports into the source files. I find it helps to see what frameworks a
-class is set up to deal with.</p>
+<span class="kw">@interface</span> MyClass : NSObject {
+    NSString *_aString;
+}
 
-<p>Only put superclass imports and protocol imports into the header file. Forward
-declarations should use the <code>@class</code> statement. The remaining headers should go
-into the .m file.</p>
+<span class="co">// Better - declared in the .m file as part of a class extension</span>
 
-<h3><a id="iVars"></a>iVars</h3>
+<span class="kw">@interface</span> MyClass () {
+    NSString *_aString;
+}
 
-<p>Avoid using iVars, certainly not as part of the public interface. Prefer the use
-of properties.</p>
+<span class="co">// Best - declared in the class implementation itself</span>
 
-<p>If using iVars treat them as private and add them to a class extension or the
-@implementation section if using a compiler that supports it.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="c1">// Bad - declared in the public header</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">@interface</span> <span class="nc">MyClass</span> : <span class="nc">NSObject</span> <span class="p">{</span>
-</span><span class='line'>    <span class="n">NSString</span> <span class="o">*</span><span class="n">_aString</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// Better - declared in the .m file as part of a class extension</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">@interface</span> <span class="nc">MyClass</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="n">NSString</span> <span class="o">*</span><span class="n">_aString</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// Best - declared in the class implementation itself</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">@implementation</span> <span class="nc">MyClass</span> <span class="p">{</span>
-</span><span class='line'>    <span class="n">NSString</span> <span class="o">*</span><span class="n">_aString</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Note the underscore prefix for iVars. I&#8217;ve gradually come around to the idea of
-using them. what they do is a)make clear that you are using an iVar and not a
-local varliable, and b)remove the need to rename local variables or parameters
-to avoid clashing with iVars.</p>
-
-<h3><a id="Properties"></a>Properties</h3>
-
-<p>Prefer immutable to mutable types, and use <code>copy</code> not <code>retain</code> for types that
-are part of a mutable / immutable class cluster unless you <strong>really</strong> need a
-mutable type.</p>
-
+<span class="kw">@implementation</span> MyClass {
+    NSString *_aString;
+}</code></pre>
+<p>Note the underscore prefix for iVars. I’ve gradually come around to the idea of using them. what they do is a)make clear that you are using an iVar and not a local varliable, and b)remove the need to rename local variables or parameters to avoid clashing with iVars.</p>
+<h3 id="properties"><a href="#properties">Properties</a></h3>
+<p>Prefer immutable to mutable types, and use <code>copy</code> not <code>retain</code> for types that are part of a mutable / immutable class cluster unless you <strong>really</strong> need a mutable type.</p>
 <p>The memory management declaration should come first.</p>
-
 <p>Prefer nonatomic to atomic type declarations.</p>
-
 <p>Choose a different getters for <code>BOOL</code> types where appropriate.</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec">@property (strong, nonatomic) UIColor *colour;
+@property (copy, nonatomic) NSString *title;
+@property (weak, nonatomic) id &lt;DelegateProtocol&gt; delegate;
+@property (assign, nonatomic, getter=isDownloading) BOOL downloading;</code></pre>
+<p>Only expose as much in the public interface as needed. It’s easier to have a smaller surface area of change when working through code, especially during discovery. If a property needs to be publicly readonly but readwrite for the class, redeclare the property as readwrite within a class extension.</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// In the .h file</span>
+<span class="kw">@interface</span> MyClass : NSObject
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">UIColor</span> <span class="o">*</span><span class="n">colour</span><span class="p">;</span>
-</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">title</span><span class="p">;</span>
-</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="kt">id</span> <span class="o">&lt;</span><span class="n">DelegateProtocol</span><span class="o">&gt;</span> <span class="n">delegate</span><span class="p">;</span>
-</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">isDownloading</span><span class="p">)</span> <span class="kt">BOOL</span> <span class="n">downloading</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
+@property (copy, readonly, nonatomic) NSString *aString;
 
+<span class="kw">@end</span>
 
-<p>Only expose as much in the public interface as needed. It&#8217;s easier to have a
-smaller surface area of change when working through code, especially during
-discovery. If a property needs to be publicly readonly but readwrite for the
-class, redeclare the property as readwrite within a class extension.</p>
+<span class="co">// In the .m file</span>
+<span class="kw">@interface</span> MyClass ()
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="c1">// In the .h file</span>
-</span><span class='line'><span class="k">@interface</span> <span class="nc">MyClass</span> : <span class="nc">NSObject</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">aString</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">@end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// In the .m file</span>
-</span><span class='line'><span class="k">@interface</span> <span class="nc">MyClass</span> <span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">aString</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">@end</span>
-</span></code></pre></td></tr></table></div></figure>
+@property (copy, readwrite, nonatomic) NSString *aString;
 
+<span class="kw">@end</span></code></pre>
+<p>Auto-synthesised properties generate an iVar with a leading underscore. If not using a compiler that supports auto-synthesis <span class="citation">@sythesise</span> backing stores in the same way.</p>
+<h3 id="method-and-variable-naming"><a href="#method-and-variable-naming">Method and Variable Naming</a></h3>
+<p>Don’t fear long descriptive names, Xcode has auto-completion.</p>
+<p>Follow the conventions in Apple’s <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html#//apple_ref/doc/uid/10000146-SW1">Coding Guidelines for Cocoa</a></p>
+<p>The cocoa frameworks follow an American spelling convention. That means that there are classes such as <code>NSColor</code> and <code>NSNotificationCenter</code>. That doesn’t mean that this convention should be followed blindly. Use British spelling:</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// The usual</span>
+UIColor *someColor = [UIColor whiteColor];
+NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 
-<p>Auto-synthesised properties generate an iVar with a leading underscore. If not
-using a compiler that supports auto-synthesis @sythesise backing stores in the
-same way.</p>
-
-<h3><a id="Naming"></a>Method and Variable Naming</h3>
-
-<p>Don&#8217;t fear long descriptive names, Xcode has auto-completion.</p>
-
-<p>Follow the conventions in Apple&#8217;s
-<a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html#//apple_ref/doc/uid/10000146-SW1">Coding Guidelines for Cocoa</a></p>
-
-<p>The cocoa frameworks follow an American spelling convention. That means that
-there are classes such as <code>NSColor</code> and <code>NSNotificationCenter</code>. That doesn&#8217;t
-mean that this convention should be followed blindly. Use British spelling:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="c1">// The usual</span>
-</span><span class='line'><span class="n">UIColor</span> <span class="o">*</span><span class="n">someColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">whiteColor</span><span class="p">];</span>
-</span><span class='line'><span class="n">NSNotificationCenter</span> <span class="o">*</span><span class="n">notificationCenter</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">];</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// Better</span>
-</span><span class='line'><span class="n">UIColor</span> <span class="o">*</span><span class="n">someColour</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">whiteColor</span><span class="p">];</span>
-</span><span class='line'><span class="n">NSNotificationCenter</span> <span class="o">*</span><span class="n">notificationCentre</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">];</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The downside to the preffered choice is that there is an inconsistency on the
-declaration line and there will be two spellings in use throughout the
-code. But, it&#8217;s more natural for me to write with British Spellings, and let
-autocompletion use the correct spellings for the system.</p>
-
-<p>However - overall consistency and project style should take precedence. If this
-is your code, your project; then use the British spellings. If you are
-contributing to somebody else&#8217;s code - use whatever is currently in use.</p>
-
-<h3><a id="DotNotation"></a>Dot Notation</h3>
-
-<p>Use it, but don&#8217;t abuse it.</p>
-
-<p>If it&#8217;s possible to chain properties together neatly then use it. If the dots
-and brackets are becoming interleaved or nested too deep use brackets. This one
-is hard to nail down but if you look at the resulting line and you have to pick
-apart the calls - change it to all brackets - which should always work.</p>
-
+<span class="co">// Better</span>
+UIColor *someColour = [UIColor whiteColor];
+NSNotificationCenter *notificationCentre = [NSNotificationCenter defaultCenter];</code></pre>
+<p>The downside to the preffered choice is that there is an inconsistency on the declaration line and there will be two spellings in use throughout the code. But, it’s more natural for me to write with British Spellings, and let autocompletion use the correct spellings for the system.</p>
+<p>However - overall consistency and project style should take precedence. If this is your code, your project; then use the British spellings. If you are contributing to somebody else’s code - use whatever is currently in use.</p>
+<h3 id="dot-notation"><a href="#dot-notation">Dot Notation</a></h3>
+<p>Use it, but don’t abuse it.</p>
+<p>If it’s possible to chain properties together neatly then use it. If the dots and brackets are becoming interleaved or nested too deep use brackets. This one is hard to nail down but if you look at the resulting line and you have to pick apart the calls - change it to all brackets - which should always work.</p>
 <p>Only use dot notation for properties.</p>
+<h3 id="method-signatures"><a href="#method-signatures">Method Signatures</a></h3>
+<p>Left aligned, with a space after the scope. There should be a space between the method segments, and if a parameter is a pointer, then there should be a space before the asterisk</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// BAD</span>
+-(<span class="dt">void</span>)doSomethingWithString:(NSString*)aString;
 
-<h3><a id="MethodSignatures"></a>Method Signatures</h3>
-
-<p>Left aligned, with a space after the scope. There should be a space between the
-method segments, and if a parameter is a pointer, then there should be a space
-before the asterisk</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="c1">// BAD</span>
-</span><span class='line'><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">doSomethingWithString:</span><span class="p">(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">aString</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// GOOD</span>
-</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">doSomethingWithString:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">aString</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3><a id="PrivateMethods"></a>Private Methods</h3>
-
+<span class="co">// GOOD</span>
+- (<span class="dt">void</span>)doSomethingWithString:(NSString *)aString;</code></pre>
+<h3 id="private-methods"><a href="#private-methods">Private Methods</a></h3>
 <p>These should not be declared in the public interface or a class extension.</p>
-
 <p>Put them at the end of the class implementation in their own <code>#pragma</code> section.</p>
-
-<h3><a id="EmptyMethods"></a>Empty Methods</h3>
-
-<p>If there is a method that has no implementation, or is just a call to <code>super</code>
-then it should be removed.</p>
-
-<h3><a id="Types"></a>Types</h3>
-
-<h4><a id="integer"></a>integer</h4>
-
-<p>Use <code>NSInteger</code> and <code>NSUInteger</code> in preference to these. Make sure you use the
-standard framework methods with <code>integer</code> instead of <code>int</code> to get the correct
-types back.</p>
-
+<h3 id="empty-methods"><a href="#empty-methods">Empty Methods</a></h3>
+<p>If there is a method that has no implementation, or is just a call to <code>super</code> then it should be removed.</p>
+<h3 id="types"><a href="#types">Types</a></h3>
+<h4 id="integer"><a href="#integer">integer</a></h4>
+<p>Use <code>NSInteger</code> and <code>NSUInteger</code> in preference to these. Make sure you use the standard framework methods with <code>integer</code> instead of <code>int</code> to get the correct types back.</p>
 <p>For Foundation types, when iterating use <code>CFIndex</code>.</p>
-
-<h4><a id="BOOL"></a>BOOL</h4>
-
+<h4 id="bool"><a href="#bool">BOOL</a></h4>
 <p>Use <code>YES</code> and <code>NO</code> not true, false, 1, -1 or anything like that.</p>
+<p>Don’t compare <code>BOOL</code> returns against <code>BOOL</code>s:</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// GOOD</span>
+<span class="kw">if</span> ([<span class="kw">self</span> aMethodReturningBOOL]) {
 
-<p>Don&#8217;t compare <code>BOOL</code> returns against <code>BOOL</code>s:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="c1">// GOOD</span>
-</span><span class='line'><span class="k">if</span> <span class="p">([</span><span class="n">self</span> <span class="n">aMethodReturningBOOL</span><span class="p">])</span> <span class="p">{</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// THE DEVIL&#39;S WORK</span>
-</span><span class='line'><span class="k">if</span> <span class="p">([</span><span class="n">self</span> <span class="n">aMethodReturningBOOL</span><span class="p">]</span> <span class="o">==</span> <span class="n">YES</span><span class="p">)</span> <span class="p">{</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h4><a id="floats"></a>floats</h4>
-
+<span class="co">// THE DEVIL'S WORK</span>
+<span class="kw">if</span> ([<span class="kw">self</span> aMethodReturningBOOL] == YES) {</code></pre>
+<h4 id="floats"><a href="#floats">floats</a></h4>
 <p>Use <code>CGFloat</code> instead of <code>float</code>.</p>
-
-<h3><a id="ErrorHandling"></a>Error Handling</h3>
-
-<p>Use <code>NSError</code> wherever possible. Exceptions and Asserts are used to find
-programmer errors. Use the <code>ALog</code> and <code>ZAssert</code> macros (c.f. Standard Macros)
-for convenience.</p>
-
-<h3><a id="StaticStrings"></a>Static Strings</h3>
-
+<h3 id="error-handling"><a href="#error-handling">Error Handling</a></h3>
+<p>Use <code>NSError</code> wherever possible. Exceptions and Asserts are used to find programmer errors. Use the <code>ALog</code> and <code>ZAssert</code> macros (c.f. Standard Macros) for convenience.</p>
+<h3 id="static-strings"><a href="#static-strings">Static Strings</a></h3>
 <p>Use static declarations in preference to #defines.</p>
+<p>Use <code>extern</code> to declare a public constant that is defined within the class. Use a simple static otherwise</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// declared in header defined in implementation</span>
+<span class="co">// .h</span>
+<span class="kw">extern</span> NSString * <span class="dt">const</span> kMyConstant;
 
-<p>Use <code>extern</code> to declare a public constant that is defined within the class. Use
-a simple static otherwise</p>
+<span class="co">// .m</span>
+NSString * <span class="dt">const</span> kMyConstant = <span class="st">@&quot;MyConstant&quot;</span>;
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="c1">// declared in header defined in implementation</span>
-</span><span class='line'><span class="c1">// .h</span>
-</span><span class='line'><span class="k">extern</span> <span class="n">NSString</span> <span class="o">*</span> <span class="k">const</span> <span class="n">kMyConstant</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// .m</span>
-</span><span class='line'><span class="n">NSString</span> <span class="o">*</span> <span class="k">const</span> <span class="n">kMyConstant</span> <span class="o">=</span> <span class="s">@&quot;MyConstant&quot;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// For internal use</span>
-</span><span class='line'><span class="k">static</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">someString</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3><a id="Enums"></a>Enums</h3>
-
+<span class="co">// For internal use</span>
+<span class="dt">static</span> NSString *someString;</code></pre>
+<h3 id="enums"><a href="#enums">Enums</a></h3>
 <p>Use the new typed enumerations.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="k">typedef</span> <span class="k">enum</span> <span class="o">:</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="p">{</span>
-</span><span class='line'>    <span class="n">Red</span><span class="p">,</span>
-</span><span class='line'>    <span class="n">Green</span><span class="p">,</span>
-</span><span class='line'>    <span class="n">Blue</span>
-</span><span class='line'><span class="p">}</span> <span class="n">StandardColours</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>For simple enumerations there is no need to assign values to the values unless
-they are really needed in specific situations. The exception is for bitmask
-enumerations which should specify the initial value and the remaining values
-should use the shift-left operator (&lt;&lt;).</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="k">typedef</span> <span class="k">enum</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{</span>
-</span><span class='line'>    <span class="n">ABCOutputNone</span>    <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>    <span class="n">ABCOutputSeconds</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>    <span class="n">ABCOutputMinutes</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">,</span>
-</span><span class='line'>    <span class="n">ABCOunpunHours</span>   <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span>
-</span><span class='line'><span class="p">}</span> <span class="n">ABCOutput</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3><a id="TODOs"></a>TODOs</h3>
-
-<p>Put <code>// TODO:</code> comments to remind yourself of things and use search to find
-them.</p>
-
-<p>If you want to mark critical parts that need to be implemented, don&#8217;t bother
-with using build scripts to find the TODOs - just use a <code>#warning</code> instead:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="cp">#warning This method needs to be implemented.</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">typedef</span> <span class="kw">enum</span> : <span class="dt">unsigned</span> <span class="dt">char</span> {
+    Red,
+    Green,
+    Blue
+} StandardColours;</code></pre>
+<p>For simple enumerations there is no need to assign values to the values unless they are really needed in specific situations. The exception is for bitmask enumerations which should specify the initial value and the remaining values should use the shift-left operator (&lt;&lt;).</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">typedef</span> <span class="kw">enum</span> : NSUInteger {
+    ABCOutputNone    = <span class="dv">0</span>,
+    ABCOutputSeconds = <span class="dv">1</span> &lt;&lt; <span class="dv">0</span>,
+    ABCOutputMinutes = <span class="dv">1</span> &lt;&lt; <span class="dv">1</span>,
+    ABCOunpunHours   = <span class="dv">1</span> &lt;&lt; <span class="dv">2</span>
+} ABCOutput;</code></pre>
+<h3 id="todos"><a href="#todos">TODOs</a></h3>
+<p>Put <code>// TODO:</code> comments to remind yourself of things and use search to find them.</p>
+<p>If you want to mark critical parts that need to be implemented, don’t bother with using build scripts to find the TODOs - just use a <code>#warning</code> instead:</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="ot">#warning This method needs to be implemented.</span></code></pre>
 <p>This will raise a convenient warning with the message when building.</p>
-
-<h2><a id="CodeLayout"></a>Code layout</h2>
-
-<h3><a id="Pragma"></a>#pragma Is Your Friend</h3>
-
-<p>Group methods into related groups and section them up with #pragma
-descriptions.</p>
-
-<h3><a id="ImportOrdering"></a>Import Ordering</h3>
-
+<h2 id="code-layout"><a href="#code-layout">Code layout</a></h2>
+<h3 id="pragma-is-your-friend"><a href="#pragma-is-your-friend">#pragma Is Your Friend</a></h3>
+<p>Group methods into related groups and section them up with #pragma descriptions.</p>
+<h3 id="import-ordering"><a href="#import-ordering">Import Ordering</a></h3>
 <p>See the code style section for what to import and where.</p>
-
-<p>The header files should have the minimal number of imports, as forward declarations are
-preferred. In any case  this is the way to lay them out.</p>
-
+<p>The header files should have the minimal number of imports, as forward declarations are preferred. In any case this is the way to lay them out.</p>
 <ul>
-<li>The interface header (i.e. the .h file for the current .m file)</li>
+<li>The interface header (i.e. the .h file for the current .m file)</li>
 <li>Framework headers (These should also be in the .pch file).</li>
 <li>A blank line</li>
 <li>The other imports.</li>
 </ul>
-
-
-<p>If a suitable tool is available the Framework headers and the other imports may be
-ordered alphabetically within each of these groups, but it&#8217;s not often worth the
-effort, unless you are looking for some boyscouting to do.</p>
-
-<h3><a id="MethodOrdering"></a>Method Ordering</h3>
-
+<p>If a suitable tool is available the Framework headers and the other imports may be ordered alphabetically within each of these groups, but it’s not often worth the effort, unless you are looking for some boyscouting to do.</p>
+<h3 id="method-ordering"><a href="#method-ordering">Method Ordering</a></h3>
 <ul>
 <li>Class methods.</li>
-<li>Instance methods.
-
-<ul>
+<li>Instance methods.</li>
 <li>initialisers.</li>
 <li>dealloc (if needed).</li>
-<li>For controllers - their common methods: i.e. view lifecycle methods for view
-controllers, table view delegate and datasource methods for table view
-controllers, etc.</li>
+<li>For controllers - their common methods: i.e. view lifecycle methods for view controllers, table view delegate and datasource methods for table view controllers, etc.</li>
 <li>Super class overrides.</li>
 <li>Public methods declared in the header file.</li>
 <li>Action methods declared in the header file.</li>
-<li>Custom accessors (setters and/or getters) for declared properties that you
-don&#8217;t want to leave to auto-synthesize.</li>
+<li>Custom accessors (setters and/or getters) for declared properties that you don’t want to leave to auto-synthesize.</li>
 <li>Other delegate and protocol methods that the class implements.</li>
-<li>Private methods for the class&#8217;s own internal use.</li>
+<li>Private methods for the class’s own internal use.</li>
 </ul>
-</li>
-</ul>
-
-
-<p>Try and keep the order of the methods in the header file the same as in the
-implementation file. This is a handy thing to look for when you want to follow
-the Boyscout Rule.</p>
-
-<h3><a id="UnitTestClasses"></a>Unit Test Classes</h3>
-
-<p>The Xcode templates create these with a .h and a .m file. In almost all cases this isn&#8217;t
-needed. Unit tests are self contained and having a .h file which can be shared just
-increased complexity. So, for unit test classes - put the interface and implementation
-in the same .m file for each test class.</p>
-
-<h3><a id="Comments"></a>Comments</h3>
-
-<p>One-line comments <code>//</code> are preferred to multiline <code>/**/</code> comments. There should
-be one space between the comment marker and the comment text.</p>
-
-<p>Comments should be used to document <strong>why</strong> something is happening and not what
-is happening and should be used to explain situations that are not trivial.</p>
-
-<p>If you need to use a comment to explain what a variable does - then it&#8217;s likely
-that you haven&#8217;t used a descriptive enough name for it. If there is a comment to
-explain a section of code in a method, consider moving that section of code to a
-well named private method instead.</p>
-
+<p>Try and keep the order of the methods in the header file the same as in the implementation file. This is a handy thing to look for when you want to follow the Boyscout Rule.</p>
+<h3 id="unit-test-classes"><a href="#unit-test-classes">Unit Test Classes</a></h3>
+<p>The Xcode templates create these with a .h and a .m file. In almost all cases this isn’t needed. Unit tests are self contained and having a .h file which can be shared just increased complexity. So, for unit test classes - put the interface and implementation in the same .m file for each test class.</p>
+<h3 id="comments"><a href="#comments">Comments</a></h3>
+<p>One-line comments <code>//</code> are preferred to multiline <code>/**/</code> comments. There should be one space between the comment marker and the comment text.</p>
+<p>Comments should be used to document <strong>why</strong> something is happening and not what is happening and should be used to explain situations that are not trivial.</p>
+<p>If you need to use a comment to explain what a variable does - then it’s likely that you haven’t used a descriptive enough name for it. If there is a comment to explain a section of code in a method, consider moving that section of code to a well named private method instead.</p>
 <p>For writing inline documentation use <a href="http://gentlebytes.com/appledoc/">AppleDoc</a>.</p>
-
-<p>If you can&#8217;t be bothered to keep the comments updated don&#8217;t have them at
-all. Bad or out of date comments are worse than none at all.</p>
-
-<h3><a id="HorizontalSpacing"></a>Horizontal Spacing</h3>
-
+<p>If you can’t be bothered to keep the comments updated don’t have them at all. Bad or out of date comments are worse than none at all.</p>
+<h3 id="horizontal-spacing"><a href="#horizontal-spacing">Horizontal Spacing</a></h3>
 <p>Use 4 spaces to indent code, not tabs.</p>
+<p>Long lines aren’t a problem. Let Xcode autowrap them. If you do decide to wrap lines containing methods - make sure the colons are aligned.</p>
+<h3 id="vertical-spacing"><a href="#vertical-spacing">Vertical Spacing</a></h3>
+<p>Use a single blank line between methods. There is no need to leave a blank line at the start of a method definition.</p>
+<p>Use two blank spaces for organisation at a large scale, such as to separate static definitions from implementation blocks, or to separate the end of the <span class="citation">@property</span> declarations from the method declarations in a header file.</p>
+<p>Group lines of codes together when they are related. Think of it like writing, where sentences that relate to a topic are grouped into paragraphs.</p>
+<h3 id="braces"><a href="#braces">Braces</a></h3>
+<p>A brace is always opened on the same line after a space (the exceptions is block definitions). The closing brace is on a separate line and indented to the same level as the line with the opening brace.</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec">- (BOOL)someMethod {
+    <span class="kw">return</span> YES;
+}</code></pre>
+<p>There should <strong>always</strong> be a space after the control structure (i.e. <code>if</code>, <code>else</code>, etc). The <code>else</code> and <code>else if</code> statements should be on the same line as the closing brace of the <code>if</code> statement.</p>
+<p>Xcode is inconsistent about the opening brace, and some of your colleagues may be too. I wrote a small ruby gem called <a href="http://abizern.org/fixbraces/">fixbraces</a> which will correctly position the braces on the opening line.</p>
+<h3 id="control-structures"><a href="#control-structures">Control Structures</a></h3>
+<p>See the section on the Golden Path for more usage guides with control structures.</p>
+<p>I originally specified no blank lines between clauses, but I’ve been turned around on this. When you are looking at a block of code, the blank link makes the changed indentation level more obvious.</p>
+<h4 id="ifelse"><a href="#ifelse">if/else</a></h4>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">if</span> (button.enabled) {
+    <span class="co">// do something</span>
 
-<p>Long lines aren&#8217;t a problem. Let Xcode autowrap them. If you do decide to wrap
-lines containing methods - make sure the colons are aligned.</p>
+} <span class="kw">else</span> <span class="kw">if</span> (otherButton.enabled) {
+    <span class="co">// do something else</span>
 
-<h3><a id="VerticalSpacing"></a>Vertical Spacing</h3>
+} <span class="kw">else</span> {
+    <span class="co">// do something by default</span>
 
-<p>Use a single blank line between methods. There is no need to leave a blank line
-at the start of a method definition.</p>
-
-<p>Use two blank spaces for organisation at a large scale, such as to separate
-static definitions from implementation blocks, or to separate the end of the
-@property declarations from the method declarations in a header file.</p>
-
-<p>Group lines of codes together when they are related. Think of it like writing,
-where sentences that relate to a topic are grouped into paragraphs.</p>
-
-<h3><a id="Braces"></a>Braces</h3>
-
-<p>A brace is always opened on the same line after a space (the exceptions is block
-definitions). The closing brace is on a separate line and indented to the same
-level as the line with the opening brace.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">someMethod</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">YES</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>There should <strong>always</strong> be a space after the control structure (i.e. <code>if</code>,
-<code>else</code>, etc). The <code>else</code> and <code>else if</code> statements should be on the same line as
-the closing brace of the <code>if</code> statement.</p>
-
-<p>Xcode is inconsistent about the opening brace, and some of your colleagues may
-be too. I wrote a small ruby gem called
-<a href="http://abizern.org/fixbraces/">fixbraces</a> which will correctly position the
-braces on the opening line.</p>
-
-<h3><a id="ControlStructures"></a>Control Structures</h3>
-
-<p>See the section on the Golden Path for more usage guides with control
-structures.</p>
-
-<p>I originally specified no blank lines between clauses, but I&#8217;ve been turned
-around on this. When you are looking at a block of code, the blank link makes
-the changed indentation level more obvious.</p>
-
-<h4><a id="ifelse"></a>if/else</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">button</span><span class="p">.</span><span class="n">enabled</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// do something</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">otherButton</span><span class="p">.</span><span class="n">enabled</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// do something else</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// do something by default</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Always use a multiline if/else statement with the clauses in braces. This is not
-only clearer to read but easier to make changes to.</p>
-
-<h4><a id="Ternary"></a>The Ternary operator</h4>
-
+}</code></pre>
+<p>Always use a multiline if/else statement with the clauses in braces. This is not only clearer to read but easier to make changes to.</p>
+<h4 id="the-ternary-operator"><a href="#the-ternary-operator">The Ternary operator</a></h4>
 <p>A handy structure, but should be used sparingly where it aids readability.</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Acceptable</span>
+NSString *boolString = nil;
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="c1">// Acceptable</span>
-</span><span class='line'><span class="n">NSString</span> <span class="o">*</span><span class="n">boolString</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">someBool</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="n">boolString</span> <span class="o">=</span> <span class="s">@&quot;YES&quot;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>    <span class="n">boolString</span> <span class="o">=</span> <span class="s">@&quot;NO&quot;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">DLog</span><span class="p">(</span><span class="s">@&quot;The BOOL value is %@&quot;</span><span class="p">,</span> <span class="n">boolString</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// Better. Succinct and readable</span>
-</span><span class='line'><span class="n">DLog</span><span class="p">(</span><span class="s">@&quot;The BOOL value is %@&quot;</span><span class="p">,</span> <span class="n">someBool</span> <span class="o">?</span> <span class="s">@&quot;YES&quot;</span> <span class="o">:</span> <span class="s">@&quot;NO&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
+<span class="kw">if</span> (someBool) {
+    boolString = <span class="st">@&quot;YES&quot;</span>;
 
+} <span class="kw">else</span> {
+    boolString = <span class="st">@&quot;NO&quot;</span>;
 
-<h4><a id="Switch"></a>Switch</h4>
+}
 
-<p>Brackets don&#8217;t need to be added around each case statement. In some cases, when
-using ARC and declaring varibles within a case block an error may be thrown
-&#8220;Switch case is in protected scope&#8221; and then surrounding the case statement with
-brackets should clear up the error.</p>
+DLog(<span class="st">@&quot;The BOOL value is %@&quot;</span>, boolString);
 
+<span class="co">// Better. Succinct and readable</span>
+DLog(<span class="st">@&quot;The BOOL value is %@&quot;</span>, someBool ? <span class="st">@&quot;YES&quot;</span> : <span class="st">@&quot;NO&quot;</span>);</code></pre>
+<h4 id="switch"><a href="#switch">Switch</a></h4>
+<p>Brackets don’t need to be added around each case statement. In some cases, when using ARC and declaring varibles within a case block an error may be thrown “Switch case is in protected scope” and then surrounding the case statement with brackets should clear up the error.</p>
 <p>The <code>default</code> case should <strong>always</strong> be the last case and should <strong>always</strong> be included.</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">switch</span> (something.state) {
+    <span class="kw">case</span> <span class="dv">0</span>: {
+        <span class="co">// braced block where required by the compiler</span>
+        <span class="kw">break</span>;
+    }
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="k">switch</span> <span class="p">(</span><span class="n">something</span><span class="p">.</span><span class="n">state</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">case</span> <span class="mi">0</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">// braced block where required by the compiler</span>
-</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-</span><span class='line'>        <span class="c1">// Something</span>
-</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
-</span><span class='line'>        <span class="c1">// Something</span>
-</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">default</span><span class="o">:</span>
-</span><span class='line'>        <span class="c1">// Something</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+    <span class="kw">case</span> <span class="dv">1</span>:
+        <span class="co">// Something</span>
+        <span class="kw">break</span>;
 
+    <span class="kw">case</span> <span class="dv">2</span>:
 
-<h4><a id="For"></a>For</h4>
+    <span class="kw">case</span> <span class="dv">3</span>:
+        <span class="co">// Something</span>
+        <span class="kw">break</span>;
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">idx</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// Do something</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">for</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">key</span> <span class="k">in</span> <span class="n">dictionary</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// Do something</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+    <span class="kw">default</span>:
+        <span class="co">// Something</span>
 
+}</code></pre>
+<h4 id="for"><a href="#for">For</a></h4>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">for</span> (NSInteger idx = <span class="dv">0</span>; idx &lt; <span class="dv">10</span>; idx++) {
+    <span class="co">// Do something</span>
+}
 
-<p>When iterating using integers, it is preferred to start at <code>0</code> and use <code>&lt;</code>
-rather than starting at <code>1</code> and using <code>&lt;=</code>. Also, use <code>idx</code> instead of <code>i</code>. Fast
-enumeration is generally preferred because it is easier on the eyes as well as
-faster. Also consider using block enumeration where applicable.</p>
+<span class="kw">for</span> (NSString *key in dictionary) {
+    <span class="co">// Do something</span>
+}</code></pre>
+<p>When iterating using integers, it is preferred to start at <code>0</code> and use <code>&lt;</code> rather than starting at <code>1</code> and using <code>&lt;=</code>. Also, use <code>idx</code> instead of <code>i</code>. Fast enumeration is generally preferred because it is easier on the eyes as well as faster. Also consider using block enumeration where applicable.</p>
+<h4 id="while"><a href="#while">While</a></h4>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">while</span> (something &lt; somethingElse) {
+    <span class="co">// Do something</span>
+}</code></pre>
+<h3 id="golden-path"><a href="#golden-path">Golden Path</a></h3>
+<p>When using conditionals, the left hand margin of the code should be the <strong>golden</strong> or <strong>happy path</strong>. This is the part of the code that should be commonly executed. For example, the common way of writing initialisers doesn’t follow this:</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// BAD</span>
+- (id)init {
+    <span class="kw">self</span> = [<span class="kw">super</span> init];
+   <span class="kw">if</span> (<span class="kw">self</span>) {
+        <span class="co">// initialisations here</span>
 
-<h4><a id="While"></a>While</h4>
+    }
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="k">while</span> <span class="p">(</span><span class="n">something</span> <span class="o">&lt;</span> <span class="n">somethingElse</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// Do something</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+    <span class="kw">return</span> <span class="kw">self</span>;
+}
 
+<span class="co">// GOOD</span>
+- (id)init {
+    <span class="kw">if</span> (!(<span class="kw">self</span> = [<span class="kw">super</span> init])) {
+        <span class="kw">return</span> nil; <span class="co">// Bail!</span>
 
-<h3><a id="GoldenPath"></a>Golden Path</h3>
+    }
 
-<p>When using conditionals, the left hand margin of the code should be the
-<strong>golden</strong> or <strong>happy path</strong>. This is the part of the code that should be
-commonly executed.  For example, the common way of writing initialisers doesn&#8217;t
-follow this:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="c1">// BAD</span>
-</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">init</span> <span class="p">{</span>
-</span><span class='line'>    <span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="n">init</span><span class="p">];</span>
-</span><span class='line'>   <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">// initialisations here</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// GOOD</span>
-</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">init</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="n">init</span><span class="p">]))</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span> <span class="c1">// Bail!</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">// initialisations here</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This keeps the main part of the code furthest to the left, with the exceptional
-conditions further to the right.</p>
-
-<h3><a id="MultipleReturns"></a>Multiple Returns</h3>
-
-<p>Purists say that there should be only one return point from a function. There
-are times where multiple returns are not a problem. Look at the example
-initialiser above. The good example contains multiple returns values - in the
-case where the super class initialiser returns the nil, the method returns a nil
-straight away. I find that this makes it clearer when reading the code that the
-function will return at this point and I don&#8217;t have to look through the method
-any more to see if the value of self is changed later on before returning.</p>
-
-<h2><a id="VersionControl"></a>Version Control</h2>
-
+    <span class="co">// initialisations here</span>
+    <span class="kw">return</span> <span class="kw">self</span>;
+}</code></pre>
+<p>This keeps the main part of the code furthest to the left, with the exceptional conditions further to the right.</p>
+<h3 id="multiple-returns"><a href="#multiple-returns">Multiple Returns</a></h3>
+<p>Purists say that there should be only one return point from a function. There are times where multiple returns are not a problem. Look at the example initialiser above. The good example contains multiple returns values - in the case where the super class initialiser returns the nil, the method returns a nil straight away. I find that this makes it clearer when reading the code that the function will return at this point and I don’t have to look through the method any more to see if the value of self is changed later on before returning.</p>
+<h2 id="version-control"><a href="#version-control">Version Control</a></h2>
 <p>You have no excuse for not using version control.</p>
-
-<p>Aim for all commits on the master branch to compile cleanly and work (for some
-definition of &#8216;work&#8217;).</p>
-
-<p>Develop on branches. Commit early and commit often, don&#8217;t be afraid to rebase
-commits. Unlike the master branch, these don&#8217;t all have to compile
-cleanly. You&#8217;ll be rebasing them onto master anyway so they&#8217;ll be tidied up then.</p>
-
-<p>When writing commit messages use the correct
-<a href="http://365git.tumblr.com/post/3308646748/writing-git-commit-messages">conventions</a></p>
-
-<h2><a id="BoyscoutRule"></a>The Boyscout Rule</h2>
-
-<p>The Boyscouts say: &#8220;Always leave a campsite cleaner than you found it&#8221;. A similar
-rule is said to apply to programming - &#8220;Always check in a module cleaner than
-you checked it out&#8221;.</p>
-
-<p>In these days of distributed version control, I&#8217;d say that means if you see a
-problem in code - fix it. Don&#8217;t leave it for later, don&#8217;t leave it for someone
-else. Version control, unit tests, comments are all structures
-that support making changes like this.</p>
-
-<h2><a id="Source"></a>Source</h2>
-
-<p>If you feel like creating your own, you can grab the latest markdown for this
-page from <a href="https://github.com/Abizern/abizern.github.com/blob/source/source/cocoa-coding-conventions/index.markdown">Github</a>.</p>
-
-<h2><a id="Credits"></a>Credits</h2>
-
+<p>Aim for all commits on the master branch to compile cleanly and work (for some definition of ‘work’).</p>
+<p>Develop on branches. Commit early and commit often, don’t be afraid to rebase commits. Unlike the master branch, these don’t all have to compile cleanly. You’ll be rebasing them onto master anyway so they’ll be tidied up then.</p>
+<p>When writing commit messages use the correct <a href="http://365git.tumblr.com/post/3308646748/writing-git-commit-messages">conventions</a></p>
+<h2 id="the-boyscout-rule"><a href="#the-boyscout-rule">The Boyscout Rule</a></h2>
+<p>The Boyscouts say: “Always leave a campsite cleaner than you found it”. A similar rule is said to apply to programming - “Always check in a module cleaner than you checked it out”.</p>
+<p>In these days of distributed version control, I’d say that means if you see a problem in code - fix it. Don’t leave it for later, don’t leave it for someone else. Version control, unit tests, comments are all structures that support making changes like this.</p>
+<h2 id="source"><a href="#source">Source</a></h2>
+<p>If you feel like creating your own, you can grab the latest markdown for this page from <a href="https://github.com/Abizern/abizern.github.com/blob/source/source/cocoa-coding-conventions/index.markdown">Github</a>.</p>
+<h2 id="credits"><a href="#credits">Credits</a></h2>
 <p>The basis for these standards were taken from</p>
-
 <ul>
-<li>Zarra Studios&#8217;
-<a href="http://www.cimgf.com/zds-code-style-guide/">ZDS Code Style Guide</a></li>
-<li>NOUSguide&#8217;s
-<a href="http://github.com/NOUSguide/Coding-Conventions">Coding-Conventions</a></li>
+<li>Zarra Studios’ <a href="http://www.cimgf.com/zds-code-style-guide/">ZDS Code Style Guide</a></li>
+<li>NOUSguide’s <a href="http://github.com/NOUSguide/Coding-Conventions">Coding-Conventions</a></li>
 </ul>
+<h2 id="footnote"><a href="#footnote">Footnote</a></h2>
+<p>I realise that these conventions are not to everyones’ tastes, and there is no comment section on this blog for you to tell me how wrong I am. It’s okay for you to disagree with me. These are <strong>my</strong> conventions and I encourage you to use this as a template to create and evolve your own guidelines.</p>
+<p>But, my contact details are on the about page if you do want to give me a piece of your mind. I’m not above changing my opinion about these.</p>
+        </section>
 
-
-<h2><a id="Footnote"></a>Footnote</h2>
-
-<p>I realise that these conventions are not to everyones&#8217; tastes, and there is no
-comment section on this blog for you to tell me how wrong I am. It&#8217;s okay for
-you to disagree with me. These are <strong>my</strong> conventions and I encourage you to use
-this as a template to create and evolve your own guidelines.</p>
-
-<p>But, my contact details are on the about page if you do want to give me a piece
-of your mind. I&#8217;m not above changing my opinion about these.</p>
-
-<h2><a id="RevisionHistory"></a>Revision History</h2>
-
-<p>Last updated April 20, 2013</p>
-
-<p>Full history
-<a href="https://github.com/Abizern/abizern.github.com/commits/source/source/cocoa-coding-conventions" title="Commit history for the file">available on GitHub</a>.</p>
-
-  
-</article>
-
-</div>
-
-<aside class="sidebar">
-  
-    
-  
-</aside>
-
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2009 - 2013 Abizer Nasir
-  <a href="/copyright-statement">Some rights reserved</a> &mdash;
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
+        <footer id="page_footer">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC-4.0</a>
+    —
+    Built with 
+    <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
+    —
+    Source on 
+    <a href="https://github.com/Abizern/hblog">GitHub</a>.
 </footer>
-  
 
-
-
-
-
-
-
-
-
-
-
-</body>
+    </body>
 </html>

@@ -1,264 +1,118 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The developer and personal blog of
+                                          Abizer Nasir, a freelance iOS and OS X
+                                          developer in London, UK">
+        <meta name="author" content="Abizer Nasir">
+        <title>Abizern.org - UUID Strings with Cocoa</title>
+        <link rel="canonical" href="http://abizern.org">
+        <link href="../../../../favicon.png" rel="icon">
+        <link rel="stylesheet" type="text/css" href="../../../../css/main.css">
+        <script type="text/javascript">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>UUID Strings with Cocoa - Abizer Nasir</title>
-  <meta name="author" content="Abizer Nasir">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5015208-5']);
+  _gaq.push(['_trackPageview']);
 
-  
-  <meta name="description" content="This used to be a thing until the iOS 6 and OS X 10.8 compatible
-NSUUID Class
-became available. New This is how you can do it now: UUID from NSUUID 1 &hellip;">
-  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+        </script>
+    </head>
 
-  
-  <link rel="canonical" href="http://abizern.org/2012/10/25/uuid-strings-with-cocoa">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Abizer Nasir" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5015208-5']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Abizer Nasir</a></h1>
-  
-</hgroup>
-
+    <body>
+        <header id="page_header">
+    <h1><a href="../../../../" title="Home">Abizer Nasir</a></h1>
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:abizern.org" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Home</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/archives">Archives</a></li>
-  <li><a href="/cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
-</ul>
 
+        <nav id="page_navigation">
+    <ul>
+        <li><a href="../../../../">Home</a></li>
+        <li><a href="../../../../about">About</a></li>
+        <li><a href="../../../../archive">Archive</a></li>
+        <li><a href="../../../../cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
+    </ul>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
-  
-  <header>
-    
-      <h1 class="entry-title">UUID Strings With Cocoa</h1>
-    
-    
-      <p class="meta">
+
         
+        <section id="content">
+            <article>
+    <header>
+        <h1>UUID Strings with Cocoa</h1>
+        <span class="post-date">October 25, 2012</span> in 
+        <span class="post-tags">osx, ios</span>
+    </header>
+    <p>This used to be a thing until the iOS 6 and OS X 10.8 compatible <a href="http://developer.apple.com/library/mac/#documentation/Foundation/Reference/NSUUID_Class/Reference/Reference.html">NSUUID Class</a> became available.</p>
+<h2 id="new">New</h2>
+This is how you can do it now:
+<figure>
 
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec">NSString *uuidString = [[NSUUID UUID] UUIDString];
+<span class="co">// Generates: 7E60066C-C7F3-438A-95B1-DDE8634E1072</span></code></pre>
+<figcaption>
+UUID from NSUUID
+</figcaption>
+</figure>
 
+<h2 id="old">Old</h2>
+<p>Here’s a method you can put in a class, with the correct ARC casts on ownership, that returns a UUID. It’s a fairly common technique, and you’ll even see versions of it where people have created a category on NSString for this.</p>
+<figure>
 
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec">- (NSString *)uuidString {
+    <span class="co">// Returns a UUID</span>
 
+    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
+    NSString *uuidStr = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
+    CFRelease(uuid);
 
-
-
-
-  
-
-
-<time datetime="2012-10-25T11:52:00+01:00" pubdate data-updated="true">Oct 25<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-<div class="entry-content"><p>This used to be a thing until the iOS 6 and OS X 10.8 compatible
-<a href="http://developer.apple.com/library/mac/#documentation/Foundation/Reference/NSUUID_Class/Reference/Reference.html">NSUUID Class</a>
-became available.</p>
-
-<!-- more -->
-
-
-<h2>New</h2>
-
-<p>This is how you can do it now:</p>
-
-<figure class='code'><figcaption><span>UUID from NSUUID  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">NSString</span> <span class="o">*</span><span class="n">uuidString</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSUUID</span> <span class="n">UUID</span><span class="p">]</span> <span class="n">UUIDString</span><span class="p">];</span>
-</span><span class='line'><span class="c1">// Generates: 7E60066C-C7F3-438A-95B1-DDE8634E1072</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Old</h2>
-
-<p>Here&#8217;s a method you can put in a class, with the correct ARC casts on ownership, that
-returns a UUID. It&#8217;s a fairly common technique, and you&#8217;ll even see versions of
-it where people have created a category on NSString for this.</p>
-
-<figure class='code'><figcaption><span>UUID from a method   </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">uuidString</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// Returns a UUID</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">CFUUIDRef</span> <span class="n">uuid</span> <span class="o">=</span> <span class="n">CFUUIDCreate</span><span class="p">(</span><span class="n">kCFAllocatorDefault</span><span class="p">);</span>
-</span><span class='line'>    <span class="n">NSString</span> <span class="o">*</span><span class="n">uuidStr</span> <span class="o">=</span> <span class="p">(</span><span class="n">__bridge_transfer</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">CFUUIDCreateString</span><span class="p">(</span><span class="n">kCFAllocatorDefault</span><span class="p">,</span> <span class="n">uuid</span><span class="p">);</span>
-</span><span class='line'>    <span class="n">CFRelease</span><span class="p">(</span><span class="n">uuid</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">return</span> <span class="n">uuidStr</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
+    <span class="kw">return</span> uuidStr;
+}</code></pre>
+<figcaption>
+UUID from a method
+</figcaption>
+</figure>
 
 <p>And to use it:</p>
+<figure>
 
-<figure class='code'><figcaption><span>UUID from a method usage  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">NSString</span> <span class="o">*</span><span class="n">uuidString</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span> <span class="n">uuidString</span><span class="p">];</span>
-</span><span class='line'><span class="c1">// Generates D5CB0560-206F-4581-AA25-1D6A873F3526</span>
-</span></code></pre></td></tr></table></div></figure>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec">NSString *uuidString = [<span class="kw">self</span> uuidString];
+<span class="co">// Generates D5CB0560-206F-4581-AA25-1D6A873F3526</span></code></pre>
+<figcaption>
+UUID from a method usage
+</figcaption>
+</figure>
 
+<h2 id="nsprocessinfo">NSProcessInfo</h2>
+<p>A common use for unique strings is to name files and directories within a program so that they do not clash. Since iOS 2 and OS X 10.0 there has been the <code>globallyUniqueString</code> method in <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSProcessInfo_Class/Reference/Reference.html">NSProcessInfo</a> which returns a string that is unique for the network and process. So, for a <em>good enough</em> unique string this is probably a better method to use:</p>
+<figure>
 
-<h2>NSProcessInfo</h2>
-
-<p>A common use for unique strings is to name files and directories
-within a program so that they do not clash. Since iOS 2 and OS X 10.0 there has
-been the <code>globallyUniqueString</code> method in
-<a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSProcessInfo_Class/Reference/Reference.html">NSProcessInfo</a>
-which returns a string that is unique for the network and process. So, for a
-<em>good enough</em> unique string this is probably a better method to use:</p>
-
-<figure class='code'><figcaption><span>Unique String from NSProcessInfo  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">NSString</span> <span class="o">*</span><span class="n">uuidStr</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSProcessInfo</span> <span class="n">processInfo</span><span class="p">]</span> <span class="n">globallyUniqueString</span><span class="p">];</span>
-</span><span class='line'><span class="c1">// generates 56341C6E-35A7-4C97-9C5E-7AC79673EAB2-539-000001F95B327819</span>
-</span></code></pre></td></tr></table></div></figure>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec">NSString *uuidStr = [[NSProcessInfo processInfo] globallyUniqueString];
+<span class="co">// generates 56341C6E-35A7-4C97-9C5E-7AC79673EAB2-539-000001F95B327819</span></code></pre>
+<figcaption>
+Unique String from NSProcessInfo
+</figcaption>
+</figure>
 
 
-
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Abizer Nasir</span></span>
-
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-25T11:52:00+01:00" pubdate data-updated="true">Oct 25<span>th</span>, 2012</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/categories/os-x-development/'>OS X Development</a>, <a class='category' href='/categories/ios-development/'>iOS Development</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/2012/08/20/on-live-coding/" title="Previous Post: On Live Coding">&laquo; On Live Coding</a>
-      
-      
-        <a class="basic-alignment right" href="/2012/10/31/an-improved-reverse-words-script/" title="Next Post: An improved Reverse Words Script">An improved Reverse Words Script &raquo;</a>
-      
-    </p>
-  </footer>
 </article>
 
-</div>
+        </section>
 
-<aside class="sidebar">
-  
-    
-  
-</aside>
-
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2009 - 2013 Abizer Nasir
-  <a href="/copyright-statement">Some rights reserved</a> &mdash;
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
+        <footer id="page_footer">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC-4.0</a>
+    —
+    Built with 
+    <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
+    —
+    Source on 
+    <a href="https://github.com/Abizern/hblog">GitHub</a>.
 </footer>
-  
 
-
-
-
-
-
-
-
-
-
-
-</body>
+    </body>
 </html>

@@ -1,265 +1,97 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The developer and personal blog of
+                                          Abizer Nasir, a freelance iOS and OS X
+                                          developer in London, UK">
+        <meta name="author" content="Abizer Nasir">
+        <title>Abizern.org - Git Ignore file</title>
+        <link rel="canonical" href="http://abizern.org">
+        <link href="../../../../favicon.png" rel="icon">
+        <link rel="stylesheet" type="text/css" href="../../../../css/main.css">
+        <script type="text/javascript">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Git Ignore file - Abizer Nasir</title>
-  <meta name="author" content="Abizer Nasir">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5015208-5']);
+  _gaq.push(['_trackPageview']);
 
-  
-  <meta name="description" content="A while ago I answered a couple of questions on Stack Overflow using my
-.gitignore file as an example. I find it strangely satisfying to find that &hellip;">
-  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+        </script>
+    </head>
 
-  
-  <link rel="canonical" href="http://abizern.org/2012/03/19/git-ignore-file">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Abizer Nasir" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5015208-5']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Abizer Nasir</a></h1>
-  
-</hgroup>
-
+    <body>
+        <header id="page_header">
+    <h1><a href="../../../../" title="Home">Abizer Nasir</a></h1>
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:abizern.org" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Home</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/archives">Archives</a></li>
-  <li><a href="/cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
-</ul>
 
+        <nav id="page_navigation">
+    <ul>
+        <li><a href="../../../../">Home</a></li>
+        <li><a href="../../../../about">About</a></li>
+        <li><a href="../../../../archive">Archive</a></li>
+        <li><a href="../../../../cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
+    </ul>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
-  
-  <header>
-    
-      <h1 class="entry-title">Git Ignore File</h1>
-    
-    
-      <p class="meta">
+
         
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-19T23:27:00+00:00" pubdate data-updated="true">Mar 19<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-<div class="entry-content"><p>A while ago I answered a couple of questions on Stack Overflow using my
-<code>.gitignore</code> file as an example. I find it strangely satisfying to find that
-there are projects on GitHub that use it, and even the odd blogs has put it up
-as well.</p>
-
+        <section id="content">
+            <article>
+    <header>
+        <h1>Git Ignore file</h1>
+        <span class="post-date">March 19, 2012</span> in 
+        <span class="post-tags">git</span>
+    </header>
+    <p>A while ago I answered a couple of questions on Stack Overflow using my <code>.gitignore</code> file as an example. I find it strangely satisfying to find that there are projects on GitHub that use it, and even the odd blogs has put it up as well.</p>
 <p>I might as well have it on my own site:</p>
+<pre><code># Mac OS X
+*.DS_Store
 
-<!-- more -->
+# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
 
+# Generated files
+*.o
+*.pyc
+*.hi
 
+#Python modules
+MANIFEST
+dist/
+build/
 
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># Mac OS X
-</span><span class='line'>*.DS_Store
-</span><span class='line'>
-</span><span class='line'># Xcode
-</span><span class='line'>*.pbxuser
-</span><span class='line'>*.mode1v3
-</span><span class='line'>*.mode2v3
-</span><span class='line'>*.perspectivev3
-</span><span class='line'>*.xcuserstate
-</span><span class='line'>project.xcworkspace/
-</span><span class='line'>xcuserdata/
-</span><span class='line'>
-</span><span class='line'># Generated files
-</span><span class='line'>*.o
-</span><span class='line'>*.pyc
-</span><span class='line'>*.hi
-</span><span class='line'>
-</span><span class='line'>#Python modules
-</span><span class='line'>MANIFEST
-</span><span class='line'>dist/
-</span><span class='line'>build/
-</span><span class='line'>
-</span><span class='line'># Backup files
-</span><span class='line'>*~.nib
-</span><span class='line'>\#*#
-</span><span class='line'>.#*</span></code></pre></td></tr></table></div></figure>
-
-
-<p>It&#8217;s particularly suited for Xcode. It excludes the workspace settings, which
-also includes the breakpoints, so don&#8217;t be surprised if they don&#8217;t carry over in
-clones. It also excludes the build schemes unless you mark them as shared.</p>
-
-<p>I&#8217;ve got this as a global ignore file for my system - and if I&#8217;m going to push a
-repository elsewhere I just copy it into the repo&#8217;s directory.</p>
-
-<p>It&#8217;s simple to do. If you&#8217;re not familiar with ignore files I&#8217;ve written about
-the
-<a href="http://365git.tumblr.com/post/519016351/three-ways-of-excluding-files">Three ways of excluding files with Git</a>
-elsewhere.</p>
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Abizer Nasir</span></span>
-
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-19T23:27:00+00:00" pubdate data-updated="true">Mar 19<span>th</span>, 2012</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/categories/git/'>Git</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/2012/03/18/simple-localisation-testing/" title="Previous Post: Simple Localisation Testing">&laquo; Simple Localisation Testing</a>
-      
-      
-        <a class="basic-alignment right" href="/2012/04/09/reverse-words-with-haskell/" title="Next Post: Reverse Words With Haskell">Reverse Words With Haskell &raquo;</a>
-      
-    </p>
-  </footer>
+# Backup files
+*~.nib
+\#*#
+.#*</code></pre>
+<p>It’s particularly suited for Xcode. It excludes the workspace settings, which also includes the breakpoints, so don’t be surprised if they don’t carry over in clones. It also excludes the build schemes unless you mark them as shared.</p>
+<p>I’ve got this as a global ignore file for my system - and if I’m going to push a repository elsewhere I just copy it into the repo’s directory.</p>
+<p>It’s simple to do. If you’re not familiar with ignore files I’ve written about the <a href="http://365git.tumblr.com/post/519016351/three-ways-of-excluding-files">Three ways of excluding files with Git</a> elsewhere.</p>
 </article>
 
-</div>
+        </section>
 
-<aside class="sidebar">
-  
-    
-  
-</aside>
-
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2009 - 2013 Abizer Nasir
-  <a href="/copyright-statement">Some rights reserved</a> &mdash;
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
+        <footer id="page_footer">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC-4.0</a>
+    —
+    Built with 
+    <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
+    —
+    Source on 
+    <a href="https://github.com/Abizern/hblog">GitHub</a>.
 </footer>
-  
 
-
-
-
-
-
-
-
-
-
-
-</body>
+    </body>
 </html>

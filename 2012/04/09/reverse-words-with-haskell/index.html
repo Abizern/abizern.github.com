@@ -1,275 +1,104 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The developer and personal blog of
+                                          Abizer Nasir, a freelance iOS and OS X
+                                          developer in London, UK">
+        <meta name="author" content="Abizer Nasir">
+        <title>Abizern.org - Reverse Words With Haskell</title>
+        <link rel="canonical" href="http://abizern.org">
+        <link href="../../../../favicon.png" rel="icon">
+        <link rel="stylesheet" type="text/css" href="../../../../css/main.css">
+        <script type="text/javascript">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Reverse Words With Haskell - Abizer Nasir</title>
-  <meta name="author" content="Abizer Nasir">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5015208-5']);
+  _gaq.push(['_trackPageview']);
 
-  
-  <meta name="description" content="As part of my preparation for Google Code Jam
-I&#8217;ve been working through the practice problems with Haskell. I made a screencast on solving the &hellip;">
-  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+        </script>
+    </head>
 
-  
-  <link rel="canonical" href="http://abizern.org/2012/04/09/reverse-words-with-haskell">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Abizer Nasir" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5015208-5']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Abizer Nasir</a></h1>
-  
-</hgroup>
-
+    <body>
+        <header id="page_header">
+    <h1><a href="../../../../" title="Home">Abizer Nasir</a></h1>
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:abizern.org" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Home</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/archives">Archives</a></li>
-  <li><a href="/cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
-</ul>
 
+        <nav id="page_navigation">
+    <ul>
+        <li><a href="../../../../">Home</a></li>
+        <li><a href="../../../../about">About</a></li>
+        <li><a href="../../../../archive">Archive</a></li>
+        <li><a href="../../../../cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
+    </ul>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
-  
-  <header>
-    
-      <h1 class="entry-title">Reverse Words With Haskell</h1>
-    
-    
-      <p class="meta">
+
         
+        <section id="content">
+            <article>
+    <header>
+        <h1>Reverse Words With Haskell</h1>
+        <span class="post-date">April  9, 2012</span> in 
+        <span class="post-tags">haskell</span>
+    </header>
+    <p>As part of my preparation for <a href="http://code.google.com/codejam">Google Code Jam</a> I’ve been working through the practice problems with Haskell.</p>
+<p>I made a screencast on solving the <a href="http://code.google.com/codejam/contest/351101/dashboard#s=p1">Reverse Words</a> problem, along with the mechanics of getting the problem inputs and submitting solutions. The style was heavily influenced by a sequence on <a href="http://youtu.be/045422s6xik?hd=1">Data Driven Programming in Haskell</a> by <a href="http://entirelysubjective.com/programming/data-driven-programming-haskell-1/">Jonas Tullus</a></p>
+<p>I moved at a slower pace, and talking and typing seem to have confused my brain so I think I lapsed into gibberish in a couple of places. (If you know me, you’ll know that’s nothing new).</p>
+<iframe width="560" height="315" src="//www.youtube.com/embed/_tgv3HVgOMc" frameborder="0" allowfullscreen></iframe>
 
+<p>Here’s the cleaned up source file.</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
 
+<span class="co">{-</span>
+<span class="co"> - Problem Statement:</span>
+<span class="co"> - http://code.google.com/codejam/contest/351101/dashboard#s=p1</span>
+<span class="co"> -</span>
+<span class="co"> - Usage either compile or use runhaskell / runghc</span>
+<span class="co"> - Pass the input file as the sole command line argument</span>
+<span class="co"> - Redirect output if you want the results to go in a file</span>
+<span class="co"> -}</span>
 
+<span class="kw">import </span><span class="dt">IO</span>
+<span class="kw">import </span><span class="dt">System.Environment</span>
+<span class="kw">import </span><span class="dt">Data.List</span>
 
+<span class="ot">reverseWords ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">String</span>
+reverseWords <span class="fu">=</span> unwords <span class="fu">.</span> reverse <span class="fu">.</span> words
 
+<span class="ot">boilerPlate ::</span> [<span class="dt">String</span>]
+boilerPlate <span class="fu">=</span> [<span class="st">&quot;Case #&quot;</span> <span class="fu">++</span> show n <span class="fu">++</span> <span class="st">&quot;: &quot;</span> <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>]]
 
+<span class="ot">standardOutput ::</span> [<span class="dt">String</span>] <span class="ot">-&gt;</span> [<span class="dt">String</span>]
+standardOutput <span class="fu">=</span> zipWith (<span class="fu">++</span>) boilerPlate
 
+main <span class="fu">=</span>  <span class="kw">do</span>
+  (f<span class="fu">:</span>_) <span class="ot">&lt;-</span> getArgs
+  file  <span class="ot">&lt;-</span> readFile f
 
-  
-
-
-<time datetime="2012-04-09T15:41:00+01:00" pubdate data-updated="true">Apr 9<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-<div class="entry-content"><p>As part of my preparation for <a href="http://code.google.com/codejam">Google Code Jam</a>
-I&#8217;ve been working through the practice problems with Haskell.</p>
-
-<p>I made a screencast on solving the
-<a href="http://code.google.com/codejam/contest/351101/dashboard#s=p1">Reverse Words</a>
-problem, along with the mechanics of getting the problem inputs and submitting solutions. The style was heavily influenced by a sequence on
-<a href="http://youtu.be/045422s6xik?hd=1">Data Driven Programming in Haskell</a> by
-<a href="http://entirelysubjective.com/programming/data-driven-programming-haskell-1/">Jonas Tullus</a></p>
-
-<!-- more -->
-
-
-<p>I moved at a slower pace, and talking and typing seem to have confused my brain
-so I think I lapsed into gibberish in a couple of places. (If you know me,
-you&#8217;ll know that&#8217;s nothing new).</p>
-
-<iframe width="640" height="510" src="http://www.youtube.com/embed/_tgv3HVgOMc  " frameborder="0" allowfullscreen></iframe>
-
-
-<p>Here&#8217;s the cleaned up source file.</p>
-
-<figure class='code'><figcaption><span>Reverse words with haskell</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-</pre></td><td class='code'><pre><code class='haskell'><span class='line'><span class="kr">module</span> <span class="nn">Main</span> <span class="kr">where</span>
-</span><span class='line'>
-</span><span class='line'><span class="cm">{-</span>
-</span><span class='line'><span class="cm"> - Problem Statement:</span>
-</span><span class='line'><span class="cm"> - http://code.google.com/codejam/contest/351101/dashboard#s=p1</span>
-</span><span class='line'><span class="cm"> -</span>
-</span><span class='line'><span class="cm"> - Usage either compile or use runhaskell / runghc</span>
-</span><span class='line'><span class="cm"> - Pass the input file as the sole command line argument</span>
-</span><span class='line'><span class="cm"> - Redirect output if you want the results to go in a file</span>
-</span><span class='line'><span class="cm"> -}</span>
-</span><span class='line'>
-</span><span class='line'><span class="kr">import</span> <span class="nn">IO</span>
-</span><span class='line'><span class="kr">import</span> <span class="nn">System.Environment</span>
-</span><span class='line'><span class="kr">import</span> <span class="nn">Data.List</span>
-</span><span class='line'>
-</span><span class='line'><span class="nf">reverseWords</span> <span class="ow">::</span> <span class="kt">String</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
-</span><span class='line'><span class="nf">reverseWords</span> <span class="ow">=</span> <span class="n">unwords</span> <span class="o">.</span> <span class="n">reverse</span> <span class="o">.</span> <span class="n">words</span>
-</span><span class='line'>
-</span><span class='line'><span class="nf">boilerPlate</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span>
-</span><span class='line'><span class="nf">boilerPlate</span> <span class="ow">=</span> <span class="p">[</span><span class="s">&quot;Case #&quot;</span> <span class="o">++</span> <span class="n">show</span> <span class="n">n</span> <span class="o">++</span> <span class="s">&quot;: &quot;</span> <span class="o">|</span> <span class="n">n</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="p">]]</span>
-</span><span class='line'>
-</span><span class='line'><span class="nf">standardOutput</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span>
-</span><span class='line'><span class="nf">standardOutput</span> <span class="ow">=</span> <span class="n">zipWith</span> <span class="p">(</span><span class="o">++</span><span class="p">)</span> <span class="n">boilerPlate</span>
-</span><span class='line'>
-</span><span class='line'><span class="nf">main</span> <span class="ow">=</span>  <span class="kr">do</span>
-</span><span class='line'>  <span class="p">(</span><span class="n">f</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span> <span class="ow">&lt;-</span> <span class="n">getArgs</span>
-</span><span class='line'>  <span class="n">file</span>  <span class="ow">&lt;-</span> <span class="n">readFile</span> <span class="n">f</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kr">let</span> <span class="n">cases</span>     <span class="ow">=</span> <span class="n">tail</span> <span class="o">$</span> <span class="n">lines</span> <span class="n">file</span>
-</span><span class='line'>      <span class="n">solutions</span> <span class="ow">=</span> <span class="n">standardOutput</span> <span class="o">$</span> <span class="n">map</span> <span class="n">reverseWords</span> <span class="n">cases</span>
-</span><span class='line'>  <span class="n">putStrLn</span> <span class="o">$</span> <span class="n">unlines</span> <span class="o">$</span> <span class="n">solutions</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
+  <span class="kw">let</span> cases     <span class="fu">=</span> tail <span class="fu">$</span> lines file
+      solutions <span class="fu">=</span> standardOutput <span class="fu">$</span> map reverseWords cases
+  putStrLn <span class="fu">$</span> unlines <span class="fu">$</span> solutions</code></pre>
 <p>I need to learn more Emacs shortcuts :(</p>
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Abizer Nasir</span></span>
-
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-04-09T15:41:00+01:00" pubdate data-updated="true">Apr 9<span>th</span>, 2012</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/categories/haskell/'>Haskell</a>, <a class='category' href='/categories/video/'>Video</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/2012/03/19/git-ignore-file/" title="Previous Post: Git Ignore file">&laquo; Git Ignore file</a>
-      
-      
-        <a class="basic-alignment right" href="/2012/04/15/rotate-a-string-with-haskell/" title="Next Post: Rotate A String with Haskell">Rotate A String with Haskell &raquo;</a>
-      
-    </p>
-  </footer>
 </article>
 
-</div>
+        </section>
 
-<aside class="sidebar">
-  
-    
-  
-</aside>
-
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2009 - 2013 Abizer Nasir
-  <a href="/copyright-statement">Some rights reserved</a> &mdash;
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
+        <footer id="page_footer">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC-4.0</a>
+    —
+    Built with 
+    <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
+    —
+    Source on 
+    <a href="https://github.com/Abizern/hblog">GitHub</a>.
 </footer>
-  
 
-
-
-
-
-
-
-
-
-
-
-</body>
+    </body>
 </html>

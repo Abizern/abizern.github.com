@@ -1,250 +1,89 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The developer and personal blog of
+                                          Abizer Nasir, a freelance iOS and OS X
+                                          developer in London, UK">
+        <meta name="author" content="Abizer Nasir">
+        <title>Abizern.org - Some Tips for Lazy Xcoders</title>
+        <link rel="canonical" href="http://abizern.org">
+        <link href="../../../../favicon.png" rel="icon">
+        <link rel="stylesheet" type="text/css" href="../../../../css/main.css">
+        <script type="text/javascript">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Some tips for lazy Xcoders - Abizer Nasir</title>
-  <meta name="author" content="Abizer Nasir">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5015208-5']);
+  _gaq.push(['_trackPageview']);
 
-  
-  <meta name="description" content="We all know what we should be doing when writing code. Each methodology you
-choose to use has it&#8217;s own best practices, whether it&#8217;s &hellip;">
-  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+        </script>
+    </head>
 
-  
-  <link rel="canonical" href="http://abizern.org/2009/11/11/some-tips-for-lazy-xcoders">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Abizer Nasir" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-5015208-5']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Abizer Nasir</a></h1>
-  
-</hgroup>
-
+    <body>
+        <header id="page_header">
+    <h1><a href="../../../../" title="Home">Abizer Nasir</a></h1>
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:abizern.org" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Home</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/archives">Archives</a></li>
-  <li><a href="/cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
-</ul>
 
+        <nav id="page_navigation">
+    <ul>
+        <li><a href="../../../../">Home</a></li>
+        <li><a href="../../../../about">About</a></li>
+        <li><a href="../../../../archive">Archive</a></li>
+        <li><a href="../../../../cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
+    </ul>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
-  
-  <header>
-    
-      <h1 class="entry-title">Some Tips for Lazy Xcoders</h1>
-    
-    
-      <p class="meta">
+
         
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-11-11T12:40:53+00:00" pubdate data-updated="true">Nov 11<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-<div class="entry-content"><p>We all know what we should be doing when writing code. Each methodology you
-choose to use has it&#8217;s own best practices, whether it&#8217;s working from full
-specifications, writing unit tests first, programming in pairs, yadda,
-yadda. But, as developers, we&#8217;re only human, and we&#8217;re lazy. We have tools to
-make things easy for us. Here are a few tips that you can use to help when
-you&#8217;re not as rigorous in your coding as you should be.</p>
-
-<h2>Use the static analyser.</h2>
-
-<p>You can use the
-<a href="http://arstechnica.com/apple/reviews/2009/08/mac-os-x-10-6.ars/9#compilers">Clang Static Analyser</a>
-in Xcode by setting a build option. This will find a whole host of errors in
-your code, even down to unconventionally named functions.</p>
-
-<p><img src="http://images.abizern.org.s3.amazonaws.com/2009/11/ClangBuildSetting.png" alt="ClangBuildSetting.png" /></p>
-
-<p>Now you can just code away and have the compiler pick up your mistakes when you
-run &#8216;Build and Analyze&#8217; (⌘+Shift+A).</p>
-
-<h2>Find your mistakes quickly.</h2>
-
-<p>Any real application you develop will have a large number of resources that need
-to be copied to your application bundle. The default projects that Xcode create
-for you will copy these files first before compiling.</p>
-
-<p><img src="http://images.abizern.org.s3.amazonaws.com/2009/11/XcodeDefault.png" alt="XcodeDefault.png" /></p>
-
-<p>But, the lazy Xcoder knows that there are probably errors in the code that need
-to get flagged by the compiler, so this copying is a waste of time. Reorder the
-build steps by dragging so that the compilation is done first.</p>
-
-<p><img src="http://images.abizern.org.s3.amazonaws.com/2009/11/XcodeRecommended.png" alt="XcodeRecommended.png" /></p>
-
+        <section id="content">
+            <article>
+    <header>
+        <h1>Some Tips for Lazy Xcoders</h1>
+        <span class="post-date">November 11, 2009</span> in 
+        <span class="post-tags">programming, xcode</span>
+    </header>
+    <p>We all know what we should be doing when writing code. Each methodology you choose to use has it’s own best practices, whether it’s working from full specifications, writing unit tests first, programming in pairs, yadda, yadda. But, as developers, we’re only human, and we’re lazy. We have tools to make things easy for us. Here are a few tips that you can use to help when you’re not as rigorous in your coding as you should be.</p>
+<h2 id="use-the-static-analyser.">Use the static analyser.</h2>
+<p>You can use the <a href="http://arstechnica.com/apple/reviews/2009/08/mac-os-x-10-6.ars/9#compilers">Clang Static Analyser</a> in Xcode by setting a build option. This will find a whole host of errors in your code, even down to unconventionally named functions.</p>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2009/11/ClangBuildSetting.png" alt="ClangBuildSetting.png" /><p class="caption">ClangBuildSetting.png</p>
+</div>
+<p>Now you can just code away and have the compiler pick up your mistakes when you run ‘Build and Analyze’ (⌘+Shift+A).</p>
+<h2 id="find-your-mistakes-quickly.">Find your mistakes quickly.</h2>
+<p>Any real application you develop will have a large number of resources that need to be copied to your application bundle. The default projects that Xcode create for you will copy these files first before compiling.</p>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2009/11/XcodeDefault.png" alt="XcodeDefault.png" /><p class="caption">XcodeDefault.png</p>
+</div>
+<p>But, the lazy Xcoder knows that there are probably errors in the code that need to get flagged by the compiler, so this copying is a waste of time. Reorder the build steps by dragging so that the compilation is done first.</p>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2009/11/XcodeRecommended.png" alt="XcodeRecommended.png" /><p class="caption">XcodeRecommended.png</p>
+</div>
 <p>Your builds will now break early (and often!).</p>
-
-<h2>Don&#8217;t fear the version controller.</h2>
-
-<p>I&#8217;m going to stick my neck out and say that if you&#8217;re not using version control
-you&#8217;re an idiot. The lazy Xcoder uses a powerful system that lets him or her
-branch easily, make lots of little changes, and lots of mistakes (that can be
-backed out). These changes can then be bundled into larger commits to be merged
-into the main branch so that your co-workers don&#8217;t see what an idiot you&#8217;ve
-been.</p>
-
-<p>One such version control system is <a href="http://git-scm.com/">git</a>. The lazy Xcoder
-writes a bit of code, checks it in out of habit and then compiles. The compiler
-picks up the mistakes, and he or she fixes them. Rather than make a new commit,
-and retype the commit message, just call:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git commit --amend -a -C HEAD
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This will bring up the previous commit message in the editor, which you can
-amend if you wish. This new commit will replace the previous one. The <code>-a</code>
-option means you don&#8217;t even need to do a git add and the <code>-C HEAD</code> option means
-it will use the commit message from the last commit.</p>
-
-<p>Of course, if you&#8217;re a rockstar programmer, you don&#8217;t make mistakes at this
-level. But I&#8217;m not, and I prefer to work with human nature rather than against
-it.</p>
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Abizer Nasir</span></span>
-
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-11-11T12:40:53+00:00" pubdate data-updated="true">Nov 11<span>th</span>, 2009</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/categories/os-x-development/'>OS X Development</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/2009/11/08/integrating-git-with-subethaedit-and-changes/" title="Previous Post: Integrating git with SubEthaEdit and Changes.app">&laquo; Integrating git with SubEthaEdit and Changes.app</a>
-      
-      
-        <a class="basic-alignment right" href="/2010/01/08/a-simple-answer-is-not-always-best/" title="Next Post: A Simple Answer Is Not Always Best">A Simple Answer Is Not Always Best &raquo;</a>
-      
-    </p>
-  </footer>
+<h2 id="dont-fear-the-version-controller.">Don’t fear the version controller.</h2>
+<p>I’m going to stick my neck out and say that if you’re not using version control you’re an idiot. The lazy Xcoder uses a powerful system that lets him or her branch easily, make lots of little changes, and lots of mistakes (that can be backed out). These changes can then be bundled into larger commits to be merged into the main branch so that your co-workers don’t see what an idiot you’ve been.</p>
+<p>One such version control system is <a href="http://git-scm.com/">git</a>. The lazy Xcoder writes a bit of code, checks it in out of habit and then compiles. The compiler picks up the mistakes, and he or she fixes them. Rather than make a new commit, and retype the commit message, just call:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> commit --amend -a -C HEAD</code></pre>
+<p>This will bring up the previous commit message in the editor, which you can amend if you wish. This new commit will replace the previous one. The <code>-a</code> option means you don’t even need to do a git add and the <code>-C HEAD</code> option means it will use the commit message from the last commit.</p>
+<p>Of course, if you’re a rockstar programmer, you don’t make mistakes at this level. But I’m not, and I prefer to work with human nature rather than against it.</p>
 </article>
 
-</div>
+        </section>
 
-<aside class="sidebar">
-  
-    
-  
-</aside>
-
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2009 - 2013 Abizer Nasir
-  <a href="/copyright-statement">Some rights reserved</a> &mdash;
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
+        <footer id="page_footer">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC-4.0</a>
+    —
+    Built with 
+    <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
+    —
+    Source on 
+    <a href="https://github.com/Abizern/hblog">GitHub</a>.
 </footer>
-  
 
-
-
-
-
-
-
-
-
-
-
-</body>
+    </body>
 </html>
