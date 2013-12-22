@@ -36,56 +36,61 @@
         <li><a href="../../">Home</a></li>
         <li><a href="../../about">About</a></li>
         <li><a href="../../archive">Archive</a></li>
-        <li><a href="../../cocoa-coding-conventions">Cocoa Coding Conventions</a></li>
+        <li><a href="../../Notes">Notes</a></li>
     </ul>
 </nav>
 
         
         <section id="content">
-            <ul>
-<li><a href="#purpose">Purpose</a></li>
-<li><a href="#xcode-project-settings">Xcode Project Settings</a><ul>
-<li><a href="#static-analyser">Static Analyser</a></li>
-<li><a href="#automatic-reference-counting">Automatic Reference Counting</a></li>
-<li><a href="#unit-testing">Unit Testing</a></li>
-<li><a href="#standard-files">Standard Files</a></li>
-<li><a href="#schemes">Schemes</a></li>
-<li><a href="#compiler">Compiler</a></li>
-</ul></li>
-<li><a href="#code-style">Code Style</a><ul>
-<li><a href="#imports">imports</a></li>
-<li><a href="#ivars">iVars</a></li>
-<li><a href="#properties">Properties</a></li>
-<li><a href="#method-and-variable-naming">Method and Variable Naming</a></li>
-<li><a href="#dot-notation">Dot Notation</a></li>
-<li><a href="#method-signatures">Method Signatures</a></li>
-<li><a href="#private-methods">Private Methods</a></li>
-<li><a href="#empty-methods">Empty Methods</a></li>
-<li><a href="#types">Types</a></li>
-<li><a href="#error-handling">Error Handling</a></li>
-<li><a href="#static-strings">Static Strings</a></li>
-<li><a href="#enums">Enums</a></li>
-<li><a href="#todos">TODOs</a></li>
-</ul></li>
-<li><a href="#code-layout">Code layout</a><ul>
-<li><a href="#pragma-is-your-friend">#pragma Is Your Friend</a></li>
-<li><a href="#import-ordering">Import Ordering</a></li>
-<li><a href="#method-ordering">Method Ordering</a></li>
-<li><a href="#unit-test-classes">Unit Test Classes</a></li>
-<li><a href="#comments">Comments</a></li>
-<li><a href="#horizontal-spacing">Horizontal Spacing</a></li>
-<li><a href="#vertical-spacing">Vertical Spacing</a></li>
-<li><a href="#braces">Braces</a></li>
-<li><a href="#control-structures">Control Structures</a></li>
-<li><a href="#golden-path">Golden Path</a></li>
-<li><a href="#multiple-returns">Multiple Returns</a></li>
-</ul></li>
-<li><a href="#version-control">Version Control</a></li>
-<li><a href="#the-boyscout-rule">The Boyscout Rule</a></li>
-<li><a href="#source">Source</a></li>
-<li><a href="#credits">Credits</a></li>
-<li><a href="#footnote">Footnote</a></li>
-</ul>
+            <article>
+    <header>
+        <h1>Cocoa Coding Conventions</h1>
+    </header>
+    
+     <ul>
+ <li><a href="#purpose">Purpose</a></li>
+ <li><a href="#xcode-project-settings">Xcode Project Settings</a><ul>
+ <li><a href="#static-analyser">Static Analyser</a></li>
+ <li><a href="#automatic-reference-counting">Automatic Reference Counting</a></li>
+ <li><a href="#unit-testing">Unit Testing</a></li>
+ <li><a href="#standard-files">Standard Files</a></li>
+ <li><a href="#schemes">Schemes</a></li>
+ <li><a href="#compiler">Compiler</a></li>
+ </ul></li>
+ <li><a href="#code-style">Code Style</a><ul>
+ <li><a href="#imports">imports</a></li>
+ <li><a href="#ivars">iVars</a></li>
+ <li><a href="#properties">Properties</a></li>
+ <li><a href="#method-and-variable-naming">Method and Variable Naming</a></li>
+ <li><a href="#dot-notation">Dot Notation</a></li>
+ <li><a href="#method-signatures">Method Signatures</a></li>
+ <li><a href="#private-methods">Private Methods</a></li>
+ <li><a href="#empty-methods">Empty Methods</a></li>
+ <li><a href="#types">Types</a></li>
+ <li><a href="#error-handling">Error Handling</a></li>
+ <li><a href="#static-strings">Static Strings</a></li>
+ <li><a href="#enums">Enums</a></li>
+ <li><a href="#todos">TODOs</a></li>
+ </ul></li>
+ <li><a href="#code-layout">Code layout</a><ul>
+ <li><a href="#pragma-is-your-friend">#pragma Is Your Friend</a></li>
+ <li><a href="#import-ordering">Import Ordering</a></li>
+ <li><a href="#method-ordering">Method Ordering</a></li>
+ <li><a href="#unit-test-classes">Unit Test Classes</a></li>
+ <li><a href="#comments">Comments</a></li>
+ <li><a href="#horizontal-spacing">Horizontal Spacing</a></li>
+ <li><a href="#vertical-spacing">Vertical Spacing</a></li>
+ <li><a href="#braces">Braces</a></li>
+ <li><a href="#control-structures">Control Structures</a></li>
+ <li><a href="#golden-path">Golden Path</a></li>
+ <li><a href="#multiple-returns">Multiple Returns</a></li>
+ </ul></li>
+ <li><a href="#version-control">Version Control</a></li>
+ <li><a href="#the-boyscout-rule">The Boyscout Rule</a></li>
+ <li><a href="#source">Source</a></li>
+ <li><a href="#credits">Credits</a></li>
+ <li><a href="#footnote">Footnote</a></li>
+ </ul> 
 <h2 id="purpose"><a href="#purpose">Purpose</a></h2>
 <p>Consistent coding conventions are one way to keep code readable and maintainable. Written coding conventions provide a handy reference for the times when one can’t remember what conventions apply.</p>
 <p>This is a living document, and if I find that I am breaking the conventions I’ve set for myself, then I’ll update the document to match what I’m doing. This is more a record of my choices than a rod for my own back.</p>
@@ -429,6 +434,8 @@ DLog(<span class="st">@&quot;The BOOL value is %@&quot;</span>, someBool ? <span
 <h2 id="footnote"><a href="#footnote">Footnote</a></h2>
 <p>I realise that these conventions are not to everyones’ tastes, and there is no comment section on this blog for you to tell me how wrong I am. It’s okay for you to disagree with me. These are <strong>my</strong> conventions and I encourage you to use this as a template to create and evolve your own guidelines.</p>
 <p>But, my contact details are on the about page if you do want to give me a piece of your mind. I’m not above changing my opinion about these.</p>
+</article>
+
         </section>
 
         <footer id="page_footer">
