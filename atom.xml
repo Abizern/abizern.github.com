@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Abizern.org - All posts</title>
+        <link>http://abizern.org</link>
+        <description><![CDATA[The developer and personal blog of Abizer Nasir, a freelance iOS and OS X developer in London, UK]]></description>
+        <atom:link href="http://abizern.org/atom.xml" rel="self"
+                   type="application/rss+xml" />
+        <lastBuildDate>Thu, 30 May 2013 00:00:00 UT</lastBuildDate>
+        <item>
+    <title>Git at London Web Standards</title>
+    <link>http://abizern.org/2013/05/30/git-at-london-web-standards/index.html</link>
+    <description><![CDATA[<p>London Web Standards is focusing on Git for their meeting on <a href="http://londonwebstandards.org/2013/05/lws-june-2013-gitdiet/">17th June</a>. I’m going to be talking on the topic of “Git’s not what you think it is”.</p>
+<p>The Abstract:</p>
+<p>“You think you know Git? Really?</p>
+<p>Are you using Git the same tired old way, checking in your changes and pulling from your colleagues? Do you get the sneaking feeling that others are having much more fun with it than you are?</p>
+<p>Are you a refusenik, not tempted to use version control because its not for you?</p>
+<p>I’m going to challenge some common ideas about Git; I hope to get current users to be more expansive in their use of it, and maybe to bring some new users into the fold.&quot;</p>
+<p>I’ve been talking about <a href="https://alpha.app.net/abizern">Git</a> since 2009, which is when I became comfortable using it. I’ve heard some reasons for people not using it, or using it in its simplest form. My aim in this talk is to turn those statements on their head; maybe to get people to think about using git, not just as a set of task based recipes (which is a perfectly good way of working), but also to use the parts of it that seem too difficult, or poorly explained.</p>]]></description>
+    <pubDate>Thu, 30 May 2013 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2013/05/30/git-at-london-web-standards/index.html</guid>
+</item>
+<item>
+    <title>Setting up for Lisp on OS X</title>
+    <link>http://abizern.org/2013/03/31/setting-up-for-lisp-on-os-x/index.html</link>
+    <description><![CDATA[<p>This is how I roll, you might choose a different path.</p>
+<ol style="list-style-type: decimal">
+<li><p>Install Emacs. Get a nice, modern pre-built binary from <a href="http://emacsformacosx.com/">Emacs For Mac OS X</a>. It even supports fullscreen mode</p></li>
+<li><p>Install <a href="http://batsov.com/prelude/">Emacs Prelude</a> which provides a useful, opinionated emacs environment which is easily configured.</p></li>
+<li><p>Install clisp. I use homebrew so <code>brew install clisp</code> takes care of that for me.</p></li>
+<li><p>Install <a href="http://quicklisp.org">quicklisp</a>; from Terminal go to a temporary directory and download quicklisp.lisp with <code>curl -O    http://beta.quicklisp.org/quicklisp.lisp</code>. Then run the lisp file from clisp with <code>clisp-i quicklisp.lisp</code>. As the instructions say, evaluate <code>(quicklisp-quickstart:install)</code>, and then evaluate <code>(ql:add-to-init-file)</code> to load quicklisp along with lisp.</p></li>
+<li><p>Install Slime. While you have the clisp repl open, evaluate <code>(ql:quickload    &quot;quicklisp-slime-helper&quot;)</code>. After this runs, you will see some recommendations for what to put into your .emacs file. You don’t need to do this. I did say that Prelude was opinionated, and it’s done this for you. However, it’s not set up for clisp, so instead, add this to your <code>personal/personal.el</code> file: <code>(setq slime-default-lisp 'clisp)</code></p></li>
+<li><p>And that should be it. You don’t need to have the clisp repl running in the terminal anymore, and you can delete the <code>quicklisp.lisp</code> file that you downladed, as it’s done it’s job of installation now.</p></li>
+<li><p>Test the setup from Emacs by running <code>M-x slime-mode</code> and you’ll be taken to the lisp REPL.</p></li>
+</ol>
+<p>Now that’s done you can go on to the hard part of actually learning and using lisp.</p>]]></description>
+    <pubDate>Sun, 31 Mar 2013 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2013/03/31/setting-up-for-lisp-on-os-x/index.html</guid>
+</item>
+<item>
+    <title>Missing Xcode Toolbar</title>
+    <link>http://abizern.org/2013/01/29/missing-xcode-toolbar/index.html</link>
+    <description><![CDATA[<p>I’m sure you’ve been there.</p>
+<p>You’re working in Xcode, and you have a file opened on another monitor in another window. Unfortunately, you forget about it, and when you close your project and reopen it again, the toolbar is missing.</p>
+<div class="figure">
+<img src="http://images.abizern.org/2013/01/Missing%20Xcode%20Toolbar.png" alt="Missing Toolbar" /><p class="caption">Missing Toolbar</p>
+</div>
+<p>nIt can be frustrating, because Xcode remembers this, and every time you open the project it will open without a toolbar. You can put it back by right-clicking in what is left of the toolbar and choosing one of the options.</p>
+<div class="figure">
+<img src="http://images.abizern.org/2013/01/Xcode%20Toolbar%20Menu.png" alt="Toolbar Menu" /><p class="caption">Toolbar Menu</p>
+</div>
+<p>But the gotcha that has bit me twice now, and prompted me to write this to remind myself of it, is that you need to choose the “Show Toolbar” menu item rather than one of the other two preferences. I was incorrectly choosing my preference of “Icon Only” and wondering why my preference wasn’t sticking.</p>]]></description>
+    <pubDate>Tue, 29 Jan 2013 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2013/01/29/missing-xcode-toolbar/index.html</guid>
+</item>
+<item>
+    <title>Correcting Brace Layout</title>
+    <link>http://abizern.org/2012/12/30/correcting-brace-layout/index.html</link>
+    <description><![CDATA[<p>I wrote a <a href="http://abizern.org/fixbraces/">small rubygem</a> called <em>fixbraces</em> to move the opening brace of a conditional to the same line as the opening statement.</p>
+<p>So now I can correct all the Xcode generated stubs that look like:</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec">- (<span class="dt">void</span>)someMethod
+{
+    <span class="co">// some code here</span>
+}</code></pre>
+<p>Into my preferred format:</p>
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec">- (<span class="dt">void</span>)someMethod {
+    <span class="co">// some code here</span>
+}</code></pre>
+<p>Which fits with my personal coding standards.</p>]]></description>
+    <pubDate>Sun, 30 Dec 2012 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2012/12/30/correcting-brace-layout/index.html</guid>
+</item>
+<item>
+    <title>Commanding Your Text Editor</title>
+    <link>http://abizern.org/2012/11/02/commanding-your-text-editor/index.html</link>
+    <description><![CDATA[<p>There’s a recent post up on the PeepCode Blog about <a href="https://peepcode.com/blog/2012/commanding-your-text-editor">Commanding Your Text Editor</a> which has some handy tips for Emacs, Vim, Textmate, Sublime Text and the OS X. It’s a short read, and worth the time.</p>
+<p>More and more of our time is spent at a keyboard typing, whether you’re a programmer or not. Those of you who know me will have heard me talking about the Dvorak keyboard layout and my current attraction to Emacs.</p>
+<p>You don’t have to go that far down the rabbit hole, but it’s surprising how many Emacs bindings are supported natively on the Mac, and unlike Vim; you don’t need to be in a different mode to use them.</p>]]></description>
+    <pubDate>Fri, 02 Nov 2012 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2012/11/02/commanding-your-text-editor/index.html</guid>
+</item>
+<item>
+    <title>A Reason To Learn Lisp</title>
+    <link>http://abizern.org/2012/11/01/a-reason-to-learn-lisp/index.html</link>
+    <description><![CDATA[<p>A short video from a live demo of Emacs from Web Rebels in Oslo 2012.</p>
+<p>As the description says: “Crappy sound. Swearing. A noisy bar”, but an example of strong content overcoming presentation difficulties.</p>
+<iframe width="420" height="315" src="//www.youtube.com/embed/p3Te_a-AGqM" frameborder="0" allowfullscreen></iframe>
+
+
+]]></description>
+    <pubDate>Thu, 01 Nov 2012 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2012/11/01/a-reason-to-learn-lisp/index.html</guid>
+</item>
+<item>
+    <title>An Improved Reverse Words Script</title>
+    <link>http://abizern.org/2012/10/31/an-improved-reverse-words-script/index.html</link>
+    <description><![CDATA[<p>About 6 months ago I posted <a href="http://abizern.org/2012/04/09/reverse-words-with-haskell/">a solution</a> to the Google Code Jam problem <a href="http://code.google.com/codejam/contest/351101/dashboard#s=p1" title="Original problem statement">Reverse Words</a></p>
+<p>I’ve become more comfortable with Haskell since then, so here’s an improved solution.</p>
+<figure>
+
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
+
+<span class="co">{-</span>
+<span class="co">Problem statement:</span>
+<span class="co">http://code.google.com/codejam/contest/351101/dashboard#s=p1</span>
+
+<span class="co">Run as a script with runghc, or compile with ghc --make -O2</span>
+
+<span class="co">input and output is by redirection;</span>
+
+<span class="co">$ ./reverse_words &lt; input_file &gt; output_file</span>
+<span class="co"> -}</span>
+
+<span class="kw">import </span><span class="dt">Control.Monad</span>
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> <span class="kw">do</span>
+  n <span class="ot">&lt;-</span> readLn
+  forM_ [<span class="dv">1</span><span class="fu">..</span>n] <span class="fu">$</span> \i <span class="ot">-&gt;</span> <span class="kw">do</span>
+    solution <span class="ot">&lt;-</span> fmap (unwords <span class="fu">.</span> reverse <span class="fu">.</span> words) getLine
+    putStrLn <span class="fu">$</span> <span class="st">&quot;Case #&quot;</span> <span class="fu">++</span> show i <span class="fu">++</span> <span class="st">&quot;: &quot;</span> <span class="fu">++</span> solution</code></pre>
+<figcaption>
+Improved Reverse Words With Haskell <a href="https://gist.github.com/Abizern/3986006">view as gist</a>
+</figcaption>
+</figure>
+
+<p>I’m not one who believes that shorter, terser code is necessarily better, but that isn’t what makes this version an improvement. Nor even the use of Monads; Haskell’s sexy buzzword. I think this code is better because it has less noise than the original solution.</p>
+<p>Code Jam problems have well defined inputs and required outputs, and there is no need to load the whole input file when the script starts. Normally, I would be all for splitting out code into smaller, descriptively named functions, but in this small case that’s just more typing and more lines getting in the way of the actual solution. I think that this version is more readable because there are less lines of code that don’t contribute directly to the solution.</p>
+<p>And Code Jam has a time limit, so smaller code is faster to write and easier to debug.</p>]]></description>
+    <pubDate>Wed, 31 Oct 2012 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2012/10/31/an-improved-reverse-words-script/index.html</guid>
+</item>
+<item>
+    <title>UUID Strings with Cocoa</title>
+    <link>http://abizern.org/2012/10/25/uuid-strings-with-cocoa/index.html</link>
+    <description><![CDATA[<p>This used to be a thing until the iOS 6 and OS X 10.8 compatible <a href="http://developer.apple.com/library/mac/#documentation/Foundation/Reference/NSUUID_Class/Reference/Reference.html">NSUUID Class</a> became available.</p>
+<h2 id="new">New</h2>
+This is how you can do it now:
+<figure>
+
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec">NSString *uuidString = [[NSUUID UUID] UUIDString];
+<span class="co">// Generates: 7E60066C-C7F3-438A-95B1-DDE8634E1072</span></code></pre>
+<figcaption>
+UUID from NSUUID
+</figcaption>
+</figure>
+
+<h2 id="old">Old</h2>
+<p>Here’s a method you can put in a class, with the correct ARC casts on ownership, that returns a UUID. It’s a fairly common technique, and you’ll even see versions of it where people have created a category on NSString for this.</p>
+<figure>
+
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec">- (NSString *)uuidString {
+    <span class="co">// Returns a UUID</span>
+
+    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
+    NSString *uuidStr = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
+    CFRelease(uuid);
+
+    <span class="kw">return</span> uuidStr;
+}</code></pre>
+<figcaption>
+UUID from a method
+</figcaption>
+</figure>
+
+<p>And to use it:</p>
+<figure>
+
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec">NSString *uuidString = [<span class="kw">self</span> uuidString];
+<span class="co">// Generates D5CB0560-206F-4581-AA25-1D6A873F3526</span></code></pre>
+<figcaption>
+UUID from a method usage
+</figcaption>
+</figure>
+
+<h2 id="nsprocessinfo">NSProcessInfo</h2>
+<p>A common use for unique strings is to name files and directories within a program so that they do not clash. Since iOS 2 and OS X 10.0 there has been the <code>globallyUniqueString</code> method in <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSProcessInfo_Class/Reference/Reference.html">NSProcessInfo</a> which returns a string that is unique for the network and process. So, for a <em>good enough</em> unique string this is probably a better method to use:</p>
+<figure>
+
+<pre class="sourceCode objectivec"><code class="sourceCode objectivec">NSString *uuidStr = [[NSProcessInfo processInfo] globallyUniqueString];
+<span class="co">// generates 56341C6E-35A7-4C97-9C5E-7AC79673EAB2-539-000001F95B327819</span></code></pre>
+<figcaption>
+Unique String from NSProcessInfo
+</figcaption>
+</figure>
+
+]]></description>
+    <pubDate>Thu, 25 Oct 2012 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2012/10/25/uuid-strings-with-cocoa/index.html</guid>
+</item>
+<item>
+    <title>On Live Coding</title>
+    <link>http://abizern.org/2012/08/20/on-live-coding/index.html</link>
+    <description><![CDATA[<p>I read somewhere that part of the popularity of <a href="http://en.wikipedia.org/wiki/The_West_Wing">The West Wing</a> was that it was entertaining to watch smart people solve difficult problems. I think that’s part of the reason why I find watching live coding videos so entertaining - It’s more fun to watch someone solve a problem than doing it yourself.</p>
+<p>There are plenty of screencasts you can find - <a href="http://youtubecom">YouTube</a> is an obvious one, but don’t forget <a href="http://vimeo.com">Vimeo</a>.</p>
+<p>Some good ones to watch are the <a href="https://peepcode.com/screencasts/play-by-play">Play-By-Play</a> series produced by <a href="http://peepcode.com">Peepcode</a> These screencasts have a developer solving a problem set by the host as he talks to them about the choices they make and the tools they use. Mostly Ruby / Railsy, but there are exceptions - Zed Shaw and Python, Ryan Singer designing a UX workflow for the Web, Kyle Neath on UI Workflow, and the latest has Tim Caswell creating a node.js web app.</p>
+<p>These are not only interesting screencasts, with plenty to learn from, but I find they are great for background noise. I work at home, and having the sounds of a keyboard clacking and techy conversation pushes back the silence. Also, when you look at a tutorial type blog post - or something on GitHub, all you see is the finished product. But when you watch someone working, you realise that it doesn’t come out fully formed like that, it sort of evolves. The same way that you evolve code.</p>
+<p>I did my own small one about <a href="http://abizern.org/2012/04/09/reverse-words-with-haskell/">reversing words in Haskell</a> a few months ago and I found that it’s harder to do than it looks. I credited <a href="http://codinguncut.com/">Jonas Tullus</a> as an influence for that screencast and now see that he has started <a href="http://codinguncut.com">Coding Uncut</a>, where he takes on a problem and screencasts his solution in Haskell. This is harder to do than the Peepcode ones, because without anyone asking you questions you become more self-conscious about vocalising your thoughts.</p>
+<p>Some of the things I’ve picked up from watching these are:</p>
+<ul>
+<li>It’s okay to spend your time looking up the documentation. Knowing roughly what approach to take to a solution and then looking up the details is more important.</li>
+<li>It’s faster to try something and see what happens rather than overthinking everything from the beginning.</li>
+<li>Version control is not an optional extra (okay, I already believe this, but it’s nice to see that I’m not the only one).</li>
+<li>It’s not the tool that matters - Emacs, Vim, JEdit, Paper and Sharpie - but how you use it.</li>
+<li>“It’s not about the code. It’s your understanding of the problem that you’re working on.” - Zed Shaw</li>
+</ul>]]></description>
+    <pubDate>Mon, 20 Aug 2012 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2012/08/20/on-live-coding/index.html</guid>
+</item>
+<item>
+    <title>Coding Conventions</title>
+    <link>http://abizern.org/2012/07/01/coding-conventions/index.html</link>
+    <description><![CDATA[<p>I’ve just published my <a href="/cocoa-coding-conventions">Cocoa Coding Conventions</a>.</p>
+<p>Not so that it can be followed, but to provide an idea of what can be done so that others can write their own, just as I’ve based mine on published conventions.</p>
+<p>The idea isn’t to create a rod for your back when writing code, but to put some thought into the choices that are made when writing code so that it is consistent.</p>]]></description>
+    <pubDate>Sun, 01 Jul 2012 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2012/07/01/coding-conventions/index.html</guid>
+</item>
+
+    </channel> 
+</rss>
