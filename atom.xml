@@ -6,8 +6,59 @@
         <description><![CDATA[The developer and personal blog of Abizer Nasir, a freelance iOS and OS X developer in London, UK]]></description>
         <atom:link href="http://abizern.org/atom.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Thu, 26 Dec 2013 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Sun, 05 Jan 2014 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Hakyll New Post With Emacs</title>
+    <link>http://abizern.org/2014/01/05/hakyll-new-post-with-emacs/index.html</link>
+    <description><![CDATA[<p>When this blog was created using Octopress, a new post could be created by simply running <code>rake new_post</code> in the Terminal. There is no such convenience in Hakyll, which is currently used as the generator. A small thing, but I wanted to fix it.</p>
+<p>I could have created a similar Rake task, or shell script to do this, and there are even examples to be <a href="http://jaspervdj.be/hakyll/examples.html">found</a> on Hakyll’s site. But since I’m usually in Emacs when I want to write a new post, I thought it would be a good excuse to write a little lisp. And so, here is my first attempt.</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> hakyll-site-location </span>()
+  <span class="st">&quot;Return the location of the Hakyll files.&quot;</span>
+  <span class="st">&quot;~/Sites/hblog/&quot;</span>)
+
+(<span class="kw">defun</span><span class="fu"> hakyll-new-post </span>(title tags)
+  <span class="st">&quot;Create a new Hakyll post for today with TITLE and TAGS.&quot;</span>
+  (interactive <span class="st">&quot;sTitle: </span>\n<span class="st">sTags: &quot;</span>)
+  (<span class="kw">let</span> ((file-name (hakyll-post-title title)))
+    (set-buffer (get-buffer-create file-name))
+    (markdown-mode)
+    (insert
+     (<span class="kw">format</span> <span class="st">&quot;---</span>\n<span class="st">title: %s</span>\n<span class="st">tags: %s</span>\n<span class="st">description: </span>\n<span class="st">---</span>\n\n<span class="st">&quot;</span> title tags))
+    (write-file
+     (expand-file-name file-name (concat (hakyll-site-location) <span class="st">&quot;posts&quot;</span>)))
+    (switch-to-buffer file-name)))
+
+(<span class="kw">defun</span><span class="fu"> hakyll-new-note </span>(title)
+  <span class="st">&quot;Create a new Note with TITLE.&quot;</span>
+  (interactive <span class="st">&quot;sTitle: &quot;</span>)
+  (<span class="kw">let</span> ((file-name (hakyll-note-title title)))
+    (set-buffer (get-buffer-create file-name))
+    (markdown-mode)
+    (insert (<span class="kw">format</span> <span class="st">&quot;---</span>\n<span class="st">title: %s</span>\n<span class="st">description: </span>\n<span class="st">---</span>\n\n<span class="st">&quot;</span> title))
+    (write-file
+     (expand-file-name file-name (concat (hakyll-site-location) <span class="st">&quot;notes&quot;</span>)))
+    (switch-to-buffer file-name)))
+
+(<span class="kw">defun</span><span class="fu"> hakyll-post-title </span>(title)
+  <span class="st">&quot;Return a file name based on TITLE for the post.&quot;</span>
+  (concat
+   (format-time-string <span class="st">&quot;%Y-%m-%d&quot;</span>)
+   <span class="st">&quot;-&quot;</span>
+   (replace-regexp-in-string <span class="st">&quot; &quot;</span> <span class="st">&quot;-&quot;</span> (downcase title))
+   <span class="st">&quot;.markdown&quot;</span>))
+
+(<span class="kw">defun</span><span class="fu"> hakyll-note-title </span>(title)
+  <span class="st">&quot;Return a file name based on TITLE for the note.&quot;</span>
+  (concat
+   (replace-regexp-in-string <span class="st">&quot; &quot;</span> <span class="st">&quot;-&quot;</span> (downcase title))
+   <span class="st">&quot;.markdown&quot;</span>))</code></pre>
+<p>I’m not much of a lisper, and it probably took me longer to write than the time it will save me, but that doesn’t matter. Firstly; it might be useful to somebody else, and so the cumulative time saved could be greater.</p>
+<p>Secondly, my day job means I spend most of my coding time in Xcode, which can’t be customised as Emacs can be, and if I don’t spend time writing and learning lisp, I’ll have no chance of getting better at it.</p>
+<p>So, I think it’s not bad as a first attempt, although it could obviously be refactored, and you can follow the history of it in my dotfiles <a href="https://github.com/Abizern/prelude/blob/master/personal/hakyll.el">repository</a> if you want to see how it could be developed (or even, you know, help me out with it).</p>]]></description>
+    <pubDate>Sun, 05 Jan 2014 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2014/01/05/hakyll-new-post-with-emacs/index.html</guid>
+</item>
+<item>
     <title>Hello Hakyll</title>
     <link>http://abizern.org/2013/12/26/hello-hakyll/index.html</link>
     <description><![CDATA[<p>This site is now being generated by <a href="http://jaspervdj.be/hakyll/">Hakyll</a> instead of <a href="http://octopress.org">Octopress</a></p>
@@ -206,25 +257,6 @@ Unique String from NSProcessInfo
 ]]></description>
     <pubDate>Thu, 25 Oct 2012 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2012/10/25/uuid-strings-with-cocoa/index.html</guid>
-</item>
-<item>
-    <title>On Live Coding</title>
-    <link>http://abizern.org/2012/08/20/on-live-coding/index.html</link>
-    <description><![CDATA[<p>I read somewhere that part of the popularity of <a href="http://en.wikipedia.org/wiki/The_West_Wing">The West Wing</a> was that it was entertaining to watch smart people solve difficult problems. I think that’s part of the reason why I find watching live coding videos so entertaining - It’s more fun to watch someone solve a problem than doing it yourself.</p>
-<p>There are plenty of screencasts you can find - <a href="http://youtubecom">YouTube</a> is an obvious one, but don’t forget <a href="http://vimeo.com">Vimeo</a>.</p>
-<p>Some good ones to watch are the <a href="https://peepcode.com/screencasts/play-by-play">Play-By-Play</a> series produced by <a href="http://peepcode.com">Peepcode</a> These screencasts have a developer solving a problem set by the host as he talks to them about the choices they make and the tools they use. Mostly Ruby / Railsy, but there are exceptions - Zed Shaw and Python, Ryan Singer designing a UX workflow for the Web, Kyle Neath on UI Workflow, and the latest has Tim Caswell creating a node.js web app.</p>
-<p>These are not only interesting screencasts, with plenty to learn from, but I find they are great for background noise. I work at home, and having the sounds of a keyboard clacking and techy conversation pushes back the silence. Also, when you look at a tutorial type blog post - or something on GitHub, all you see is the finished product. But when you watch someone working, you realise that it doesn’t come out fully formed like that, it sort of evolves. The same way that you evolve code.</p>
-<p>I did my own small one about <a href="http://abizern.org/2012/04/09/reverse-words-with-haskell/">reversing words in Haskell</a> a few months ago and I found that it’s harder to do than it looks. I credited <a href="http://codinguncut.com/">Jonas Tullus</a> as an influence for that screencast and now see that he has started <a href="http://codinguncut.com">Coding Uncut</a>, where he takes on a problem and screencasts his solution in Haskell. This is harder to do than the Peepcode ones, because without anyone asking you questions you become more self-conscious about vocalising your thoughts.</p>
-<p>Some of the things I’ve picked up from watching these are:</p>
-<ul>
-<li>It’s okay to spend your time looking up the documentation. Knowing roughly what approach to take to a solution and then looking up the details is more important.</li>
-<li>It’s faster to try something and see what happens rather than overthinking everything from the beginning.</li>
-<li>Version control is not an optional extra (okay, I already believe this, but it’s nice to see that I’m not the only one).</li>
-<li>It’s not the tool that matters - Emacs, Vim, JEdit, Paper and Sharpie - but how you use it.</li>
-<li>“It’s not about the code. It’s your understanding of the problem that you’re working on.” - Zed Shaw</li>
-</ul>]]></description>
-    <pubDate>Mon, 20 Aug 2012 00:00:00 UT</pubDate>
-    <guid>http://abizern.org/2012/08/20/on-live-coding/index.html</guid>
 </item>
 
     </channel> 
