@@ -54,8 +54,10 @@
     </header>
     
      <ul>
- <li><a href="#installation">Installation</a></li>
- <li><a href="#emacs.d">emacs.d</a></li>
+ <li><a href="#installation">Installation</a><ul>
+ <li><a href="#emacs">Emacs</a></li>
+ <li><a href="#emacs.d">.emacs.d</a></li>
+ </ul></li>
  <li><a href="#general">General</a></li>
  <li><a href="#movement">Movement</a></li>
  <li><a href="#buffers">Buffers</a></li>
@@ -83,9 +85,12 @@
  </ul></li>
  </ul> 
 <h2 id="installation"><a href="#installation">Installation</a></h2>
+<h3 id="emacs"><a href="#emacs">Emacs</a></h3>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">brew</span> install emacs --cocoa --srgb</code></pre>
-<h2 id="emacs.d"><a href="#emacs.d">emacs.d</a></h2>
+<h3 id="emacs.d"><a href="#emacs.d">.emacs.d</a></h3>
 <p>These work for my <a href="https://github.com/Abizern/prelude">dotfiles</a>, based off <a href="http://batsov.com/prelude/">Emacs Prelude</a>, which should be cloned to <code>~/.emacs.d</code>. There are no submodules in this repository.</p>
+<p>Install with the customised script</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> -L https://github.com/Abizern/prelude/raw/master/utils/installer.sh <span class="kw">|</span> <span class="kw">sh</span></code></pre>
 <h2 id="general"><a href="#general">General</a></h2>
 <table>
 <tbody>
