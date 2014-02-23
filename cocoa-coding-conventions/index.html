@@ -97,19 +97,19 @@
  <li><a href="#credits">Credits</a></li>
  <li><a href="#footnote">Footnote</a></li>
  </ul> 
-<h2 id="purpose"><a href="#purpose">Purpose</a></h2>
+<h2 id="purpose">Purpose</h2>
 <p>Consistent coding conventions are one way to keep code readable and maintainable. Written coding conventions provide a handy reference for the times when one can’t remember what conventions apply.</p>
 <p>This is a living document, and if I find that I am breaking the conventions I’ve set for myself, then I’ll update the document to match what I’m doing. This is more a record of my choices than a rod for my own back.</p>
 <p>In line with George Orwell’s last rule in <a href="http://www.resort.com/~prime8/Orwell/patee.html">Politics and the English Language (1946)</a> Break any of these rules sooner than doing anything barbarous.</p>
-<h2 id="xcode-project-settings"><a href="#xcode-project-settings">Xcode Project Settings</a></h2>
-<h3 id="static-analyser"><a href="#static-analyser">Static Analyser</a></h3>
+<h2 id="xcode-project-settings">Xcode Project Settings</h2>
+<h3 id="static-analyser">Static Analyser</h3>
 <p>Run the Static Analyser automatically with builds. Strive for zero warnings and errors with the default warnings and errors turned on. Use the Clang pragmas to silence warnings where you really have to.</p>
-<h3 id="automatic-reference-counting"><a href="#automatic-reference-counting">Automatic Reference Counting</a></h3>
+<h3 id="automatic-reference-counting">Automatic Reference Counting</h3>
 <p>All new projects use ARC. The compiler is better placed to insert boilerplate code.</p>
-<h3 id="unit-testing"><a href="#unit-testing">Unit Testing</a></h3>
+<h3 id="unit-testing">Unit Testing</h3>
 <p>Use the Unit Testing option when creating new projects from the templates. You may not always use strict TDD, but when the time comes where something needs to be tested automatically, rather than running through a series of steps with a running app, having this set up will be a timesaver.</p>
 <p>That said, Unit Testing is a useful discipline, use it where you can. Don’t let the lack of a complete set of tests put you off writing any unit tests. Something is better than nothing, as long as you remember that the tests are not comprehensive.</p>
-<h3 id="standard-files"><a href="#standard-files">Standard Files</a></h3>
+<h3 id="standard-files">Standard Files</h3>
 <p>The Application Delegate class is named <code>AppDelegate</code>.</p>
 <p>The project templates create standard files - a pch file, a main file, a plist file. Regardless of what the templates are set up to do rename them to <code>Prefix.pch</code>, <code>main.m</code> and <code>Info.plist</code>. Some changes will need to be made to the project settings that reference these files to make them work. Similar files are created for unit testing or other targets, but these need not be renamed; the simplified names are only be used for the main target of the project.</p>
 <p>These are common macros that are used throughout my projects. This header file should be added to all projects and imported into the <code>Prefix.pch</code> file. The most up to date version is available as a <a href="https://gist.github.com/Abizern/325926">gist on Github</a>:</p>
@@ -147,16 +147,16 @@
         || ([thing respondsToSelector:<span class="kw">@selector</span>(count)]
         &amp;&amp; [(NSArray *)thing count] == <span class="dv">0</span>);
 }</code></pre>
-<h3 id="schemes"><a href="#schemes">Schemes</a></h3>
+<h3 id="schemes">Schemes</h3>
 <p>Xcode creates a standard scheme named after the project for development. As part of setting up the project create a Release Scheme (and a TestFlight scheme if appropriate) and set them up to use the correct signing keys. Make these schemes shared and add them to version control.</p>
-<h3 id="compiler"><a href="#compiler">Compiler</a></h3>
+<h3 id="compiler">Compiler</h3>
 <p>Use the most up to date compiler possible and all the associated benefits, Literals, ARC, auto-synthesis, the static analyser, auto-layout, storyboards, etc.</p>
-<h2 id="code-style"><a href="#code-style">Code Style</a></h2>
-<h3 id="imports"><a href="#imports">imports</a></h3>
+<h2 id="code-style">Code Style</h2>
+<h3 id="imports">imports</h3>
 <p>See the code layout section to see how to lay out the imports in the .h and .m files</p>
 <p>Although the common framework imports should be in the pch file, put all the required imports into the source files. I find it helps to see what frameworks a class is set up to deal with.</p>
 <p>Only put superclass imports and protocol imports into the header file. Forward declarations should use the <code>@class</code> statement. The remaining headers should go into the .m file.</p>
-<h3 id="ivars"><a href="#ivars">iVars</a></h3>
+<h3 id="ivars">iVars</h3>
 <p>Avoid using iVars, certainly not as part of the public interface. Prefer the use of properties.</p>
 <p>If using iVars treat them as private and add them to a class extension or the <span class="citation">@implementation</span> section if using a compiler that supports it.</p>
 <pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Bad - declared in the public header</span>
@@ -177,7 +177,7 @@
     NSString *_aString;
 }</code></pre>
 <p>Note the underscore prefix for iVars. I’ve gradually come around to the idea of using them. what they do is a)make clear that you are using an iVar and not a local varliable, and b)remove the need to rename local variables or parameters to avoid clashing with iVars.</p>
-<h3 id="properties"><a href="#properties">Properties</a></h3>
+<h3 id="properties">Properties</h3>
 <p>Prefer immutable to mutable types, and use <code>copy</code> not <code>retain</code> for types that are part of a mutable / immutable class cluster unless you <strong>really</strong> need a mutable type.</p>
 <p>The memory management declaration should come first.</p>
 <p>Prefer nonatomic to atomic type declarations.</p>
@@ -201,7 +201,7 @@
 
 <span class="kw">@end</span></code></pre>
 <p>Auto-synthesised properties generate an iVar with a leading underscore. If not using a compiler that supports auto-synthesis <span class="citation">@sythesise</span> backing stores in the same way.</p>
-<h3 id="method-and-variable-naming"><a href="#method-and-variable-naming">Method and Variable Naming</a></h3>
+<h3 id="method-and-variable-naming">Method and Variable Naming</h3>
 <p>Don’t fear long descriptive names, Xcode has auto-completion.</p>
 <p>Follow the conventions in Apple’s <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html#//apple_ref/doc/uid/10000146-SW1">Coding Guidelines for Cocoa</a></p>
 <p>The cocoa frameworks follow an American spelling convention. That means that there are classes such as <code>NSColor</code> and <code>NSNotificationCenter</code>. That doesn’t mean that this convention should be followed blindly. Use British spelling:</p>
@@ -214,27 +214,27 @@ UIColor *someColour = [UIColor whiteColor];
 NSNotificationCenter *notificationCentre = [NSNotificationCenter defaultCenter];</code></pre>
 <p>The downside to the preffered choice is that there is an inconsistency on the declaration line and there will be two spellings in use throughout the code. But, it’s more natural for me to write with British Spellings, and let autocompletion use the correct spellings for the system.</p>
 <p>However - overall consistency and project style should take precedence. If this is your code, your project; then use the British spellings. If you are contributing to somebody else’s code - use whatever is currently in use.</p>
-<h3 id="dot-notation"><a href="#dot-notation">Dot Notation</a></h3>
+<h3 id="dot-notation">Dot Notation</h3>
 <p>Use it, but don’t abuse it.</p>
 <p>If it’s possible to chain properties together neatly then use it. If the dots and brackets are becoming interleaved or nested too deep use brackets. This one is hard to nail down but if you look at the resulting line and you have to pick apart the calls - change it to all brackets - which should always work.</p>
 <p>Only use dot notation for properties.</p>
-<h3 id="method-signatures"><a href="#method-signatures">Method Signatures</a></h3>
+<h3 id="method-signatures">Method Signatures</h3>
 <p>Left aligned, with a space after the scope. There should be a space between the method segments, and if a parameter is a pointer, then there should be a space before the asterisk</p>
 <pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// BAD</span>
 -(<span class="dt">void</span>)doSomethingWithString:(NSString*)aString;
 
 <span class="co">// GOOD</span>
 - (<span class="dt">void</span>)doSomethingWithString:(NSString *)aString;</code></pre>
-<h3 id="private-methods"><a href="#private-methods">Private Methods</a></h3>
+<h3 id="private-methods">Private Methods</h3>
 <p>These should not be declared in the public interface or a class extension.</p>
 <p>Put them at the end of the class implementation in their own <code>#pragma</code> section.</p>
-<h3 id="empty-methods"><a href="#empty-methods">Empty Methods</a></h3>
+<h3 id="empty-methods">Empty Methods</h3>
 <p>If there is a method that has no implementation, or is just a call to <code>super</code> then it should be removed.</p>
-<h3 id="types"><a href="#types">Types</a></h3>
-<h4 id="integer"><a href="#integer">integer</a></h4>
+<h3 id="types">Types</h3>
+<h4 id="integer">integer</h4>
 <p>Use <code>NSInteger</code> and <code>NSUInteger</code> in preference to these. Make sure you use the standard framework methods with <code>integer</code> instead of <code>int</code> to get the correct types back.</p>
 <p>For Foundation types, when iterating use <code>CFIndex</code>.</p>
-<h4 id="bool"><a href="#bool">BOOL</a></h4>
+<h4 id="bool">BOOL</h4>
 <p>Use <code>YES</code> and <code>NO</code> not true, false, 1, -1 or anything like that.</p>
 <p>Don’t compare <code>BOOL</code> returns against <code>BOOL</code>s:</p>
 <pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// GOOD</span>
@@ -242,11 +242,11 @@ NSNotificationCenter *notificationCentre = [NSNotificationCenter defaultCenter];
 
 <span class="co">// THE DEVIL'S WORK</span>
 <span class="kw">if</span> ([<span class="kw">self</span> aMethodReturningBOOL] == YES) {</code></pre>
-<h4 id="floats"><a href="#floats">floats</a></h4>
+<h4 id="floats">floats</h4>
 <p>Use <code>CGFloat</code> instead of <code>float</code>.</p>
-<h3 id="error-handling"><a href="#error-handling">Error Handling</a></h3>
+<h3 id="error-handling">Error Handling</h3>
 <p>Use <code>NSError</code> wherever possible. Exceptions and Asserts are used to find programmer errors. Use the <code>ALog</code> and <code>ZAssert</code> macros (c.f. Standard Macros) for convenience.</p>
-<h3 id="static-strings"><a href="#static-strings">Static Strings</a></h3>
+<h3 id="static-strings">Static Strings</h3>
 <p>Use static declarations in preference to #defines.</p>
 <p>Use <code>extern</code> to declare a public constant that is defined within the class. Use a simple static otherwise</p>
 <pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// declared in header defined in implementation</span>
@@ -258,7 +258,7 @@ NSString * <span class="dt">const</span> kMyConstant = <span class="st">@&quot;M
 
 <span class="co">// For internal use</span>
 <span class="dt">static</span> NSString *someString;</code></pre>
-<h3 id="enums"><a href="#enums">Enums</a></h3>
+<h3 id="enums">Enums</h3>
 <p>Use the new typed enumerations, or even better, use the Apple provided macros.</p>
 <pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Good</span>
 <span class="kw">typedef</span> <span class="kw">enum</span> : <span class="dt">unsigned</span> <span class="dt">char</span> {
@@ -291,15 +291,15 @@ NSString * <span class="dt">const</span> kMyConstant = <span class="st">@&quot;M
     ABCOutputMinutes = <span class="dv">1</span> &lt;&lt; <span class="dv">1</span>,
     ABCOunpunHours   = <span class="dv">1</span> &lt;&lt; <span class="dv">2</span>
 };</code></pre>
-<h3 id="todos"><a href="#todos">TODOs</a></h3>
+<h3 id="todos">TODOs</h3>
 <p>Put <code>// TODO:</code> comments to remind yourself of things and use search to find them.</p>
 <p>If you want to mark critical parts that need to be implemented, don’t bother with using build scripts to find the TODOs - just use a <code>#warning</code> instead:</p>
 <pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="ot">#warning This method needs to be implemented.</span></code></pre>
 <p>This will raise a convenient warning with the message when building.</p>
-<h2 id="code-layout"><a href="#code-layout">Code layout</a></h2>
-<h3 id="pragma-is-your-friend"><a href="#pragma-is-your-friend">#pragma Is Your Friend</a></h3>
+<h2 id="code-layout">Code layout</h2>
+<h3 id="pragma-is-your-friend">#pragma Is Your Friend</h3>
 <p>Group methods into related groups and section them up with #pragma descriptions.</p>
-<h3 id="import-ordering"><a href="#import-ordering">Import Ordering</a></h3>
+<h3 id="import-ordering">Import Ordering</h3>
 <p>See the code style section for what to import and where.</p>
 <p>The header files should have the minimal number of imports, as forward declarations are preferred. In any case this is the way to lay them out.</p>
 <ul>
@@ -309,7 +309,7 @@ NSString * <span class="dt">const</span> kMyConstant = <span class="st">@&quot;M
 <li>The other imports.</li>
 </ul>
 <p>If a suitable tool is available the Framework headers and the other imports may be ordered alphabetically within each of these groups, but it’s not often worth the effort, unless you are looking for some boyscouting to do.</p>
-<h3 id="method-ordering"><a href="#method-ordering">Method Ordering</a></h3>
+<h3 id="method-ordering">Method Ordering</h3>
 <ul>
 <li>Class methods.</li>
 <li>Instance methods.</li>
@@ -324,32 +324,32 @@ NSString * <span class="dt">const</span> kMyConstant = <span class="st">@&quot;M
 <li>Private methods for the class’s own internal use.</li>
 </ul>
 <p>Try and keep the order of the methods in the header file the same as in the implementation file. This is a handy thing to look for when you want to follow the Boyscout Rule.</p>
-<h3 id="unit-test-classes"><a href="#unit-test-classes">Unit Test Classes</a></h3>
+<h3 id="unit-test-classes">Unit Test Classes</h3>
 <p>The Xcode templates create these with a .h and a .m file. In almost all cases this isn’t needed. Unit tests are self contained and having a .h file which can be shared just increased complexity. So, for unit test classes - put the interface and implementation in the same .m file for each test class.</p>
-<h3 id="comments"><a href="#comments">Comments</a></h3>
+<h3 id="comments">Comments</h3>
 <p>One-line comments <code>//</code> are preferred to multiline <code>/**/</code> comments. There should be one space between the comment marker and the comment text.</p>
 <p>Comments should be used to document <strong>why</strong> something is happening and not what is happening and should be used to explain situations that are not trivial.</p>
 <p>If you need to use a comment to explain what a variable does - then it’s likely that you haven’t used a descriptive enough name for it. If there is a comment to explain a section of code in a method, consider moving that section of code to a well named private method instead.</p>
 <p>For writing inline documentation use <a href="http://gentlebytes.com/appledoc/">AppleDoc</a>.</p>
 <p>If you can’t be bothered to keep the comments updated don’t have them at all. Bad or out of date comments are worse than none at all.</p>
-<h3 id="horizontal-spacing"><a href="#horizontal-spacing">Horizontal Spacing</a></h3>
+<h3 id="horizontal-spacing">Horizontal Spacing</h3>
 <p>Use 4 spaces to indent code, not tabs.</p>
 <p>Long lines aren’t a problem. Let Xcode autowrap them. If you do decide to wrap lines containing methods - make sure the colons are aligned.</p>
-<h3 id="vertical-spacing"><a href="#vertical-spacing">Vertical Spacing</a></h3>
+<h3 id="vertical-spacing">Vertical Spacing</h3>
 <p>Use a single blank line between methods. There is no need to leave a blank line at the start of a method definition.</p>
 <p>Use two blank spaces for organisation at a large scale, such as to separate static definitions from implementation blocks, or to separate the end of the <span class="citation">@property</span> declarations from the method declarations in a header file.</p>
 <p>Group lines of codes together when they are related. Think of it like writing, where sentences that relate to a topic are grouped into paragraphs.</p>
-<h3 id="braces"><a href="#braces">Braces</a></h3>
+<h3 id="braces">Braces</h3>
 <p>A brace is always opened on the same line after a space (the exceptions is block definitions). The closing brace is on a separate line and indented to the same level as the line with the opening brace.</p>
 <pre class="sourceCode objectivec"><code class="sourceCode objectivec">- (BOOL)someMethod {
     <span class="kw">return</span> YES;
 }</code></pre>
 <p>There should <strong>always</strong> be a space after the control structure (i.e. <code>if</code>, <code>else</code>, etc). The <code>else</code> and <code>else if</code> statements should be on the same line as the closing brace of the <code>if</code> statement.</p>
 <p>Xcode is inconsistent about the opening brace, and some of your colleagues may be too. I wrote a small ruby gem called <a href="http://abizern.org/fixbraces/">fixbraces</a> which will correctly position the braces on the opening line.</p>
-<h3 id="control-structures"><a href="#control-structures">Control Structures</a></h3>
+<h3 id="control-structures">Control Structures</h3>
 <p>See the section on the Golden Path for more usage guides with control structures.</p>
 <p>I originally specified no blank lines between clauses, but I’ve been turned around on this. When you are looking at a block of code, the blank link makes the changed indentation level more obvious.</p>
-<h4 id="ifelse"><a href="#ifelse">if/else</a></h4>
+<h4 id="ifelse">if/else</h4>
 <pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">if</span> (button.enabled) {
     <span class="co">// do something</span>
 
@@ -361,7 +361,7 @@ NSString * <span class="dt">const</span> kMyConstant = <span class="st">@&quot;M
 
 }</code></pre>
 <p>Always use a multiline if/else statement with the clauses in braces. This is not only clearer to read but easier to make changes to.</p>
-<h4 id="the-ternary-operator"><a href="#the-ternary-operator">The Ternary operator</a></h4>
+<h4 id="the-ternary-operator">The Ternary operator</h4>
 <p>A handy structure, but should be used sparingly where it aids readability.</p>
 <pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Acceptable</span>
 NSString *boolString = nil;
@@ -378,7 +378,7 @@ DLog(<span class="st">@&quot;The BOOL value is %@&quot;</span>, boolString);
 
 <span class="co">// Better. Succinct and readable</span>
 DLog(<span class="st">@&quot;The BOOL value is %@&quot;</span>, someBool ? <span class="st">@&quot;YES&quot;</span> : <span class="st">@&quot;NO&quot;</span>);</code></pre>
-<h4 id="switch"><a href="#switch">Switch</a></h4>
+<h4 id="switch">Switch</h4>
 <p>Brackets don’t need to be added around each case statement. In some cases, when using ARC and declaring varibles within a case block an error may be thrown “Switch case is in protected scope” and then surrounding the case statement with brackets should clear up the error.</p>
 <p>The <code>default</code> case should <strong>always</strong> be the last case and should <strong>always</strong> be included.</p>
 <pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">switch</span> (something.state) {
@@ -401,7 +401,7 @@ DLog(<span class="st">@&quot;The BOOL value is %@&quot;</span>, someBool ? <span
         <span class="co">// Something</span>
 
 }</code></pre>
-<h4 id="for"><a href="#for">For</a></h4>
+<h4 id="for">For</h4>
 <pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">for</span> (NSInteger idx = <span class="dv">0</span>; idx &lt; <span class="dv">10</span>; idx++) {
     <span class="co">// Do something</span>
 }
@@ -410,11 +410,11 @@ DLog(<span class="st">@&quot;The BOOL value is %@&quot;</span>, someBool ? <span
     <span class="co">// Do something</span>
 }</code></pre>
 <p>When iterating using integers, it is preferred to start at <code>0</code> and use <code>&lt;</code> rather than starting at <code>1</code> and using <code>&lt;=</code>. Also, use <code>idx</code> instead of <code>i</code>. Fast enumeration is generally preferred because it is easier on the eyes as well as faster. Also consider using block enumeration where applicable.</p>
-<h4 id="while"><a href="#while">While</a></h4>
+<h4 id="while">While</h4>
 <pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">while</span> (something &lt; somethingElse) {
     <span class="co">// Do something</span>
 }</code></pre>
-<h3 id="golden-path"><a href="#golden-path">Golden Path</a></h3>
+<h3 id="golden-path">Golden Path</h3>
 <p>When using conditionals, the left hand margin of the code should be the <strong>golden</strong> or <strong>happy path</strong>. This is the part of the code that should be commonly executed. For example, the common way of writing initialisers doesn’t follow this:</p>
 <pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// BAD</span>
 - (id)init {
@@ -438,25 +438,25 @@ DLog(<span class="st">@&quot;The BOOL value is %@&quot;</span>, someBool ? <span
     <span class="kw">return</span> <span class="kw">self</span>;
 }</code></pre>
 <p>This keeps the main part of the code furthest to the left, with the exceptional conditions further to the right.</p>
-<h3 id="multiple-returns"><a href="#multiple-returns">Multiple Returns</a></h3>
+<h3 id="multiple-returns">Multiple Returns</h3>
 <p>Purists say that there should be only one return point from a function. There are times where multiple returns are not a problem. Look at the example initialiser above. The good example contains multiple returns values - in the case where the super class initialiser returns the nil, the method returns a nil straight away. I find that this makes it clearer when reading the code that the function will return at this point and I don’t have to look through the method any more to see if the value of self is changed later on before returning.</p>
-<h2 id="version-control"><a href="#version-control">Version Control</a></h2>
+<h2 id="version-control">Version Control</h2>
 <p>You have no excuse for not using version control.</p>
 <p>Aim for all commits on the master branch to compile cleanly and work (for some definition of ‘work’).</p>
 <p>Develop on branches. Commit early and commit often, don’t be afraid to rebase commits. Unlike the master branch, these don’t all have to compile cleanly. You’ll be rebasing them onto master anyway so they’ll be tidied up then.</p>
 <p>When writing commit messages use the correct <a href="http://365git.tumblr.com/post/3308646748/writing-git-commit-messages">conventions</a></p>
-<h2 id="the-boyscout-rule"><a href="#the-boyscout-rule">The Boyscout Rule</a></h2>
+<h2 id="the-boyscout-rule">The Boyscout Rule</h2>
 <p>The Boyscouts say: “Always leave a campsite cleaner than you found it”. A similar rule is said to apply to programming - “Always check in a module cleaner than you checked it out”.</p>
 <p>In these days of distributed version control, I’d say that means if you see a problem in code - fix it. Don’t leave it for later, don’t leave it for someone else. Version control, unit tests, comments are all structures that support making changes like this.</p>
-<h2 id="source"><a href="#source">Source</a></h2>
+<h2 id="source">Source</h2>
 <p>If you feel like creating your own, you can grab the latest markdown for this page from <a href="https://github.com/Abizern/abizern.github.com/blob/source/source/cocoa-coding-conventions/index.markdown">Github</a>.</p>
-<h2 id="credits"><a href="#credits">Credits</a></h2>
+<h2 id="credits">Credits</h2>
 <p>The basis for these standards were taken from</p>
 <ul>
 <li>Zarra Studios’ <a href="http://www.cimgf.com/zds-code-style-guide/">ZDS Code Style Guide</a></li>
 <li>NOUSguide’s <a href="http://github.com/NOUSguide/Coding-Conventions">Coding-Conventions</a></li>
 </ul>
-<h2 id="footnote"><a href="#footnote">Footnote</a></h2>
+<h2 id="footnote">Footnote</h2>
 <p>I realise that these conventions are not to everyones’ tastes, and there is no comment section on this blog for you to tell me how wrong I am. It’s okay for you to disagree with me. These are <strong>my</strong> conventions and I encourage you to use this as a template to create and evolve your own guidelines.</p>
 <p>But, my contact details are on the about page if you do want to give me a piece of your mind. I’m not above changing my opinion about these.</p>
 </article>
