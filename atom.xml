@@ -8,7 +8,7 @@
                    type="application/rss+xml" />
         <lastBuildDate>Fri, 18 Apr 2014 00:00:00 UT</lastBuildDate>
         <item>
-    <title>GCJ - Magic Trick</title>
+    <title>GCJ A - Magic Trick</title>
     <link>http://abizern.org/2014/04/18/gcj---magic-trick/index.html</link>
     <description><![CDATA[<p>I got through the qualification round for Google Code Jam 2014. I usually manage to get through this stage; it’s the first round that I haven’t managed to get past yet.</p>
 <p>The easiest question was A-Magic Trick. Nothing much to do here but count the number of similarities between two arrays, easily achieved with the <code>interact</code> method.</p>
@@ -42,6 +42,52 @@ main <span class="fu">=</span> <span class="kw">do</span>
     putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, solve r1 r2]</code></pre>]]></description>
     <pubDate>Fri, 18 Apr 2014 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2014/04/18/gcj---magic-trick/index.html</guid>
+</item>
+<item>
+    <title>GCJ B - Cookie Clicker Alpha</title>
+    <link>http://abizern.org/2014/04/18/gcj---cookie-clicker-alpha/index.html</link>
+    <description><![CDATA[<p>Another problem from This year’s Google Code Jam.</p>
+<p>The gist of the problem is to work out whether buying additional capacity for cookie production would result is reaching the quota faster than not buying additional capacity.</p>
+<p>Haskell is suited to this for a couple of reasons. Firstly, its’ easy to work with infinite lists. so I can create list of the cumulative times for creating factories and reaching the target. And to calculate the cumulative target I’m using the <code>scanl1</code> function to turn the infinite list of factory times into an infinite list of partial sums. I’m using <code>scanl1</code> because it starts at 0, which is important as one of the gotcha’s with this is that it may be faster to just generate cookies rather than buying a factory in the first instance.</p>
+<p>Secondly, pattern matching. With the infinite list I’m stopping when the time to reach the target starts growing again. Pattern matching makes this very easy to do.</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
+
+<span class="kw">import </span><span class="dt">Control.Monad</span>
+<span class="kw">import </span><span class="dt">Numeric</span>
+
+
+<span class="co">-- https://code.google.com/codejam/contest/dashboard?c=2974486#s=p1</span>
+<span class="co">-- Input and output with standard redirection operators</span>
+
+<span class="ot">factoryTimes ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> [<span class="dt">Double</span>]
+factoryTimes c f <span class="fu">=</span> <span class="dv">0</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">:</span> [ c <span class="fu">/</span> (<span class="dv">2</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">+</span> k <span class="fu">*</span> f) <span class="fu">|</span> k <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">.</span><span class="dv">0</span>, <span class="dv">1</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">..</span>]]
+
+<span class="ot">productionTimes ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> [<span class="dt">Double</span>]
+productionTimes x f <span class="fu">=</span> [ x <span class="fu">/</span> (<span class="dv">2</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">+</span> k <span class="fu">*</span> f) <span class="fu">|</span> k <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">.</span><span class="dv">0</span>, <span class="dv">1</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">..</span>]]
+
+<span class="ot">times ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> [<span class="dt">Double</span>]
+times c f x <span class="fu">=</span> zipWith (<span class="fu">+</span>) production factory
+  <span class="kw">where</span> production <span class="fu">=</span> productionTimes x f
+        factory <span class="fu">=</span> scanl1 (<span class="fu">+</span>) <span class="fu">$</span> factoryTimes c f
+
+<span class="ot">firstMinimum ::</span> [<span class="dt">Double</span>] <span class="ot">-&gt;</span> <span class="dt">Double</span>
+firstMinimum (x<span class="fu">:</span>y<span class="fu">:</span>ys) <span class="fu">=</span> <span class="kw">if</span> x <span class="fu">&lt;</span> y
+                        <span class="kw">then</span> x
+                        <span class="kw">else</span> firstMinimum (y<span class="fu">:</span>ys)
+
+<span class="ot">solve ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span>
+solve c f x <span class="fu">=</span> firstMinimum <span class="fu">$</span> times c f x
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> <span class="kw">do</span>
+  t <span class="ot">&lt;-</span> getLine
+  forM_ [<span class="dv">1</span><span class="fu">..</span>read<span class="ot"> t ::</span> <span class="dt">Int</span>] <span class="fu">$</span> \i <span class="ot">-&gt;</span> <span class="kw">do</span>
+    [c, f, x] <span class="ot">&lt;-</span> fmap (map read <span class="fu">.</span> words) getLine
+    <span class="kw">let</span> result <span class="fu">=</span> solve c f x
+    putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, Numeric.showFFloat (<span class="dt">Just</span> <span class="dv">7</span>) result <span class="st">&quot;&quot;</span>]
+    </code></pre>]]></description>
+    <pubDate>Fri, 18 Apr 2014 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2014/04/18/gcj---cookie-clicker-alpha/index.html</guid>
 </item>
 <item>
     <title>Hakyll New Post With Emacs</title>
@@ -196,45 +242,6 @@ I’m going to challenge some common ideas about Git; I hope to get current user
 ]]></description>
     <pubDate>Thu, 01 Nov 2012 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2012/11/01/a-reason-to-learn-lisp/index.html</guid>
-</item>
-<item>
-    <title>An Improved Reverse Words Script</title>
-    <link>http://abizern.org/2012/10/31/an-improved-reverse-words-script/index.html</link>
-    <description><![CDATA[<p>About 6 months ago I posted <a href="http://abizern.org/2012/04/09/reverse-words-with-haskell/">a solution</a> to the Google Code Jam problem <a href="http://code.google.com/codejam/contest/351101/dashboard#s=p1" title="Original problem statement">Reverse Words</a></p>
-<p>I’ve become more comfortable with Haskell since then, so here’s an improved solution.</p>
-<figure>
-
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
-
-<span class="co">{-</span>
-<span class="co">Problem statement:</span>
-<span class="co">http://code.google.com/codejam/contest/351101/dashboard#s=p1</span>
-
-<span class="co">Run as a script with runghc, or compile with ghc --make -O2</span>
-
-<span class="co">input and output is by redirection;</span>
-
-<span class="co">$ ./reverse_words &lt; input_file &gt; output_file</span>
-<span class="co"> -}</span>
-
-<span class="kw">import </span><span class="dt">Control.Monad</span>
-
-<span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> <span class="kw">do</span>
-  n <span class="ot">&lt;-</span> readLn
-  forM_ [<span class="dv">1</span><span class="fu">..</span>n] <span class="fu">$</span> \i <span class="ot">-&gt;</span> <span class="kw">do</span>
-    solution <span class="ot">&lt;-</span> fmap (unwords <span class="fu">.</span> reverse <span class="fu">.</span> words) getLine
-    putStrLn <span class="fu">$</span> <span class="st">&quot;Case #&quot;</span> <span class="fu">++</span> show i <span class="fu">++</span> <span class="st">&quot;: &quot;</span> <span class="fu">++</span> solution</code></pre>
-<figcaption>
-Improved Reverse Words With Haskell <a href="https://gist.github.com/Abizern/3986006">view as gist</a>
-</figcaption>
-</figure>
-
-<p>I’m not one who believes that shorter, terser code is necessarily better, but that isn’t what makes this version an improvement. Nor even the use of Monads; Haskell’s sexy buzzword. I think this code is better because it has less noise than the original solution.</p>
-<p>Code Jam problems have well defined inputs and required outputs, and there is no need to load the whole input file when the script starts. Normally, I would be all for splitting out code into smaller, descriptively named functions, but in this small case that’s just more typing and more lines getting in the way of the actual solution. I think that this version is more readable because there are less lines of code that don’t contribute directly to the solution.</p>
-<p>And Code Jam has a time limit, so smaller code is faster to write and easier to debug.</p>]]></description>
-    <pubDate>Wed, 31 Oct 2012 00:00:00 UT</pubDate>
-    <guid>http://abizern.org/2012/10/31/an-improved-reverse-words-script/index.html</guid>
 </item>
 
     </channel> 

@@ -52,7 +52,7 @@
     <header>
         <h1>
             <a href="./2014/04/18/gcj---magic-trick/" title="Permalink">
-                GCJ - Magic Trick
+                GCJ A - Magic Trick
             </a>
         </h1>
         <span class="post-date">April 18, 2014</span> in 
@@ -88,6 +88,57 @@ main <span class="fu">=</span> <span class="kw">do</span>
     <span class="kw">let</span> r1 <span class="fu">=</span> initial <span class="fu">!!</span> (choice1 <span class="fu">-</span> <span class="dv">1</span>)
         r2 <span class="fu">=</span> final <span class="fu">!!</span> (choice2 <span class="fu">-</span> <span class="dv">1</span>)
     putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, solve r1 r2]</code></pre>
+</article>
+<article>
+    <header>
+        <h1>
+            <a href="./2014/04/18/gcj---cookie-clicker-alpha/" title="Permalink">
+                GCJ B - Cookie Clicker Alpha
+            </a>
+        </h1>
+        <span class="post-date">April 18, 2014</span> in 
+        <span class="post-tags"><a href="./tags/haskell/">haskell</a>, <a href="./tags/gcj/">gcj</a></span>
+    </header>
+    <p>Another problem from This year’s Google Code Jam.</p>
+<p>The gist of the problem is to work out whether buying additional capacity for cookie production would result is reaching the quota faster than not buying additional capacity.</p>
+<p>Haskell is suited to this for a couple of reasons. Firstly, its’ easy to work with infinite lists. so I can create list of the cumulative times for creating factories and reaching the target. And to calculate the cumulative target I’m using the <code>scanl1</code> function to turn the infinite list of factory times into an infinite list of partial sums. I’m using <code>scanl1</code> because it starts at 0, which is important as one of the gotcha’s with this is that it may be faster to just generate cookies rather than buying a factory in the first instance.</p>
+<p>Secondly, pattern matching. With the infinite list I’m stopping when the time to reach the target starts growing again. Pattern matching makes this very easy to do.</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
+
+<span class="kw">import </span><span class="dt">Control.Monad</span>
+<span class="kw">import </span><span class="dt">Numeric</span>
+
+
+<span class="co">-- https://code.google.com/codejam/contest/dashboard?c=2974486#s=p1</span>
+<span class="co">-- Input and output with standard redirection operators</span>
+
+<span class="ot">factoryTimes ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> [<span class="dt">Double</span>]
+factoryTimes c f <span class="fu">=</span> <span class="dv">0</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">:</span> [ c <span class="fu">/</span> (<span class="dv">2</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">+</span> k <span class="fu">*</span> f) <span class="fu">|</span> k <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">.</span><span class="dv">0</span>, <span class="dv">1</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">..</span>]]
+
+<span class="ot">productionTimes ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> [<span class="dt">Double</span>]
+productionTimes x f <span class="fu">=</span> [ x <span class="fu">/</span> (<span class="dv">2</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">+</span> k <span class="fu">*</span> f) <span class="fu">|</span> k <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">.</span><span class="dv">0</span>, <span class="dv">1</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">..</span>]]
+
+<span class="ot">times ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> [<span class="dt">Double</span>]
+times c f x <span class="fu">=</span> zipWith (<span class="fu">+</span>) production factory
+  <span class="kw">where</span> production <span class="fu">=</span> productionTimes x f
+        factory <span class="fu">=</span> scanl1 (<span class="fu">+</span>) <span class="fu">$</span> factoryTimes c f
+
+<span class="ot">firstMinimum ::</span> [<span class="dt">Double</span>] <span class="ot">-&gt;</span> <span class="dt">Double</span>
+firstMinimum (x<span class="fu">:</span>y<span class="fu">:</span>ys) <span class="fu">=</span> <span class="kw">if</span> x <span class="fu">&lt;</span> y
+                        <span class="kw">then</span> x
+                        <span class="kw">else</span> firstMinimum (y<span class="fu">:</span>ys)
+
+<span class="ot">solve ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span>
+solve c f x <span class="fu">=</span> firstMinimum <span class="fu">$</span> times c f x
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> <span class="kw">do</span>
+  t <span class="ot">&lt;-</span> getLine
+  forM_ [<span class="dv">1</span><span class="fu">..</span>read<span class="ot"> t ::</span> <span class="dt">Int</span>] <span class="fu">$</span> \i <span class="ot">-&gt;</span> <span class="kw">do</span>
+    [c, f, x] <span class="ot">&lt;-</span> fmap (map read <span class="fu">.</span> words) getLine
+    <span class="kw">let</span> result <span class="fu">=</span> solve c f x
+    putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, Numeric.showFFloat (<span class="dt">Just</span> <span class="dv">7</span>) result <span class="st">&quot;&quot;</span>]
+    </code></pre>
 </article>
 <article>
     <header>
@@ -186,28 +237,6 @@ I’m going to challenge some common ideas about Git; I hope to get current user
 
 </blockquote>
 <p>I’ve been talking about <a href="https://alpha.app.net/abizern">Git</a> since 2009, which is when I became comfortable using it. I’ve heard some reasons for people not using it, or using it in its simplest form. My aim in this talk is to turn those statements on their head; maybe to get people to think about using git, not just as a set of task based recipes (which is a perfectly good way of working), but also to use the parts of it that seem too difficult, or poorly explained.</p>
-</article>
-<article>
-    <header>
-        <h1>
-            <a href="./2013/03/31/setting-up-for-lisp-on-os-x/" title="Permalink">
-                Setting up for Lisp on OS X
-            </a>
-        </h1>
-        <span class="post-date">March 31, 2013</span> in 
-        <span class="post-tags"><a href="./tags/osx/">osx</a>, <a href="./tags/emacs/">emacs</a>, <a href="./tags/lisp/">lisp</a></span>
-    </header>
-    <p>This is how I roll, you might choose a different path.</p>
-<ol style="list-style-type: decimal">
-<li><p>Install Emacs. Get a nice, modern pre-built binary from <a href="http://emacsformacosx.com/">Emacs For Mac OS X</a>. It even supports fullscreen mode</p></li>
-<li><p>Install <a href="http://batsov.com/prelude/">Emacs Prelude</a> which provides a useful, opinionated emacs environment which is easily configured.</p></li>
-<li><p>Install clisp. I use homebrew so <code>brew install clisp</code> takes care of that for me.</p></li>
-<li><p>Install <a href="http://quicklisp.org">quicklisp</a>; from Terminal go to a temporary directory and download quicklisp.lisp with <code>curl -O    http://beta.quicklisp.org/quicklisp.lisp</code>. Then run the lisp file from clisp with <code>clisp -i quicklisp.lisp</code>. As the instructions say, evaluate <code>(quicklisp-quickstart:install)</code>, and then evaluate <code>(ql:add-to-init-file)</code> to load quicklisp along with lisp.</p></li>
-<li><p>Install Slime. While you have the clisp repl open, evaluate <code>(ql:quickload    &quot;quicklisp-slime-helper&quot;)</code>. After this runs, you will see some recommendations for what to put into your .emacs file. You don’t need to do this. I did say that Prelude was opinionated, and it’s done this for you. However, it’s not set up for clisp, so instead, add this to your <code>personal/personal.el</code> file: <code>(setq slime-default-lisp 'clisp)</code></p></li>
-<li><p>And that should be it. You don’t need to have the clisp repl running in the terminal anymore, and you can delete the <code>quicklisp.lisp</code> file that you downladed, as it’s done it’s job of installation now.</p></li>
-<li><p>Test the setup from Emacs by running <code>M-x slime-mode</code> and you’ll be taken to the lisp REPL.</p></li>
-</ol>
-<p>Now that’s done you can go on to the hard part of actually learning and using lisp.</p>
 </article>
 
 
