@@ -6,8 +6,44 @@
         <description><![CDATA[The developer and personal blog of Abizer Nasir, a freelance iOS and OS X developer in London, UK]]></description>
         <atom:link href="http://abizern.org/atom.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Sun, 05 Jan 2014 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Fri, 18 Apr 2014 00:00:00 UT</lastBuildDate>
         <item>
+    <title>GCJ - Magic Trick</title>
+    <link>http://abizern.org/2014/04/18/gcj---magic-trick/index.html</link>
+    <description><![CDATA[<p>I got through the qualification round for Google Code Jam 2014. I usually manage to get through this stage; it’s the first round that I haven’t managed to get past yet.</p>
+<p>The easiest question was A-Magic Trick. Nothing much to do here but count the number of similarities between two arrays, easily achieved with the <code>interact</code> method.</p>
+<p>The only gotcha in this problem was that the index of the rows to check is 1-based, and most programming languages use 0-based indexing.</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
+
+<span class="kw">import </span><span class="dt">Control.Monad</span>
+<span class="kw">import </span><span class="dt">Data.List</span>
+
+<span class="co">-- https://code.google.com/codejam/contest/dashboard?c=2974486#s=p0</span>
+<span class="co">-- Input and output with standard redirection operators</span>
+
+<span class="ot">solve ::</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> <span class="dt">String</span>
+solve a b
+  <span class="fu">|</span> l <span class="fu">==</span> <span class="dv">1</span> <span class="fu">=</span> show <span class="fu">$</span> head common
+  <span class="fu">|</span> l <span class="fu">&gt;</span> <span class="dv">1</span>  <span class="fu">=</span> <span class="st">&quot;Bad magician!&quot;</span>
+  <span class="fu">|</span> otherwise <span class="fu">=</span> <span class="st">&quot;Volunteer cheated!&quot;</span>
+  <span class="kw">where</span> common <span class="fu">=</span> a <span class="ot">`intersect`</span> b
+        l <span class="fu">=</span> length common
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> <span class="kw">do</span>
+  t <span class="ot">&lt;-</span> getLine
+  forM_ [<span class="dv">1</span><span class="fu">..</span>read<span class="ot"> t ::</span> <span class="dt">Int</span>] <span class="fu">$</span> \i <span class="ot">-&gt;</span> <span class="kw">do</span>
+    choice1 <span class="ot">&lt;-</span> fmap read getLine
+    initial <span class="ot">&lt;-</span> replicateM <span class="dv">4</span> <span class="fu">$</span> fmap (map read <span class="fu">.</span> words) getLine
+    choice2 <span class="ot">&lt;-</span> fmap read getLine
+    final <span class="ot">&lt;-</span> replicateM <span class="dv">4</span> <span class="fu">$</span> fmap (map read <span class="fu">.</span> words) getLine
+    <span class="kw">let</span> r1 <span class="fu">=</span> initial <span class="fu">!!</span> (choice1 <span class="fu">-</span> <span class="dv">1</span>)
+        r2 <span class="fu">=</span> final <span class="fu">!!</span> (choice2 <span class="fu">-</span> <span class="dv">1</span>)
+    putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, solve r1 r2]</code></pre>]]></description>
+    <pubDate>Fri, 18 Apr 2014 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2014/04/18/gcj---magic-trick/index.html</guid>
+</item>
+<item>
     <title>Hakyll New Post With Emacs</title>
     <link>http://abizern.org/2014/01/05/hakyll-new-post-with-emacs/index.html</link>
     <description><![CDATA[<p>When this blog was created using Octopress, a new post could be created by simply running <code>rake new_post</code> in the Terminal. There is no such convenience in Hakyll, which is currently used as the generator. A small thing, but I wanted to fix it.</p>
@@ -199,64 +235,6 @@ Improved Reverse Words With Haskell <a href="https://gist.github.com/Abizern/398
 <p>And Code Jam has a time limit, so smaller code is faster to write and easier to debug.</p>]]></description>
     <pubDate>Wed, 31 Oct 2012 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2012/10/31/an-improved-reverse-words-script/index.html</guid>
-</item>
-<item>
-    <title>UUID Strings with Cocoa</title>
-    <link>http://abizern.org/2012/10/25/uuid-strings-with-cocoa/index.html</link>
-    <description><![CDATA[<p>This used to be a thing until the iOS 6 and OS X 10.8 compatible <a href="http://developer.apple.com/library/mac/#documentation/Foundation/Reference/NSUUID_Class/Reference/Reference.html">NSUUID Class</a> became available.</p>
-<h2 id="new">New</h2>
-This is how you can do it now:
-<figure>
-
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec">NSString *uuidString = [[NSUUID UUID] UUIDString];
-<span class="co">// Generates: 7E60066C-C7F3-438A-95B1-DDE8634E1072</span></code></pre>
-<figcaption>
-UUID from NSUUID
-</figcaption>
-</figure>
-
-<h2 id="old">Old</h2>
-<p>Here’s a method you can put in a class, with the correct ARC casts on ownership, that returns a UUID. It’s a fairly common technique, and you’ll even see versions of it where people have created a category on NSString for this.</p>
-<figure>
-
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec">- (NSString *)uuidString {
-    <span class="co">// Returns a UUID</span>
-
-    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
-    NSString *uuidStr = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
-    CFRelease(uuid);
-
-    <span class="kw">return</span> uuidStr;
-}</code></pre>
-<figcaption>
-UUID from a method
-</figcaption>
-</figure>
-
-<p>And to use it:</p>
-<figure>
-
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec">NSString *uuidString = [<span class="kw">self</span> uuidString];
-<span class="co">// Generates D5CB0560-206F-4581-AA25-1D6A873F3526</span></code></pre>
-<figcaption>
-UUID from a method usage
-</figcaption>
-</figure>
-
-<h2 id="nsprocessinfo">NSProcessInfo</h2>
-<p>A common use for unique strings is to name files and directories within a program so that they do not clash. Since iOS 2 and OS X 10.0 there has been the <code>globallyUniqueString</code> method in <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSProcessInfo_Class/Reference/Reference.html">NSProcessInfo</a> which returns a string that is unique for the network and process. So, for a <em>good enough</em> unique string this is probably a better method to use:</p>
-<figure>
-
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec">NSString *uuidStr = [[NSProcessInfo processInfo] globallyUniqueString];
-<span class="co">// generates 56341C6E-35A7-4C97-9C5E-7AC79673EAB2-539-000001F95B327819</span></code></pre>
-<figcaption>
-Unique String from NSProcessInfo
-</figcaption>
-</figure>
-
-]]></description>
-    <pubDate>Thu, 25 Oct 2012 00:00:00 UT</pubDate>
-    <guid>http://abizern.org/2012/10/25/uuid-strings-with-cocoa/index.html</guid>
 </item>
 
     </channel> 

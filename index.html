@@ -51,6 +51,47 @@
             <article>
     <header>
         <h1>
+            <a href="./2014/04/18/gcj---magic-trick/" title="Permalink">
+                GCJ - Magic Trick
+            </a>
+        </h1>
+        <span class="post-date">April 18, 2014</span> in 
+        <span class="post-tags"><a href="./tags/haskell/">haskell</a>, <a href="./tags/gcj/">gcj</a></span>
+    </header>
+    <p>I got through the qualification round for Google Code Jam 2014. I usually manage to get through this stage; it’s the first round that I haven’t managed to get past yet.</p>
+<p>The easiest question was A-Magic Trick. Nothing much to do here but count the number of similarities between two arrays, easily achieved with the <code>interact</code> method.</p>
+<p>The only gotcha in this problem was that the index of the rows to check is 1-based, and most programming languages use 0-based indexing.</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
+
+<span class="kw">import </span><span class="dt">Control.Monad</span>
+<span class="kw">import </span><span class="dt">Data.List</span>
+
+<span class="co">-- https://code.google.com/codejam/contest/dashboard?c=2974486#s=p0</span>
+<span class="co">-- Input and output with standard redirection operators</span>
+
+<span class="ot">solve ::</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> <span class="dt">String</span>
+solve a b
+  <span class="fu">|</span> l <span class="fu">==</span> <span class="dv">1</span> <span class="fu">=</span> show <span class="fu">$</span> head common
+  <span class="fu">|</span> l <span class="fu">&gt;</span> <span class="dv">1</span>  <span class="fu">=</span> <span class="st">&quot;Bad magician!&quot;</span>
+  <span class="fu">|</span> otherwise <span class="fu">=</span> <span class="st">&quot;Volunteer cheated!&quot;</span>
+  <span class="kw">where</span> common <span class="fu">=</span> a <span class="ot">`intersect`</span> b
+        l <span class="fu">=</span> length common
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> <span class="kw">do</span>
+  t <span class="ot">&lt;-</span> getLine
+  forM_ [<span class="dv">1</span><span class="fu">..</span>read<span class="ot"> t ::</span> <span class="dt">Int</span>] <span class="fu">$</span> \i <span class="ot">-&gt;</span> <span class="kw">do</span>
+    choice1 <span class="ot">&lt;-</span> fmap read getLine
+    initial <span class="ot">&lt;-</span> replicateM <span class="dv">4</span> <span class="fu">$</span> fmap (map read <span class="fu">.</span> words) getLine
+    choice2 <span class="ot">&lt;-</span> fmap read getLine
+    final <span class="ot">&lt;-</span> replicateM <span class="dv">4</span> <span class="fu">$</span> fmap (map read <span class="fu">.</span> words) getLine
+    <span class="kw">let</span> r1 <span class="fu">=</span> initial <span class="fu">!!</span> (choice1 <span class="fu">-</span> <span class="dv">1</span>)
+        r2 <span class="fu">=</span> final <span class="fu">!!</span> (choice2 <span class="fu">-</span> <span class="dv">1</span>)
+    putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, solve r1 r2]</code></pre>
+</article>
+<article>
+    <header>
+        <h1>
             <a href="./2014/01/05/hakyll-new-post-with-emacs/" title="Permalink">
                 Hakyll New Post With Emacs
             </a>
@@ -167,27 +208,6 @@ I’m going to challenge some common ideas about Git; I hope to get current user
 <li><p>Test the setup from Emacs by running <code>M-x slime-mode</code> and you’ll be taken to the lisp REPL.</p></li>
 </ol>
 <p>Now that’s done you can go on to the hard part of actually learning and using lisp.</p>
-</article>
-<article>
-    <header>
-        <h1>
-            <a href="./2013/01/29/missing-xcode-toolbar/" title="Permalink">
-                Missing Xcode Toolbar
-            </a>
-        </h1>
-        <span class="post-date">January 29, 2013</span> in 
-        <span class="post-tags"><a href="./tags/ios/">ios</a>, <a href="./tags/osx/">osx</a>, <a href="./tags/xcode/">xcode</a></span>
-    </header>
-    <p>I’m sure you’ve been there.</p>
-<p>You’re working in Xcode, and you have a file opened on another monitor in another window. Unfortunately, you forget about it, and when you close your project and reopen it again, the toolbar is missing.</p>
-<div class="figure">
-<img src="http://images.abizern.org/2013/01/Missing%20Xcode%20Toolbar.png" alt="Missing Toolbar" /><p class="caption">Missing Toolbar</p>
-</div>
-<p>It can be frustrating, because Xcode remembers this, and every time you open the project it will open without a toolbar. You can put it back by right-clicking in what is left of the toolbar and choosing one of the options.</p>
-<div class="figure">
-<img src="http://images.abizern.org/2013/01/Xcode%20Toolbar%20Menu.png" alt="Toolbar Menu" /><p class="caption">Toolbar Menu</p>
-</div>
-<p>But the gotcha that has bit me twice now, and prompted me to write this to remind myself of it, is that you need to choose the “Show Toolbar” menu item rather than one of the other two preferences. I was incorrectly choosing my preference of “Icon Only” and wondering why my preference wasn’t sticking.</p>
 </article>
 
 
