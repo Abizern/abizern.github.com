@@ -24,10 +24,10 @@
 <span class="co">-- Input and output with standard redirection operators</span>
 
 <span class="ot">factoryTimes ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> [<span class="dt">Double</span>]
-factoryTimes c f <span class="fu">=</span> <span class="dv">0</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">:</span> [ c <span class="fu">/</span> (<span class="dv">2</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">+</span> k <span class="fu">*</span> f) <span class="fu">|</span> k <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">.</span><span class="dv">0</span>, <span class="dv">1</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">..</span>]]
+factoryTimes c f <span class="fu">=</span> <span class="fl">0.0</span> <span class="fu">:</span> [ c <span class="fu">/</span> (<span class="fl">2.0</span> <span class="fu">+</span> k <span class="fu">*</span> f) <span class="fu">|</span> k <span class="ot">&lt;-</span> [<span class="fl">0.0</span>, <span class="fl">1.0</span> <span class="fu">..</span>]]
 
 <span class="ot">productionTimes ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> [<span class="dt">Double</span>]
-productionTimes x f <span class="fu">=</span> [ x <span class="fu">/</span> (<span class="dv">2</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">+</span> k <span class="fu">*</span> f) <span class="fu">|</span> k <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">.</span><span class="dv">0</span>, <span class="dv">1</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">..</span>]]
+productionTimes x f <span class="fu">=</span> [ x <span class="fu">/</span> (<span class="fl">2.0</span> <span class="fu">+</span> k <span class="fu">*</span> f) <span class="fu">|</span> k <span class="ot">&lt;-</span> [<span class="fl">0.0</span>, <span class="fl">1.0</span> <span class="fu">..</span>]]
 
 <span class="ot">times ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> [<span class="dt">Double</span>]
 times c f x <span class="fu">=</span> zipWith (<span class="fu">+</span>) production factory
@@ -166,7 +166,6 @@ I’m going to challenge some common ideas about Git; I hope to get current user
 <footer>
 <cite>The abstract</cite>
 </footer>
-
 </blockquote>
 <p>I’ve been talking about <a href="https://alpha.app.net/abizern">Git</a> since 2009, which is when I became comfortable using it. I’ve heard some reasons for people not using it, or using it in its simplest form. My aim in this talk is to turn those statements on their head; maybe to get people to think about using git, not just as a set of task based recipes (which is a perfectly good way of working), but also to use the parts of it that seem too difficult, or poorly explained.</p>]]></description>
     <pubDate>Thu, 30 May 2013 00:00:00 UT</pubDate>
@@ -236,10 +235,8 @@ I’m going to challenge some common ideas about Git; I hope to get current user
     <link>http://abizern.org/2012/11/01/a-reason-to-learn-lisp/index.html</link>
     <description><![CDATA[<p>A short video from a live demo of Emacs from Web Rebels in Oslo 2012.</p>
 <p>As the description says: “Crappy sound. Swearing. A noisy bar”, but an example of strong content overcoming presentation difficulties.</p>
-<iframe width="420" height="315" src="//www.youtube.com/embed/p3Te_a-AGqM" frameborder="0" allowfullscreen></iframe>
-
-
-]]></description>
+<iframe width="420" height="315" src="//www.youtube.com/embed/p3Te_a-AGqM" frameborder="0" allowfullscreen>
+</iframe>]]></description>
     <pubDate>Thu, 01 Nov 2012 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2012/11/01/a-reason-to-learn-lisp/index.html</guid>
 </item>
