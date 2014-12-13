@@ -6,8 +6,18 @@
         <description><![CDATA[The developer and personal blog of Abizer Nasir, a freelance iOS and OS X developer in London, UK]]></description>
         <atom:link href="http://abizern.org/atom.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Fri, 18 Apr 2014 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Sat, 13 Dec 2014 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Fizz Buzz in Swift</title>
+    <link>http://abizern.org/2014/12/13/fizz-buzz-in-swift/index.html</link>
+    <description><![CDATA[<p>In August 2014 I gave a talk at NSLondon about various approaches to solving Fizz Buzz in Swift. The video is <a href="http://vimeo.com/105440181">available on Vimeo</a> and proved to be reasonably popular and even gained me my first mention in <a href="https://iosdevweekly.com/issues/167">iOS Dev Weekly</a>.</p>
+<p>Just to make this more complete here is a link to the slides and a Swift Playground that you can use to play around with the examples.</p>
+<p><a href="http://downloads.abizern.org/FizBuzzery.zip" class="uri">http://downloads.abizern.org/FizBuzzery.zip</a></p>
+<p>Have fun!</p>]]></description>
+    <pubDate>Sat, 13 Dec 2014 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2014/12/13/fizz-buzz-in-swift/index.html</guid>
+</item>
+<item>
     <title>GCJ B - Cookie Clicker Alpha</title>
     <link>http://abizern.org/2014/04/18/gcj-b---cookie-clicker-alpha/index.html</link>
     <description><![CDATA[<p>Another problem from This year’s Google Code Jam.</p>
@@ -229,16 +239,6 @@ I’m going to challenge some common ideas about Git; I hope to get current user
 <p>You don’t have to go that far down the rabbit hole, but it’s surprising how many Emacs bindings are supported natively on the Mac, and unlike Vim; you don’t need to be in a different mode to use them.</p>]]></description>
     <pubDate>Fri, 02 Nov 2012 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2012/11/02/commanding-your-text-editor/index.html</guid>
-</item>
-<item>
-    <title>A Reason To Learn Lisp</title>
-    <link>http://abizern.org/2012/11/01/a-reason-to-learn-lisp/index.html</link>
-    <description><![CDATA[<p>A short video from a live demo of Emacs from Web Rebels in Oslo 2012.</p>
-<p>As the description says: “Crappy sound. Swearing. A noisy bar”, but an example of strong content overcoming presentation difficulties.</p>
-<iframe width="420" height="315" src="//www.youtube.com/embed/p3Te_a-AGqM" frameborder="0" allowfullscreen>
-</iframe>]]></description>
-    <pubDate>Thu, 01 Nov 2012 00:00:00 UT</pubDate>
-    <guid>http://abizern.org/2012/11/01/a-reason-to-learn-lisp/index.html</guid>
 </item>
 
     </channel> 
