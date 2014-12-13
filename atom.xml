@@ -12,7 +12,7 @@
     <link>http://abizern.org/2014/12/13/fizz-buzz-in-swift/index.html</link>
     <description><![CDATA[<p>In August 2014 I gave a talk at NSLondon about various approaches to solving Fizz Buzz in Swift. The video is <a href="http://vimeo.com/105440181">available on Vimeo</a> and proved to be reasonably popular and even gained me my first mention in <a href="https://iosdevweekly.com/issues/167">iOS Dev Weekly</a>.</p>
 <p>Just to make this more complete here is a link to the slides and a Swift Playground that you can use to play around with the examples.</p>
-<p><a href="http://downloads.abizern.org/FizBuzzery.zip" class="uri">http://downloads.abizern.org/FizBuzzery.zip</a></p>
+<p><a href="http://downloads.abizern.org/FizzBuzzery.zip" class="uri">http://downloads.abizern.org/FizzBuzzery.zip</a></p>
 <p>Have fun!</p>]]></description>
     <pubDate>Sat, 13 Dec 2014 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2014/12/13/fizz-buzz-in-swift/index.html</guid>
