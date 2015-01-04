@@ -58,17 +58,20 @@
 <h2 id="use-the-static-analyser.">Use the static analyser.</h2>
 <p>You can use the <a href="http://arstechnica.com/apple/reviews/2009/08/mac-os-x-10-6.ars/9#compilers">Clang Static Analyser</a> in Xcode by setting a build option. This will find a whole host of errors in your code, even down to unconventionally named functions.</p>
 <div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2009/11/ClangBuildSetting.png" alt="ClangBuildSetting.png" /><p class="caption">ClangBuildSetting.png</p>
+<img src="http://images.abizern.org.s3.amazonaws.com/2009/11/ClangBuildSetting.png" alt="ClangBuildSetting.png" />
+<p class="caption">ClangBuildSetting.png</p>
 </div>
 <p>Now you can just code away and have the compiler pick up your mistakes when you run ‘Build and Analyze’ (⌘+Shift+A).</p>
 <h2 id="find-your-mistakes-quickly.">Find your mistakes quickly.</h2>
 <p>Any real application you develop will have a large number of resources that need to be copied to your application bundle. The default projects that Xcode create for you will copy these files first before compiling.</p>
 <div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2009/11/XcodeDefault.png" alt="XcodeDefault.png" /><p class="caption">XcodeDefault.png</p>
+<img src="http://images.abizern.org.s3.amazonaws.com/2009/11/XcodeDefault.png" alt="XcodeDefault.png" />
+<p class="caption">XcodeDefault.png</p>
 </div>
 <p>But, the lazy Xcoder knows that there are probably errors in the code that need to get flagged by the compiler, so this copying is a waste of time. Reorder the build steps by dragging so that the compilation is done first.</p>
 <div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2009/11/XcodeRecommended.png" alt="XcodeRecommended.png" /><p class="caption">XcodeRecommended.png</p>
+<img src="http://images.abizern.org.s3.amazonaws.com/2009/11/XcodeRecommended.png" alt="XcodeRecommended.png" />
+<p class="caption">XcodeRecommended.png</p>
 </div>
 <p>Your builds will now break early (and often!).</p>
 <h2 id="dont-fear-the-version-controller.">Don’t fear the version controller.</h2>

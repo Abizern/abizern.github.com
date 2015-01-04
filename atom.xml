@@ -159,7 +159,8 @@ main <span class="fu">=</span> <span class="kw">do</span>
 <p>Hakyll is written in Haskell, and takes a little bit of work to get set up. Two things that make this a bit more difficult than normal. But, many people have made their site code public as <a href="http://jaspervdj.be/hakyll/examples.html">examples</a>, and this is very useful in getting started. I hope that my source shows up in that list in due course. (<strong>Update</strong> - it is now!).</p>
 <p>Despite what some wags may have said on <a href="https://twitter.com/alexrozanski/status/415797308220264448">Twitter</a>; it’s not actually that hip.</p>
 <div class="figure">
-<img src="http://images.abizern.org/2013/12/hakyll-hipster.png" alt="Twitter screenshot" /><p class="caption">Twitter screenshot</p>
+<img src="http://images.abizern.org/2013/12/hakyll-hipster.png" alt="Twitter screenshot" />
+<p class="caption">Twitter screenshot</p>
 </div>]]></description>
     <pubDate>Thu, 26 Dec 2013 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2013/12/26/hello-hakyll/index.html</guid>
@@ -204,11 +205,13 @@ I’m going to challenge some common ideas about Git; I hope to get current user
     <description><![CDATA[<p>I’m sure you’ve been there.</p>
 <p>You’re working in Xcode, and you have a file opened on another monitor in another window. Unfortunately, you forget about it, and when you close your project and reopen it again, the toolbar is missing.</p>
 <div class="figure">
-<img src="http://images.abizern.org/2013/01/Missing%20Xcode%20Toolbar.png" alt="Missing Toolbar" /><p class="caption">Missing Toolbar</p>
+<img src="http://images.abizern.org/2013/01/Missing%20Xcode%20Toolbar.png" alt="Missing Toolbar" />
+<p class="caption">Missing Toolbar</p>
 </div>
 <p>It can be frustrating, because Xcode remembers this, and every time you open the project it will open without a toolbar. You can put it back by right-clicking in what is left of the toolbar and choosing one of the options.</p>
 <div class="figure">
-<img src="http://images.abizern.org/2013/01/Xcode%20Toolbar%20Menu.png" alt="Toolbar Menu" /><p class="caption">Toolbar Menu</p>
+<img src="http://images.abizern.org/2013/01/Xcode%20Toolbar%20Menu.png" alt="Toolbar Menu" />
+<p class="caption">Toolbar Menu</p>
 </div>
 <p>But the gotcha that has bit me twice now, and prompted me to write this to remind myself of it, is that you need to choose the “Show Toolbar” menu item rather than one of the other two preferences. I was incorrectly choosing my preference of “Icon Only” and wondering why my preference wasn’t sticking.</p>]]></description>
     <pubDate>Tue, 29 Jan 2013 00:00:00 UT</pubDate>

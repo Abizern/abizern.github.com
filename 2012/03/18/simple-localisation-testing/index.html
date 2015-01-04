@@ -58,14 +58,17 @@
 <p>But, with Xcode4 schemes and a little argument passing this is a lot easier than it used to be. You can set up a scheme for each localisation which will let you run your iOS or Mac app under that localisation without having to change any settings.</p>
 <p>Just to make it easier, you can have a look at an example Xcode Workspace that I’ve <a href="https://github.com/Abizern/SimpleLocalisationTesting" title="Simple Localisation Testing">put up on Github</a>. This has two projects within it, one for the Mac and one for the iPhone.</p>
 <div class="figure">
-<img src="http://images.abizern.org/2012/03/Schemes.png" alt="Xcode Schemes" /><p class="caption">Xcode Schemes</p>
+<img src="http://images.abizern.org/2012/03/Schemes.png" alt="Xcode Schemes" />
+<p class="caption">Xcode Schemes</p>
 </div>
 <p>Start by having a look at the schemes. There are two projects with two schemes each, one for each localisation. Handily named so you can tell which is for which.</p>
 <div class="figure">
-<img src="http://images.abizern.org/2012/03/RunAction_en.png" alt="en Run action" /><p class="caption">en Run action</p>
+<img src="http://images.abizern.org/2012/03/RunAction_en.png" alt="en Run action" />
+<p class="caption">en Run action</p>
 </div>
 <div class="figure">
-<img src="http://images.abizern.org/2012/03/RunAction_es.png" alt="es Run action" /><p class="caption">es Run action</p>
+<img src="http://images.abizern.org/2012/03/RunAction_es.png" alt="es Run action" />
+<p class="caption">es Run action</p>
 </div>
 <p>If you have a a look at the run action for these schemes you can see the arguments that I am passing. First the <code>-AppleLanguages</code> argument and then the two character country code (with the brackets back-slash escaped).</p>
 <p>That’s all there is to it. Now you just have to pick the scheme to run and it will load up that localisation without you having to change it on the simulator. It even works for running debug builds on the device.</p>
