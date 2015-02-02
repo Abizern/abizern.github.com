@@ -6,8 +6,47 @@
         <description><![CDATA[The developer and personal blog of Abizer Nasir, a freelance iOS and OS X developer in London, UK]]></description>
         <atom:link href="http://abizern.org/atom.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Sat, 13 Dec 2014 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Sun, 01 Feb 2015 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Debug Logging In Swift</title>
+    <link>http://abizern.org/2015/02/01/debug-logging-in-swift/index.html</link>
+    <description><![CDATA[<p>In the last <a href="https://iosdevweekly.com/issues/183">iOSDevWeekly</a> Dave Verwer listed Art Sabintsev’s <a href="https://github.com/ArtSabintsev/PrintlnMagic">PrintLnMagic</a> - a small function that reproduces the common DLog pattern that many use which not only prints a value, but the filename, the function name and the line of the call. Which is really handy in debugging.</p>
+<p>I use a version of <a href="https://gist.github.com/Abizern/325926">Dlog</a> myself, which has the added benefit of only outputting to the console when in Debug configurations, which PrintLnMagic does not do.</p>
+<p>So, I wrote this (available as a <a href="https://gist.github.com/Abizern/a81f31a75e1ad98ff80d#file-loggingprintln-swift">gist</a></p>
+<pre class="swift"><code>/**
+Prints the filename, function name, line number and textual representation of `object` and a newline character into 
+the standard output if the build setting for &quot;Other Swift Flags&quot; defines `-D DEBUG`.
+
+Only the first parameter needs to be passed to this funtion.
+
+The textual representation is obtained from the `object` using its protocol conformances, in the following 
+order of preference: `Streamable`, `Printable`, `DebugPrintable`. Do not overload this function for your type.  
+Instead, adopt one of the protocols mentioned above.
+
+:param: object   The object whose textual representation will be printed.
+:param: file     The name of the file, defaults to the current file without the &quot;.swift&quot; extension.
+:param: function The name of the function, defaults to the function within which the call is made.
+:param: line     The line number, defaults to the line number within the file that the call is made.
+*/
+func loggingPrintln&lt;T&gt;(object: T, _ file: String = __FILE__, _ function: String = __FUNCTION__, _ line: Int = __LINE__) {
+    #if DEBUG
+        let file = file.lastPathComponent.stringByDeletingPathExtension
+    
+        println(&quot;\(file).\(function)[\(line)]: \(object)&quot;)
+    #endif
+}
+</code></pre>
+<p>I’m not overriding <code>printLn()</code> because I’m not sure clobbering such a widely used system function is a good idea.</p>
+<p>Of course Swift projects don’t work the same way as Objective-C projects, so it isn’t enough to just have the debug configuration, this needs to have the <code>-D DEBUG</code> flag set in the “Other Swift Flags” section under Debug.</p>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/01/Debug%20flag%20in%20swift.png" />
+
+</div>
+<p>Installation is simple enough, this is just a single bare function, so just download the file and add it to your project. Call <code>loggingPrintln()</code> just as you would <code>println()</code>, only passing a value for the first parameter; the defaults will take care of the rest.</p>]]></description>
+    <pubDate>Sun, 01 Feb 2015 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2015/02/01/debug-logging-in-swift/index.html</guid>
+</item>
+<item>
     <title>Fizz Buzz in Swift</title>
     <link>http://abizern.org/2014/12/13/fizz-buzz-in-swift/index.html</link>
     <description><![CDATA[<p>In August 2014 I gave a talk at NSLondon about various approaches to solving Fizz Buzz in Swift. The video is <a href="http://vimeo.com/105440181">available on Vimeo</a> and proved to be reasonably popular and even gained me my first mention in <a href="https://iosdevweekly.com/issues/167">iOS Dev Weekly</a>.</p>
@@ -233,15 +272,6 @@ I’m going to challenge some common ideas about Git; I hope to get current user
 <p>Which fits with my personal coding standards.</p>]]></description>
     <pubDate>Sun, 30 Dec 2012 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2012/12/30/correcting-brace-layout/index.html</guid>
-</item>
-<item>
-    <title>Commanding Your Text Editor</title>
-    <link>http://abizern.org/2012/11/02/commanding-your-text-editor/index.html</link>
-    <description><![CDATA[<p>There’s a recent post up on the PeepCode Blog about <a href="https://peepcode.com/blog/2012/commanding-your-text-editor">Commanding Your Text Editor</a> which has some handy tips for Emacs, Vim, Textmate, Sublime Text and the OS X. It’s a short read, and worth the time.</p>
-<p>More and more of our time is spent at a keyboard typing, whether you’re a programmer or not. Those of you who know me will have heard me talking about the Dvorak keyboard layout and my current attraction to Emacs.</p>
-<p>You don’t have to go that far down the rabbit hole, but it’s surprising how many Emacs bindings are supported natively on the Mac, and unlike Vim; you don’t need to be in a different mode to use them.</p>]]></description>
-    <pubDate>Fri, 02 Nov 2012 00:00:00 UT</pubDate>
-    <guid>http://abizern.org/2012/11/02/commanding-your-text-editor/index.html</guid>
 </item>
 
     </channel> 
