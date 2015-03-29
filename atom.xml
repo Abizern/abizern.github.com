@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
         <title>Abizern.org - All posts</title>
         <link>http://abizern.org</link>
@@ -26,6 +27,7 @@
 <p>Thanks to <a href="https://twitter.com/rob_rix">rob_rix</a> and <a href="https://twitter.com/jl_hfl">jl_hfl</a> for the suggestion.</p>]]></description>
     <pubDate>Sun, 01 Feb 2015 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2015/02/01/debug-logging-in-swift/index.html</guid>
+    <dc:creator>Abizer Nasir</dc:creator>
 </item>
 <item>
     <title>Fizz Buzz in Swift</title>
@@ -36,6 +38,7 @@
 <p>Have fun!</p>]]></description>
     <pubDate>Sat, 13 Dec 2014 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2014/12/13/fizz-buzz-in-swift/index.html</guid>
+    <dc:creator>Abizer Nasir</dc:creator>
 </item>
 <item>
     <title>GCJ B - Cookie Clicker Alpha</title>
@@ -82,6 +85,7 @@ main <span class="fu">=</span> <span class="kw">do</span>
     </code></pre>]]></description>
     <pubDate>Fri, 18 Apr 2014 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2014/04/18/gcj-b---cookie-clicker-alpha/index.html</guid>
+    <dc:creator>Abizer Nasir</dc:creator>
 </item>
 <item>
     <title>GCJ A - Magic Trick</title>
@@ -118,6 +122,7 @@ main <span class="fu">=</span> <span class="kw">do</span>
     putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, solve r1 r2]</code></pre>]]></description>
     <pubDate>Fri, 18 Apr 2014 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2014/04/18/gcj-a---magic-trick/index.html</guid>
+    <dc:creator>Abizer Nasir</dc:creator>
 </item>
 <item>
     <title>Hakyll New Post With Emacs</title>
@@ -169,6 +174,7 @@ main <span class="fu">=</span> <span class="kw">do</span>
 <p>So, I think it’s not bad as a first attempt, although it could obviously be refactored, and you can follow the history of it in my dotfiles <a href="https://github.com/Abizern/prelude/blob/master/personal/hakyll.el">repository</a> if you want to see how it could be developed (or even, you know, help me out with it).</p>]]></description>
     <pubDate>Sun, 05 Jan 2014 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2014/01/05/hakyll-new-post-with-emacs/index.html</guid>
+    <dc:creator>Abizer Nasir</dc:creator>
 </item>
 <item>
     <title>Hello Hakyll</title>
@@ -184,6 +190,7 @@ main <span class="fu">=</span> <span class="kw">do</span>
 </div>]]></description>
     <pubDate>Thu, 26 Dec 2013 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2013/12/26/hello-hakyll/index.html</guid>
+    <dc:creator>Abizer Nasir</dc:creator>
 </item>
 <item>
     <title>Git at London Web Standards</title>
@@ -201,6 +208,7 @@ I’m going to challenge some common ideas about Git; I hope to get current user
 <p>I’ve been talking about <a href="https://alpha.app.net/abizern">Git</a> since 2009, which is when I became comfortable using it. I’ve heard some reasons for people not using it, or using it in its simplest form. My aim in this talk is to turn those statements on their head; maybe to get people to think about using git, not just as a set of task based recipes (which is a perfectly good way of working), but also to use the parts of it that seem too difficult, or poorly explained.</p>]]></description>
     <pubDate>Thu, 30 May 2013 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2013/05/30/git-at-london-web-standards/index.html</guid>
+    <dc:creator>Abizer Nasir</dc:creator>
 </item>
 <item>
     <title>Setting up for Lisp on OS X</title>
@@ -218,6 +226,7 @@ I’m going to challenge some common ideas about Git; I hope to get current user
 <p>Now that’s done you can go on to the hard part of actually learning and using lisp.</p>]]></description>
     <pubDate>Sun, 31 Mar 2013 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2013/03/31/setting-up-for-lisp-on-os-x/index.html</guid>
+    <dc:creator>Abizer Nasir</dc:creator>
 </item>
 <item>
     <title>Missing Xcode Toolbar</title>
@@ -236,6 +245,7 @@ I’m going to challenge some common ideas about Git; I hope to get current user
 <p>But the gotcha that has bit me twice now, and prompted me to write this to remind myself of it, is that you need to choose the “Show Toolbar” menu item rather than one of the other two preferences. I was incorrectly choosing my preference of “Icon Only” and wondering why my preference wasn’t sticking.</p>]]></description>
     <pubDate>Tue, 29 Jan 2013 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2013/01/29/missing-xcode-toolbar/index.html</guid>
+    <dc:creator>Abizer Nasir</dc:creator>
 </item>
 <item>
     <title>Correcting Brace Layout</title>
@@ -253,7 +263,8 @@ I’m going to challenge some common ideas about Git; I hope to get current user
 <p>Which fits with my personal coding standards.</p>]]></description>
     <pubDate>Sun, 30 Dec 2012 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2012/12/30/correcting-brace-layout/index.html</guid>
+    <dc:creator>Abizer Nasir</dc:creator>
 </item>
 
-    </channel> 
+    </channel>
 </rss>
