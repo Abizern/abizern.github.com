@@ -58,7 +58,7 @@
     <p>I got through the qualification round for Google Code Jam 2014. I usually manage to get through this stage; it’s the first round that I haven’t managed to get past yet.</p>
 <p>The easiest question was A-Magic Trick. Nothing much to do here but count the number of similarities between two arrays, easily achieved with the <code>interact</code> method.</p>
 <p>The only gotcha in this problem was that the index of the rows to check is 1-based, and most programming languages use 0-based indexing.</p>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
 
 <span class="kw">import </span><span class="dt">Control.Monad</span>
 <span class="kw">import </span><span class="dt">Data.List</span>
@@ -84,7 +84,7 @@ main <span class="fu">=</span> <span class="kw">do</span>
     final <span class="ot">&lt;-</span> replicateM <span class="dv">4</span> <span class="fu">$</span> fmap (map read <span class="fu">.</span> words) getLine
     <span class="kw">let</span> r1 <span class="fu">=</span> initial <span class="fu">!!</span> (choice1 <span class="fu">-</span> <span class="dv">1</span>)
         r2 <span class="fu">=</span> final <span class="fu">!!</span> (choice2 <span class="fu">-</span> <span class="dv">1</span>)
-    putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, solve r1 r2]</code></pre>
+    putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, solve r1 r2]</code></pre></div>
 </article>
 
         </section>

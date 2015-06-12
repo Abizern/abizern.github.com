@@ -18,7 +18,7 @@
 <p>I’m not overriding <code>printLn()</code> because I’m not sure clobbering such a widely used system function is a good idea.</p>
 <p>Of course Swift projects don’t work the same way as Objective-C projects, so it isn’t enough to just have the debug configuration, this needs to have the <code>-D DEBUG</code> flag set in the “Other Swift Flags” section under Debug.</p>
 <div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/01/Debug%20flag%20in%20swift.png" />
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/01/Debug%20flag%20in%20swift.png" alt="" />
 
 </div>
 <p>Installation is simple enough, this is just a single bare function, so just download the file and add it to your project. Call <code>loggingPrintln()</code> just as you would <code>println()</code>, only passing a value for the first parameter; the defaults will take care of the rest.</p>
@@ -47,7 +47,7 @@
 <p>The gist of the problem is to work out whether buying additional capacity for cookie production would result is reaching the quota faster than not buying additional capacity.</p>
 <p>Haskell is suited to this for a couple of reasons. Firstly, its’ easy to work with infinite lists. so I can create list of the cumulative times for creating factories and reaching the target. And to calculate the cumulative target I’m using the <code>scanl1</code> function to turn the infinite list of factory times into an infinite list of partial sums. I’m using <code>scanl1</code> because it starts at 0, which is important as one of the gotcha’s with this is that it may be faster to just generate cookies rather than buying a factory in the first instance.</p>
 <p>Secondly, pattern matching. With the infinite list I’m stopping when the time to reach the target starts growing again. Pattern matching makes this very easy to do.</p>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
 
 <span class="kw">import </span><span class="dt">Control.Monad</span>
 <span class="kw">import </span><span class="dt">Numeric</span>
@@ -82,7 +82,7 @@ main <span class="fu">=</span> <span class="kw">do</span>
     [c, f, x] <span class="ot">&lt;-</span> fmap (map read <span class="fu">.</span> words) getLine
     <span class="kw">let</span> result <span class="fu">=</span> solve c f x
     putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, Numeric.showFFloat (<span class="dt">Just</span> <span class="dv">7</span>) result <span class="st">&quot;&quot;</span>]
-    </code></pre>]]></description>
+    </code></pre></div>]]></description>
     <pubDate>Fri, 18 Apr 2014 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2014/04/18/gcj-b---cookie-clicker-alpha/index.html</guid>
     <dc:creator>Abizer Nasir</dc:creator>
@@ -93,7 +93,7 @@ main <span class="fu">=</span> <span class="kw">do</span>
     <description><![CDATA[<p>I got through the qualification round for Google Code Jam 2014. I usually manage to get through this stage; it’s the first round that I haven’t managed to get past yet.</p>
 <p>The easiest question was A-Magic Trick. Nothing much to do here but count the number of similarities between two arrays, easily achieved with the <code>interact</code> method.</p>
 <p>The only gotcha in this problem was that the index of the rows to check is 1-based, and most programming languages use 0-based indexing.</p>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
 
 <span class="kw">import </span><span class="dt">Control.Monad</span>
 <span class="kw">import </span><span class="dt">Data.List</span>
@@ -119,7 +119,7 @@ main <span class="fu">=</span> <span class="kw">do</span>
     final <span class="ot">&lt;-</span> replicateM <span class="dv">4</span> <span class="fu">$</span> fmap (map read <span class="fu">.</span> words) getLine
     <span class="kw">let</span> r1 <span class="fu">=</span> initial <span class="fu">!!</span> (choice1 <span class="fu">-</span> <span class="dv">1</span>)
         r2 <span class="fu">=</span> final <span class="fu">!!</span> (choice2 <span class="fu">-</span> <span class="dv">1</span>)
-    putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, solve r1 r2]</code></pre>]]></description>
+    putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, solve r1 r2]</code></pre></div>]]></description>
     <pubDate>Fri, 18 Apr 2014 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2014/04/18/gcj-a---magic-trick/index.html</guid>
     <dc:creator>Abizer Nasir</dc:creator>
@@ -129,7 +129,7 @@ main <span class="fu">=</span> <span class="kw">do</span>
     <link>http://abizern.org/2014/01/05/hakyll-new-post-with-emacs/index.html</link>
     <description><![CDATA[<p>When this blog was created using Octopress, a new post could be created by simply running <code>rake new_post</code> in the Terminal. There is no such convenience in Hakyll, which is currently used as the generator. A small thing, but I wanted to fix it.</p>
 <p>I could have created a similar Rake task, or shell script to do this, and there are even examples to be <a href="http://jaspervdj.be/hakyll/examples.html">found</a> on Hakyll’s site. But since I’m usually in Emacs when I want to write a new post, I thought it would be a good excuse to write a little lisp. And so, here is my first attempt.</p>
-<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> hakyll-site-location </span>()
+<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> hakyll-site-location </span>()
   <span class="st">&quot;Return the location of the Hakyll files.&quot;</span>
   <span class="st">&quot;~/Sites/hblog/&quot;</span>)
 
@@ -168,7 +168,7 @@ main <span class="fu">=</span> <span class="kw">do</span>
   <span class="st">&quot;Return a file name based on TITLE for the note.&quot;</span>
   (concat
    (replace-regexp-in-string <span class="st">&quot; &quot;</span> <span class="st">&quot;-&quot;</span> (downcase title))
-   <span class="st">&quot;.markdown&quot;</span>))</code></pre>
+   <span class="st">&quot;.markdown&quot;</span>))</code></pre></div>
 <p>I’m not much of a lisper, and it probably took me longer to write than the time it will save me, but that doesn’t matter. Firstly; it might be useful to somebody else, and so the cumulative time saved could be greater.</p>
 <p>Secondly, my day job means I spend most of my coding time in Xcode, which can’t be customised as Emacs can be, and if I don’t spend time writing and learning lisp, I’ll have no chance of getting better at it.</p>
 <p>So, I think it’s not bad as a first attempt, although it could obviously be refactored, and you can follow the history of it in my dotfiles <a href="https://github.com/Abizern/prelude/blob/master/personal/hakyll.el">repository</a> if you want to see how it could be developed (or even, you know, help me out with it).</p>]]></description>
@@ -252,14 +252,14 @@ I’m going to challenge some common ideas about Git; I hope to get current user
     <link>http://abizern.org/2012/12/30/correcting-brace-layout/index.html</link>
     <description><![CDATA[<p>I wrote a <a href="http://abizern.org/fixbraces/">small rubygem</a> called <em>fixbraces</em> to move the opening brace of a conditional to the same line as the opening statement.</p>
 <p>So now I can correct all the Xcode generated stubs that look like:</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec">- (<span class="dt">void</span>)someMethod
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec">- (<span class="dt">void</span>)someMethod
 {
     <span class="co">// some code here</span>
-}</code></pre>
+}</code></pre></div>
 <p>Into my preferred format:</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec">- (<span class="dt">void</span>)someMethod {
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec">- (<span class="dt">void</span>)someMethod {
     <span class="co">// some code here</span>
-}</code></pre>
+}</code></pre></div>
 <p>Which fits with my personal coding standards.</p>]]></description>
     <pubDate>Sun, 30 Dec 2012 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2012/12/30/correcting-brace-layout/index.html</guid>

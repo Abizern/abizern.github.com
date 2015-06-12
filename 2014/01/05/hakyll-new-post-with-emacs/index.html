@@ -57,7 +57,7 @@
     </header>
     <p>When this blog was created using Octopress, a new post could be created by simply running <code>rake new_post</code> in the Terminal. There is no such convenience in Hakyll, which is currently used as the generator. A small thing, but I wanted to fix it.</p>
 <p>I could have created a similar Rake task, or shell script to do this, and there are even examples to be <a href="http://jaspervdj.be/hakyll/examples.html">found</a> on Hakyll’s site. But since I’m usually in Emacs when I want to write a new post, I thought it would be a good excuse to write a little lisp. And so, here is my first attempt.</p>
-<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> hakyll-site-location </span>()
+<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> hakyll-site-location </span>()
   <span class="st">&quot;Return the location of the Hakyll files.&quot;</span>
   <span class="st">&quot;~/Sites/hblog/&quot;</span>)
 
@@ -96,7 +96,7 @@
   <span class="st">&quot;Return a file name based on TITLE for the note.&quot;</span>
   (concat
    (replace-regexp-in-string <span class="st">&quot; &quot;</span> <span class="st">&quot;-&quot;</span> (downcase title))
-   <span class="st">&quot;.markdown&quot;</span>))</code></pre>
+   <span class="st">&quot;.markdown&quot;</span>))</code></pre></div>
 <p>I’m not much of a lisper, and it probably took me longer to write than the time it will save me, but that doesn’t matter. Firstly; it might be useful to somebody else, and so the cumulative time saved could be greater.</p>
 <p>Secondly, my day job means I spend most of my coding time in Xcode, which can’t be customised as Emacs can be, and if I don’t spend time writing and learning lisp, I’ll have no chance of getting better at it.</p>
 <p>So, I think it’s not bad as a first attempt, although it could obviously be refactored, and you can follow the history of it in my dotfiles <a href="https://github.com/Abizern/prelude/blob/master/personal/hakyll.el">repository</a> if you want to see how it could be developed (or even, you know, help me out with it).</p>

@@ -59,7 +59,7 @@
 <p>The gist of the problem is to work out whether buying additional capacity for cookie production would result is reaching the quota faster than not buying additional capacity.</p>
 <p>Haskell is suited to this for a couple of reasons. Firstly, its’ easy to work with infinite lists. so I can create list of the cumulative times for creating factories and reaching the target. And to calculate the cumulative target I’m using the <code>scanl1</code> function to turn the infinite list of factory times into an infinite list of partial sums. I’m using <code>scanl1</code> because it starts at 0, which is important as one of the gotcha’s with this is that it may be faster to just generate cookies rather than buying a factory in the first instance.</p>
 <p>Secondly, pattern matching. With the infinite list I’m stopping when the time to reach the target starts growing again. Pattern matching makes this very easy to do.</p>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
 
 <span class="kw">import </span><span class="dt">Control.Monad</span>
 <span class="kw">import </span><span class="dt">Numeric</span>
@@ -94,7 +94,7 @@ main <span class="fu">=</span> <span class="kw">do</span>
     [c, f, x] <span class="ot">&lt;-</span> fmap (map read <span class="fu">.</span> words) getLine
     <span class="kw">let</span> result <span class="fu">=</span> solve c f x
     putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, Numeric.showFFloat (<span class="dt">Just</span> <span class="dv">7</span>) result <span class="st">&quot;&quot;</span>]
-    </code></pre>
+    </code></pre></div>
 </article>
 
         </section>

@@ -57,9 +57,9 @@
     </header>
     <p>Many times you will see a shortened url but you aren’t sure what it points at. Here’s a little tip that I picked up from <a href="http://tommorris.org">Tom Morris</a>.</p>
 <p>Pop open your terminal, or console, or whatever your command-line application is and type the following:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> --head shorturl</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> --head shorturl</code></pre></div>
 <p>This pops up a short amount of useful information about the target url. For example the response for the Google short URL for this site shows this;</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span> <span class="kw">%</span> curl --head http://goo.gl/oQx8
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span> <span class="kw">%</span> curl --head http://goo.gl/oQx8
 <span class="kw">HTTP/1.1</span> 301 Moved Permanently
 <span class="kw">Content-Type</span>: text/html<span class="kw">;</span> <span class="ot">charset=</span>UTF-8
 <span class="kw">Expires</span>: Sat, 16 Oct 2010 21:01:51 GMT
@@ -70,7 +70,7 @@
 <span class="kw">X-Frame-Options</span>: SAMEORIGIN
 <span class="kw">X-XSS-Protection</span>: 1<span class="kw">;</span> <span class="ot">mode=</span>block
 <span class="kw">Server</span>: GSE
-<span class="kw">Transfer-Encoding</span>: chunked</code></pre>
+<span class="kw">Transfer-Encoding</span>: chunked</code></pre></div>
 <p>And you can see that the Location shows that you aren’t going to get Rick-rolled.</p>
 </article>
 

@@ -58,7 +58,7 @@
     <p>About 6 months ago I posted <a href="http://abizern.org/2012/04/09/reverse-words-with-haskell/">a solution</a> to the Google Code Jam problem <a href="http://code.google.com/codejam/contest/351101/dashboard#s=p1%20&quot;Original%20problem%20statement&quot;">Reverse Words</a></p>
 <p>I’ve become more comfortable with Haskell since then, so here’s an improved solution.</p>
 <figure>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
 
 <span class="co">{-</span>
 <span class="co">Problem statement:</span>
@@ -78,7 +78,7 @@ main <span class="fu">=</span> <span class="kw">do</span>
   n <span class="ot">&lt;-</span> readLn
   forM_ [<span class="dv">1</span><span class="fu">..</span>n] <span class="fu">$</span> \i <span class="ot">-&gt;</span> <span class="kw">do</span>
     solution <span class="ot">&lt;-</span> fmap (unwords <span class="fu">.</span> reverse <span class="fu">.</span> words) getLine
-    putStrLn <span class="fu">$</span> <span class="st">&quot;Case #&quot;</span> <span class="fu">++</span> show i <span class="fu">++</span> <span class="st">&quot;: &quot;</span> <span class="fu">++</span> solution</code></pre>
+    putStrLn <span class="fu">$</span> <span class="st">&quot;Case #&quot;</span> <span class="fu">++</span> show i <span class="fu">++</span> <span class="st">&quot;: &quot;</span> <span class="fu">++</span> solution</code></pre></div>
 <figcaption>
 Improved Reverse Words With Haskell <a href="https://gist.github.com/Abizern/3986006">view as gist</a>
 </figcaption>

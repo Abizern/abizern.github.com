@@ -114,7 +114,7 @@
 <p>The Application Delegate class is named <code>AppDelegate</code>.</p>
 <p>The project templates create standard files - a pch file, a main file, a plist file. Regardless of what the templates are set up to do rename them to <code>Prefix.pch</code>, <code>main.m</code> and <code>Info.plist</code>. Some changes will need to be made to the project settings that reference these files to make them work. Similar files are created for unit testing or other targets, but these need not be renamed; the simplified names are only be used for the main target of the project.</p>
 <p>These are common macros that are used throughout my projects. This header file should be added to all projects and imported into the <code>Prefix.pch</code> file. The most up to date version is available as a <a href="https://gist.github.com/Abizern/325926">gist on Github</a>:</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Useful Macros.</span>
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Useful Macros.</span>
 <span class="co">// The best place to import this is in your project's pch file.</span>
 <span class="co">// See http://www.cimgf.com/2010/05/02/my-current-prefix-pch-file/ for details.</span>
 <span class="co">// Most current version at https://gist.github.com/325926 along with usage notes.</span>
@@ -147,7 +147,7 @@
         &amp;&amp; [(NSData *)thing length] == <span class="dv">0</span>)
         || ([thing respondsToSelector:<span class="kw">@selector</span>(count)]
         &amp;&amp; [(NSArray *)thing count] == <span class="dv">0</span>);
-}</code></pre>
+}</code></pre></div>
 <h3 id="schemes">Schemes</h3>
 <p>Xcode creates a standard scheme named after the project for development. As part of setting up the project create a Release Scheme (and a TestFlight scheme if appropriate) and set them up to use the correct signing keys. Make these schemes shared and add them to version control.</p>
 <h3 id="compiler">Compiler</h3>
@@ -160,7 +160,7 @@
 <h3 id="ivars">iVars</h3>
 <p>Avoid using iVars, certainly not as part of the public interface. Prefer the use of properties.</p>
 <p>If using iVars treat them as private and add them to a class extension or the <span class="citation">@implementation</span> section if using a compiler that supports it.</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Bad - declared in the public header</span>
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Bad - declared in the public header</span>
 
 <span class="kw">@interface</span> MyClass : NSObject {
     NSString *_aString;
@@ -176,19 +176,19 @@
 
 <span class="kw">@implementation</span> MyClass {
     NSString *_aString;
-}</code></pre>
+}</code></pre></div>
 <p>Note the underscore prefix for iVars. I’ve gradually come around to the idea of using them. what they do is a)make clear that you are using an iVar and not a local varliable, and b)remove the need to rename local variables or parameters to avoid clashing with iVars.</p>
 <h3 id="properties">Properties</h3>
 <p>Prefer immutable to mutable types, and use <code>copy</code> not <code>retain</code> for types that are part of a mutable / immutable class cluster unless you <strong>really</strong> need a mutable type.</p>
 <p>The memory management declaration should come first.</p>
 <p>Prefer nonatomic to atomic type declarations.</p>
 <p>Choose a different getters for <code>BOOL</code> types where appropriate.</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec">@property (strong, nonatomic) UIColor *colour;
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec">@property (strong, nonatomic) UIColor *colour;
 @property (copy, nonatomic) NSString *title;
 @property (weak, nonatomic) id &lt;DelegateProtocol&gt; delegate;
-@property (assign, nonatomic, getter=isDownloading) BOOL downloading;</code></pre>
+@property (assign, nonatomic, getter=isDownloading) BOOL downloading;</code></pre></div>
 <p>Only expose as much in the public interface as needed. It’s easier to have a smaller surface area of change when working through code, especially during discovery. If a property needs to be publicly readonly but readwrite for the class, redeclare the property as readwrite within a class extension.</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// In the .h file</span>
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// In the .h file</span>
 <span class="kw">@interface</span> MyClass : NSObject
 
 @property (copy, readonly, nonatomic) NSString *aString;
@@ -200,19 +200,19 @@
 
 @property (copy, readwrite, nonatomic) NSString *aString;
 
-<span class="kw">@end</span></code></pre>
+<span class="kw">@end</span></code></pre></div>
 <p>Auto-synthesised properties generate an iVar with a leading underscore. If not using a compiler that supports auto-synthesis <span class="citation">@sythesise</span> backing stores in the same way.</p>
 <h3 id="method-and-variable-naming">Method and Variable Naming</h3>
 <p>Don’t fear long descriptive names, Xcode has auto-completion.</p>
 <p>Follow the conventions in Apple’s <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html#//apple_ref/doc/uid/10000146-SW1">Coding Guidelines for Cocoa</a></p>
 <p>The cocoa frameworks follow an American spelling convention. That means that there are classes such as <code>NSColor</code> and <code>NSNotificationCenter</code>. That doesn’t mean that this convention should be followed blindly. Use British spelling:</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// The usual</span>
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// The usual</span>
 UIColor *someColor = [UIColor whiteColor];
 NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 
 <span class="co">// Better</span>
 UIColor *someColour = [UIColor whiteColor];
-NSNotificationCenter *notificationCentre = [NSNotificationCenter defaultCenter];</code></pre>
+NSNotificationCenter *notificationCentre = [NSNotificationCenter defaultCenter];</code></pre></div>
 <p>The downside to the preffered choice is that there is an inconsistency on the declaration line and there will be two spellings in use throughout the code. But, it’s more natural for me to write with British Spellings, and let autocompletion use the correct spellings for the system.</p>
 <p>However - overall consistency and project style should take precedence. If this is your code, your project; then use the British spellings. If you are contributing to somebody else’s code - use whatever is currently in use.</p>
 <h3 id="dot-notation">Dot Notation</h3>
@@ -221,11 +221,11 @@ NSNotificationCenter *notificationCentre = [NSNotificationCenter defaultCenter];
 <p>Only use dot notation for properties.</p>
 <h3 id="method-signatures">Method Signatures</h3>
 <p>Left aligned, with a space after the scope. There should be a space between the method segments, and if a parameter is a pointer, then there should be a space before the asterisk</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// BAD</span>
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// BAD</span>
 -(<span class="dt">void</span>)doSomethingWithString:(NSString*)aString;
 
 <span class="co">// GOOD</span>
-- (<span class="dt">void</span>)doSomethingWithString:(NSString *)aString;</code></pre>
+- (<span class="dt">void</span>)doSomethingWithString:(NSString *)aString;</code></pre></div>
 <h3 id="private-methods">Private Methods</h3>
 <p>These should not be declared in the public interface or a class extension.</p>
 <p>Put them at the end of the class implementation in their own <code>#pragma</code> section.</p>
@@ -238,11 +238,11 @@ NSNotificationCenter *notificationCentre = [NSNotificationCenter defaultCenter];
 <h4 id="bool">BOOL</h4>
 <p>Use <code>YES</code> and <code>NO</code> not true, false, 1, -1 or anything like that.</p>
 <p>Don’t compare <code>BOOL</code> returns against <code>BOOL</code>s:</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// GOOD</span>
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// GOOD</span>
 <span class="kw">if</span> ([<span class="kw">self</span> aMethodReturningBOOL]) {
 
 <span class="co">// THE DEVIL'S WORK</span>
-<span class="kw">if</span> ([<span class="kw">self</span> aMethodReturningBOOL] == YES) {</code></pre>
+<span class="kw">if</span> ([<span class="kw">self</span> aMethodReturningBOOL] == YES) {</code></pre></div>
 <h4 id="floats">floats</h4>
 <p>Use <code>CGFloat</code> instead of <code>float</code>.</p>
 <h3 id="error-handling">Error Handling</h3>
@@ -250,7 +250,7 @@ NSNotificationCenter *notificationCentre = [NSNotificationCenter defaultCenter];
 <h3 id="static-strings">Static Strings</h3>
 <p>Use static declarations in preference to #defines.</p>
 <p>Use <code>extern</code> to declare a public constant that is defined within the class. Use a simple static otherwise</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// declared in header defined in implementation</span>
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// declared in header defined in implementation</span>
 <span class="co">// .h</span>
 <span class="kw">extern</span> NSString * <span class="dt">const</span> kMyConstant;
 
@@ -258,10 +258,10 @@ NSNotificationCenter *notificationCentre = [NSNotificationCenter defaultCenter];
 NSString * <span class="dt">const</span> kMyConstant = <span class="st">@&quot;MyConstant&quot;</span>;
 
 <span class="co">// For internal use</span>
-<span class="dt">static</span> NSString *someString;</code></pre>
+<span class="dt">static</span> NSString *someString;</code></pre></div>
 <h3 id="enums">Enums</h3>
 <p>Use the new typed enumerations, or even better, use the Apple provided macros.</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Good</span>
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Good</span>
 <span class="kw">typedef</span> <span class="kw">enum</span> : <span class="dt">unsigned</span> <span class="dt">char</span> {
     Red,
     Green,
@@ -274,9 +274,9 @@ NSString * <span class="dt">const</span> kMyConstant = <span class="st">@&quot;M
     Red,
     Green,
     Blue
-};</code></pre>
+};</code></pre></div>
 <p>For simple enumerations there is no need to assign values to the values unless they are really needed in specific situations. The exception is for bitmask enumerations which should specify the initial value and the remaining values should use the shift-left operator (&lt;&lt;).</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Good</span>
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Good</span>
 <span class="kw">typedef</span> <span class="kw">enum</span> : NSUInteger {
     ABCOutputNone    = <span class="dv">0</span>,
     ABCOutputSeconds = <span class="dv">1</span> &lt;&lt; <span class="dv">0</span>,
@@ -291,11 +291,11 @@ NSString * <span class="dt">const</span> kMyConstant = <span class="st">@&quot;M
     ABCOutputSeconds = <span class="dv">1</span> &lt;&lt; <span class="dv">0</span>,
     ABCOutputMinutes = <span class="dv">1</span> &lt;&lt; <span class="dv">1</span>,
     ABCOunpunHours   = <span class="dv">1</span> &lt;&lt; <span class="dv">2</span>
-};</code></pre>
+};</code></pre></div>
 <h3 id="todos">TODOs</h3>
 <p>Put <code>// TODO:</code> comments to remind yourself of things and use search to find them.</p>
 <p>If you want to mark critical parts that need to be implemented, don’t bother with using build scripts to find the TODOs - just use a <code>#warning</code> instead:</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="ot">#warning This method needs to be implemented.</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="ot">#warning This method needs to be implemented.</span></code></pre></div>
 <p>This will raise a convenient warning with the message when building.</p>
 <h2 id="code-layout">Code layout</h2>
 <h3 id="pragma-is-your-friend">#pragma Is Your Friend</h3>
@@ -342,16 +342,16 @@ NSString * <span class="dt">const</span> kMyConstant = <span class="st">@&quot;M
 <p>Group lines of codes together when they are related. Think of it like writing, where sentences that relate to a topic are grouped into paragraphs.</p>
 <h3 id="braces">Braces</h3>
 <p>A brace is always opened on the same line after a space (the exceptions is block definitions). The closing brace is on a separate line and indented to the same level as the line with the opening brace.</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec">- (BOOL)someMethod {
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec">- (BOOL)someMethod {
     <span class="kw">return</span> YES;
-}</code></pre>
+}</code></pre></div>
 <p>There should <strong>always</strong> be a space after the control structure (i.e. <code>if</code>, <code>else</code>, etc). The <code>else</code> and <code>else if</code> statements should be on the same line as the closing brace of the <code>if</code> statement.</p>
 <p>Xcode is inconsistent about the opening brace, and some of your colleagues may be too. I wrote a small ruby gem called <a href="http://abizern.org/fixbraces/">fixbraces</a> which will correctly position the braces on the opening line.</p>
 <h3 id="control-structures">Control Structures</h3>
 <p>See the section on the Golden Path for more usage guides with control structures.</p>
 <p>I originally specified no blank lines between clauses, but I’ve been turned around on this. When you are looking at a block of code, the blank link makes the changed indentation level more obvious.</p>
 <h4 id="ifelse">if/else</h4>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">if</span> (button.enabled) {
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">if</span> (button.enabled) {
     <span class="co">// do something</span>
 
 } <span class="kw">else</span> <span class="kw">if</span> (otherButton.enabled) {
@@ -360,11 +360,11 @@ NSString * <span class="dt">const</span> kMyConstant = <span class="st">@&quot;M
 } <span class="kw">else</span> {
     <span class="co">// do something by default</span>
 
-}</code></pre>
+}</code></pre></div>
 <p>Always use a multiline if/else statement with the clauses in braces. This is not only clearer to read but easier to make changes to.</p>
 <h4 id="the-ternary-operator">The Ternary operator</h4>
 <p>A handy structure, but should be used sparingly where it aids readability.</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Acceptable</span>
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// Acceptable</span>
 NSString *boolString = nil;
 
 <span class="kw">if</span> (someBool) {
@@ -378,11 +378,11 @@ NSString *boolString = nil;
 DLog(<span class="st">@&quot;The BOOL value is %@&quot;</span>, boolString);
 
 <span class="co">// Better. Succinct and readable</span>
-DLog(<span class="st">@&quot;The BOOL value is %@&quot;</span>, someBool ? <span class="st">@&quot;YES&quot;</span> : <span class="st">@&quot;NO&quot;</span>);</code></pre>
+DLog(<span class="st">@&quot;The BOOL value is %@&quot;</span>, someBool ? <span class="st">@&quot;YES&quot;</span> : <span class="st">@&quot;NO&quot;</span>);</code></pre></div>
 <h4 id="switch">Switch</h4>
 <p>Brackets don’t need to be added around each case statement. In some cases, when using ARC and declaring varibles within a case block an error may be thrown “Switch case is in protected scope” and then surrounding the case statement with brackets should clear up the error.</p>
 <p>The <code>default</code> case should <strong>always</strong> be the last case and should <strong>always</strong> be included.</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">switch</span> (something.state) {
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">switch</span> (something.state) {
     <span class="kw">case</span> <span class="dv">0</span>: {
         <span class="co">// braced block where required by the compiler</span>
         <span class="kw">break</span>;
@@ -401,23 +401,23 @@ DLog(<span class="st">@&quot;The BOOL value is %@&quot;</span>, someBool ? <span
     <span class="kw">default</span>:
         <span class="co">// Something</span>
 
-}</code></pre>
+}</code></pre></div>
 <h4 id="for">For</h4>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">for</span> (NSInteger idx = <span class="dv">0</span>; idx &lt; <span class="dv">10</span>; idx++) {
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">for</span> (NSInteger idx = <span class="dv">0</span>; idx &lt; <span class="dv">10</span>; idx++) {
     <span class="co">// Do something</span>
 }
 
 <span class="kw">for</span> (NSString *key in dictionary) {
     <span class="co">// Do something</span>
-}</code></pre>
+}</code></pre></div>
 <p>When iterating using integers, it is preferred to start at <code>0</code> and use <code>&lt;</code> rather than starting at <code>1</code> and using <code>&lt;=</code>. Also, use <code>idx</code> instead of <code>i</code>. Fast enumeration is generally preferred because it is easier on the eyes as well as faster. Also consider using block enumeration where applicable.</p>
 <h4 id="while">While</h4>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">while</span> (something &lt; somethingElse) {
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="kw">while</span> (something &lt; somethingElse) {
     <span class="co">// Do something</span>
-}</code></pre>
+}</code></pre></div>
 <h3 id="golden-path">Golden Path</h3>
 <p>When using conditionals, the left hand margin of the code should be the <strong>golden</strong> or <strong>happy path</strong>. This is the part of the code that should be commonly executed. For example, the common way of writing initialisers doesn’t follow this:</p>
-<pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// BAD</span>
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="co">// BAD</span>
 - (id)init {
     <span class="kw">self</span> = [<span class="kw">super</span> init];
    <span class="kw">if</span> (<span class="kw">self</span>) {
@@ -437,7 +437,7 @@ DLog(<span class="st">@&quot;The BOOL value is %@&quot;</span>, someBool ? <span
 
     <span class="co">// initialisations here</span>
     <span class="kw">return</span> <span class="kw">self</span>;
-}</code></pre>
+}</code></pre></div>
 <p>This keeps the main part of the code furthest to the left, with the exceptional conditions further to the right.</p>
 <h3 id="multiple-returns">Multiple Returns</h3>
 <p>Purists say that there should be only one return point from a function. There are times where multiple returns are not a problem. Look at the example initialiser above. The good example contains multiple returns values - in the case where the super class initialiser returns the nil, the method returns a nil straight away. I find that this makes it clearer when reading the code that the function will return at this point and I don’t have to look through the method any more to see if the value of self is changed later on before returning.</p>
