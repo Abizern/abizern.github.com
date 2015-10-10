@@ -58,7 +58,7 @@
     <p>We frequently (excuse the pun) need to schedule a repeated action.</p>
 <p>The way to do this was usually to use <code>NSTimer</code>’s <code>scheduledTimerWithTimeInterval(_:,target:,selector:,userInfo:,repeats:)</code>, which needed a callback, and had the hidden pitfall of the target being strongly referenced by the runloop that this timer was scheduled on. There are extensions to NSTimer that allow the used of blocks instead (I even wrote one myself), but there is another way.</p>
 <p>Grand Central Dispatch provides <a href="https://developer.apple.com/library/mac/documentation/General/Conceptual/ConcurrencyProgrammingGuide/GCDWorkQueues/GCDWorkQueues.html">dispatch sources</a> for efficient interaction with the underlying system. One such source type is <code>DISPATCH_SOURCE_TYPE_TIMER</code>. So here as a Swift function that creates and starts such a timer.</p>
-<script src="https://gist.github.com/Abizern/a81f31a75e1ad98ff80d.js"></script>
+<script src="https://gist.github.com/Abizern/cf26af397ebe66284002.js"></script>
 <p>Since I’m passing in <code>NSTimeInterval</code>s this is probably best used for short lived timers, but it extracts a lot of the C boilerplate that is needed to create the dispatch source.</p>
 </article>
 
