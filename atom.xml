@@ -60,7 +60,8 @@
   (interactive)
   (save-excursion
     (shell-command-on-region (mark) (point) <span class="st">&quot;python -m json.tool&quot;</span> (buffer-name) <span class="kw">t</span>)))</code></pre></div>
-<p><strong>Edit</strong> Thanks to <span class="citation">[@chrisridd]</span>(https://twitter.com/chrisridd) for pointing out that I could use <code>json_pp</code>.</p>]]></description>
+<p><strong>Edit</strong></p>
+<p>Thanks to <a href="https://twitter.com/chrisridd">Chris Ridd</a> for pointing out that I could use <code>json_pp</code>.</p>]]></description>
     <pubDate>Sat, 10 Oct 2015 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2015/10/10/easy-json-formatting/index.html</guid>
     <dc:creator>Abizer Nasir</dc:creator>
