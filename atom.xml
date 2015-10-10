@@ -23,15 +23,15 @@
 
 </div>
 <p>In the action box type:</p>
-<pre><code>python -m json.tool | pbcopy</code></pre>
+<pre><code>json_pp | pbcopy</code></pre>
 <div class="figure">
 <img src="http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrint.png" alt="" />
 
 </div>
-<p>This is what actually does the formatting. Python comes with OS X as does json.tool. This runs the selected text through the tool and puts the result in the pasteboard. You can paste your formatted output wherever you like.</p>
+<p>This is what actually does the formatting. <code>json_pp</code> comes with OS X. This runs the selected text through the tool and puts the result in the pasteboard.You can paste your formatted output wherever you like.</p>
 <p>Save the action with a name - I’ve called mine <em>JSON Pretty Print</em>. You should see the new service installed under <code>~/Library/Services</code></p>
 <p>Rather than have to paste the result, we can define another service that replaces the selected text with the result. Create another service as before except that the action doesn’t put the results on the pasteboard.</p>
-<pre><code>python -m json.tool</code></pre>
+<pre><code>json_pp</code></pre>
 <div class="figure">
 <img src="http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrintInPlace.png" alt="" />
 
@@ -59,7 +59,8 @@
   <span class="st">&quot;Reformats the JSON in the region for humans.&quot;</span>
   (interactive)
   (save-excursion
-    (shell-command-on-region (mark) (point) <span class="st">&quot;python -m json.tool&quot;</span> (buffer-name) <span class="kw">t</span>)))</code></pre></div>]]></description>
+    (shell-command-on-region (mark) (point) <span class="st">&quot;python -m json.tool&quot;</span> (buffer-name) <span class="kw">t</span>)))</code></pre></div>
+<p><strong>Edit</strong> Thanks to <span class="citation">[@chrisridd]</span>(https://twitter.com/chrisridd) for pointing out that I could use <code>json_pp</code>.</p>]]></description>
     <pubDate>Sat, 10 Oct 2015 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2015/10/10/easy-json-formatting/index.html</guid>
     <dc:creator>Abizer Nasir</dc:creator>
