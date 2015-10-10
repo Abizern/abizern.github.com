@@ -9,6 +9,62 @@
                    type="application/rss+xml" />
         <lastBuildDate>Sat, 10 Oct 2015 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Easy JSON formatting</title>
+    <link>http://abizern.org/2015/10/10/easy-json-formatting/index.html</link>
+    <description><![CDATA[<p>Sometimes we want to format some JSON. Here’s an easy way to set up a Service in Automator to make this easier.</p>
+<p>Let’s create a service. Open Automator and choose to create a new Service</p>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/CreateNewService.png" alt="" />
+
+</div>
+<p>From the Library, select the “Run Shell Script” action and drag it to the right.</p>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/RunShellScript.png" alt="" />
+
+</div>
+<p>In the action box type:</p>
+<pre><code>python -m json.tool | pbcopy</code></pre>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrint.png" alt="" />
+
+</div>
+<p>This is what actually does the formatting. Python comes with OS X as does json.tool. This runs the selected text through the tool and puts the result in the pasteboard. You can paste your formatted output wherever you like.</p>
+<p>Save the action with a name - I’ve called mine <em>JSON Pretty Print</em>. You should see the new service installed under <code>~/Library/Services</code></p>
+<p>Rather than have to paste the result, we can define another service that replaces the selected text with the result. Create another service as before except that the action doesn’t put the results on the pasteboard.</p>
+<pre><code>python -m json.tool</code></pre>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrintInPlace.png" alt="" />
+
+</div>
+<p>Note that the “Output replaces selected text” option is checked.</p>
+<p>Save this action with a name - I’ve called mine <em>JSON Pretty Print In Place</em>.</p>
+<p>An advantage of using the service is that it is intelligent about when to make the service available. If there is no selection, then the Service is not listed:</p>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/NoSelection.png" alt="" />
+
+</div>
+<p>If the selection is in a place where the text cannot be pasted, then only the service that copies the result is presented.</p>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/Selection.png" alt="" />
+
+</div>
+<p>But if the text can be pasted in place, the Service is shown.</p>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/SelectionInPlace.png" alt="" />
+
+</div>
+<p>You can see a gif of this in action at this <a href="https://dl.dropboxusercontent.com/s/7hb3tyqexojaaxf/2E4B3531-09A5-4514-B556-556E22FBB455-12370-0000275E07F45E21.gif?dl=0">link</a> - I’m linking to this so there isn’t a constantly repeating animation while you read this.</p>
+<p>Of coures, if you are using Emacs, you don’t want to be grabbing the mouse to get to the action, here’s a lisp function I use to format JSON in place:</p>
+<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> json-format </span>()
+  <span class="st">&quot;Reformats the JSON in the region for humans.&quot;</span>
+  (interactive)
+  (save-excursion
+    (shell-command-on-region (mark) (point) <span class="st">&quot;python -m json.tool&quot;</span> (buffer-name) <span class="kw">t</span>)))</code></pre></div>]]></description>
+    <pubDate>Sat, 10 Oct 2015 00:00:00 UT</pubDate>
+    <guid>http://abizern.org/2015/10/10/easy-json-formatting/index.html</guid>
+    <dc:creator>Abizer Nasir</dc:creator>
+</item>
+<item>
     <title>A Swift Repeating Timer</title>
     <link>http://abizern.org/2015/10/10/a-swift-repeating-timer/index.html</link>
     <description><![CDATA[<p>We frequently (excuse the pun) need to schedule a repeated action.</p>
@@ -240,25 +296,6 @@ I’m going to challenge some common ideas about Git; I hope to get current user
 <p>Now that’s done you can go on to the hard part of actually learning and using lisp.</p>]]></description>
     <pubDate>Sun, 31 Mar 2013 00:00:00 UT</pubDate>
     <guid>http://abizern.org/2013/03/31/setting-up-for-lisp-on-os-x/index.html</guid>
-    <dc:creator>Abizer Nasir</dc:creator>
-</item>
-<item>
-    <title>Missing Xcode Toolbar</title>
-    <link>http://abizern.org/2013/01/29/missing-xcode-toolbar/index.html</link>
-    <description><![CDATA[<p>I’m sure you’ve been there.</p>
-<p>You’re working in Xcode, and you have a file opened on another monitor in another window. Unfortunately, you forget about it, and when you close your project and reopen it again, the toolbar is missing.</p>
-<div class="figure">
-<img src="http://images.abizern.org/2013/01/Missing%20Xcode%20Toolbar.png" alt="Missing Toolbar" />
-<p class="caption">Missing Toolbar</p>
-</div>
-<p>It can be frustrating, because Xcode remembers this, and every time you open the project it will open without a toolbar. You can put it back by right-clicking in what is left of the toolbar and choosing one of the options.</p>
-<div class="figure">
-<img src="http://images.abizern.org/2013/01/Xcode%20Toolbar%20Menu.png" alt="Toolbar Menu" />
-<p class="caption">Toolbar Menu</p>
-</div>
-<p>But the gotcha that has bit me twice now, and prompted me to write this to remind myself of it, is that you need to choose the “Show Toolbar” menu item rather than one of the other two preferences. I was incorrectly choosing my preference of “Icon Only” and wondering why my preference wasn’t sticking.</p>]]></description>
-    <pubDate>Tue, 29 Jan 2013 00:00:00 UT</pubDate>
-    <guid>http://abizern.org/2013/01/29/missing-xcode-toolbar/index.html</guid>
     <dc:creator>Abizer Nasir</dc:creator>
 </item>
 

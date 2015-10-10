@@ -52,6 +52,66 @@
             <article>
     <header>
         <h1>
+            <a href="./2015/10/10/easy-json-formatting/" title="Permalink">
+                Easy JSON formatting
+            </a>
+        </h1>
+        <span class="post-date">October 10, 2015</span> in 
+        <span class="post-tags"><a href="./tags/mac/">mac</a>, <a href="./tags/programming/">programming</a>, <a href="./tags/automator/">automator</a></span>
+    </header>
+    <p>Sometimes we want to format some JSON. Here’s an easy way to set up a Service in Automator to make this easier.</p>
+<p>Let’s create a service. Open Automator and choose to create a new Service</p>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/CreateNewService.png" alt />
+
+</div>
+<p>From the Library, select the “Run Shell Script” action and drag it to the right.</p>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/RunShellScript.png" alt />
+
+</div>
+<p>In the action box type:</p>
+<pre><code>python -m json.tool | pbcopy</code></pre>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrint.png" alt />
+
+</div>
+<p>This is what actually does the formatting. Python comes with OS X as does json.tool. This runs the selected text through the tool and puts the result in the pasteboard. You can paste your formatted output wherever you like.</p>
+<p>Save the action with a name - I’ve called mine <em>JSON Pretty Print</em>. You should see the new service installed under <code>~/Library/Services</code></p>
+<p>Rather than have to paste the result, we can define another service that replaces the selected text with the result. Create another service as before except that the action doesn’t put the results on the pasteboard.</p>
+<pre><code>python -m json.tool</code></pre>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrintInPlace.png" alt />
+
+</div>
+<p>Note that the “Output replaces selected text” option is checked.</p>
+<p>Save this action with a name - I’ve called mine <em>JSON Pretty Print In Place</em>.</p>
+<p>An advantage of using the service is that it is intelligent about when to make the service available. If there is no selection, then the Service is not listed:</p>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/NoSelection.png" alt />
+
+</div>
+<p>If the selection is in a place where the text cannot be pasted, then only the service that copies the result is presented.</p>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/Selection.png" alt />
+
+</div>
+<p>But if the text can be pasted in place, the Service is shown.</p>
+<div class="figure">
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/SelectionInPlace.png" alt />
+
+</div>
+<p>You can see a gif of this in action at this <a href="https://dl.dropboxusercontent.com/s/7hb3tyqexojaaxf/2E4B3531-09A5-4514-B556-556E22FBB455-12370-0000275E07F45E21.gif?dl=0">link</a> - I’m linking to this so there isn’t a constantly repeating animation while you read this.</p>
+<p>Of coures, if you are using Emacs, you don’t want to be grabbing the mouse to get to the action, here’s a lisp function I use to format JSON in place:</p>
+<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> json-format </span>()
+  <span class="st">&quot;Reformats the JSON in the region for humans.&quot;</span>
+  (interactive)
+  (save-excursion
+    (shell-command-on-region (mark) (point) <span class="st">&quot;python -m json.tool&quot;</span> (buffer-name) <span class="kw">t</span>)))</code></pre></div>
+</article>
+<article>
+    <header>
+        <h1>
             <a href="./2015/10/10/a-swift-repeating-timer/" title="Permalink">
                 A Swift Repeating Timer
             </a>
@@ -157,47 +217,6 @@ main <span class="fu">=</span> <span class="kw">do</span>
     <span class="kw">let</span> result <span class="fu">=</span> solve c f x
     putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, Numeric.showFFloat (<span class="dt">Just</span> <span class="dv">7</span>) result <span class="st">&quot;&quot;</span>]
     </code></pre></div>
-</article>
-<article>
-    <header>
-        <h1>
-            <a href="./2014/04/18/gcj-a---magic-trick/" title="Permalink">
-                GCJ A - Magic Trick
-            </a>
-        </h1>
-        <span class="post-date">April 18, 2014</span> in 
-        <span class="post-tags"><a href="./tags/haskell/">haskell</a>, <a href="./tags/gcj/">gcj</a></span>
-    </header>
-    <p>I got through the qualification round for Google Code Jam 2014. I usually manage to get through this stage; it’s the first round that I haven’t managed to get past yet.</p>
-<p>The easiest question was A-Magic Trick. Nothing much to do here but count the number of similarities between two arrays, easily achieved with the <code>interact</code> method.</p>
-<p>The only gotcha in this problem was that the index of the rows to check is 1-based, and most programming languages use 0-based indexing.</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
-
-<span class="kw">import </span><span class="dt">Control.Monad</span>
-<span class="kw">import </span><span class="dt">Data.List</span>
-
-<span class="co">-- https://code.google.com/codejam/contest/dashboard?c=2974486#s=p0</span>
-<span class="co">-- Input and output with standard redirection operators</span>
-
-<span class="ot">solve ::</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> <span class="dt">String</span>
-solve a b
-  <span class="fu">|</span> l <span class="fu">==</span> <span class="dv">1</span> <span class="fu">=</span> show <span class="fu">$</span> head common
-  <span class="fu">|</span> l <span class="fu">&gt;</span> <span class="dv">1</span>  <span class="fu">=</span> <span class="st">&quot;Bad magician!&quot;</span>
-  <span class="fu">|</span> otherwise <span class="fu">=</span> <span class="st">&quot;Volunteer cheated!&quot;</span>
-  <span class="kw">where</span> common <span class="fu">=</span> a <span class="ot">`intersect`</span> b
-        l <span class="fu">=</span> length common
-
-<span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> <span class="kw">do</span>
-  t <span class="ot">&lt;-</span> getLine
-  forM_ [<span class="dv">1</span><span class="fu">..</span>read<span class="ot"> t ::</span> <span class="dt">Int</span>] <span class="fu">$</span> \i <span class="ot">-&gt;</span> <span class="kw">do</span>
-    choice1 <span class="ot">&lt;-</span> fmap read getLine
-    initial <span class="ot">&lt;-</span> replicateM <span class="dv">4</span> <span class="fu">$</span> fmap (map read <span class="fu">.</span> words) getLine
-    choice2 <span class="ot">&lt;-</span> fmap read getLine
-    final <span class="ot">&lt;-</span> replicateM <span class="dv">4</span> <span class="fu">$</span> fmap (map read <span class="fu">.</span> words) getLine
-    <span class="kw">let</span> r1 <span class="fu">=</span> initial <span class="fu">!!</span> (choice1 <span class="fu">-</span> <span class="dv">1</span>)
-        r2 <span class="fu">=</span> final <span class="fu">!!</span> (choice2 <span class="fu">-</span> <span class="dv">1</span>)
-    putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, solve r1 r2]</code></pre></div>
 </article>
 
 
