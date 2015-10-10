@@ -54,7 +54,7 @@
 
 </div>
 <p>You can see a gif of this in action at this <a href="https://dl.dropboxusercontent.com/s/7hb3tyqexojaaxf/2E4B3531-09A5-4514-B556-556E22FBB455-12370-0000275E07F45E21.gif?dl=0">link</a> - I’m linking to this so there isn’t a constantly repeating animation while you read this.</p>
-<p>Of coures, if you are using Emacs, you don’t want to be grabbing the mouse to get to the action, here’s a lisp function I use to format JSON in place:</p>
+<p>Of course, if you are using Emacs, you don’t want to be grabbing the mouse to get to the action, here’s a lisp function I use to format JSON in place:</p>
 <div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> json-format </span>()
   <span class="st">&quot;Reformats the JSON in the region for humans.&quot;</span>
   (interactive)
