@@ -52,6 +52,24 @@
             <article>
     <header>
         <h1>
+            <a href="./2015/10/11/swift-function-overloading-by-return-type/" title="Permalink">
+                Swift Function Overloading By Return Type
+            </a>
+        </h1>
+        <span class="post-date">October 11, 2015</span> in 
+        <span class="post-tags"><a href="./tags/swift/">swift</a>, <a href="./tags/programming/">programming</a></span>
+    </header>
+    <p>As Objective-C developers, we often forget that we can overload functions by return type. This can often help us create neat APIs. This is best illustrated by an example.</p>
+<p>I posted a <a href="http://abizern.org/2015/10/10/a-swift-repeating-timer/">wrapper for timer dispatch sources</a> yesterday. While I was doing it I noticed a discrepancy with GCD. When creating a timer dispatch source, times were passed as nanoseconds as a <code>UInt64</code>, but the <code>dispatch_after()</code> function took nanoseconds as an <code>Int64</code>. Such things are what cause hair-pulling and fighting with the type system.</p>
+<p>But most of the time we just want to pass times around as <code>NSTimeInterval</code>s as seconds, but we have to convert this to a <code>UInt64</code> or an <code>Int64</code>. It’s a better idea to wrap these creating methods, and function overloading lets us use the same descriptive name for these functions with different return types. So, here is some code which you can put in a playground that demonstrates this:</p>
+<script src="https://gist.github.com/Abizern/c030bd9674b2ad881b44.js"></script>
+<p>I’m extending <code>NSTimeInterval</code> which is a typealias for <code>Double</code> just to make it clear that these new functions apply to times.</p>
+<p>Note that there are two functions called <code>nSecs()</code>, but they return different values. And the strong type system ensures the correct function is used. <code>dispatch_source_set_timer()</code> uses the <code>nSecs() -&gt; UInt64</code> values, and the <code>dispatch_after()</code> uses <code>nSecs() -&gt; Int64</code> function</p>
+<p>This example also demonstrates that we should write functions for such translations, which separates the concerns of creating and transforming values from the use of those values. It’s something that I don’t do enough of, and I encourage you do try and do this where you can.</p>
+</article>
+<article>
+    <header>
+        <h1>
             <a href="./2015/10/10/easy-json-formatting/" title="Permalink">
                 Easy JSON formatting
             </a>
@@ -168,57 +186,6 @@
 <p>Just to make this more complete here is a link to the slides and a Swift Playground that you can use to play around with the examples.</p>
 <p><a href="http://downloads.abizern.org/FizzBuzzery.zip" class="uri">http://downloads.abizern.org/FizzBuzzery.zip</a></p>
 <p>Have fun!</p>
-</article>
-<article>
-    <header>
-        <h1>
-            <a href="./2014/04/18/gcj-b---cookie-clicker-alpha/" title="Permalink">
-                GCJ B - Cookie Clicker Alpha
-            </a>
-        </h1>
-        <span class="post-date">April 18, 2014</span> in 
-        <span class="post-tags"><a href="./tags/haskell/">haskell</a>, <a href="./tags/gcj/">gcj</a></span>
-    </header>
-    <p>Another problem from This year’s Google Code Jam.</p>
-<p>The gist of the problem is to work out whether buying additional capacity for cookie production would result is reaching the quota faster than not buying additional capacity.</p>
-<p>Haskell is suited to this for a couple of reasons. Firstly, its’ easy to work with infinite lists. so I can create list of the cumulative times for creating factories and reaching the target. And to calculate the cumulative target I’m using the <code>scanl1</code> function to turn the infinite list of factory times into an infinite list of partial sums. I’m using <code>scanl1</code> because it starts at 0, which is important as one of the gotcha’s with this is that it may be faster to just generate cookies rather than buying a factory in the first instance.</p>
-<p>Secondly, pattern matching. With the infinite list I’m stopping when the time to reach the target starts growing again. Pattern matching makes this very easy to do.</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
-
-<span class="kw">import </span><span class="dt">Control.Monad</span>
-<span class="kw">import </span><span class="dt">Numeric</span>
-
-
-<span class="co">-- https://code.google.com/codejam/contest/dashboard?c=2974486#s=p1</span>
-<span class="co">-- Input and output with standard redirection operators</span>
-
-<span class="ot">factoryTimes ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> [<span class="dt">Double</span>]
-factoryTimes c f <span class="fu">=</span> <span class="fl">0.0</span> <span class="fu">:</span> [ c <span class="fu">/</span> (<span class="fl">2.0</span> <span class="fu">+</span> k <span class="fu">*</span> f) <span class="fu">|</span> k <span class="ot">&lt;-</span> [<span class="fl">0.0</span>, <span class="fl">1.0</span> <span class="fu">..</span>]]
-
-<span class="ot">productionTimes ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> [<span class="dt">Double</span>]
-productionTimes x f <span class="fu">=</span> [ x <span class="fu">/</span> (<span class="fl">2.0</span> <span class="fu">+</span> k <span class="fu">*</span> f) <span class="fu">|</span> k <span class="ot">&lt;-</span> [<span class="fl">0.0</span>, <span class="fl">1.0</span> <span class="fu">..</span>]]
-
-<span class="ot">times ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> [<span class="dt">Double</span>]
-times c f x <span class="fu">=</span> zipWith (<span class="fu">+</span>) production factory
-  <span class="kw">where</span> production <span class="fu">=</span> productionTimes x f
-        factory <span class="fu">=</span> scanl1 (<span class="fu">+</span>) <span class="fu">$</span> factoryTimes c f
-
-<span class="ot">firstMinimum ::</span> [<span class="dt">Double</span>] <span class="ot">-&gt;</span> <span class="dt">Double</span>
-firstMinimum (x<span class="fu">:</span>y<span class="fu">:</span>ys) <span class="fu">=</span> <span class="kw">if</span> x <span class="fu">&lt;</span> y
-                        <span class="kw">then</span> x
-                        <span class="kw">else</span> firstMinimum (y<span class="fu">:</span>ys)
-
-<span class="ot">solve ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Double</span>
-solve c f x <span class="fu">=</span> firstMinimum <span class="fu">$</span> times c f x
-
-<span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> <span class="kw">do</span>
-  t <span class="ot">&lt;-</span> getLine
-  forM_ [<span class="dv">1</span><span class="fu">..</span>read<span class="ot"> t ::</span> <span class="dt">Int</span>] <span class="fu">$</span> \i <span class="ot">-&gt;</span> <span class="kw">do</span>
-    [c, f, x] <span class="ot">&lt;-</span> fmap (map read <span class="fu">.</span> words) getLine
-    <span class="kw">let</span> result <span class="fu">=</span> solve c f x
-    putStrLn <span class="fu">$</span> concat [<span class="st">&quot;Case #&quot;</span>, show i, <span class="st">&quot;: &quot;</span>, Numeric.showFFloat (<span class="dt">Just</span> <span class="dv">7</span>) result <span class="st">&quot;&quot;</span>]
-    </code></pre></div>
 </article>
 
 
