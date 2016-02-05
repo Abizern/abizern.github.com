@@ -58,18 +58,18 @@
     <p>Sometimes we want to format some JSON. Here’s an easy way to set up a Service in Automator to make this easier.</p>
 <p>Let’s create a service. Open Automator and choose to create a new Service</p>
 <div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/CreateNewService.png" alt />
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/CreateNewService.png" />
 
 </div>
 <p>From the Library, select the “Run Shell Script” action and drag it to the right.</p>
 <div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/RunShellScript.png" alt />
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/RunShellScript.png" />
 
 </div>
 <p>In the action box type:</p>
 <pre><code>json_pp | pbcopy</code></pre>
 <div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrint.png" alt />
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrint.png" />
 
 </div>
 <p>This is what actually does the formatting. <code>json_pp</code> comes with OS X. This runs the selected text through the tool and puts the result in the pasteboard.You can paste your formatted output wherever you like.</p>
@@ -77,24 +77,24 @@
 <p>Rather than have to paste the result, we can define another service that replaces the selected text with the result. Create another service as before except that the action doesn’t put the results on the pasteboard.</p>
 <pre><code>json_pp</code></pre>
 <div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrintInPlace.png" alt />
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrintInPlace.png" />
 
 </div>
 <p>Note that the “Output replaces selected text” option is checked.</p>
 <p>Save this action with a name - I’ve called mine <em>JSON Pretty Print In Place</em>.</p>
 <p>An advantage of using the service is that it is intelligent about when to make the service available. If there is no selection, then the Service is not listed:</p>
 <div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/NoSelection.png" alt />
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/NoSelection.png" />
 
 </div>
 <p>If the selection is in a place where the text cannot be pasted, then only the service that copies the result is presented.</p>
 <div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/Selection.png" alt />
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/Selection.png" />
 
 </div>
 <p>But if the text can be pasted in place, the Service is shown.</p>
 <div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/SelectionInPlace.png" alt />
+<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/SelectionInPlace.png" />
 
 </div>
 <p>You can see a gif of this in action at this <a href="https://dl.dropboxusercontent.com/s/7hb3tyqexojaaxf/2E4B3531-09A5-4514-B556-556E22FBB455-12370-0000275E07F45E21.gif?dl=0">link</a> - I’m linking to this so there isn’t a constantly repeating animation while you read this.</p>
