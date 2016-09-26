@@ -57,20 +57,20 @@
     </header>
     <p>Many times you will see a shortened url but you aren’t sure what it points at. Here’s a little tip that I picked up from <a href="http://tommorris.org">Tom Morris</a>.</p>
 <p>Pop open your terminal, or console, or whatever your command-line application is and type the following:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">curl</span> --head shorturl</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> --head shorturl</code></pre></div>
 <p>This pops up a short amount of useful information about the target url. For example the response for the Google short URL for this site shows this;</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span> <span class="kw">%</span> curl --head http://goo.gl/oQx8
-<span class="kw">HTTP/1.1</span> 301 Moved Permanently
-<span class="kw">Content-Type</span>: text/html<span class="kw">;</span> <span class="ot">charset=</span>UTF-8
-<span class="kw">Expires</span>: Sat, 16 Oct 2010 21:01:51 GMT
-<span class="kw">Date</span>: Sat, 16 Oct 2010 21:01:51 GMT
-<span class="kw">Cache-Control</span>: private, max-age=86400
-<span class="kw">Location</span>: http://abizern.org/
-<span class="kw">X-Content-Type-Options</span>: nosniff
-<span class="kw">X-Frame-Options</span>: SAMEORIGIN
-<span class="kw">X-XSS-Protection</span>: 1<span class="kw">;</span> <span class="ot">mode=</span>block
-<span class="kw">Server</span>: GSE
-<span class="kw">Transfer-Encoding</span>: chunked</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">~</span> <span class="ex">%</span> curl --head http://goo.gl/oQx8
+<span class="ex">HTTP/1.1</span> 301 Moved Permanently
+<span class="ex">Content-Type</span>: text/html<span class="kw">;</span> <span class="va">charset=</span>UTF-8
+<span class="ex">Expires</span>: Sat, 16 Oct 2010 21:01:51 GMT
+<span class="ex">Date</span>: Sat, 16 Oct 2010 21:01:51 GMT
+<span class="ex">Cache-Control</span>: private, max-age=86400
+<span class="ex">Location</span>: http://abizern.org/
+<span class="ex">X-Content-Type-Options</span>: nosniff
+<span class="ex">X-Frame-Options</span>: SAMEORIGIN
+<span class="ex">X-XSS-Protection</span>: 1<span class="kw">;</span> <span class="va">mode=</span>block
+<span class="ex">Server</span>: GSE
+<span class="ex">Transfer-Encoding</span>: chunked</code></pre></div>
 <p>And you can see that the Location shows that you aren’t going to get Rick-rolled.</p>
 </article>
 

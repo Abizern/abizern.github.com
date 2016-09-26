@@ -119,23 +119,23 @@
 <span class="co">// See http://www.cimgf.com/2010/05/02/my-current-prefix-pch-file/ for details.</span>
 <span class="co">// Most current version at https://gist.github.com/325926 along with usage notes.</span>
 
-<span class="ot">#ifndef jcscommonmacros</span>
-<span class="ot">#define jcscommonmacros_1_0  10000</span>
-<span class="ot">#define jcscommonmacros      jcscommonmacros_1_0</span>
-<span class="ot">#endif</span>
+<span class="pp">#ifndef jcscommonmacros</span>
+<span class="pp">#define jcscommonmacros_1_0  10000</span>
+<span class="pp">#define jcscommonmacros      jcscommonmacros_1_0</span>
+<span class="pp">#endif</span>
 
-<span class="ot">#ifdef DEBUG</span>
+<span class="pp">#ifdef DEBUG</span>
   #define DLog(...) NSLog(<span class="st">@&quot;%s %@&quot;</span>, __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
   #define ALog(...) [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:__VA_ARGS__]
-<span class="ot">#else</span>
+<span class="pp">#else</span>
   #define DLog(...) <span class="kw">do</span> { } <span class="kw">while</span> (<span class="dv">0</span>)
   #ifndef NS_BLOCK_ASSERTIONS
     #define NS_BLOCK_ASSERTIONS
   #endif
   #define ALog(...) NSLog(<span class="st">@&quot;%s %@&quot;</span>, __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
-<span class="ot">#endif</span>
+<span class="pp">#endif</span>
 
-<span class="ot">#define ZAssert(condition, ...) do { if (!(condition)) { ALog(__VA_ARGS__); }} while(0)</span>
+<span class="pp">#define ZAssert(condition, ...) do { if (!(condition)) { ALog(__VA_ARGS__); }} while(0)</span>
 
 <span class="co">//</span>
 <span class="co">// This is a general test for emptiness</span>
@@ -295,7 +295,7 @@ NSString * <span class="dt">const</span> kMyConstant = <span class="st">@&quot;M
 <h3 id="todos">TODOs</h3>
 <p>Put <code>// TODO:</code> comments to remind yourself of things and use search to find them.</p>
 <p>If you want to mark critical parts that need to be implemented, don’t bother with using build scripts to find the TODOs - just use a <code>#warning</code> instead:</p>
-<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="ot">#warning This method needs to be implemented.</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode objectivec"><code class="sourceCode objectivec"><span class="pp">#warning This method needs to be implemented.</span></code></pre></div>
 <p>This will raise a convenient warning with the message when building.</p>
 <h2 id="code-layout">Code layout</h2>
 <h3 id="pragma-is-your-friend">#pragma Is Your Friend</h3>
