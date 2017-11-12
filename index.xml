@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abizer Nasir</title>
+    <link>http://abizern.org/</link>
+    <description>Recent content on Abizer Nasir</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Tue, 25 Oct 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://abizern.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Safer Programming With Types</title>
+      <link>http://abizern.org/talks/2016/safer-programming-with-types/</link>
+      <pubDate>Tue, 25 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2016/safer-programming-with-types/</guid>
+      <description> Summary A presented a lightning talk at Swift London with a simple example of how using strong types can lead to safer programs.
+Slides  Available on Speaker Deck with speaker notes included.  </description>
+    </item>
+    
+    <item>
+      <title>Core Data It&#39;s Not Dead Yet</title>
+      <link>http://abizern.org/talks/2016/core-data-its-not-dead-yet/</link>
+      <pubDate>Fri, 23 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2016/core-data-its-not-dead-yet/</guid>
+      <description> Summary I spoke at FrenchKit Conference in Paris on why Core Data should not be counted out just yet.
+Slides  Available on Speaker Deck  Video  The video is available from Xebia&amp;rsquo;s YouTube Channel.  </description>
+    </item>
+    
+    <item>
+      <title>Being Imperfect In A Perfect World</title>
+      <link>http://abizern.org/talks/2016/being-imperfect-in-a-perfect-world/</link>
+      <pubDate>Wed, 21 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2016/being-imperfect-in-a-perfect-world/</guid>
+      <description> Summary Just some thoughts on the choices we make about the patterns we use in development.
+Slides  Available on Speaker Deck  </description>
+    </item>
+    
+    <item>
+      <title>Swift London Pre-WWDC Panel</title>
+      <link>http://abizern.org/talks/2016/swift-london-pre-wwdc-panel/</link>
+      <pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2016/swift-london-pre-wwdc-panel/</guid>
+      <description> Summary I was a late addition to this panel, which is my excuse for looking so scruffy.
+Video  The video is available on the Swift London YouTube Channel  </description>
+    </item>
+    
+    <item>
+      <title>Dependency Management With Carthage</title>
+      <link>http://abizern.org/talks/2016/dependency-management-with-carthage/</link>
+      <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2016/dependency-management-with-carthage/</guid>
+      <description> Summary Almost a year since the last time I gave a talk on this subject at NSLondon. This is an updated version about Carthage.
+Slides  The slides are available on Speaker Deck  Video  The video for this talk is available on Vimeo  </description>
+    </item>
+    
+    <item>
+      <title>Swift Function Overloading By Return Type</title>
+      <link>http://abizern.org/2015/swift-function-overloading-by-return-type/</link>
+      <pubDate>Sun, 11 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2015/swift-function-overloading-by-return-type/</guid>
+      <description>As Objective-C developers, we often forget that we can overload functions by return type. This can often help us create neat APIs. This is best illustrated by an example.
+I posted a wrapper for timer dispatch sources yesterday. While I was doing it I noticed a discrepancy with GCD. When creating a timer dispatch source, times were passed as nanoseconds as a UInt64, but the dispatch_after() function took nanoseconds as an Int64.</description>
+    </item>
+    
+    <item>
+      <title>A Swift Repeating Timer</title>
+      <link>http://abizern.org/2015/a-swift-repeating-timer/</link>
+      <pubDate>Sat, 10 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2015/a-swift-repeating-timer/</guid>
+      <description>We frequently (excuse the pun) need to schedule a repeated action.
+The way to do this was usually to use NSTimer&amp;rsquo;s scheduledTimerWithTimeInterval(_:,target:,selector:,userInfo:,repeats:), which needed a callback, and had the hidden pitfall of the target being strongly referenced by the runloop that this timer was scheduled on. There are extensions to NSTimer that allow the used of blocks instead (I even wrote one myself), but there is another way.
+Grand Central Dispatch provides dispatch sources for efficient interaction with the underlying system.</description>
+    </item>
+    
+    <item>
+      <title>Easy JSON formatting</title>
+      <link>http://abizern.org/2015/easy-json-formatting/</link>
+      <pubDate>Sat, 10 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2015/easy-json-formatting/</guid>
+      <description>Sometimes we want to format some JSON. Here&amp;rsquo;s an easy way to set up a Service in Automator to make this easier.
+Let&amp;rsquo;s create a service. Open Automator and choose to create a new Service
+From the Library, select the &amp;ldquo;Run Shell Script&amp;rdquo; action and drag it to the right.
+In the action box type:
+json_pp | pbcopy  This is what actually does the formatting. json_pp comes with OS X .</description>
+    </item>
+    
+    <item>
+      <title>Carthage</title>
+      <link>http://abizern.org/talks/2015/carthage/</link>
+      <pubDate>Thu, 30 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2015/carthage/</guid>
+      <description>Summary My NSLondon talk about the Carthage Dependency Management System. No need to manage your own submodules or use CocoaPods, Carthage provides a simpler and more flexible method of adding framework dependencies to Xcode projects.
+Slides These are available at SpeakerDeck</description>
+    </item>
+    
+    <item>
+      <title>What Haskell Teaches Me About Writing Swift</title>
+      <link>http://abizern.org/talks/2015/what-haskell-teaches-me-about-writing-swift/</link>
+      <pubDate>Thu, 11 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2015/what-haskell-teaches-me-about-writing-swift/</guid>
+      <description>Summary I had a chance to present a longer version of my Swift Summit Lightning Talk at AltConf 2015 in San Francisco.
+Just some personal thoughts on what knowing some Haskell teaches me about writing Swift code.
+Slides  The PDF Slides can be downloaded directly. View the slides on SpeakerDeck  Video  Available on the Realm Altconf site  References Here are the links to the references mentioned in my talk</description>
+    </item>
+    
+    <item>
+      <title>What Haskell Taught Me About Swift</title>
+      <link>http://abizern.org/talks/2015/what-haskell-taught-me-about-swift/</link>
+      <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2015/what-haskell-taught-me-about-swift/</guid>
+      <description> Summary I did a short talk at Swift Summit in London about a couple of things that knowing Haskell has helped me when writing Swift.
+Video A video of the talk, with synchronised slides can be seen at:
+ Realm.io  Slides  Download the PDF directly from here View the slides on SpeakerDeck  </description>
+    </item>
+    
+    <item>
+      <title>Debug Logging In Swift</title>
+      <link>http://abizern.org/2015/debug-logging-in-swift/</link>
+      <pubDate>Sun, 01 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2015/debug-logging-in-swift/</guid>
+      <description>In the last iOSDevWeekly Dave Verwer listed Art Sabintsev&amp;rsquo;s PrintLnMagic - a small function that reproduces the common DLog pattern that many use which not only prints a value, but the filename, the function name and the line of the call. Which is really handy in debugging.
+I use a version of Dlog myself, which has the added benefit of only outputting to the console when in Debug configurations, which PrintLnMagic does not do.</description>
+    </item>
+    
+    <item>
+      <title>Fizz Buzz in Swift</title>
+      <link>http://abizern.org/2014/fizz-buzz-in-swift/</link>
+      <pubDate>Sat, 13 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2014/fizz-buzz-in-swift/</guid>
+      <description>In August 2014 I gave a talk at NSLondon about various approaches to solving Fizz Buzz in Swift. The video is available on Vimeo and proved to be reasonably popular and even gained me my first mention in iOS Dev Weekly.
+Just to make this more complete here is a link to the slides and a Swift Playground that you can use to play around with the examples.
+http://downloads.abizern.org/FizzBuzzery.zip
+Have fun!</description>
+    </item>
+    
+    <item>
+      <title>FizzBuzz In Swift</title>
+      <link>http://abizern.org/talks/2014/fizzbuzz-in-swift/</link>
+      <pubDate>Thu, 28 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2014/fizzbuzz-in-swift/</guid>
+      <description>Summary My NSLondon talk about the various approaches to the FizzBuzz problem in Swift, plus some thoughts on the new Language. My first mention in iOS Dev Weekly
+Slides  The slides as a PDF file can be downloaded from here. You can see the slides on SpeakerDeck.  Combined Download  A zip file containing the slides and the playground is available here.  Video The video of the talk can be seen at:</description>
+    </item>
+    
+    <item>
+      <title>Adding 3rd Party Code To Your Project</title>
+      <link>http://abizern.org/talks/2014/adding-3rd-party-code-to-your-project/</link>
+      <pubDate>Thu, 15 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2014/adding-3rd-party-code-to-your-project/</guid>
+      <description>Summary This talk covers two ways of adding dependencies to an Xcode project; using Git Submodules or with CocoaPoads.
+Slides These are available on SpeakerDeck
+Video The video can be seen at SkillsMatter</description>
+    </item>
+    
+    <item>
+      <title>GCJ A - Magic Trick</title>
+      <link>http://abizern.org/2014/gcj-a---magic-trick/</link>
+      <pubDate>Fri, 18 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2014/gcj-a---magic-trick/</guid>
+      <description>I got through the qualification round for Google Code Jam 2014. I usually manage to get through this stage; it&amp;rsquo;s the first round that I haven&amp;rsquo;t managed to get past yet.
+The easiest question was A-Magic Trick. Nothing much to do here but count the number of similarities between two arrays, easily achieved with the interact method.
+The only gotcha in this problem was that the index of the rows to check is 1-based, and most programming languages use 0-based indexing.</description>
+    </item>
+    
+    <item>
+      <title>GCJ B - Cookie Clicker Alpha</title>
+      <link>http://abizern.org/2014/gcj-b---cookie-clicker-alpha/</link>
+      <pubDate>Fri, 18 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2014/gcj-b---cookie-clicker-alpha/</guid>
+      <description>Another problem from This year&amp;rsquo;s Google Code Jam.
+The gist of the problem is to work out whether buying additional capacity for cookie production would result is reaching the quota faster than not buying additional capacity.
+Haskell is suited to this for a couple of reasons. Firstly, its&amp;rsquo; easy to work with infinite lists. so I can create list of the cumulative times for creating factories and reaching the target. And to calculate the cumulative target I&amp;rsquo;m using the scanl1 function to turn the infinite list of factory times into an infinite list of partial sums.</description>
+    </item>
+    
+    <item>
+      <title>Hakyll New Post With Emacs</title>
+      <link>http://abizern.org/2014/hakyll-new-post-with-emacs/</link>
+      <pubDate>Sun, 05 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2014/hakyll-new-post-with-emacs/</guid>
+      <description>When this blog was created using Octopress, a new post could be created by simply running rake new_post in the Terminal. There is no such convenience in Hakyll, which is currently used as the generator. A small thing, but I wanted to fix it.
+I could have created a similar Rake task, or shell script to do this, and there are even examples to be found on Hakyll&amp;rsquo;s site. But since I&amp;rsquo;m usually in Emacs when I want to write a new post, I thought it would be a good excuse to write a little lisp.</description>
+    </item>
+    
+    <item>
+      <title>Hello Hakyll</title>
+      <link>http://abizern.org/2013/hello-hakyll/</link>
+      <pubDate>Thu, 26 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2013/hello-hakyll/</guid>
+      <description>This site is now being generated by Hakyll instead of Octopress
+It&amp;rsquo;s something I&amp;rsquo;ve been planning on doing for a while, but feeling a bit burned out on Objective-C / Cocoa and facing a few days downtime over the seasonal holidays now was the time to actually do it.
+Octopress is nice, and if you are just using the default theme, it&amp;rsquo;s easy to get up and running fairly quickly. But I found that updating the site for new versions of Octopress was fragile.</description>
+    </item>
+    
+    <item>
+      <title>Git at London Web Standards</title>
+      <link>http://abizern.org/2013/git-at-london-web-standards/</link>
+      <pubDate>Thu, 30 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2013/git-at-london-web-standards/</guid>
+      <description>London Web Standards is focusing on Git for their meeting on 17th June. I&amp;rsquo;m going to be talking on the topic of &amp;ldquo;Git&amp;rsquo;s not what you think it is&amp;rdquo;.
+ You think you know Git? Really?
+Are you using Git the same tired old way, checking in your changes and pulling from your colleagues? Do you get the sneaking feeling that others are having much more fun with it than you are?</description>
+    </item>
+    
+    <item>
+      <title>Setting up for Lisp on OS X</title>
+      <link>http://abizern.org/2013/setting-up-for-lisp-on-os-x/</link>
+      <pubDate>Sun, 31 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2013/setting-up-for-lisp-on-os-x/</guid>
+      <description>This is how I roll, you might choose a different path.
+ Install Emacs. Get a nice, modern pre-built binary from Emacs For Mac OS X. It even supports fullscreen mode
+ Install Emacs Prelude which provides a useful, opinionated emacs environment which is easily configured.
+ Install clisp. I use homebrew so brew install clisp takes care of that for me.
+ Install quicklisp; from Terminal go to a temporary directory and download quicklisp.</description>
+    </item>
+    
+    <item>
+      <title>Missing Xcode Toolbar</title>
+      <link>http://abizern.org/2013/missing-xcode-toolbar/</link>
+      <pubDate>Tue, 29 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2013/missing-xcode-toolbar/</guid>
+      <description>I&amp;rsquo;m sure you&amp;rsquo;ve been there.
+You&amp;rsquo;re working in Xcode, and you have a file opened on another monitor in another window. Unfortunately, you forget about it, and when you close your project and reopen it again, the toolbar is missing.
+It can be frustrating, because Xcode remembers this, and every time you open the project it will open without a toolbar. You can put it back by right-clicking in what is left of the toolbar and choosing one of the options.</description>
+    </item>
+    
+    <item>
+      <title>Correcting Brace Layout</title>
+      <link>http://abizern.org/2012/correcting-brace-layout/</link>
+      <pubDate>Sun, 30 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/correcting-brace-layout/</guid>
+      <description>I wrote a small rubygem called fixbraces to move the opening brace of a conditional to the same line as the opening statement.
+So now I can correct all the Xcode generated stubs that look like:
+- (void)someMethod { // some code here }  Into my preferred format:
+- (void)someMethod { // some code here }  Which fits with my personal coding standards.</description>
+    </item>
+    
+    <item>
+      <title>Commanding Your Text Editor</title>
+      <link>http://abizern.org/2012/commanding-your-text-editor/</link>
+      <pubDate>Fri, 02 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/commanding-your-text-editor/</guid>
+      <description>There&amp;rsquo;s a recent post up on the PeepCode Blog about Commanding Your Text Editor which has some handy tips for Emacs, Vim, Textmate, Sublime Text and the OS X. It&amp;rsquo;s a short read, and worth the time.
+More and more of our time is spent at a keyboard typing, whether you&amp;rsquo;re a programmer or not. Those of you who know me will have heard me talking about the Dvorak keyboard layout and my current attraction to Emacs.</description>
+    </item>
+    
+    <item>
+      <title>A Reason To Learn Lisp</title>
+      <link>http://abizern.org/2012/a-reason-to-learn-lisp/</link>
+      <pubDate>Thu, 01 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/a-reason-to-learn-lisp/</guid>
+      <description>A short video from a live demo of Emacs from Web Rebels in Oslo 2012.
+As the description says: &amp;ldquo;Crappy sound. Swearing. A noisy bar&amp;rdquo;, but an example of strong content overcoming presentation difficulties.
+ </description>
+    </item>
+    
+    <item>
+      <title>An Improved Reverse Words Script</title>
+      <link>http://abizern.org/2012/an-improved-reverse-words-script/</link>
+      <pubDate>Wed, 31 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/an-improved-reverse-words-script/</guid>
+      <description>About 6 months ago I posted a solution to the Google Code Jam problem Reverse Words
+I&amp;rsquo;ve become more comfortable with Haskell since then, so here&amp;rsquo;s an improved solution.
+module Main where {- Problem statement: http://code.google.com/codejam/contest/351101/dashboard#s=p1 Run as a script with runghc, or compile with ghc --make -O2 input and output is by redirection; $ ./reverse_words &amp;lt; input_file &amp;gt; output_file -} import Control.Monad main :: IO () main = do n &amp;lt;- readLn forM_ [1.</description>
+    </item>
+    
+    <item>
+      <title>UUID Strings with Cocoa</title>
+      <link>http://abizern.org/2012/uuid-strings-with-cocoa/</link>
+      <pubDate>Thu, 25 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/uuid-strings-with-cocoa/</guid>
+      <description>This used to be a thing until the iOS 6 and OS X 10.8 compatible NSUUID Class became available.
+New This is how you can do it now:
+NSString *uuidString = [[NSUUID UUID] UUIDString]; // Generates: 7E60066C-C7F3-438A-95B1-DDE8634E1072  Old Here&amp;rsquo;s a method you can put in a class, with the correct ARC casts on ownership, that returns a UUID. It&amp;rsquo;s a fairly common technique, and you&amp;rsquo;ll even see versions of it where people have created a category on NSString for this.</description>
+    </item>
+    
+    <item>
+      <title>On Live Coding</title>
+      <link>http://abizern.org/2012/on-live-coding/</link>
+      <pubDate>Mon, 20 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/on-live-coding/</guid>
+      <description>I read somewhere that part of the popularity of The West Wing was that it was entertaining to watch smart people solve difficult problems. I think that&amp;rsquo;s part of the reason why I find watching live coding videos so entertaining - It&amp;rsquo;s more fun to watch someone solve a problem than doing it yourself.
+There are plenty of screencasts you can find - YouTube is an obvious one, but don&amp;rsquo;t forget Vimeo.</description>
+    </item>
+    
+    <item>
+      <title>Coding Conventions</title>
+      <link>http://abizern.org/2012/coding-conventions/</link>
+      <pubDate>Sun, 01 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/coding-conventions/</guid>
+      <description>I&amp;rsquo;ve just published my Cocoa Coding Conventions.
+Not so that it can be followed, but to provide an idea of what can be done so that others can write their own, just as I&amp;rsquo;ve based mine on published conventions.
+The idea isn&amp;rsquo;t to create a rod for your back when writing code, but to put some thought into the choices that are made when writing code so that it is consistent.</description>
+    </item>
+    
+    <item>
+      <title>Book Stack June 2012</title>
+      <link>http://abizern.org/2012/book-stack-june-2012/</link>
+      <pubDate>Tue, 05 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/book-stack-june-2012/</guid>
+      <description>I seem to have accrued a stack of fiction that I haven&amp;rsquo;t got around to reading. This is just a stick in the ground so I remember to dig them up and read them at some time:
+ Anathem by Neal Stephenson Reamde by Neal Stephenson Embassytown by China Mieville Kraken by China Mieville Zoo City by Lauren Beukes The Namesake by Jhumpa Lahiri Vellum by Hal Duncan Zero History by William Gibson  I&amp;rsquo;m sure there are a couple more that I&amp;rsquo;ve missed out, but these are the ones that I&amp;rsquo;m aware of.</description>
+    </item>
+    
+    <item>
+      <title>London CoderDojo</title>
+      <link>http://abizern.org/2012/london-coderdojo/</link>
+      <pubDate>Sun, 15 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/london-coderdojo/</guid>
+      <description>I mentored at CoderDojo London this weekend. These are just some of my thoughts about it.
+CoderDojo is a movement orientated around running free not-for-profit coding clubs and regular sessions for young people.
+A regular London chapter has formed, supported by and at the offices of Forward Technology. It takes place in their canteen/theatre which has a nice tiered seating area and a miked up presentation stand.
+It&amp;rsquo;s still the Easter break, but 6 kids turned up with laptops ready to carry on with projects they had already started and learn new stuff.</description>
+    </item>
+    
+    <item>
+      <title>Rotate A String with Haskell</title>
+      <link>http://abizern.org/2012/rotate-a-string-with-haskell/</link>
+      <pubDate>Sun, 15 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/rotate-a-string-with-haskell/</guid>
+      <description>I qualified for Google Code Jam this year answering 3 out of 4 questions. I have no illusions about progressing very far, but I&amp;rsquo;m using it as an excuse to learn some Haskell and to write code faster.
+As part of the learning process, I took one of my correct solutions over to the nice folks at the #haskell channel over on freenode and asked if there was a better way to do it.</description>
+    </item>
+    
+    <item>
+      <title>Reverse Words With Haskell</title>
+      <link>http://abizern.org/2012/reverse-words-with-haskell/</link>
+      <pubDate>Mon, 09 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/reverse-words-with-haskell/</guid>
+      <description>As part of my preparation for Google Code Jam I&amp;rsquo;ve been working through the practice problems with Haskell.
+I made a screencast on solving the Reverse Words problem, along with the mechanics of getting the problem inputs and submitting solutions. The style was heavily influenced by a sequence on Data Driven Programming in Haskell by Jonas Tullus
+I moved at a slower pace, and talking and typing seem to have confused my brain so I think I lapsed into gibberish in a couple of places.</description>
+    </item>
+    
+    <item>
+      <title>Git Ignore file</title>
+      <link>http://abizern.org/2012/git-ignore-file/</link>
+      <pubDate>Mon, 19 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/git-ignore-file/</guid>
+      <description>A while ago I answered a couple of questions on Stack Overflow using my .gitignore file as an example. I find it strangely satisfying to find that there are projects on GitHub that use it, and even the odd blogs has put it up as well.
+I might as well have it on my own site:
+# Mac OS X *.DS_Store # Xcode *.pbxuser *.mode1v3 *.mode2v3 *.perspectivev3 *.xcuserstate project.xcworkspace/ xcuserdata/ # Generated files *.</description>
+    </item>
+    
+    <item>
+      <title>Simple Localisation Testing</title>
+      <link>http://abizern.org/2012/simple-localisation-testing/</link>
+      <pubDate>Sun, 18 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/simple-localisation-testing/</guid>
+      <description>Sometimes you want to test your localisations but you don&amp;rsquo;t want to go through the hassle of changing the settings on the simulator, or device, or your Mac for each one. There&amp;rsquo;s always the fear of setting some language that you don&amp;rsquo;t understand.
+But, with Xcode4 schemes and a little argument passing this is a lot easier than it used to be. You can set up a scheme for each localisation which will let you run your iOS or Mac app under that localisation without having to change any settings.</description>
+    </item>
+    
+    <item>
+      <title>Hello Octopress</title>
+      <link>http://abizern.org/2012/hello-octopress/</link>
+      <pubDate>Sat, 17 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/hello-octopress/</guid>
+      <description>This is the obligatory post announcing that I&amp;rsquo;ve moved this site off Wordpress to Octopress. It&amp;rsquo;s been almost a year since I posted anything. And most of what I did publish was about NSCoder Night.
+The old site had the Solarized Dark theme - and once I saw that the code formatting on Octopress was that by default I decided to make the move. Now I can happily write Markdown formatted posts with Emacs and see an almost live preview of how it will look when published.</description>
+    </item>
+    
+    <item>
+      <title>NSCoder Night London Now Has It&#39;s Own Page</title>
+      <link>http://abizern.org/2011/nscoder-night-london-now-has-its-own-page/</link>
+      <pubDate>Thu, 14 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2011/nscoder-night-london-now-has-its-own-page/</guid>
+      <description>It&amp;rsquo;s been over a year that I&amp;rsquo;ve been running the NSCoder Night meetings in London from here, but I&amp;rsquo;ve now moved it to a site of its own. You can now get all the information from NSCoderNightLondon.com.
+Blog style entries never really worked. I hope that having everything together in just a few pages on a site makes it easier for people who want to turn up.
+I hope that it floats up higher in Google Rankings as well.</description>
+    </item>
+    
+    <item>
+      <title>Just Enough GPG for git</title>
+      <link>http://abizern.org/2011/just-enough-gpg-for-git/</link>
+      <pubDate>Mon, 17 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2011/just-enough-gpg-for-git/</guid>
+      <description>It came about that I wanted to do some work with git and signed tags. It&amp;rsquo;s been a while since I had looked at this, I&amp;rsquo;ve got some old entries up on keyservers that date back to 1999, and never on a Mac.
+It turns out that it is quite simple to set up a minimal GPG environment – one that lets you work on the command line without having to set it up for Mail.</description>
+    </item>
+    
+    <item>
+      <title>Staying Flash-free on a MacBook Air</title>
+      <link>http://abizern.org/2010/staying-flash-free-on-a-macbook-air/</link>
+      <pubDate>Sun, 21 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2010/staying-flash-free-on-a-macbook-air/</guid>
+      <description>You may have seen John Gruber&amp;rsquo;s posts on uninstalling system-wide flash and changing the Safari User Agent to view some sites that have Flash content.
+The new MacBook Airs don&amp;rsquo;t have Flash installed by default so this is a tl:dr summary of those two articles so you don&amp;rsquo;t have to download and install the system-wide Flash player.
+Many sites, such as YouTube, provide content in an alternative format for devices that do not have Flash installed.</description>
+    </item>
+    
+    <item>
+      <title>Getting the address of a shortened URL</title>
+      <link>http://abizern.org/2010/getting-the-address-of-a-shortened-url/</link>
+      <pubDate>Sat, 16 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2010/getting-the-address-of-a-shortened-url/</guid>
+      <description>Many times you will see a shortened url but you aren&amp;rsquo;t sure what it points at. Here&amp;rsquo;s a little tip that I picked up from Tom Morris.
+Pop open your terminal, or console, or whatever your command-line application is and type the following:
+curl --head &amp;lt;shorturl_to_check&amp;gt;  This pops up a short amount of useful information about the target url. For example the response for the Google short URL for this site shows this;</description>
+    </item>
+    
+    <item>
+      <title>Blackjack and the Python Dojo</title>
+      <link>http://abizern.org/2010/blackjack-and-the-python-dojo/</link>
+      <pubDate>Fri, 08 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2010/blackjack-and-the-python-dojo/</guid>
+      <description>&amp;ldquo;A coding dojo is a safe place to deliberately practice and develop your coding skills.&amp;rdquo;
+I went to my first London Python Dojo last night and had a better time than I expected. I know a little Python (just enough to hurt myself). I was intrigued by this event where the idea was to learn together rather than just share knowledge.
+The evening started off with beer and pizza, thanks to our hosts Fry-IT, and then moved on to two short presentations.</description>
+    </item>
+    
+    <item>
+      <title>DVCS at LiDG</title>
+      <link>http://abizern.org/2010/dvcs-at-lidg/</link>
+      <pubDate>Fri, 08 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2010/dvcs-at-lidg/</guid>
+      <description>I gave a short presentation to the London iPhone Developer Group at the Apple store in London this week.
+20 minutes is far too short to cover such a large subject but I did what I could. I have been given another opportunity to present in the future and I&amp;rsquo;m going to skip the boring beginner bits and just cover 3 or 4 advanced Git techniques which should be more fun.</description>
+    </item>
+    
+    <item>
+      <title>A Year of Git</title>
+      <link>http://abizern.org/2010/a-year-of-git/</link>
+      <pubDate>Wed, 24 Mar 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2010/a-year-of-git/</guid>
+      <description>I&amp;rsquo;ve been inspired by Pieter Omvlee of Bohemian Coding and his 365Cocoa to set up my own contribution.
+I&amp;rsquo;m going to try and and fill a year with git tips and inspirations over at 365git. I’ve got a few weeks worth of ideas but if anyone wants to know anything or has a suggestion, I’ll gratefully consider them.</description>
+    </item>
+    
+    <item>
+      <title>Renaming an Xcode Project</title>
+      <link>http://abizern.org/2010/renaming-an-xcode-project/</link>
+      <pubDate>Sat, 06 Mar 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2010/renaming-an-xcode-project/</guid>
+      <description>You may have occasion to rename an Xcode project.
+You can find step-by-step instructions and scripts with a little bit of Googling. But there is another way. If you&amp;rsquo;re running Xcode 3.2 on Snow Leopard there is a menu item you can use instead. Have a look at the Project &amp;gt; Rename… menu item instead.</description>
+    </item>
+    
+    <item>
+      <title>A Year Of Objective-C Snippets</title>
+      <link>http://abizern.org/2010/a-year-of-objective-c-snippets/</link>
+      <pubDate>Sat, 27 Feb 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2010/a-year-of-objective-c-snippets/</guid>
+      <description>Pieter Omvlee of Bohemian Coding has been inspired to post a snippet of Objective-C/Cocoa code every day for a year.
+It’s a great idea and starts with a useful category on NSArray. Go and see what you can learn over at http://365cocoa.tumblr.com/.</description>
+    </item>
+    
+    <item>
+      <title>A Simple Answer Is Not Always Best</title>
+      <link>http://abizern.org/2010/a-simple-answer-is-not-always-best/</link>
+      <pubDate>Fri, 08 Jan 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2010/a-simple-answer-is-not-always-best/</guid>
+      <description>On New Year&amp;rsquo;s eve, Dámasa asked me to calculate some fraction of a fraction and provide the answer as a fraction in eighths. The post had just arrived so I flipped over an envelope and started working it out.
+&amp;ldquo;Why do you need the answer in eighths?&amp;rdquo; I asked, while making calculations.
+&amp;ldquo;Because I&amp;rsquo;m trying to convert a recipe and my scales only go down to eighths of an ounce.&amp;rdquo;</description>
+    </item>
+    
+    <item>
+      <title>Some Tips for Lazy Xcoders</title>
+      <link>http://abizern.org/2009/some-tips-for-lazy-xcoders/</link>
+      <pubDate>Wed, 11 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2009/some-tips-for-lazy-xcoders/</guid>
+      <description>We all know what we should be doing when writing code. Each methodology you choose to use has it&amp;rsquo;s own best practices, whether it&amp;rsquo;s working from full specifications, writing unit tests first, programming in pairs, yadda, yadda. But, as developers, we&amp;rsquo;re only human, and we&amp;rsquo;re lazy. We have tools to make things easy for us. Here are a few tips that you can use to help when you&amp;rsquo;re not as rigorous in your coding as you should be.</description>
+    </item>
+    
+    <item>
+      <title>Integrating Git with SubEthaEdit and Changes App</title>
+      <link>http://abizern.org/2009/integrating-git-with-subethaedit-and-changes-app/</link>
+      <pubDate>Mon, 09 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2009/integrating-git-with-subethaedit-and-changes-app/</guid>
+      <description>A while ago, I read a nice write up about using mercurial with SubEthaEdit and Changes. Here&amp;rsquo;s how to do the same thing with git instead of mercurial, separated into two parts in case you just want to apply one set of changes.
+Changes Support Step One: Make sure chdiff is installed.
+Open Changes.app and from the Changes menu select &amp;ldquo;Install terminal utility&amp;rdquo;. This will install the chdiff utility which is used by the script.</description>
+    </item>
+    
+    <item>
+      <title>NSCoder Night London - Report</title>
+      <link>http://abizern.org/2009/nscoder-night-london---report/</link>
+      <pubDate>Fri, 25 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2009/nscoder-night-london---report/</guid>
+      <description>The first London NSCoder Night was a success!
+Eleven people turned up, travelling from as far as Brighton and Reading to join in the fun. There was a mix of indies, learners, small Mac shops and students.
+We started off upstairs at the Bunch of Grapes and then moved to the outside area for more room. The tables outside are at a comfortable height for standing around so people were able to move around to different groups.</description>
+    </item>
+    
+    <item>
+      <title>NSCoder Night London</title>
+      <link>http://abizern.org/2009/nscoder-night-london/</link>
+      <pubDate>Mon, 21 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2009/nscoder-night-london/</guid>
+      <description>It&amp;rsquo;s surprising that there isn&amp;rsquo;t an NSCoder Night chapter in London. There is a monthly CocoaHeads meeting in Swindon, and the UK Mac Dev meeting once a month in Central London, but I think that there is a gap for an evening of coding in a social setting.
+So, in the spirit of &amp;ldquo;If you build it, they will come&amp;rdquo; I&amp;rsquo;m going to try and get this started. This Tuesday, September 22, from about 7, let&amp;rsquo;s get together at the Bunch of Grapes pub just behind London Bridge Station map.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://abizern.org/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/about/</guid>
+      <description>I am a freelance and iOS and macOS developer based in London. I use Xcode, Git and Emacs. I have a collection of fountain pens, I ride a fixed wheel bike, enjoy scuba diving and occasionally I&amp;rsquo;ll strum my guitar.
+You can find me online, mostly with the username abizern, and the avatar image that I use almost everywhere is based on this photograph of me. A bit old, and I should really have had a shave, but it&amp;rsquo;s me.</description>
+    </item>
+    
+    <item>
+      <title>Cocoa Coding Conventions</title>
+      <link>http://abizern.org/notes/cocoa-coding-conventions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/notes/cocoa-coding-conventions/</guid>
+      <description>Purpose Consistent coding conventions are one way to keep code readable and maintainable. Written coding conventions provide a handy reference for the times when one can&amp;rsquo;t remember what conventions apply.
+This is a living document, and if I find that I am breaking the conventions I&amp;rsquo;ve set for myself, then I&amp;rsquo;ll update the document to match what I&amp;rsquo;m doing. This is more a record of my choices than a rod for my own back.</description>
+    </item>
+    
+    <item>
+      <title>Emacs Notes</title>
+      <link>http://abizern.org/notes/emacs-notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/notes/emacs-notes/</guid>
+      <description>Installation Emacs brew install emacs --cocoa --srgb  .emacs.d These work for my dotfiles, based off Emacs Prelude, which should be cloned to ~/.emacs.d. There are no submodules in this repository.
+Install with the customised script
+curl -L https://github.com/Abizern/prelude/raw/master/utils/installer.sh | sh  General C-_, C-x u Undo, Cancel last command C-x, C-f Visit file C-x C-i Insert contents of file in buffer C-x C-s Save buffer C-x C-w Save buffer as&amp;hellip; &amp;lt;revert-file&amp;gt; Revert to last saved version C-x p Visit buffer under point C-f, C-j Turn off ido-mode in minibuffer M-; Comment active region (comment-dwim) M-/ Hippie expansion C-M-/ Completion on current word M-q Format text to paragraph C-x \ (align-regexp) C-c C-w Backward kill word S-return Smart open line below C-S-return Smart open line above C-g Quit command in the minibuffer C-u Prefix argument M-j Join the next line to this one</description>
+    </item>
+    
+  </channel>
+</rss>

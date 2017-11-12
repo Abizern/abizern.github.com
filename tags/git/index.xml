@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Abizer Nasir</title>
+    <link>http://abizern.org/tags/git/</link>
+    <description>Recent content in Git on Abizer Nasir</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Thu, 15 May 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://abizern.org/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Adding 3rd Party Code To Your Project</title>
+      <link>http://abizern.org/talks/2014/adding-3rd-party-code-to-your-project/</link>
+      <pubDate>Thu, 15 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2014/adding-3rd-party-code-to-your-project/</guid>
+      <description>Summary This talk covers two ways of adding dependencies to an Xcode project; using Git Submodules or with CocoaPoads.
+Slides These are available on SpeakerDeck
+Video The video can be seen at SkillsMatter</description>
+    </item>
+    
+    <item>
+      <title>Git at London Web Standards</title>
+      <link>http://abizern.org/2013/git-at-london-web-standards/</link>
+      <pubDate>Thu, 30 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2013/git-at-london-web-standards/</guid>
+      <description>London Web Standards is focusing on Git for their meeting on 17th June. I&amp;rsquo;m going to be talking on the topic of &amp;ldquo;Git&amp;rsquo;s not what you think it is&amp;rdquo;.
+ You think you know Git? Really?
+Are you using Git the same tired old way, checking in your changes and pulling from your colleagues? Do you get the sneaking feeling that others are having much more fun with it than you are?</description>
+    </item>
+    
+    <item>
+      <title>Git Ignore file</title>
+      <link>http://abizern.org/2012/git-ignore-file/</link>
+      <pubDate>Mon, 19 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/git-ignore-file/</guid>
+      <description>A while ago I answered a couple of questions on Stack Overflow using my .gitignore file as an example. I find it strangely satisfying to find that there are projects on GitHub that use it, and even the odd blogs has put it up as well.
+I might as well have it on my own site:
+# Mac OS X *.DS_Store # Xcode *.pbxuser *.mode1v3 *.mode2v3 *.perspectivev3 *.xcuserstate project.xcworkspace/ xcuserdata/ # Generated files *.</description>
+    </item>
+    
+    <item>
+      <title>Just Enough GPG for git</title>
+      <link>http://abizern.org/2011/just-enough-gpg-for-git/</link>
+      <pubDate>Mon, 17 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2011/just-enough-gpg-for-git/</guid>
+      <description>It came about that I wanted to do some work with git and signed tags. It&amp;rsquo;s been a while since I had looked at this, I&amp;rsquo;ve got some old entries up on keyservers that date back to 1999, and never on a Mac.
+It turns out that it is quite simple to set up a minimal GPG environment – one that lets you work on the command line without having to set it up for Mail.</description>
+    </item>
+    
+    <item>
+      <title>DVCS at LiDG</title>
+      <link>http://abizern.org/2010/dvcs-at-lidg/</link>
+      <pubDate>Fri, 08 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2010/dvcs-at-lidg/</guid>
+      <description>I gave a short presentation to the London iPhone Developer Group at the Apple store in London this week.
+20 minutes is far too short to cover such a large subject but I did what I could. I have been given another opportunity to present in the future and I&amp;rsquo;m going to skip the boring beginner bits and just cover 3 or 4 advanced Git techniques which should be more fun.</description>
+    </item>
+    
+    <item>
+      <title>A Year of Git</title>
+      <link>http://abizern.org/2010/a-year-of-git/</link>
+      <pubDate>Wed, 24 Mar 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2010/a-year-of-git/</guid>
+      <description>I&amp;rsquo;ve been inspired by Pieter Omvlee of Bohemian Coding and his 365Cocoa to set up my own contribution.
+I&amp;rsquo;m going to try and and fill a year with git tips and inspirations over at 365git. I’ve got a few weeks worth of ideas but if anyone wants to know anything or has a suggestion, I’ll gratefully consider them.</description>
+    </item>
+    
+    <item>
+      <title>Integrating Git with SubEthaEdit and Changes App</title>
+      <link>http://abizern.org/2009/integrating-git-with-subethaedit-and-changes-app/</link>
+      <pubDate>Mon, 09 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2009/integrating-git-with-subethaedit-and-changes-app/</guid>
+      <description>A while ago, I read a nice write up about using mercurial with SubEthaEdit and Changes. Here&amp;rsquo;s how to do the same thing with git instead of mercurial, separated into two parts in case you just want to apply one set of changes.
+Changes Support Step One: Make sure chdiff is installed.
+Open Changes.app and from the Changes menu select &amp;ldquo;Install terminal utility&amp;rdquo;. This will install the chdiff utility which is used by the script.</description>
+    </item>
+    
+  </channel>
+</rss>

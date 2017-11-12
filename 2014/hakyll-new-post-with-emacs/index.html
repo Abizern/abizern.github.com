@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="description" content="Developer and personal blog of Abizer Nasir; iOS and macOS contractor in London.">
+<meta name="keywords" content="blog, personal, developer, swift, objectivec, ios, macos, haskell, git">
+
+<base href="http://abizern.org">
+
+<title>Abizer Nasir</title>
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://abizern.org/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en-GB">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">Hakyll New Post With Emacs</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+        PUBLISHED ON JAN 5, 2014 
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    <p>When this blog was created using Octopress, a new post could be created by
+simply running <code>rake new_post</code> in the Terminal. There is no such convenience in
+Hakyll, which is currently used as the generator. A small thing, but I wanted to
+fix it.</p>
+
+<p>I could have created a similar Rake task, or shell script to do this, and there
+are even examples to be <a href="http://jaspervdj.be/hakyll/examples.html">found</a> on
+Hakyll&rsquo;s site. But since I&rsquo;m usually in Emacs when I want to write a new post, I
+thought it would be a good excuse to write a little lisp. And so, here is my
+first attempt.</p>
+
+<pre><code class="language-lisp">(defun hakyll-site-location ()
+  &quot;Return the location of the Hakyll files.&quot;
+  &quot;~/Sites/hblog/&quot;)
+
+(defun hakyll-new-post (title tags)
+  &quot;Create a new Hakyll post for today with TITLE and TAGS.&quot;
+  (interactive &quot;sTitle: \nsTags: &quot;)
+  (let ((file-name (hakyll-post-title title)))
+    (set-buffer (get-buffer-create file-name))
+    (markdown-mode)
+    (insert
+     (format &quot;---\ntitle: %s\ntags: %s\ndescription: \n---\n\n&quot; title tags))
+    (write-file
+     (expand-file-name file-name (concat (hakyll-site-location) &quot;posts&quot;)))
+    (switch-to-buffer file-name)))
+
+(defun hakyll-new-note (title)
+  &quot;Create a new Note with TITLE.&quot;
+  (interactive &quot;sTitle: &quot;)
+  (let ((file-name (hakyll-note-title title)))
+    (set-buffer (get-buffer-create file-name))
+    (markdown-mode)
+    (insert (format &quot;---\ntitle: %s\ndescription: \n---\n\n&quot; title))
+    (write-file
+     (expand-file-name file-name (concat (hakyll-site-location) &quot;notes&quot;)))
+    (switch-to-buffer file-name)))
+
+(defun hakyll-post-title (title)
+  &quot;Return a file name based on TITLE for the post.&quot;
+  (concat
+   (format-time-string &quot;%Y-%m-%d&quot;)
+   &quot;-&quot;
+   (replace-regexp-in-string &quot; &quot; &quot;-&quot; (downcase title))
+   &quot;.markdown&quot;))
+
+(defun hakyll-note-title (title)
+  &quot;Return a file name based on TITLE for the note.&quot;
+  (concat
+   (replace-regexp-in-string &quot; &quot; &quot;-&quot; (downcase title))
+   &quot;.markdown&quot;))
+</code></pre>
+
+<p>I&rsquo;m not much of a lisper, and it probably took me longer to write than the time
+it will save me, but that doesn&rsquo;t matter. Firstly; it might be useful to
+somebody else, and so the cumulative time saved could be greater.</p>
+
+<p>Secondly, my day job means I spend most of my coding time in Xcode, which can&rsquo;t
+be customised as Emacs can be, and if I don&rsquo;t spend time writing and learning
+lisp, I&rsquo;ll have no chance of getting better at it.</p>
+
+<p>So, I think it&rsquo;s not bad as a first attempt, although it could obviously be
+refactored, and you can follow the history of it in my dotfiles
+<a href="https://github.com/Abizern/prelude/blob/master/personal/hakyll.el">repository</a>
+if you want to see how it could be developed (or even, you know, help me out
+with it).</p>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+      
+      TAGS:
+      
+      
+      <a class="meta" href="/tags/emacs">EMACS</a>, 
+      
+      <a class="meta" href="/tags/hakyll">HAKYLL</a>, 
+      
+      <a class="meta" href="/tags/lisp">LISP</a>, 
+      
+      <a class="meta" href="/tags/meta">META</a>
+      
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  <span><a class="menu-item" href="http://abizern.org/2013/hello-hakyll/">&lt; prev | </a></span>
+  
+  
+  <span><a class="menu-item" href="/blog">blog</a></span>
+  
+  
+  <span><a class="menu-item" href="http://abizern.org/2014/gcj-b---cookie-clicker-alpha/"> | next &gt;</a></span>
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="http://abizern.org">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2009-2017 Abizer Nasir | <a href="https://creativecommons.org/licenses/by-sa/4.0/">Some Rights Reserved</a>.</h6>
+  
+  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js"></script>
+  
+
+<script type="text/javascript">
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+
+

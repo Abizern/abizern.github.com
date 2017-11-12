@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wwdc on Abizer Nasir</title>
+    <link>http://abizern.org/tags/wwdc/</link>
+    <description>Recent content in Wwdc on Abizer Nasir</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Tue, 07 Jun 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://abizern.org/tags/wwdc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Swift London Pre-WWDC Panel</title>
+      <link>http://abizern.org/talks/2016/swift-london-pre-wwdc-panel/</link>
+      <pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2016/swift-london-pre-wwdc-panel/</guid>
+      <description> Summary I was a late addition to this panel, which is my excuse for looking so scruffy.
+Video  The video is available on the Swift London YouTube Channel  </description>
+    </item>
+    
+  </channel>
+</rss>

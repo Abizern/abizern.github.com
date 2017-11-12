@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ruby on Abizer Nasir</title>
+    <link>http://abizern.org/tags/ruby/</link>
+    <description>Recent content in Ruby on Abizer Nasir</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Sun, 30 Dec 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://abizern.org/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Correcting Brace Layout</title>
+      <link>http://abizern.org/2012/correcting-brace-layout/</link>
+      <pubDate>Sun, 30 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/correcting-brace-layout/</guid>
+      <description>I wrote a small rubygem called fixbraces to move the opening brace of a conditional to the same line as the opening statement.
+So now I can correct all the Xcode generated stubs that look like:
+- (void)someMethod { // some code here }  Into my preferred format:
+- (void)someMethod { // some code here }  Which fits with my personal coding standards.</description>
+    </item>
+    
+    <item>
+      <title>On Live Coding</title>
+      <link>http://abizern.org/2012/on-live-coding/</link>
+      <pubDate>Mon, 20 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/on-live-coding/</guid>
+      <description>I read somewhere that part of the popularity of The West Wing was that it was entertaining to watch smart people solve difficult problems. I think that&amp;rsquo;s part of the reason why I find watching live coding videos so entertaining - It&amp;rsquo;s more fun to watch someone solve a problem than doing it yourself.
+There are plenty of screencasts you can find - YouTube is an obvious one, but don&amp;rsquo;t forget Vimeo.</description>
+    </item>
+    
+  </channel>
+</rss>

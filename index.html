@@ -1,211 +1,141 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="The developer and personal blog of
-                                          Abizer Nasir, a freelance iOS and OS X
-                                          developer in London, UK">
-        <meta name="author" content="Abizer Nasir">
-        <title>Abizern.org - Home</title>
-        <link rel="canonical" href="http://abizern.org">
-        <link rel="icon" href="./favicon.png" type="image/png">
-        <link rel="apple-touch-icon" sizes="60x60" href="./images/favicon-60.png" type="image/png">
-        <link rel="apple-touch-icon" sizes="76x76" href="./images/favicon-76.png" type="image/png">
-        <link rel="apple-touch-icon" sizes="120x120" href="./images/favicon-120.png" type="image/png">
-        <link rel="apple-touch-icon" sizes="152x152" href="./images/favicon-152.png" type="image/png">
-        <link rel="stylesheet" type="text/css" href="./css/main.css">
-        <link href="./atom.xml" rel="alternate" title="Abizern.org - A personal and developer blog" type="application/atom+xml">
-        <link type="text/plain" rel="author" href="./humans.txt">
-        <script type="text/javascript">
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5015208-5']);
-  _gaq.push(['_trackPageview']);
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+<meta name="description" content="Developer and personal blog of Abizer Nasir; iOS and macOS contractor in London.">
+<meta name="keywords" content="blog, personal, developer, swift, objectivec, ios, macos, haskell, git">
 
-        </script>
-    </head>
+<base href="http://abizern.org">
 
-    <body>
-        <header id="page_header">
-    <h1><a href="./" title="Home">Abizer Nasir</a></h1>
+<title>Abizer Nasir</title>
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+  <link href="Page%28%22Abizer%20Nasir%22%29" rel="alternate" type="application/rss+xml" title="Abizer Nasir" />
+  <link href="Page%28%22Abizer%20Nasir%22%29" rel="feed" type="application/rss+xml" title="Abizer Nasir" />
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://abizern.org/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en-GB">
+<div class="container">
+
+
+<header class="row text-center header">
+   <img src="/img//avatar.jpg" alt="Author Image" class="img-circle text-center headshot"> 
+  <h1 class="author">Abizer Nasir</h1>
 </header>
 
-        <nav id="page_navigation">
-    <ul>
-        <li><a href="./">Home</a></li>
-        <li><a href="./about">About</a></li>
-        <li><a href="./archive">Archive</a></li>
-        <li><a href="./notes">Notes</a></li>
-        <li><a href="./talks">Talks</a></li>
-    </ul>
-</nav>
 
-        
-        <section id="content">
-            <article>
-    <header>
-        <h1>
-            <a href="./2015/10/11/swift-function-overloading-by-return-type/" title="Permalink">
-                Swift Function Overloading By Return Type
-            </a>
-        </h1>
-        <span class="post-date">October 11, 2015</span> in 
-        <span class="post-tags"><a href="./tags/swift/">swift</a>, <a href="./tags/programming/">programming</a></span>
-    </header>
-    <p>As Objective-C developers, we often forget that we can overload functions by return type. This can often help us create neat APIs. This is best illustrated by an example.</p>
-<p>I posted a <a href="http://abizern.org/2015/10/10/a-swift-repeating-timer/">wrapper for timer dispatch sources</a> yesterday. While I was doing it I noticed a discrepancy with GCD. When creating a timer dispatch source, times were passed as nanoseconds as a <code>UInt64</code>, but the <code>dispatch_after()</code> function took nanoseconds as an <code>Int64</code>. Such things are what cause hair-pulling and fighting with the type system.</p>
-<p>But most of the time we just want to pass times around as <code>NSTimeInterval</code>s as seconds, but we have to convert this to a <code>UInt64</code> or an <code>Int64</code>. It’s a better idea to wrap these creating methods, and function overloading lets us use the same descriptive name for these functions with different return types. So, here is some code which you can put in a playground that demonstrates this:</p>
-<script src="https://gist.github.com/Abizern/c030bd9674b2ad881b44.js"></script>
-<p>I’m extending <code>NSTimeInterval</code> which is a typealias for <code>Double</code> just to make it clear that these new functions apply to times.</p>
-<p>Note that there are two functions called <code>nSecs()</code>, but they return different values. And the strong type system ensures the correct function is used. <code>dispatch_source_set_timer()</code> uses the <code>nSecs() -&gt; UInt64</code> values, and the <code>dispatch_after()</code> uses <code>nSecs() -&gt; Int64</code> function</p>
-<p>This example also demonstrates that we should write functions for such translations, which separates the concerns of creating and transforming values from the use of those values. It’s something that I don’t do enough of, and I encourage you do try and do this where you can.</p>
-</article>
-<article>
-    <header>
-        <h1>
-            <a href="./2015/10/10/easy-json-formatting/" title="Permalink">
-                Easy JSON formatting
-            </a>
-        </h1>
-        <span class="post-date">October 10, 2015</span> in 
-        <span class="post-tags"><a href="./tags/mac/">mac</a>, <a href="./tags/programming/">programming</a>, <a href="./tags/automator/">automator</a></span>
-    </header>
-    <p>Sometimes we want to format some JSON. Here’s an easy way to set up a Service in Automator to make this easier.</p>
-<p>Let’s create a service. Open Automator and choose to create a new Service</p>
-<div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/CreateNewService.png" />
-
-</div>
-<p>From the Library, select the “Run Shell Script” action and drag it to the right.</p>
-<div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/RunShellScript.png" />
-
-</div>
-<p>In the action box type:</p>
-<pre><code>json_pp | pbcopy</code></pre>
-<div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrint.png" />
-
-</div>
-<p>This is what actually does the formatting. <code>json_pp</code> comes with OS X. This runs the selected text through the tool and puts the result in the pasteboard.You can paste your formatted output wherever you like.</p>
-<p>Save the action with a name - I’ve called mine <em>JSON Pretty Print</em>. You should see the new service installed under <code>~/Library/Services</code></p>
-<p>Rather than have to paste the result, we can define another service that replaces the selected text with the result. Create another service as before except that the action doesn’t put the results on the pasteboard.</p>
-<pre><code>json_pp</code></pre>
-<div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrintInPlace.png" />
-
-</div>
-<p>Note that the “Output replaces selected text” option is checked.</p>
-<p>Save this action with a name - I’ve called mine <em>JSON Pretty Print In Place</em>.</p>
-<p>An advantage of using the service is that it is intelligent about when to make the service available. If there is no selection, then the Service is not listed:</p>
-<div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/NoSelection.png" />
-
-</div>
-<p>If the selection is in a place where the text cannot be pasted, then only the service that copies the result is presented.</p>
-<div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/Selection.png" />
-
-</div>
-<p>But if the text can be pasted in place, the Service is shown.</p>
-<div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/10/SelectionInPlace.png" />
-
-</div>
-<p>You can see a gif of this in action at this <a href="https://dl.dropboxusercontent.com/s/7hb3tyqexojaaxf/2E4B3531-09A5-4514-B556-556E22FBB455-12370-0000275E07F45E21.gif?dl=0">link</a> - I’m linking to this so there isn’t a constantly repeating animation while you read this.</p>
-<p>Of course, if you are using Emacs, you don’t want to be grabbing the mouse to get to the action, here’s a lisp function I use to format JSON in place:</p>
-<div class="sourceCode"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> json-format </span>()
-  <span class="st">&quot;Reformats the JSON in the region for humans.&quot;</span>
-  (interactive)
-  (save-excursion
-    (shell-command-on-region (mark) (point) <span class="st">&quot;python -m json.tool&quot;</span> (buffer-name) <span class="kw">t</span>)))</code></pre></div>
-<p><strong>Edit</strong></p>
-<p>Thanks to <a href="https://twitter.com/chrisridd">Chris Ridd</a> for pointing out that I could use <code>json_pp</code>.</p>
-</article>
-<article>
-    <header>
-        <h1>
-            <a href="./2015/10/10/a-swift-repeating-timer/" title="Permalink">
-                A Swift Repeating Timer
-            </a>
-        </h1>
-        <span class="post-date">October 10, 2015</span> in 
-        <span class="post-tags"><a href="./tags/programming/">programming</a>, <a href="./tags/swift/">swift</a></span>
-    </header>
-    <p>We frequently (excuse the pun) need to schedule a repeated action.</p>
-<p>The way to do this was usually to use <code>NSTimer</code>’s <code>scheduledTimerWithTimeInterval(_:,target:,selector:,userInfo:,repeats:)</code>, which needed a callback, and had the hidden pitfall of the target being strongly referenced by the runloop that this timer was scheduled on. There are extensions to NSTimer that allow the used of blocks instead (I even wrote one myself), but there is another way.</p>
-<p>Grand Central Dispatch provides <a href="https://developer.apple.com/library/mac/documentation/General/Conceptual/ConcurrencyProgrammingGuide/GCDWorkQueues/GCDWorkQueues.html">dispatch sources</a> for efficient interaction with the underlying system. One such source type is <code>DISPATCH_SOURCE_TYPE_TIMER</code>. So here as a Swift function that creates and starts such a timer.</p>
-<script src="https://gist.github.com/Abizern/cf26af397ebe66284002.js"></script>
-<p>Since I’m passing in <code>NSTimeInterval</code>s this is probably best used for short lived timers, but it extracts a lot of the C boilerplate that is needed to create the dispatch source.</p>
-</article>
-<article>
-    <header>
-        <h1>
-            <a href="./2015/02/01/debug-logging-in-swift/" title="Permalink">
-                Debug Logging In Swift
-            </a>
-        </h1>
-        <span class="post-date">February  1, 2015</span> in 
-        <span class="post-tags"><a href="./tags/swift/">swift</a></span>
-    </header>
-    <p>In the last <a href="https://iosdevweekly.com/issues/183">iOSDevWeekly</a> Dave Verwer listed Art Sabintsev’s <a href="https://github.com/ArtSabintsev/PrintlnMagic">PrintLnMagic</a> - a small function that reproduces the common DLog pattern that many use which not only prints a value, but the filename, the function name and the line of the call. Which is really handy in debugging.</p>
-<p>I use a version of <a href="https://gist.github.com/Abizern/325926">Dlog</a> myself, which has the added benefit of only outputting to the console when in Debug configurations, which PrintLnMagic does not do.</p>
-<p>So, I wrote this</p>
-<script src="https://gist.github.com/Abizern/a81f31a75e1ad98ff80d.js"></script>
-<p>I’m not overriding <code>printLn()</code> because I’m not sure clobbering such a widely used system function is a good idea.</p>
-<p>Of course Swift projects don’t work the same way as Objective-C projects, so it isn’t enough to just have the debug configuration, this needs to have the <code>-D DEBUG</code> flag set in the “Other Swift Flags” section under Debug.</p>
-<div class="figure">
-<img src="http://images.abizern.org.s3.amazonaws.com/2015/01/Debug%20flag%20in%20swift.png" />
-
-</div>
-<p>Installation is simple enough, this is just a single bare function, so just download the file and add it to your project. Call <code>loggingPrintln()</code> just as you would <code>println()</code>, only passing a value for the first parameter; the defaults will take care of the rest.</p>
-<p><strong>Update Feb 5, 2015</strong></p>
-<p>Rather than just passing an object or a value, the function can now take an expression for the first parameter. That way, the expression is only evaluated if the function body runs. Laziness is a virtue.</p>
-<p><strong>Update Oct 8, 2015</strong></p>
-<p>Changed to support Swift 2.</p>
-<p>Thanks to <a href="https://twitter.com/rob_rix">rob_rix</a> and <a href="https://twitter.com/jl_hfl">jl_hfl</a> for the suggestion.</p>
-</article>
-<article>
-    <header>
-        <h1>
-            <a href="./2014/12/13/fizz-buzz-in-swift/" title="Permalink">
-                Fizz Buzz in Swift
-            </a>
-        </h1>
-        <span class="post-date">December 13, 2014</span> in 
-        <span class="post-tags"><a href="./tags/swift/">swift</a>, <a href="./tags/video/">video</a>, <a href="./tags/presentations/">presentations</a></span>
-    </header>
-    <p>In August 2014 I gave a talk at NSLondon about various approaches to solving Fizz Buzz in Swift. The video is <a href="http://vimeo.com/105440181">available on Vimeo</a> and proved to be reasonably popular and even gained me my first mention in <a href="https://iosdevweekly.com/issues/167">iOS Dev Weekly</a>.</p>
-<p>Just to make this more complete here is a link to the slides and a Swift Playground that you can use to play around with the examples.</p>
-<p><a href="http://downloads.abizern.org/FizzBuzzery.zip" class="uri">http://downloads.abizern.org/FizzBuzzery.zip</a></p>
-<p>Have fun!</p>
-</article>
+<section id="info-pane" class="row text-center info">
+  
+  <h3 class="intro">Contract iOS and macOS Developer.</h3>
+  
+  
+  <h4 class="description">I write modern, maintainable code using Swift, Xcode, MVC &amp; a whole lotta love.<br />My opinions and £1 will buy me a small coffee.</h4>
+  
+</section>
 
 
-<footer>
-    See older posts in the <a href="./archive/">archive</a>
+<section id="social-pane" class="row text-center social">
+  
+  <a href="https://twitter.com/abizern"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  
+  
+  
+  
+  <a href="https://github.com/Abizern"><i class="fa fa-github" aria-hidden="true"></i></a>
+  
+  
+  <a href="https://instagram.com/abizern"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+  
+  
+  <a href="https://linkedin.com/in/abizern"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+  
+  
+  <a href="https://stackoverflow.com/users/abizern"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>
+  
+  
+  
+  
+  
+  <a href="mailto:abizern@abizern.org"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+  
+  
+</section>
+
+
+<section id="main-menu-pane" class="row text-center main-menu">
+  
+  <h4><a class="menu-item" href="/blog/">blog</a></h4>
+  
+  <h4><a class="menu-item" href="/about/">about</a></h4>
+  
+  <h4><a class="menu-item" href="/talks/">talks</a></h4>
+  
+  <h4><a class="menu-item" href="/notes/">notes</a></h4>
+  
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2009-2017 Abizer Nasir | <a href="https://creativecommons.org/licenses/by-sa/4.0/">Some Rights Reserved</a>.</h6>
+  
+  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
+  
+  
 </footer>
 
-        </section>
+</div>
 
-        <footer id="page_footer">
-    <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC-4.0</a>
-    &mdash;
-    Built with 
-    <a href="http://jaspervdj.be/hakyll">Hakyll</a>.
-    &mdash;
-    Source on 
-    <a href="https://github.com/Abizern/hblog">GitHub</a>
-    &mdash;
-    <a href="http://abizern.org/atom.xml">RSS feed</a>
-</footer>
 
-    </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js"></script>
+  
+
+<script type="text/javascript">
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+</body>
 </html>
+

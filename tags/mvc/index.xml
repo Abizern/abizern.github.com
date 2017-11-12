@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mvc on Abizer Nasir</title>
+    <link>http://abizern.org/tags/mvc/</link>
+    <description>Recent content in Mvc on Abizer Nasir</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Wed, 21 Sep 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://abizern.org/tags/mvc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Being Imperfect In A Perfect World</title>
+      <link>http://abizern.org/talks/2016/being-imperfect-in-a-perfect-world/</link>
+      <pubDate>Wed, 21 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2016/being-imperfect-in-a-perfect-world/</guid>
+      <description> Summary Just some thoughts on the choices we make about the patterns we use in development.
+Slides  Available on Speaker Deck  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Carthage on Abizer Nasir</title>
+    <link>http://abizern.org/tags/carthage/</link>
+    <description>Recent content in Carthage on Abizer Nasir</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Mon, 02 May 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://abizern.org/tags/carthage/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dependency Management With Carthage</title>
+      <link>http://abizern.org/talks/2016/dependency-management-with-carthage/</link>
+      <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2016/dependency-management-with-carthage/</guid>
+      <description> Summary Almost a year since the last time I gave a talk on this subject at NSLondon. This is an updated version about Carthage.
+Slides  The slides are available on Speaker Deck  Video  The video for this talk is available on Vimeo  </description>
+    </item>
+    
+    <item>
+      <title>Carthage</title>
+      <link>http://abizern.org/talks/2015/carthage/</link>
+      <pubDate>Thu, 30 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2015/carthage/</guid>
+      <description>Summary My NSLondon talk about the Carthage Dependency Management System. No need to manage your own submodules or use CocoaPods, Carthage provides a simpler and more flexible method of adding framework dependencies to Xcode projects.
+Slides These are available at SpeakerDeck</description>
+    </item>
+    
+  </channel>
+</rss>

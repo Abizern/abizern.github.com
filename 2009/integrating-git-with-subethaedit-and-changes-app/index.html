@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="description" content="Developer and personal blog of Abizer Nasir; iOS and macOS contractor in London.">
+<meta name="keywords" content="blog, personal, developer, swift, objectivec, ios, macos, haskell, git">
+
+<base href="http://abizern.org">
+
+<title>Abizer Nasir</title>
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://abizern.org/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en-GB">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">Integrating Git with SubEthaEdit and Changes App</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+        PUBLISHED ON NOV 9, 2009 
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    
+
+<p>A while ago, I read a
+<a href="http://schinckel.net/2008/04/26/mercurial-with-os-x-gui-tools/">nice write up</a>
+about using <a href="http://mercurial.selenic.com/">mercurial</a> with
+<a href="http://www.codingmonkeys.de/subethaedit/">SubEthaEdit</a> and
+<a href="http://connectedflow.com/changes/">Changes</a>. Here&rsquo;s how to do the same thing
+with <a href="http://git-scm.com/">git</a> instead of
+<a href="http://mercurial.selenic.com/">mercurial</a>, separated into two parts in case you
+just want to apply one set of changes.</p>
+
+<h2 id="changes-support">Changes Support</h2>
+
+<p><strong>Step One: Make sure chdiff is installed.</strong></p>
+
+<p>Open Changes.app and from the Changes menu select &ldquo;Install terminal
+utility&rdquo;. This will install the chdiff utility which is used by the script.</p>
+
+<p><strong>Step Two: Create a shell script to send diffs to Changes</strong></p>
+
+<p>Create a shell script with the following contents.</p>
+
+<pre><code>#!/bin/sh
+[ $# -eq 7 ] &amp;&amp; /usr/bin/env chdiff &quot;$2&quot; &quot;$5&quot;
+</code></pre>
+
+<p>Where you save this and what you call it is up to you. Mine is called
+&lsquo;.gitchanges&rsquo;, saved it at the root of my home directory. Make sure the script
+is executable.</p>
+
+<p><strong>Step Three: Edit the .gitconfig file to use this script to handle diffs.</strong></p>
+
+<p>Open your <code>~/.gitconfig</code> file. This should already exist, at the very least it
+will contain you name and email. under the section called <code>[diff]</code> add the
+location and name of the file.  You may have to edit this to make sure it points
+to the name and location you chose in Step Two. (Make sure to use the correct
+path in your setup)</p>
+
+<pre><code>[diff]
+external = &lt;path to file&gt;/.gitchanges
+</code></pre>
+
+<h2 id="subethaedit-support">SubEthaEdit Support</h2>
+
+<p><strong>Step One: Download and install the mode file for SubEthaEdit</strong></p>
+
+<p>I wrote a SubEthaEdit mode for this which you can download from the
+<a href="http://abizern.github.com/gitcommit.mode/">github project page</a>. Please feel
+free to fork it and send me patches.</p>
+
+<p><strong>Step Two: Edit the .gitconfig file to use SebEthaEdit as an external editor.</strong></p>
+
+<p>Open your <code>~/.gitconfig</code> file. This time, under the <code>[core]</code> section, add the
+following line:</p>
+
+<pre><code>[core]
+editor = /usr/bin/see -w -r -o new-window -j 'git editor' -m gitCommit -g 1:0
+</code></pre>
+
+<p>All those flags may seem daunting, but they are quite self-explanatory: the <code>-w</code>
+flag makes the Terminal wait for a response from SubEthaEdit. <code>-r</code> brings
+Terminal to the front after you&rsquo;re done editing. <code>-o new-window</code> opens a new
+window for editing. I prefer this to having a new tab appear in whatever window
+I was working on. <code>-j 'git editor</code>&rsquo; this sets the text that appears in the title
+bar, which you can change as you wish. <code>-m gitCommit</code> is what sets the mode to
+be used for editing. and <code>-g 1:0</code> puts the caret at the beginning of the file.</p>
+
+<p>Now, when git asks you to write a commit message, or pick commits when running
+<code>git rebase -i</code> a SubEthaEdit window will open as the commit message
+editor. Make whatever changes you need then save the file (⌘-S) and then close
+the window (⌘-W) for these changes to take effect.</p>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+      
+      TAGS:
+      
+      
+      <a class="meta" href="/tags/git">GIT</a>, 
+      
+      <a class="meta" href="/tags/subethaedit">SUBETHAEDIT</a>
+      
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  <span><a class="menu-item" href="http://abizern.org/2009/nscoder-night-london---report/">&lt; prev | </a></span>
+  
+  
+  <span><a class="menu-item" href="/blog">blog</a></span>
+  
+  
+  <span><a class="menu-item" href="http://abizern.org/2009/some-tips-for-lazy-xcoders/"> | next &gt;</a></span>
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="http://abizern.org">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2009-2017 Abizer Nasir | <a href="https://creativecommons.org/licenses/by-sa/4.0/">Some Rights Reserved</a>.</h6>
+  
+  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js"></script>
+  
+
+<script type="text/javascript">
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+
+

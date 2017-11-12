@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Haskell on Abizer Nasir</title>
+    <link>http://abizern.org/tags/haskell/</link>
+    <description>Recent content in Haskell on Abizer Nasir</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Thu, 11 Jun 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://abizern.org/tags/haskell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What Haskell Teaches Me About Writing Swift</title>
+      <link>http://abizern.org/talks/2015/what-haskell-teaches-me-about-writing-swift/</link>
+      <pubDate>Thu, 11 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2015/what-haskell-teaches-me-about-writing-swift/</guid>
+      <description>Summary I had a chance to present a longer version of my Swift Summit Lightning Talk at AltConf 2015 in San Francisco.
+Just some personal thoughts on what knowing some Haskell teaches me about writing Swift code.
+Slides  The PDF Slides can be downloaded directly. View the slides on SpeakerDeck  Video  Available on the Realm Altconf site  References Here are the links to the references mentioned in my talk</description>
+    </item>
+    
+    <item>
+      <title>What Haskell Taught Me About Swift</title>
+      <link>http://abizern.org/talks/2015/what-haskell-taught-me-about-swift/</link>
+      <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2015/what-haskell-taught-me-about-swift/</guid>
+      <description> Summary I did a short talk at Swift Summit in London about a couple of things that knowing Haskell has helped me when writing Swift.
+Video A video of the talk, with synchronised slides can be seen at:
+ Realm.io  Slides  Download the PDF directly from here View the slides on SpeakerDeck  </description>
+    </item>
+    
+    <item>
+      <title>GCJ A - Magic Trick</title>
+      <link>http://abizern.org/2014/gcj-a---magic-trick/</link>
+      <pubDate>Fri, 18 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2014/gcj-a---magic-trick/</guid>
+      <description>I got through the qualification round for Google Code Jam 2014. I usually manage to get through this stage; it&amp;rsquo;s the first round that I haven&amp;rsquo;t managed to get past yet.
+The easiest question was A-Magic Trick. Nothing much to do here but count the number of similarities between two arrays, easily achieved with the interact method.
+The only gotcha in this problem was that the index of the rows to check is 1-based, and most programming languages use 0-based indexing.</description>
+    </item>
+    
+    <item>
+      <title>GCJ B - Cookie Clicker Alpha</title>
+      <link>http://abizern.org/2014/gcj-b---cookie-clicker-alpha/</link>
+      <pubDate>Fri, 18 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2014/gcj-b---cookie-clicker-alpha/</guid>
+      <description>Another problem from This year&amp;rsquo;s Google Code Jam.
+The gist of the problem is to work out whether buying additional capacity for cookie production would result is reaching the quota faster than not buying additional capacity.
+Haskell is suited to this for a couple of reasons. Firstly, its&amp;rsquo; easy to work with infinite lists. so I can create list of the cumulative times for creating factories and reaching the target. And to calculate the cumulative target I&amp;rsquo;m using the scanl1 function to turn the infinite list of factory times into an infinite list of partial sums.</description>
+    </item>
+    
+    <item>
+      <title>An Improved Reverse Words Script</title>
+      <link>http://abizern.org/2012/an-improved-reverse-words-script/</link>
+      <pubDate>Wed, 31 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/an-improved-reverse-words-script/</guid>
+      <description>About 6 months ago I posted a solution to the Google Code Jam problem Reverse Words
+I&amp;rsquo;ve become more comfortable with Haskell since then, so here&amp;rsquo;s an improved solution.
+module Main where {- Problem statement: http://code.google.com/codejam/contest/351101/dashboard#s=p1 Run as a script with runghc, or compile with ghc --make -O2 input and output is by redirection; $ ./reverse_words &amp;lt; input_file &amp;gt; output_file -} import Control.Monad main :: IO () main = do n &amp;lt;- readLn forM_ [1.</description>
+    </item>
+    
+    <item>
+      <title>On Live Coding</title>
+      <link>http://abizern.org/2012/on-live-coding/</link>
+      <pubDate>Mon, 20 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/on-live-coding/</guid>
+      <description>I read somewhere that part of the popularity of The West Wing was that it was entertaining to watch smart people solve difficult problems. I think that&amp;rsquo;s part of the reason why I find watching live coding videos so entertaining - It&amp;rsquo;s more fun to watch someone solve a problem than doing it yourself.
+There are plenty of screencasts you can find - YouTube is an obvious one, but don&amp;rsquo;t forget Vimeo.</description>
+    </item>
+    
+    <item>
+      <title>Rotate A String with Haskell</title>
+      <link>http://abizern.org/2012/rotate-a-string-with-haskell/</link>
+      <pubDate>Sun, 15 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/rotate-a-string-with-haskell/</guid>
+      <description>I qualified for Google Code Jam this year answering 3 out of 4 questions. I have no illusions about progressing very far, but I&amp;rsquo;m using it as an excuse to learn some Haskell and to write code faster.
+As part of the learning process, I took one of my correct solutions over to the nice folks at the #haskell channel over on freenode and asked if there was a better way to do it.</description>
+    </item>
+    
+    <item>
+      <title>Reverse Words With Haskell</title>
+      <link>http://abizern.org/2012/reverse-words-with-haskell/</link>
+      <pubDate>Mon, 09 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/reverse-words-with-haskell/</guid>
+      <description>As part of my preparation for Google Code Jam I&amp;rsquo;ve been working through the practice problems with Haskell.
+I made a screencast on solving the Reverse Words problem, along with the mechanics of getting the problem inputs and submitting solutions. The style was heavily influenced by a sequence on Data Driven Programming in Haskell by Jonas Tullus
+I moved at a slower pace, and talking and typing seem to have confused my brain so I think I lapsed into gibberish in a couple of places.</description>
+    </item>
+    
+  </channel>
+</rss>

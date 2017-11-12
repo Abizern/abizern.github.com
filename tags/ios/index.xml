@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ios on Abizer Nasir</title>
+    <link>http://abizern.org/tags/ios/</link>
+    <description>Recent content in Ios on Abizer Nasir</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Tue, 29 Jan 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://abizern.org/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Missing Xcode Toolbar</title>
+      <link>http://abizern.org/2013/missing-xcode-toolbar/</link>
+      <pubDate>Tue, 29 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2013/missing-xcode-toolbar/</guid>
+      <description>I&amp;rsquo;m sure you&amp;rsquo;ve been there.
+You&amp;rsquo;re working in Xcode, and you have a file opened on another monitor in another window. Unfortunately, you forget about it, and when you close your project and reopen it again, the toolbar is missing.
+It can be frustrating, because Xcode remembers this, and every time you open the project it will open without a toolbar. You can put it back by right-clicking in what is left of the toolbar and choosing one of the options.</description>
+    </item>
+    
+    <item>
+      <title>UUID Strings with Cocoa</title>
+      <link>http://abizern.org/2012/uuid-strings-with-cocoa/</link>
+      <pubDate>Thu, 25 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/uuid-strings-with-cocoa/</guid>
+      <description>This used to be a thing until the iOS 6 and OS X 10.8 compatible NSUUID Class became available.
+New This is how you can do it now:
+NSString *uuidString = [[NSUUID UUID] UUIDString]; // Generates: 7E60066C-C7F3-438A-95B1-DDE8634E1072  Old Here&amp;rsquo;s a method you can put in a class, with the correct ARC casts on ownership, that returns a UUID. It&amp;rsquo;s a fairly common technique, and you&amp;rsquo;ll even see versions of it where people have created a category on NSString for this.</description>
+    </item>
+    
+    <item>
+      <title>Simple Localisation Testing</title>
+      <link>http://abizern.org/2012/simple-localisation-testing/</link>
+      <pubDate>Sun, 18 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/simple-localisation-testing/</guid>
+      <description>Sometimes you want to test your localisations but you don&amp;rsquo;t want to go through the hassle of changing the settings on the simulator, or device, or your Mac for each one. There&amp;rsquo;s always the fear of setting some language that you don&amp;rsquo;t understand.
+But, with Xcode4 schemes and a little argument passing this is a lot easier than it used to be. You can set up a scheme for each localisation which will let you run your iOS or Mac app under that localisation without having to change any settings.</description>
+    </item>
+    
+  </channel>
+</rss>

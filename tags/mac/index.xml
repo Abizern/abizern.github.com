@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac on Abizer Nasir</title>
+    <link>http://abizern.org/tags/mac/</link>
+    <description>Recent content in Mac on Abizer Nasir</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Sat, 10 Oct 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://abizern.org/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Easy JSON formatting</title>
+      <link>http://abizern.org/2015/easy-json-formatting/</link>
+      <pubDate>Sat, 10 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2015/easy-json-formatting/</guid>
+      <description>Sometimes we want to format some JSON. Here&amp;rsquo;s an easy way to set up a Service in Automator to make this easier.
+Let&amp;rsquo;s create a service. Open Automator and choose to create a new Service
+From the Library, select the &amp;ldquo;Run Shell Script&amp;rdquo; action and drag it to the right.
+In the action box type:
+json_pp | pbcopy  This is what actually does the formatting. json_pp comes with OS X .</description>
+    </item>
+    
+    <item>
+      <title>Staying Flash-free on a MacBook Air</title>
+      <link>http://abizern.org/2010/staying-flash-free-on-a-macbook-air/</link>
+      <pubDate>Sun, 21 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2010/staying-flash-free-on-a-macbook-air/</guid>
+      <description>You may have seen John Gruber&amp;rsquo;s posts on uninstalling system-wide flash and changing the Safari User Agent to view some sites that have Flash content.
+The new MacBook Airs don&amp;rsquo;t have Flash installed by default so this is a tl:dr summary of those two articles so you don&amp;rsquo;t have to download and install the system-wide Flash player.
+Many sites, such as YouTube, provide content in an alternative format for devices that do not have Flash installed.</description>
+    </item>
+    
+  </channel>
+</rss>

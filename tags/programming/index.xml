@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming on Abizer Nasir</title>
+    <link>http://abizern.org/tags/programming/</link>
+    <description>Recent content in Programming on Abizer Nasir</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Mon, 20 Aug 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://abizern.org/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>On Live Coding</title>
+      <link>http://abizern.org/2012/on-live-coding/</link>
+      <pubDate>Mon, 20 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/on-live-coding/</guid>
+      <description>I read somewhere that part of the popularity of The West Wing was that it was entertaining to watch smart people solve difficult problems. I think that&amp;rsquo;s part of the reason why I find watching live coding videos so entertaining - It&amp;rsquo;s more fun to watch someone solve a problem than doing it yourself.
+There are plenty of screencasts you can find - YouTube is an obvious one, but don&amp;rsquo;t forget Vimeo.</description>
+    </item>
+    
+    <item>
+      <title>London CoderDojo</title>
+      <link>http://abizern.org/2012/london-coderdojo/</link>
+      <pubDate>Sun, 15 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/london-coderdojo/</guid>
+      <description>I mentored at CoderDojo London this weekend. These are just some of my thoughts about it.
+CoderDojo is a movement orientated around running free not-for-profit coding clubs and regular sessions for young people.
+A regular London chapter has formed, supported by and at the offices of Forward Technology. It takes place in their canteen/theatre which has a nice tiered seating area and a miked up presentation stand.
+It&amp;rsquo;s still the Easter break, but 6 kids turned up with laptops ready to carry on with projects they had already started and learn new stuff.</description>
+    </item>
+    
+    <item>
+      <title>A Simple Answer Is Not Always Best</title>
+      <link>http://abizern.org/2010/a-simple-answer-is-not-always-best/</link>
+      <pubDate>Fri, 08 Jan 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2010/a-simple-answer-is-not-always-best/</guid>
+      <description>On New Year&amp;rsquo;s eve, Dámasa asked me to calculate some fraction of a fraction and provide the answer as a fraction in eighths. The post had just arrived so I flipped over an envelope and started working it out.
+&amp;ldquo;Why do you need the answer in eighths?&amp;rdquo; I asked, while making calculations.
+&amp;ldquo;Because I&amp;rsquo;m trying to convert a recipe and my scales only go down to eighths of an ounce.&amp;rdquo;</description>
+    </item>
+    
+  </channel>
+</rss>

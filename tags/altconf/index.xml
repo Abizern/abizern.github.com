@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Altconf on Abizer Nasir</title>
+    <link>http://abizern.org/tags/altconf/</link>
+    <description>Recent content in Altconf on Abizer Nasir</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Thu, 11 Jun 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://abizern.org/tags/altconf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What Haskell Teaches Me About Writing Swift</title>
+      <link>http://abizern.org/talks/2015/what-haskell-teaches-me-about-writing-swift/</link>
+      <pubDate>Thu, 11 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2015/what-haskell-teaches-me-about-writing-swift/</guid>
+      <description>Summary I had a chance to present a longer version of my Swift Summit Lightning Talk at AltConf 2015 in San Francisco.
+Just some personal thoughts on what knowing some Haskell teaches me about writing Swift code.
+Slides  The PDF Slides can be downloaded directly. View the slides on SpeakerDeck  Video  Available on the Realm Altconf site  References Here are the links to the references mentioned in my talk</description>
+    </item>
+    
+  </channel>
+</rss>

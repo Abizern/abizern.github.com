@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="description" content="Developer and personal blog of Abizer Nasir; iOS and macOS contractor in London.">
+<meta name="keywords" content="blog, personal, developer, swift, objectivec, ios, macos, haskell, git">
+
+<base href="http://abizern.org">
+
+<title>Abizer Nasir</title>
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://abizern.org/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en-GB">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">Emacs Notes</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+       
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    
+
+<h2 id="installation">Installation</h2>
+
+<h3 id="emacs">Emacs</h3>
+
+<pre><code class="language-bash">brew install emacs --cocoa --srgb
+</code></pre>
+
+<h3 id="emacs-d">.emacs.d</h3>
+
+<p>These work for my <a href="https://github.com/Abizern/prelude">dotfiles</a>, based off
+<a href="http://batsov.com/prelude/">Emacs Prelude</a>, which should be cloned to
+<code>~/.emacs.d</code>. There are no submodules in this repository.</p>
+
+<p>Install with the customised script</p>
+
+<pre><code class="language-bash">curl -L https://github.com/Abizern/prelude/raw/master/utils/installer.sh | sh
+</code></pre>
+
+<h2 id="general">General</h2>
+
+<hr />
+
+<p><code>C-_, C-x u</code>     Undo, Cancel last command
+<code>C-x, C-f</code>       Visit file
+<code>C-x C-i</code>        Insert contents of file in buffer
+<code>C-x C-s</code>        Save buffer
+<code>C-x C-w</code>        Save buffer as&hellip;
+<code>&lt;revert-file&gt;</code>  Revert to last saved version
+<code>C-x p</code>          Visit buffer under point
+<code>C-f, C-j</code>       Turn off ido-mode in minibuffer
+<code>M-;</code>            Comment active region (<code>comment-dwim</code>)
+<code>M-/</code>            Hippie expansion
+<code>C-M-/</code>          Completion on current word
+<code>M-q</code>            Format text to paragraph
+<code>C-x \</code>          (<code>align-regexp</code>)
+<code>C-c C-w</code>        Backward kill word
+<code>S-return</code>       Smart open line below
+<code>C-S-return</code>     Smart open line above
+<code>C-g</code>            Quit command in the minibuffer
+<code>C-u</code>            Prefix argument
+<code>M-j</code>            Join the next line to this one</p>
+
+<h2 id="s-r-recent-files-ido"><code>S-r</code>            Recent files (ido)</h2>
+
+<h2 id="movement">Movement</h2>
+
+<hr />
+
+<p><code>M-&lt;, M-&gt;</code>      Start / End of buffer
+<code>M-v, C-v</code>      Top / Bottom of screen
+<code>C-p, C-n</code>      Prev / Next Line
+<code>C-S-p, C-S-n</code>  Prev / Next line (by 5)
+<code>M-a, M-z</code>      Beg / End of sentence
+<code>M-{, M-}</code>      Beg / End of paragraph
+<code>C-a, C-e</code>      Beg / End of line
+<code>M-b, M-f</code>      Backward / Forward word
+<code>C-b, C-f</code>      Backward / Forward character
+<code>C-S-b, C-S-f</code>  Backward / Forward Character (by 5)
+<code>C-x C-t</code>       Transpose lines
+<code>C-M v</code>         Scroll other window
+<code>C-l</code>           Current line to middle of screen
+<code>C-u 0 C-l</code>     Current line to top of screen
+<code>C-s up</code>        Move current line or region up
+<code>C-s down</code>      Move current line or region down
+<code>M-g g</code>         Go to line</p>
+
+<h2 id="c-expand-region"><code>C-=</code>           expand-region</h2>
+
+<h2 id="buffers">Buffers</h2>
+
+<hr />
+
+<p><code>C-x b</code>    ido-switch buffers
+<code>C-x C-b</code>  Buffer list (IBuffer)
+<code>C-x k</code>    Kill current buffer
+<code>D, U, x</code>  Mark, Unmark, Apply changes
+<code>C-y</code>      Bury buffer (least likely to find)</p>
+
+<h2 id="c-x-p-finds-file-under-point"><code>C-x p</code>    Finds file under point</h2>
+
+<h2 id="windows">Windows</h2>
+
+<hr />
+
+<p><code>C-c s</code>    Swap windows
+<code>C-x o</code>    Switch to other window (cycles)
+<code>C-x 0</code>    Close current window
+<code>C-x 1</code>    Close other window
+<code>C-x 2</code>    Split pane horizontally</p>
+
+<h2 id="c-x-3-split-pane-vertically"><code>C-x 3</code>    Split pane vertically</h2>
+
+<h2 id="frames">Frames</h2>
+
+<hr />
+
+<p><code>C-x 5 b</code>  Switch to buffer in new frame
+<code>C-x 5 0</code>  Destroy window with point</p>
+
+<h2 id="c-x-5-1-destroy-all-but-current-window"><code>C-x 5 1</code>  Destroy all but current window</h2>
+
+<h2 id="key-chords">Key-Chords</h2>
+
+<hr />
+
+<p><code>jj</code>   Jump to the beginning of a word (<code>ace-jump-word-mode</code>)
+<code>jk</code>   Jump to a character (<code>ace-jump-char-mode</code>)
+<code>jl</code>   Jump to the beginning of a line (<code>ace-jump-line-mode</code>)
+<code>JJ</code>   Jump back to previous buffer (<code>prelude-switch-to-previous-buffer</code>)
+<code>uu</code>   View edits as a tree (<code>undo-tree-visualize</code>)
+<code>xx</code>   Execute extended command (<code>execute-extended-command</code>)
+<code>yy</code>   Browse the kill ring (<code>browse-kill-ring</code>)
+<code>kk</code>   (<code>just-one-space</code>)</p>
+
+<h2 id="kk-delete-horizontal-space"><code>KK</code>   (<code>delete-horizontal-space</code>)</h2>
+
+<h2 id="text-processing">Text Processing</h2>
+
+<hr />
+
+<p><code>C-s, C-r</code>              Search Forwards, Backwards
+<code>RET</code>                   Exit Search Mode
+<code>C-g</code>                   Exit search, returt point to origin
+<code>M-%</code>                   Replace
+(<code>replace-string</code>)      Replace all
+<code>C-Space</code>               Set / Unset a mark
+<code>C-x C-x</code>               Swap point and mark
+(<code>transient-mark-mode</code>) Toggle transient mark mode
+<code>C-d</code>                   Delete char
+<code>M-d</code>                   Forward kill word
+<code>M-del</code>                 Backward kill word
+<code>C-w, M-w</code>              Kill, Copy region
+<code>C-k</code>                   Kill line
+<code>C-y / M-y</code>             Yank / Cycle kill ring
+<code>C-m k</code>                 Kill word before line
+<code>C-u C-spac</code>e           Swap mark in kill ring</p>
+
+<h2 id="c-x-n-c-x-w-narrow-widen-the-region"><code>C-x n, C-x w</code>          Narrow, Widen the region</h2>
+
+<h2 id="shell">Shell</h2>
+
+<hr />
+
+<p><code>C-x m</code>          Start shell (at least with my emacs.d)
+<code>M-x shell</code>      Start shell</p>
+
+<h2 id="c-u-m-x-shell-will-prompt-for-the-name-of-the-new-shell"><code>C-u M-x shell</code>  Will prompt for the name of the new shell</h2>
+
+<h2 id="registers">Registers</h2>
+
+<ul>
+<li>Registers are named storage area.</li>
+<li>62 registers a-z A-Z 0-9</li>
+<li>Position register - a place in a buffer</li>
+<li>Text register - stores text</li>
+<li>number register - stores numbers, most useful with macros</li>
+<li>View register - stores a workspace of some description. (Poor man&rsquo;s session,
+does not store the buffers.</li>
+</ul>
+
+<hr />
+
+<p><code>C-x r</code>              Base key chord
+<code>M-x view-register</code>  Shows what&rsquo;s in the register
+<code>C-x r space &lt;name&gt;</code> Stores a position in name
+<code>C-x r g &lt;name&gt;</code>     Restores a position
+<code>C-x r s &lt;name&gt;</code>     Stores text (region) in name
+<code>C-x r i &lt;name&gt;</code>     Pulls out text from the regiser
+                     (<code>i</code> is for insert)
+<code>C-x r w &lt;name&gt;</code>     Stores a window config (<code>w</code> for window)</p>
+
+<h2 id="c-x-r-j-name-restores-config"><code>C-x r j &lt;name&gt;</code>     Restores config</h2>
+
+<h2 id="bookmarks">Bookmarks</h2>
+
+<p>Bookmarks are not saved by default, saved on quit.</p>
+
+<p>(M-x bookmark-save)</p>
+
+<hr />
+
+<p><code>C-x r m &lt;name&gt;</code>  Store a bookmark
+<code>C-x r l &lt;name&gt;</code>  List the bookmarks file</p>
+
+<h2 id="c-x-r-b-name-jump-to-bookmark"><code>C-x r b &lt;name&gt;</code>  Jump to bookmark</h2>
+
+<h2 id="special-characters">Special Characters</h2>
+
+<hr />
+
+<p>C-x 8 C-h        List of special characters
+C-x 8 L          £</p>
+
+<hr />
+
+<h2 id="help">Help</h2>
+
+<hr />
+
+<p><code>C-h t</code>    Tutorial
+<code>C-h r</code>    Manual
+<code>C-h v</code>    Scroll other window
+<code>C-h i</code>    Info buffer
+<code>C-h v</code>    Describe variable
+<code>C-h k</code>    Describe Key
+<code>C-h f</code>    Describe Function
+<code>apropos</code>  Search for concept
+<code>&lt;man&gt;</code>    Invoke man page viewer</p>
+
+<h2 id="c-h-m-help-for-mode"><code>C-h m</code>    Help for mode</h2>
+
+<h2 id="projectile">Projectile</h2>
+
+<hr />
+
+<p><code>C-c p f</code>   Display a list of all files in the project.
+            With a prefix argument it will clear the cache first.
+<code>C-c p d</code>   Display a list of all directories in the project.
+            With a prefix argument it will clear the cache first.
+<code>C-c p T</code>   Display a list of all test files(specs, features, etc) in the project.
+<code>C-c p g</code>   Run grep on the files in the project.
+<code>C-c p b</code>   Display a list of all project buffers currently open.
+<code>C-c p o</code>   Runs <code>multi-occur</code> on all project buffers currently open.
+<code>C-c p r</code>   Runs interactive query-replace on all files in the projects.
+<code>C-c p i</code>   Invalidates the project cache (if existing).
+<code>C-c p R</code>   Regenerates the projects <code>TAGS</code> file.
+<code>C-c p k</code>   Kills all project buffers.
+<code>C-c p D</code>   Opens the root of the project in <code>dired</code>.
+<code>C-c p e</code>   Shows a list of recently visited project files.
+<code>C-c p a</code>   Runs <code>ack</code> on the project. Requires the presence of <code>ack-and-a-half</code>.
+<code>C-c p c</code>   Runs a standard compilation command for your type of project.
+<code>C-c p p</code>   Runs a standard test command for your type of project.
+<code>C-c p z</code>   Adds the currently visited to the cache.
+<code>C-c p s</code>   Display a list of known projects you can switch to.
+<code>S-f</code>       Find file in project
+<code>S-d</code>       Find directory in project
+<code>S-g</code>       Run grep on project
+<code>S-p</code>       Switch projects</p>
+
+<h2 id="c-c-p-c-h-help-on-projectile-keybindings"><code>C-c p C-h</code> Help on Projectile keybindings</h2>
+
+<h2 id="vc-mode">VC Mode</h2>
+
+<hr />
+
+<p><code>C-x v</code>     Diff against head
+<code>C-x v u</code>   Discard changes
+<code>C-x v l</code>   View Commit Log</p>
+
+<h2 id="c-x-return-after-writing-a-commit-message"><code>C-x #</code>     Return (after writing a commit message)</h2>
+
+<h2 id="cua-mode-rectangles">CUA Mode (rectangles)</h2>
+
+<hr />
+
+<p>(<code>cua-made</code>)  Invoke mode
+<code>C-RET</code>       Enters and starts a selection
+<code>RET</code>         Jumps around corners</p>
+
+<h2 id="m-n-add-an-auto-incrementing-number"><code>M-n</code>         Add an auto-incrementing number</h2>
+
+<h2 id="magit">Magit</h2>
+
+<hr />
+
+<p><code>C-c g</code>    Magit Status
+<code>s, u</code>     Stage, Unstage file or hunk
+<code>S, U</code>     Stage, Unstage all
+<code>C-c C-c</code>  Commit after message
+<code>C-c C-A</code>  Commit Amend
+<code>P, L</code>     Pull, Pull
+<code>$</code>        See output</p>
+
+<h2 id="b-b-switch-new-branch"><code>b, B</code>     Switch, New Branch</h2>
+
+<h2 id="gist">Gist</h2>
+
+<hr />
+
+<p><code>g</code>                        Reload gist list from the server
+<code>e</code>                        Edit current gist description
+<code>k</code>                        Delete current gist
+<code>+</code>                        Add file to the current gist
+<code>-</code>                        Remove file from the current gist
+<code>C-x C-s</code>                  Saves a buffer
+<code>C-x C-w</code>                  Rename some file
+<code>@</code>                        (In dired mode) Make a gist out of a file
+(<code>gist-list</code>)              Gets the current gist list
+(<code>gist-region</code>),           } Obvious what these do:
+(<code>gist-buffer</code>),           } The Gist URL is copied
+(<code>gist-region-or-buffer</code>)  } to the kill ring for convenience.</p>
+
+<h2 id="can-take-a-private-suffix">} Can take a <code>-private</code> suffix.</h2>
+
+<h2 id="haskell">Haskell</h2>
+
+<h3 id="editing">Editing</h3>
+
+<hr />
+
+<p><code>C-c C-=</code>      Inserts <code>=</code>; Lines up type signatures and other pattern matches
+<code>C-c C-pipe</code>   Inserts a guard
+<code>C-c C-w</code>      Inserts a where</p>
+
+<h2 id="c-c-c-aligns-code-over-a-region-in-a-sensible-manner"><code>C-c C-.</code>      Aligns code over a region in a sensible manner</h2>
+
+<h3 id="ghc-mod">ghc-mod</h3>
+
+<hr />
+
+<p><code>M-c-i</code>       Completes name of keyword, module, class, function, types, etc
+<code>M-/</code>         Complets the name of a local symbol
+<code>M-t</code>         Templates:
+              Begining of buffer: &ldquo;module Foo where&rdquo;&rdquo;
+              Function without signature: inferred type
+              Symbol without definition: foo = undefined
+              Original code is replaced with hlint&rsquo;s suggestion if possible
+<code>M-c-d</code>       Browse local document of the module on the current line
+<code>C-u M-c-d</code>   Browse Hackage document
+<code>M-c-m</code>       Loads information of symbols for modules in current buffer.
+              Type this when adding a new line to import a module.
+              Executed by the idle timer anyway.
+<code>C-x C-s</code>     Saves buffer and runs a syntax check.
+<code>C-c C-c</code>     Toggle GHC and HLint for syntax. GHT is used initially
+<code>M-n</code>         Next warning or error
+<code>M-p</code>         Previous warning or error
+<code>M-?</code>         Displays the warning/error message in the current line
+<code>C-c C-i</code>     Displays the info of this expression in another window
+<code>C-c C-t</code>     Displays the type of this expression in the minibuffer.
+              Type multiple times to enlarge the expression
+<code>C-c C-e</code>     Displays the expanded Template Haskell
+<code>C-c C-m</code>     Insert &ldquo;import Module&rdquo; for this function. &ldquo;hoogle&rdquo; command is
+              required and &ldquo;hoogle data&rdquo; should be done beforehand
+<code>C-c C-j</code>     In the beginning of the buffer: errors of other files are
+              displayed. C-c C-j on the errors jumps to the first file of
+              the error sources.
+<code>C-c &lt;</code>       Make the indentation of the region shallower</p>
+
+<h2 id="c-c-make-the-indentation-of-the-region-deeper"><code>C-c &gt;</code>       Make the indentation of the region deeper</h2>
+
+<h3 id="interpreter">Interpreter</h3>
+
+<hr />
+
+<p><code>C-c C-l</code>             Load current buffers into the interpreter
+<code>C-c C-r</code>             Reload current Haskell interpreter session
+<code>C-c C-t</code>             Gets :type for symbol at point, and remembers it
+<code>C-u C-c C-t</code>         Inserts a type annotiation, for symbol at point
+                      on the line above
+<code>C-c C-i</code>             Gets :info for symbol at point
+<code>C-c M-.</code>             Find definition for interpreted symbol at point
+<code>C-c C-b or C-c C-z</code>  Switch to interpreter - start one if needed
+<code>C-c C-d</code>             Find Haddock documentation about symbol
+<code>C-c TAB</code>             Query the Haskell interpreter for info of the expression</p>
+
+<h2 id="c-c-c-v-check-current-buffer-s-file-with-hlint"><code>C-c C-v</code>             Check current buffer&rsquo;s file with hlint</h2>
+
+<h2 id="ruby">Ruby</h2>
+
+<h3 id="editing-1">Editing</h3>
+
+<hr />
+
+<p><code>C-M-a, C-M-e</code>  Beginning, End of defun
+<code>C-M-b, C-M-f</code>  Back, forward sexp
+<code>C-M-h</code>         Backward kill word
+<code>C-M-n, C-M-p</code>  End, Beginning of block
+<code>C-M-q</code>         Indent expression</p>
+
+<h2 id="c-c-c-c-comment-region"><code>C-c C-c</code>       Comment region</h2>
+
+<h3 id="interpreter-inf-ruby">Interpreter (inf-ruby)</h3>
+
+<hr />
+
+<p><code>C-c C-s</code>   inf-ruby
+<code>C-c C-z</code>   switch to inf
+<code>C-c C-x</code>   Send block
+<code>C-c C-r</code>   Send region
+<code>C-M-x</code>     send definition
+<code>C-c C-l</code>   Load file
+<code>C-c M-b</code>   Send block and go
+<code>C-c M-r</code>   Send region and go</p>
+
+<h2 id="c-c-m-x-send-definition-and-go"><code>C-c M-x</code>   Send definition and go</h2>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+      
+      TAGS:
+      
+      
+      <a class="meta" href="/tags/emacs">EMACS</a>
+      
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  
+  <span><a class="menu-item" href="/notes">notes</a></span>
+  
+  
+  <span><a class="menu-item" href="http://abizern.org/notes/cocoa-coding-conventions/"> | next &gt;</a></span>
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="http://abizern.org">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2009-2017 Abizer Nasir | <a href="https://creativecommons.org/licenses/by-sa/4.0/">Some Rights Reserved</a>.</h6>
+  
+  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js"></script>
+  
+
+<script type="text/javascript">
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+
+

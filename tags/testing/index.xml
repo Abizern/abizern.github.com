@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Testing on Abizer Nasir</title>
+    <link>http://abizern.org/tags/testing/</link>
+    <description>Recent content in Testing on Abizer Nasir</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Sun, 18 Mar 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://abizern.org/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Simple Localisation Testing</title>
+      <link>http://abizern.org/2012/simple-localisation-testing/</link>
+      <pubDate>Sun, 18 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/2012/simple-localisation-testing/</guid>
+      <description>Sometimes you want to test your localisations but you don&amp;rsquo;t want to go through the hassle of changing the settings on the simulator, or device, or your Mac for each one. There&amp;rsquo;s always the fear of setting some language that you don&amp;rsquo;t understand.
+But, with Xcode4 schemes and a little argument passing this is a lot easier than it used to be. You can set up a scheme for each localisation which will let you run your iOS or Mac app under that localisation without having to change any settings.</description>
+    </item>
+    
+  </channel>
+</rss>
