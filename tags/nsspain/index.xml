@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nsspain on Abizer Nasir</title>
+    <link>http://abizern.org/tags/nsspain/</link>
+    <description>Recent content in Nsspain on Abizer Nasir</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Thu, 14 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://abizern.org/tags/nsspain/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Road to Damascus or FRP and Me</title>
+      <link>http://abizern.org/talks/2017/the-road-to-damascus-or-frp-and-me/</link>
+      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2017/the-road-to-damascus-or-frp-and-me/</guid>
+      <description> Summary I tried to learn about Functional Reactive Programming to see whether I would adopt it in my own code. These are my thoughts about it.
+Slides  Available on Speaker Deck  Video  Available on the NSSpain Vimeo Channel  </description>
+    </item>
+    
+  </channel>
+</rss>

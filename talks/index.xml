@@ -6,10 +6,30 @@
     <description>Recent content in Talks on Abizer Nasir</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <lastBuildDate>Tue, 25 Oct 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://abizern.org/talks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Road to Damascus or FRP and Me</title>
+      <link>http://abizern.org/talks/2017/the-road-to-damascus-or-frp-and-me/</link>
+      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2017/the-road-to-damascus-or-frp-and-me/</guid>
+      <description> Summary I tried to learn about Functional Reactive Programming to see whether I would adopt it in my own code. These are my thoughts about it.
+Slides  Available on Speaker Deck  Video  Available on the NSSpain Vimeo Channel  </description>
+    </item>
+    
+    <item>
+      <title>Be Your Own Backend Developer</title>
+      <link>http://abizern.org/talks/2017/be-your-own-backend-developer/</link>
+      <pubDate>Tue, 18 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://abizern.org/talks/2017/be-your-own-backend-developer/</guid>
+      <description> Summary An overview of server side Swift.
+Slides  Available on Speaker Deck  </description>
+    </item>
     
     <item>
       <title>Safer Programming With Types</title>
