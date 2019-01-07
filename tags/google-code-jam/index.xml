@@ -13,10 +13,10 @@
     
     <item>
       <title>GCJ A - Magic Trick</title>
-      <link>http://abizern.org/2014/gcj-a---magic-trick/</link>
+      <link>http://abizern.org/2014/gcj-a-magic-trick/</link>
       <pubDate>Fri, 18 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://abizern.org/2014/gcj-a---magic-trick/</guid>
+      <guid>http://abizern.org/2014/gcj-a-magic-trick/</guid>
       <description>I got through the qualification round for Google Code Jam 2014. I usually manage to get through this stage; it&amp;rsquo;s the first round that I haven&amp;rsquo;t managed to get past yet.
 The easiest question was A-Magic Trick. Nothing much to do here but count the number of similarities between two arrays, easily achieved with the interact method.
 The only gotcha in this problem was that the index of the rows to check is 1-based, and most programming languages use 0-based indexing.</description>
@@ -24,10 +24,10 @@ The only gotcha in this problem was that the index of the rows to check is 1-bas
     
     <item>
       <title>GCJ B - Cookie Clicker Alpha</title>
-      <link>http://abizern.org/2014/gcj-b---cookie-clicker-alpha/</link>
+      <link>http://abizern.org/2014/gcj-b-cookie-clicker-alpha/</link>
       <pubDate>Fri, 18 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://abizern.org/2014/gcj-b---cookie-clicker-alpha/</guid>
+      <guid>http://abizern.org/2014/gcj-b-cookie-clicker-alpha/</guid>
       <description>Another problem from This year&amp;rsquo;s Google Code Jam.
 The gist of the problem is to work out whether buying additional capacity for cookie production would result is reaching the quota faster than not buying additional capacity.
 Haskell is suited to this for a couple of reasons. Firstly, its&amp;rsquo; easy to work with infinite lists. so I can create list of the cumulative times for creating factories and reaching the target. And to calculate the cumulative target I&amp;rsquo;m using the scanl1 function to turn the infinite list of factory times into an infinite list of partial sums.</description>

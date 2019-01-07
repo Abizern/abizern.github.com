@@ -14,9 +14,7 @@
 
 <title>Abizer Nasir</title>
 
-<meta name="generator" content="Hugo 0.37.1" />
-
-
+<meta name="generator" content="Hugo 0.53" />
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
@@ -24,7 +22,7 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
 <link rel="stylesheet" href="http://abizern.org/css/main.css">
 
 
@@ -43,13 +41,13 @@
 
 
 <header class="row text-left title">
-  <h1 class="title">GCJ A - Magic Trick</h1>
+  <h1 class="title">NSCoder Night London - Report</h1>
 </header>
 <section id="category-pane" class="row meta">
   
   <div class="col-md-12">
     <h6 class="text-left meta">
-        PUBLISHED ON APR 18, 2014 
+        PUBLISHED ON SEP 25, 2009 
       
     </h6>
   </div>
@@ -57,45 +55,20 @@
 </section>
 <section id="content-pane" class="row">
   <div class="col-md-12 text-justify content">
-    <p>I got through the qualification round for Google Code Jam 2014. I usually manage
-to get through this stage; it&rsquo;s the first round that I haven&rsquo;t managed to get
-past yet.</p>
+    <p><a href="http://www.flickr.com/photos/15729248@N00/3952499655"><img src="http://farm3.static.flickr.com/2671/3952499655_33ed3b7b29.jpg" alt="NSCoder Night" /></a></p>
 
-<p>The easiest question was A-Magic Trick. Nothing much to do here but count the
-number of similarities between two arrays, easily achieved with the <code>interact</code>
-method.</p>
+<p>The first London NSCoder Night was a success!</p>
 
-<p>The only gotcha in this problem was that the index of the rows to check is
-1-based, and most programming languages use 0-based indexing.</p>
+<p>Eleven people turned up, travelling from as far as Brighton and Reading to join
+in the fun. There was a mix of indies, learners, small Mac shops and students.</p>
 
-<pre><code class="language-haskell">module Main where
+<p>We started off upstairs at the <a href="http://bunchofgrapesborough.com/">Bunch of Grapes</a> and then moved to the outside area for more room. The tables outside are at a comfortable height for standing around so people were able to move around to different groups. There was a food, drink and talk and the laptops came out a few times as well.</p>
 
-import Control.Monad
-import Data.List
+<p>We decided that this is going to be a regular event, held at the same place on the <strong>third Tuesday of the month</strong>. Next time I&rsquo;ll book a table upstairs so we can sit down more comfortably. You don&rsquo;t need to tell me you&rsquo;re coming, but I&rsquo;d appreciate an idea of how many people are going to make it so I can reserve approximately the right number of seats.</p>
 
--- https://code.google.com/codejam/contest/dashboard?c=2974486#s=p0
--- Input and output with standard redirection operators
+<p>Thanks everyone for coming out. It was a great night and I hope you all went home with as much enthusiasm for coding as I did.</p>
 
-solve :: [Int] -&gt; [Int] -&gt; String
-solve a b
-  | l == 1 = show $ head common
-  | l &gt; 1  = &quot;Bad magician!&quot;
-  | otherwise = &quot;Volunteer cheated!&quot;
-  where common = a `intersect` b
-        l = length common
-
-main :: IO ()
-main = do
-  t &lt;- getLine
-  forM_ [1..read t :: Int] $ \i -&gt; do
-    choice1 &lt;- fmap read getLine
-    initial &lt;- replicateM 4 $ fmap (map read . words) getLine
-    choice2 &lt;- fmap read getLine
-    final &lt;- replicateM 4 $ fmap (map read . words) getLine
-    let r1 = initial !! (choice1 - 1)
-        r2 = final !! (choice2 - 1)
-    putStrLn $ concat [&quot;Case #&quot;, show i, &quot;: &quot;, solve r1 r2]
-</code></pre>
+<p>So, until the next time; follow <a href="http://twitter.com/nscodernightlon">@NSCoderNightLon</a> on Twitter and subscribe to the <a href="http://tinyurl.com/m5g6jb">iCal calender</a> to stay up to date.</p>
 
   </div>
 </section>
@@ -109,9 +82,7 @@ main = do
       TAGS:
       
       
-      <a class="meta" href="/tags/google-code-jam">GOOGLE-CODE-JAM</a>, 
-      
-      <a class="meta" href="/tags/haskell">HASKELL</a>
+      <a class="meta" href="/tags/nscodernight">NSCODERNIGHT</a>
       
       
       
@@ -130,13 +101,13 @@ main = do
 <section id="menu-pane" class="row menu text-center">
   
   
-  <span><a class="menu-item" href="http://abizern.org/2014/gcj-b---cookie-clicker-alpha/">&lt; prev | </a></span>
+  <span><a class="menu-item" href="http://abizern.org/2009/nscoder-night-london/">&lt; prev | </a></span>
   
   
   <span><a class="menu-item" href="/blog">blog</a></span>
   
   
-  <span><a class="menu-item" href="http://abizern.org/2014/fizz-buzz-in-swift/"> | next &gt;</a></span>
+  <span><a class="menu-item" href="http://abizern.org/2009/integrating-git-with-subethaedit-and-changes-app/"> | next &gt;</a></span>
   
   
   <h4 class="text-center"><a class="menu-item" href="http://abizern.org">home</a></h4>

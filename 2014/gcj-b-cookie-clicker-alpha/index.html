@@ -14,9 +14,7 @@
 
 <title>Abizer Nasir</title>
 
-<meta name="generator" content="Hugo 0.37.1" />
-
-
+<meta name="generator" content="Hugo 0.53" />
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
@@ -24,7 +22,7 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
 <link rel="stylesheet" href="http://abizern.org/css/main.css">
 
 
@@ -43,13 +41,13 @@
 
 
 <header class="row text-left title">
-  <h1 class="title">NSCoder Night London - Report</h1>
+  <h1 class="title">GCJ B - Cookie Clicker Alpha</h1>
 </header>
 <section id="category-pane" class="row meta">
   
   <div class="col-md-12">
     <h6 class="text-left meta">
-        PUBLISHED ON SEP 25, 2009 
+        PUBLISHED ON APR 18, 2014 
       
     </h6>
   </div>
@@ -57,20 +55,60 @@
 </section>
 <section id="content-pane" class="row">
   <div class="col-md-12 text-justify content">
-    <p><a href="http://www.flickr.com/photos/15729248@N00/3952499655"><img src="http://farm3.static.flickr.com/2671/3952499655_33ed3b7b29.jpg" alt="NSCoder Night" /></a></p>
+    <p>Another problem from This year&rsquo;s Google Code Jam.</p>
 
-<p>The first London NSCoder Night was a success!</p>
+<p>The gist of the problem is to work out whether buying additional capacity for
+cookie production would result is reaching the quota faster than not buying
+additional capacity.</p>
 
-<p>Eleven people turned up, travelling from as far as Brighton and Reading to join
-in the fun. There was a mix of indies, learners, small Mac shops and students.</p>
+<p>Haskell is suited to this for a couple of reasons. Firstly, its&rsquo; easy to work
+with infinite lists. so I can create list of the cumulative times for creating
+factories and reaching the target. And to calculate the cumulative target I&rsquo;m
+using the <code>scanl1</code> function to turn the infinite list of factory times into an
+infinite list of partial sums. I&rsquo;m using <code>scanl1</code> because it starts at 0, which
+is important as one of the gotcha&rsquo;s with this is that it may be faster to just
+generate cookies rather than buying a factory in the first instance.</p>
 
-<p>We started off upstairs at the <a href="http://bunchofgrapesborough.com/">Bunch of Grapes</a> and then moved to the outside area for more room. The tables outside are at a comfortable height for standing around so people were able to move around to different groups. There was a food, drink and talk and the laptops came out a few times as well.</p>
+<p>Secondly, pattern matching. With the infinite list I&rsquo;m stopping when the time to
+reach the target starts growing again. Pattern matching makes this very easy to do.</p>
 
-<p>We decided that this is going to be a regular event, held at the same place on the <strong>third Tuesday of the month</strong>. Next time I&rsquo;ll book a table upstairs so we can sit down more comfortably. You don&rsquo;t need to tell me you&rsquo;re coming, but I&rsquo;d appreciate an idea of how many people are going to make it so I can reserve approximately the right number of seats.</p>
+<pre><code class="language-haskell">module Main where
 
-<p>Thanks everyone for coming out. It was a great night and I hope you all went home with as much enthusiasm for coding as I did.</p>
+import Control.Monad
+import Numeric
 
-<p>So, until the next time; follow <a href="http://twitter.com/nscodernightlon">@NSCoderNightLon</a> on Twitter and subscribe to the <a href="http://tinyurl.com/m5g6jb">iCal calender</a> to stay up to date.</p>
+
+-- https://code.google.com/codejam/contest/dashboard?c=2974486#s=p1
+-- Input and output with standard redirection operators
+
+factoryTimes :: Double -&gt; Double -&gt; [Double]
+factoryTimes c f = 0.0 : [ c / (2.0 + k * f) | k &lt;- [0.0, 1.0 ..]]
+
+productionTimes :: Double -&gt; Double -&gt; [Double]
+productionTimes x f = [ x / (2.0 + k * f) | k &lt;- [0.0, 1.0 ..]]
+
+times :: Double -&gt; Double -&gt; Double -&gt; [Double]
+times c f x = zipWith (+) production factory
+  where production = productionTimes x f
+        factory = scanl1 (+) $ factoryTimes c f
+
+firstMinimum :: [Double] -&gt; Double
+firstMinimum (x:y:ys) = if x &lt; y
+                        then x
+                        else firstMinimum (y:ys)
+
+solve :: Double -&gt; Double -&gt; Double -&gt; Double
+solve c f x = firstMinimum $ times c f x
+
+main :: IO ()
+main = do
+  t &lt;- getLine
+  forM_ [1..read t :: Int] $ \i -&gt; do
+    [c, f, x] &lt;- fmap (map read . words) getLine
+    let result = solve c f x
+    putStrLn $ concat [&quot;Case #&quot;, show i, &quot;: &quot;, Numeric.showFFloat (Just 7) result &quot;&quot;]
+    
+</code></pre>
 
   </div>
 </section>
@@ -84,7 +122,9 @@ in the fun. There was a mix of indies, learners, small Mac shops and students.</
       TAGS:
       
       
-      <a class="meta" href="/tags/nscodernight">NSCODERNIGHT</a>
+      <a class="meta" href="/tags/google-code-jam">GOOGLE-CODE-JAM</a>, 
+      
+      <a class="meta" href="/tags/haskell">HASKELL</a>
       
       
       
@@ -103,13 +143,13 @@ in the fun. There was a mix of indies, learners, small Mac shops and students.</
 <section id="menu-pane" class="row menu text-center">
   
   
-  <span><a class="menu-item" href="http://abizern.org/2009/nscoder-night-london/">&lt; prev | </a></span>
+  <span><a class="menu-item" href="http://abizern.org/2014/hakyll-new-post-with-emacs/">&lt; prev | </a></span>
   
   
   <span><a class="menu-item" href="/blog">blog</a></span>
   
   
-  <span><a class="menu-item" href="http://abizern.org/2009/integrating-git-with-subethaedit-and-changes-app/"> | next &gt;</a></span>
+  <span><a class="menu-item" href="http://abizern.org/2014/gcj-a-magic-trick/"> | next &gt;</a></span>
   
   
   <h4 class="text-center"><a class="menu-item" href="http://abizern.org">home</a></h4>

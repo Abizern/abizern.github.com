@@ -14,9 +14,7 @@
 
 <title>Abizer Nasir</title>
 
-<meta name="generator" content="Hugo 0.37.1" />
-
-
+<meta name="generator" content="Hugo 0.53" />
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
@@ -24,7 +22,7 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
 <link rel="stylesheet" href="http://abizern.org/css/main.css">
 
 
@@ -43,7 +41,7 @@
 
 
 <header class="row text-left title">
-  <h1 class="title">GCJ B - Cookie Clicker Alpha</h1>
+  <h1 class="title">GCJ A - Magic Trick</h1>
 </header>
 <section id="category-pane" class="row meta">
   
@@ -57,59 +55,44 @@
 </section>
 <section id="content-pane" class="row">
   <div class="col-md-12 text-justify content">
-    <p>Another problem from This year&rsquo;s Google Code Jam.</p>
+    <p>I got through the qualification round for Google Code Jam 2014. I usually manage
+to get through this stage; it&rsquo;s the first round that I haven&rsquo;t managed to get
+past yet.</p>
 
-<p>The gist of the problem is to work out whether buying additional capacity for
-cookie production would result is reaching the quota faster than not buying
-additional capacity.</p>
+<p>The easiest question was A-Magic Trick. Nothing much to do here but count the
+number of similarities between two arrays, easily achieved with the <code>interact</code>
+method.</p>
 
-<p>Haskell is suited to this for a couple of reasons. Firstly, its&rsquo; easy to work
-with infinite lists. so I can create list of the cumulative times for creating
-factories and reaching the target. And to calculate the cumulative target I&rsquo;m
-using the <code>scanl1</code> function to turn the infinite list of factory times into an
-infinite list of partial sums. I&rsquo;m using <code>scanl1</code> because it starts at 0, which
-is important as one of the gotcha&rsquo;s with this is that it may be faster to just
-generate cookies rather than buying a factory in the first instance.</p>
-
-<p>Secondly, pattern matching. With the infinite list I&rsquo;m stopping when the time to
-reach the target starts growing again. Pattern matching makes this very easy to do.</p>
+<p>The only gotcha in this problem was that the index of the rows to check is
+1-based, and most programming languages use 0-based indexing.</p>
 
 <pre><code class="language-haskell">module Main where
 
 import Control.Monad
-import Numeric
+import Data.List
 
-
--- https://code.google.com/codejam/contest/dashboard?c=2974486#s=p1
+-- https://code.google.com/codejam/contest/dashboard?c=2974486#s=p0
 -- Input and output with standard redirection operators
 
-factoryTimes :: Double -&gt; Double -&gt; [Double]
-factoryTimes c f = 0.0 : [ c / (2.0 + k * f) | k &lt;- [0.0, 1.0 ..]]
-
-productionTimes :: Double -&gt; Double -&gt; [Double]
-productionTimes x f = [ x / (2.0 + k * f) | k &lt;- [0.0, 1.0 ..]]
-
-times :: Double -&gt; Double -&gt; Double -&gt; [Double]
-times c f x = zipWith (+) production factory
-  where production = productionTimes x f
-        factory = scanl1 (+) $ factoryTimes c f
-
-firstMinimum :: [Double] -&gt; Double
-firstMinimum (x:y:ys) = if x &lt; y
-                        then x
-                        else firstMinimum (y:ys)
-
-solve :: Double -&gt; Double -&gt; Double -&gt; Double
-solve c f x = firstMinimum $ times c f x
+solve :: [Int] -&gt; [Int] -&gt; String
+solve a b
+  | l == 1 = show $ head common
+  | l &gt; 1  = &quot;Bad magician!&quot;
+  | otherwise = &quot;Volunteer cheated!&quot;
+  where common = a `intersect` b
+        l = length common
 
 main :: IO ()
 main = do
   t &lt;- getLine
   forM_ [1..read t :: Int] $ \i -&gt; do
-    [c, f, x] &lt;- fmap (map read . words) getLine
-    let result = solve c f x
-    putStrLn $ concat [&quot;Case #&quot;, show i, &quot;: &quot;, Numeric.showFFloat (Just 7) result &quot;&quot;]
-    
+    choice1 &lt;- fmap read getLine
+    initial &lt;- replicateM 4 $ fmap (map read . words) getLine
+    choice2 &lt;- fmap read getLine
+    final &lt;- replicateM 4 $ fmap (map read . words) getLine
+    let r1 = initial !! (choice1 - 1)
+        r2 = final !! (choice2 - 1)
+    putStrLn $ concat [&quot;Case #&quot;, show i, &quot;: &quot;, solve r1 r2]
 </code></pre>
 
   </div>
@@ -145,13 +128,13 @@ main = do
 <section id="menu-pane" class="row menu text-center">
   
   
-  <span><a class="menu-item" href="http://abizern.org/2014/hakyll-new-post-with-emacs/">&lt; prev | </a></span>
+  <span><a class="menu-item" href="http://abizern.org/2014/gcj-b-cookie-clicker-alpha/">&lt; prev | </a></span>
   
   
   <span><a class="menu-item" href="/blog">blog</a></span>
   
   
-  <span><a class="menu-item" href="http://abizern.org/2014/gcj-a---magic-trick/"> | next &gt;</a></span>
+  <span><a class="menu-item" href="http://abizern.org/2014/fizz-buzz-in-swift/"> | next &gt;</a></span>
   
   
   <h4 class="text-center"><a class="menu-item" href="http://abizern.org">home</a></h4>
