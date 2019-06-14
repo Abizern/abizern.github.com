@@ -305,13 +305,13 @@ read this.</p>
 <p>Of course, if you are using Emacs, you don’t want to be grabbing the mouse to
 get to the action, here’s a lisp function I use to format JSON in place:</p>
 
-<pre><code class="language-lisp">(defun json-format ()
-  "Reformats the JSON in the region for humans."
-  (interactive)
-  (save-excursion
-    (shell-command-on-region (mark) (point) "python -m json.tool" (buffer-name) t)))
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">json-format</span> <span class="p">()</span>
+  <span class="s">"Reformats the JSON in the region for humans."</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">save-excursion</span>
+    <span class="p">(</span><span class="nv">shell-command-on-region</span> <span class="p">(</span><span class="nv">mark</span><span class="p">)</span> <span class="p">(</span><span class="nv">point</span><span class="p">)</span> <span class="s">"python -m json.tool"</span> <span class="p">(</span><span class="nv">buffer-name</span><span class="p">)</span> <span class="no">t</span><span class="p">)))</span>
 
-</code></pre>
+</code></pre></div></div>
 
 <p><strong>Edit</strong></p>
 
@@ -340,7 +340,8 @@ get to the action, here’s a lisp function I use to format JSON in place:</p>
   <div class="inner">
     <div class="copyright">
       
-        <p>&copy; 2019 Abizern.org.</p>
+        <p>©2019 Abizer Nasir</p>
+
       
     </div>
   </div>

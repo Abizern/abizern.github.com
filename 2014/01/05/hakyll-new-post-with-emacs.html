@@ -255,47 +255,47 @@ Hakyll’s site. But since I’m usually in Emacs when I want to write a new pos
 thought it would be a good excuse to write a little lisp. And so, here is my
 first attempt.</p>
 
-<pre><code class="language-lisp">(defun hakyll-site-location ()
-  "Return the location of the Hakyll files."
-  "~/Sites/hblog/")
+<div class="language-elisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">hakyll-site-location</span> <span class="p">()</span>
+  <span class="s">"Return the location of the Hakyll files."</span>
+  <span class="s">"~/Sites/hblog/"</span><span class="p">)</span>
 
-(defun hakyll-new-post (title tags)
-  "Create a new Hakyll post for today with TITLE and TAGS."
-  (interactive "sTitle: \nsTags: ")
-  (let ((file-name (hakyll-post-title title)))
-    (set-buffer (get-buffer-create file-name))
-    (markdown-mode)
-    (insert
-     (format "---\ntitle: %s\ntags: %s\ndescription: \n---\n\n" title tags))
-    (write-file
-     (expand-file-name file-name (concat (hakyll-site-location) "posts")))
-    (switch-to-buffer file-name)))
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">hakyll-new-post</span> <span class="p">(</span><span class="nv">title</span> <span class="nv">tags</span><span class="p">)</span>
+  <span class="s">"Create a new Hakyll post for today with TITLE and TAGS."</span>
+  <span class="p">(</span><span class="nv">interactive</span> <span class="s">"sTitle: \nsTags: "</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">file-name</span> <span class="p">(</span><span class="nv">hakyll-post-title</span> <span class="nv">title</span><span class="p">)))</span>
+    <span class="p">(</span><span class="nv">set-buffer</span> <span class="p">(</span><span class="nv">get-buffer-create</span> <span class="nv">file-name</span><span class="p">))</span>
+    <span class="p">(</span><span class="nv">markdown-mode</span><span class="p">)</span>
+    <span class="p">(</span><span class="nv">insert</span>
+     <span class="p">(</span><span class="nb">format</span> <span class="s">"---\ntitle: %s\ntags: %s\ndescription: \n---\n\n"</span> <span class="nv">title</span> <span class="nv">tags</span><span class="p">))</span>
+    <span class="p">(</span><span class="nv">write-file</span>
+     <span class="p">(</span><span class="nv">expand-file-name</span> <span class="nv">file-name</span> <span class="p">(</span><span class="nv">concat</span> <span class="p">(</span><span class="nv">hakyll-site-location</span><span class="p">)</span> <span class="s">"posts"</span><span class="p">)))</span>
+    <span class="p">(</span><span class="nv">switch-to-buffer</span> <span class="nv">file-name</span><span class="p">)))</span>
 
-(defun hakyll-new-note (title)
-  "Create a new Note with TITLE."
-  (interactive "sTitle: ")
-  (let ((file-name (hakyll-note-title title)))
-    (set-buffer (get-buffer-create file-name))
-    (markdown-mode)
-    (insert (format "---\ntitle: %s\ndescription: \n---\n\n" title))
-    (write-file
-     (expand-file-name file-name (concat (hakyll-site-location) "notes")))
-    (switch-to-buffer file-name)))
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">hakyll-new-note</span> <span class="p">(</span><span class="nv">title</span><span class="p">)</span>
+  <span class="s">"Create a new Note with TITLE."</span>
+  <span class="p">(</span><span class="nv">interactive</span> <span class="s">"sTitle: "</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">file-name</span> <span class="p">(</span><span class="nv">hakyll-note-title</span> <span class="nv">title</span><span class="p">)))</span>
+    <span class="p">(</span><span class="nv">set-buffer</span> <span class="p">(</span><span class="nv">get-buffer-create</span> <span class="nv">file-name</span><span class="p">))</span>
+    <span class="p">(</span><span class="nv">markdown-mode</span><span class="p">)</span>
+    <span class="p">(</span><span class="nv">insert</span> <span class="p">(</span><span class="nb">format</span> <span class="s">"---\ntitle: %s\ndescription: \n---\n\n"</span> <span class="nv">title</span><span class="p">))</span>
+    <span class="p">(</span><span class="nv">write-file</span>
+     <span class="p">(</span><span class="nv">expand-file-name</span> <span class="nv">file-name</span> <span class="p">(</span><span class="nv">concat</span> <span class="p">(</span><span class="nv">hakyll-site-location</span><span class="p">)</span> <span class="s">"notes"</span><span class="p">)))</span>
+    <span class="p">(</span><span class="nv">switch-to-buffer</span> <span class="nv">file-name</span><span class="p">)))</span>
 
-(defun hakyll-post-title (title)
-  "Return a file name based on TITLE for the post."
-  (concat
-   (format-time-string "%Y-%m-%d")
-   "-"
-   (replace-regexp-in-string " " "-" (downcase title))
-   ".markdown"))
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">hakyll-post-title</span> <span class="p">(</span><span class="nv">title</span><span class="p">)</span>
+  <span class="s">"Return a file name based on TITLE for the post."</span>
+  <span class="p">(</span><span class="nv">concat</span>
+   <span class="p">(</span><span class="nv">format-time-string</span> <span class="s">"%Y-%m-%d"</span><span class="p">)</span>
+   <span class="s">"-"</span>
+   <span class="p">(</span><span class="nv">replace-regexp-in-string</span> <span class="s">" "</span> <span class="s">"-"</span> <span class="p">(</span><span class="nv">downcase</span> <span class="nv">title</span><span class="p">))</span>
+   <span class="s">".markdown"</span><span class="p">))</span>
 
-(defun hakyll-note-title (title)
-  "Return a file name based on TITLE for the note."
-  (concat
-   (replace-regexp-in-string " " "-" (downcase title))
-   ".markdown"))
-</code></pre>
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">hakyll-note-title</span> <span class="p">(</span><span class="nv">title</span><span class="p">)</span>
+  <span class="s">"Return a file name based on TITLE for the note."</span>
+  <span class="p">(</span><span class="nv">concat</span>
+   <span class="p">(</span><span class="nv">replace-regexp-in-string</span> <span class="s">" "</span> <span class="s">"-"</span> <span class="p">(</span><span class="nv">downcase</span> <span class="nv">title</span><span class="p">))</span>
+   <span class="s">".markdown"</span><span class="p">))</span>
+</code></pre></div></div>
 
 <p>I’m not much of a lisper, and it probably took me longer to write than the time
 it will save me, but that doesn’t matter. Firstly; it might be useful to
@@ -334,7 +334,8 @@ with it).</p>
   <div class="inner">
     <div class="copyright">
       
-        <p>&copy; 2019 Abizern.org.</p>
+        <p>©2019 Abizer Nasir</p>
+
       
     </div>
   </div>

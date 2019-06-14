@@ -211,7 +211,7 @@ var store = [{
       },{
         "title": "Easy JSON formatting",
         "excerpt":"Sometimes we want to format some JSON. Here’s an easy way to set up a Service inAutomator to make this easier. Let’s create a service. Open Automator and choose to create a new Service From the Library, select the “Run Shell Script” action and drag it to the right. In...","categories": ["development"],
-        "tags": ["mac","automator","json"],
+        "tags": ["mac","automator","json","lisp"],
         "url": "http://abizern.org/2015/10/10/easy-json-formatting.html"
       },{
         "title": "Swift Function Overloading By Return Type",
