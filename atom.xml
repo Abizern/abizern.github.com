@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-GB"><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://abizern.org/atom.xml" rel="self" type="application/atom+xml" /><link href="http://abizern.org/" rel="alternate" type="text/html" hreflang="en-GB" /><updated>2019-06-14T23:09:03+01:00</updated><id>http://abizern.org/atom.xml</id><title type="html">Abizern.org</title><subtitle>Developer and personal blog of an iOS and Mac Contract developer in London.  I write modern maintainable code in Swift. You can sometimes find me running around South East London</subtitle><entry><title type="html">The Road to Damascus or FRP and Me</title><link href="http://abizern.org/2017/09/14/the-road-to-damascus-or-frp-and-me.html" rel="alternate" type="text/html" title="The Road to Damascus or FRP and Me" /><published>2017-09-14T00:00:00+01:00</published><updated>2017-09-14T00:00:00+01:00</updated><id>http://abizern.org/2017/09/14/the-road-to-damascus-or-frp-and-me</id><content type="html" xml:base="http://abizern.org/2017/09/14/the-road-to-damascus-or-frp-and-me.html">&lt;p&gt;I tried to learn about Functional Reactive Programming to see whether I would adopt it in my own code. These are my thoughts about it.&lt;/p&gt;
+
+&lt;h3 id=&quot;slides&quot;&gt;Slides&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Available on &lt;a href=&quot;https://speakerdeck.com/abizern/the-road-to-damascus-or-frp-and-me&quot;&gt;Speaker Deck&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;video&quot;&gt;Video&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Available on the &lt;a href=&quot;https://vimeo.com/album/4786409/video/235050604&quot;&gt;NSSpain Vimeo Channel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="[&quot;presentation&quot;]" /><category term="nsspain" /><category term="swift" /><category term="frp" /><category term="rxswift" /><summary type="html">I tried to learn about Functional Reactive Programming to see whether I would adopt it in my own code. These are my thoughts about it.</summary></entry><entry><title type="html">Be Your Own Backend Developer</title><link href="http://abizern.org/2017/04/18/be-your-own-backend-developer.html" rel="alternate" type="text/html" title="Be Your Own Backend Developer" /><published>2017-04-18T00:00:00+01:00</published><updated>2017-04-18T00:00:00+01:00</updated><id>http://abizern.org/2017/04/18/be-your-own-backend-developer</id><content type="html" xml:base="http://abizern.org/2017/04/18/be-your-own-backend-developer.html">&lt;p&gt;An overview of server side Swift. I gave this presentation at Code Mobile in Chester. Unfortunataly, although a recording was made of the talk, it’s not available.&lt;/p&gt;
+
+&lt;h3 id=&quot;slides&quot;&gt;Slides&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Available on &lt;a href=&quot;https://speakerdeck.com/abizern/be-your-own-backend-developer&quot;&gt;Speaker Deck&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="[&quot;presentation&quot;]" /><category term="swift" /><category term="server-side-swift" /><category term="codemobile" /><summary type="html">An overview of server side Swift. I gave this presentation at Code Mobile in Chester. Unfortunataly, although a recording was made of the talk, it’s not available.</summary></entry><entry><title type="html">Safer Programming With Types</title><link href="http://abizern.org/2016/10/25/safer-programming-with-types.html" rel="alternate" type="text/html" title="Safer Programming With Types" /><published>2016-10-25T00:00:00+01:00</published><updated>2016-10-25T00:00:00+01:00</updated><id>http://abizern.org/2016/10/25/safer-programming-with-types</id><content type="html" xml:base="http://abizern.org/2016/10/25/safer-programming-with-types.html">&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+
+&lt;h3 id=&quot;slides&quot;&gt;Slides&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Available on &lt;a href=&quot;https://speakerdeck.com/abizern/safer-programming-with-types&quot;&gt;Speaker Deck&lt;/a&gt; with speaker notes included.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;video&quot;&gt;Video&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Available on YouTube&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/uR6ox-9VPAA&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;</content><author><name></name></author><category term="[&quot;presentation&quot;]" /><category term="swift" /><category term="swift-london" /><summary type="html">Summary</summary></entry><entry><title type="html">Core Data: It’s Not Dead Yet</title><link href="http://abizern.org/2016/09/23/core-data-its-not-dead-yet.html" rel="alternate" type="text/html" title="Core Data: It's Not Dead Yet" /><published>2016-09-23T00:00:00+01:00</published><updated>2016-09-23T00:00:00+01:00</updated><id>http://abizern.org/2016/09/23/core-data-its-not-dead-yet</id><content type="html" xml:base="http://abizern.org/2016/09/23/core-data-its-not-dead-yet.html">&lt;p&gt;I spoke at FrenchKit Conference in Paris on why Core Data should not be counted out just yet.&lt;/p&gt;
+
+&lt;h3 id=&quot;slides&quot;&gt;Slides&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Available on &lt;a href=&quot;https://speakerdeck.com/abizern/core-data-its-not-dead-yet&quot;&gt;Speaker Deck&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;video&quot;&gt;Video&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The video is available from &lt;a href=&quot;https://youtu.be/iOdg7WOEWWE&quot;&gt;Xebia’s YouTube Channel&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="[&quot;presentation&quot;]" /><category term="frenchkit" /><category term="core-data" /><category term="swift" /><summary type="html">I spoke at FrenchKit Conference in Paris on why Core Data should not be counted out just yet.</summary></entry><entry><title type="html">Being Imperfect In A Perfect World</title><link href="http://abizern.org/2016/09/21/being-imperfect-in-a-perfect-world.html" rel="alternate" type="text/html" title="Being Imperfect In A Perfect World" /><published>2016-09-21T00:00:00+01:00</published><updated>2016-09-21T00:00:00+01:00</updated><id>http://abizern.org/2016/09/21/being-imperfect-in-a-perfect-world</id><content type="html" xml:base="http://abizern.org/2016/09/21/being-imperfect-in-a-perfect-world.html">&lt;p&gt;Just some thoughts on the choices we make about the patterns we use in development.&lt;/p&gt;
+
+&lt;h3 id=&quot;slides&quot;&gt;Slides&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Available on &lt;a href=&quot;https://speakerdeck.com/abizern/being-imperfect-in-a-perfect-world&quot;&gt;Speaker Deck&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="[&quot;presentation&quot;]" /><category term="nsbarcelona" /><category term="swift" /><category term="app-architecture" /><category term="mvc" /><category term="mvvm" /><category term="viper" /><category term="rxswift" /><summary type="html">Just some thoughts on the choices we make about the patterns we use in development.</summary></entry><entry><title type="html">Swift London Pre-WWDC Panel</title><link href="http://abizern.org/2016/06/07/swift-london-pre-wwdc-panel.html" rel="alternate" type="text/html" title="Swift London Pre-WWDC Panel" /><published>2016-06-07T00:00:00+01:00</published><updated>2016-06-07T00:00:00+01:00</updated><id>http://abizern.org/2016/06/07/swift-london-pre-wwdc-panel</id><content type="html" xml:base="http://abizern.org/2016/06/07/swift-london-pre-wwdc-panel.html">&lt;p&gt;I was a late addition to this panel, which is my excuse for looking so scruffy.&lt;/p&gt;
+
+&lt;h3 id=&quot;video&quot;&gt;Video&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The video is available on the Swift London YouTube Channel&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/PK1PPNTmGuw&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;</content><author><name></name></author><category term="[&quot;presentation&quot;]" /><category term="swift" /><category term="swift-london" /><category term="wwdc" /><summary type="html">I was a late addition to this panel, which is my excuse for looking so scruffy.</summary></entry><entry><title type="html">Dependency Management With Carthage</title><link href="http://abizern.org/2016/05/02/dependency-management-with-carthage.html" rel="alternate" type="text/html" title="Dependency Management With Carthage" /><published>2016-05-02T00:00:00+01:00</published><updated>2016-05-02T00:00:00+01:00</updated><id>http://abizern.org/2016/05/02/dependency-management-with-carthage</id><content type="html" xml:base="http://abizern.org/2016/05/02/dependency-management-with-carthage.html">&lt;p&gt;Almost a year since the &lt;a href=&quot;http://abizern.org/talks/carthage/&quot;&gt;last time&lt;/a&gt; I gave a talk on this subject at NSLondon. This
+is an updated version about Carthage.&lt;/p&gt;
+
+&lt;h3 id=&quot;slides&quot;&gt;Slides&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The slides are available on &lt;a href=&quot;https://speakerdeck.com/abizern/dependency-management-with-carthage&quot;&gt;Speaker Deck&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;video&quot;&gt;Video&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The video for this talk is available on &lt;a href=&quot;https://vimeo.com/album/3943556/video/165920026&quot;&gt;Vimeo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="[&quot;presentation&quot;]" /><category term="carthage" /><category term="cocoaheads-stockholm" /><category term="xcode" /><summary type="html">Almost a year since the last time I gave a talk on this subject at NSLondon. This is an updated version about Carthage.</summary></entry><entry><title type="html">Swift Function Overloading By Return Type</title><link href="http://abizern.org/2015/10/11/swift-function-overloading-by-return-type.html" rel="alternate" type="text/html" title="Swift Function Overloading By Return Type" /><published>2015-10-11T00:00:00+01:00</published><updated>2015-10-11T00:00:00+01:00</updated><id>http://abizern.org/2015/10/11/swift-function-overloading-by-return-type</id><content type="html" xml:base="http://abizern.org/2015/10/11/swift-function-overloading-by-return-type.html">&lt;p&gt;As Objective-C developers, we often forget that we can overload functions by
+return type. This can often help us create neat APIs. This is best illustrated
+by an example.&lt;/p&gt;
+
+&lt;p&gt;I posted a
+&lt;a href=&quot;http://abizern.org/2015/10/10/a-swift-repeating-timer/&quot;&gt;wrapper for timer dispatch sources&lt;/a&gt;
+yesterday. While I was doing it I noticed a discrepancy with GCD. When creating
+a timer dispatch source, times were passed as nanoseconds as a &lt;code class=&quot;highlighter-rouge&quot;&gt;UInt64&lt;/code&gt;, but the
+&lt;code class=&quot;highlighter-rouge&quot;&gt;dispatch_after()&lt;/code&gt; function took nanoseconds as an &lt;code class=&quot;highlighter-rouge&quot;&gt;Int64&lt;/code&gt;. Such things are what
+cause hair-pulling and fighting with the type system.&lt;/p&gt;
+
+&lt;p&gt;But most of the time we just want to pass times around as &lt;code class=&quot;highlighter-rouge&quot;&gt;NSTimeInterval&lt;/code&gt;s as
+seconds, but we have to convert this to a &lt;code class=&quot;highlighter-rouge&quot;&gt;UInt64&lt;/code&gt; or an &lt;code class=&quot;highlighter-rouge&quot;&gt;Int64&lt;/code&gt;. It’s a better
+idea to wrap these creating methods, and function overloading lets us use the
+same descriptive name for these functions with different return types. So, here
+is some code which you can put in a playground that demonstrates this:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Abizern/c030bd9674b2ad881b44.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;I’m extending &lt;code class=&quot;highlighter-rouge&quot;&gt;NSTimeInterval&lt;/code&gt; which is a typealias for &lt;code class=&quot;highlighter-rouge&quot;&gt;Double&lt;/code&gt; just to make it
+clear that these new functions apply to times.&lt;/p&gt;
+
+&lt;p&gt;Note that there are two functions called &lt;code class=&quot;highlighter-rouge&quot;&gt;nSecs()&lt;/code&gt;, but they return different
+values. And the strong type system ensures the correct function is used. &lt;code class=&quot;highlighter-rouge&quot;&gt;dispatch_source_set_timer()&lt;/code&gt; uses the  &lt;code class=&quot;highlighter-rouge&quot;&gt;nSecs() -&amp;gt; UInt64&lt;/code&gt; values, and
+the &lt;code class=&quot;highlighter-rouge&quot;&gt;dispatch_after()&lt;/code&gt; uses &lt;code class=&quot;highlighter-rouge&quot;&gt;nSecs() -&amp;gt; Int64&lt;/code&gt; function&lt;/p&gt;
+
+&lt;p&gt;This example also demonstrates that we should write functions for such
+translations, which separates the concerns of creating and transforming values
+from the use of those values. It’s something that I don’t do enough of, and I
+encourage you do try and do this where you can.&lt;/p&gt;</content><author><name></name></author><category term="[&quot;development&quot;]" /><category term="swift" /><summary type="html">As Objective-C developers, we often forget that we can overload functions by return type. This can often help us create neat APIs. This is best illustrated by an example.</summary></entry><entry><title type="html">A Swift Repeating Timer</title><link href="http://abizern.org/2015/10/10/a-swift-repeating-timer.html" rel="alternate" type="text/html" title="A Swift Repeating Timer" /><published>2015-10-10T00:00:00+01:00</published><updated>2015-10-10T00:00:00+01:00</updated><id>http://abizern.org/2015/10/10/a-swift-repeating-timer</id><content type="html" xml:base="http://abizern.org/2015/10/10/a-swift-repeating-timer.html">&lt;p&gt;We frequently (excuse the pun) need to schedule a repeated action.&lt;/p&gt;
+
+&lt;p&gt;The way to do this was usually to use &lt;code class=&quot;highlighter-rouge&quot;&gt;NSTimer&lt;/code&gt;’s
+&lt;code class=&quot;highlighter-rouge&quot;&gt;scheduledTimerWithTimeInterval(_:,target:,selector:,userInfo:,repeats:)&lt;/code&gt;, which
+needed a callback, and had the hidden pitfall of the target being strongly
+referenced by the runloop that this timer was scheduled on. There are extensions
+to NSTimer that allow the used of blocks instead (I even wrote one myself), but
+there is another way.&lt;/p&gt;
+
+&lt;p&gt;Grand Central Dispatch provides
+&lt;a href=&quot;https://developer.apple.com/library/mac/documentation/General/Conceptual/ConcurrencyProgrammingGuide/GCDWorkQueues/GCDWorkQueues.html&quot;&gt;dispatch sources&lt;/a&gt;
+for efficient interaction with the underlying system. One such source type is
+&lt;code class=&quot;highlighter-rouge&quot;&gt;DISPATCH_SOURCE_TYPE_TIMER&lt;/code&gt;. So here as a Swift function that creates and
+starts such a timer.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Abizern/cf26af397ebe66284002.js&quot;&gt;&lt;/script&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// RepeatingTimer.swift&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Foundation&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;enum&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;TimerError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;ErrorType&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;/// The timer could not be created.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;CouldNotCreate&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/**
+Create and start a timer dispatch source.
+This is best used for short running timers. Be sure to call `dispatch_source_cancel()` on the timer to invalidate it.
+- Parameters:
+- interval: The interval for the timer.
+- leeway:   The amount of time that the system can defer the timer.
+- start:    The start time of the timer. Defaults to DISPATCH_TIME_NOW
+- queue:    The dispatch queue to which the action closure is submitted. Defaults to the main queue.
+- action:   The closure to submit to the queue. Has the signature of () -&amp;gt; Void
+- Returns: A dispatch source timer that has already been started.
+- Throws: A `TimerError.CouldNotCreate` error if the timer could not be created.
+*/&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;@warn_unused_result&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;repeatingTimerWithInterval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;NSTimeInterval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;leeway&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;NSTimeInterval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dispatch_time_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;DISPATCH_TIME_NOW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dispatch_queue_t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;dispatch_get_main_queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dispatch_block_t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dispatch_source_t&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;timer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;dispatch_source_create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;DISPATCH_SOURCE_TYPE_TIMER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;guard&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;TimerError&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;CouldNotCreate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;nanoseconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;seconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;NSTimeInterval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UInt64&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;kd&quot;&gt;enum&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Static&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Multiplier&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;NSEC_PER_SEC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UInt64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Static&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Multiplier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;nf&quot;&gt;dispatch_source_set_event_handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;dispatch_source_set_timer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;nanoseconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;nanoseconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;leeway&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+        &lt;span class=&quot;nf&quot;&gt;dispatch_resume&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timer&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Since I’m passing in &lt;code class=&quot;highlighter-rouge&quot;&gt;NSTimeInterval&lt;/code&gt;s this is probably best used for short
+lived timers, but it extracts a lot of the C boilerplate that is needed to
+create the dispatch source.&lt;/p&gt;</content><author><name></name></author><category term="[&quot;development&quot;]" /><category term="swift" /><summary type="html">We frequently (excuse the pun) need to schedule a repeated action.</summary></entry><entry><title type="html">Easy JSON formatting</title><link href="http://abizern.org/2015/10/10/easy-json-formatting.html" rel="alternate" type="text/html" title="Easy JSON formatting" /><published>2015-10-10T00:00:00+01:00</published><updated>2015-10-10T00:00:00+01:00</updated><id>http://abizern.org/2015/10/10/easy-json-formatting</id><content type="html" xml:base="http://abizern.org/2015/10/10/easy-json-formatting.html">&lt;p&gt;Sometimes we want to format some JSON. Here’s an easy way to set up a Service in
+Automator to make this easier.&lt;/p&gt;
+
+&lt;p&gt;Let’s create a service. Open Automator and choose to create a new Service&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://images.abizern.org.s3.amazonaws.com/2015/10/CreateNewService.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;From the Library, select the “Run Shell Script” action and drag it to the right.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://images.abizern.org.s3.amazonaws.com/2015/10/RunShellScript.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In the action box type:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;json_pp | pbcopy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrint.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is what actually does the formatting. &lt;code class=&quot;highlighter-rouge&quot;&gt;json_pp&lt;/code&gt; comes with OS X
+. This
+runs the selected text through the tool and puts the result in the
+pasteboard.You can paste your formatted output wherever you like.&lt;/p&gt;
+
+&lt;p&gt;Save the action with a name - I’ve called mine &lt;em&gt;JSON Pretty Print&lt;/em&gt;. You should
+see the new service installed under &lt;code class=&quot;highlighter-rouge&quot;&gt;~/Library/Services&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Rather than have to paste the result, we can define another service that
+replaces the selected text with the result. Create another service as before
+except that the action doesn’t put the results on the pasteboard.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;json_pp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrintInPlace.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Note that the “Output replaces selected text” option is checked.&lt;/p&gt;
+
+&lt;p&gt;Save this action with a name - I’ve called mine &lt;em&gt;JSON Pretty Print In Place&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;An advantage of using the service is that it is intelligent about when to make
+the service available. If there is no selection, then the Service is not listed:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://images.abizern.org.s3.amazonaws.com/2015/10/NoSelection.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If the selection is in a place where the text cannot be pasted, then only the
+service that copies the result is presented.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://images.abizern.org.s3.amazonaws.com/2015/10/Selection.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;But if the text can be pasted in place, the Service is shown.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://images.abizern.org.s3.amazonaws.com/2015/10/SelectionInPlace.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can see a gif of this in action at this
+&lt;a href=&quot;https://dl.dropboxusercontent.com/s/7hb3tyqexojaaxf/2E4B3531-09A5-4514-B556-556E22FBB455-12370-0000275E07F45E21.gif?dl=0&quot;&gt;link&lt;/a&gt; -
+I’m linking to this so there isn’t a constantly repeating animation while you
+read this.&lt;/p&gt;
+
+&lt;p&gt;Of course, if you are using Emacs, you don’t want to be grabbing the mouse to
+get to the action, here’s a lisp function I use to format JSON in place:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-lisp&quot;&gt;(defun json-format ()
+  &quot;Reformats the JSON in the region for humans.&quot;
+  (interactive)
+  (save-excursion
+    (shell-command-on-region (mark) (point) &quot;python -m json.tool&quot; (buffer-name) t)))
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Edit&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Thanks to &lt;a href=&quot;https://twitter.com/chrisridd&quot;&gt;Chris Ridd&lt;/a&gt; for pointing out that I could use &lt;code class=&quot;highlighter-rouge&quot;&gt;json_pp&lt;/code&gt;.&lt;/p&gt;</content><author><name></name></author><category term="[&quot;development&quot;]" /><category term="mac" /><category term="automator" /><category term="json" /><summary type="html">Sometimes we want to format some JSON. Here’s an easy way to set up a Service in Automator to make this easier.</summary></entry></feed>

@@ -1,664 +1,243 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>http://abizern.org/talks/2017/the-road-to-damascus-or-frp-and-me/</loc>
-    <lastmod>2017-09-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/talks/2017/be-your-own-backend-developer/</loc>
-    <lastmod>2017-04-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/talks/2016/safer-programming-with-types/</loc>
-    <lastmod>2016-10-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/talks/2016/core-data-its-not-dead-yet/</loc>
-    <lastmod>2016-09-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/talks/2016/being-imperfect-in-a-perfect-world/</loc>
-    <lastmod>2016-09-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/talks/2016/swift-london-pre-wwdc-panel/</loc>
-    <lastmod>2016-06-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/talks/2016/dependency-management-with-carthage/</loc>
-    <lastmod>2016-05-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2015/swift-function-overloading-by-return-type/</loc>
-    <lastmod>2015-10-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2015/a-swift-repeating-timer/</loc>
-    <lastmod>2015-10-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2015/easy-json-formatting/</loc>
-    <lastmod>2015-10-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/talks/2015/carthage/</loc>
-    <lastmod>2015-07-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/talks/2015/what-haskell-teaches-me-about-writing-swift/</loc>
-    <lastmod>2015-06-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/talks/2015/what-haskell-taught-me-about-swift/</loc>
-    <lastmod>2015-03-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2015/debug-logging-in-swift/</loc>
-    <lastmod>2015-02-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2014/fizz-buzz-in-swift/</loc>
-    <lastmod>2014-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/talks/2014/fizzbuzz-in-swift/</loc>
-    <lastmod>2014-08-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/talks/2014/adding-3rd-party-code-to-your-project/</loc>
-    <lastmod>2014-05-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2014/gcj-a-magic-trick/</loc>
-    <lastmod>2014-04-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2014/gcj-b-cookie-clicker-alpha/</loc>
-    <lastmod>2014-04-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2014/hakyll-new-post-with-emacs/</loc>
-    <lastmod>2014-01-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2013/hello-hakyll/</loc>
-    <lastmod>2013-12-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2013/git-at-london-web-standards/</loc>
-    <lastmod>2013-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2013/setting-up-for-lisp-on-os-x/</loc>
-    <lastmod>2013-03-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2013/missing-xcode-toolbar/</loc>
-    <lastmod>2013-01-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2012/correcting-brace-layout/</loc>
-    <lastmod>2012-12-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2012/commanding-your-text-editor/</loc>
-    <lastmod>2012-11-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2012/a-reason-to-learn-lisp/</loc>
-    <lastmod>2012-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2012/an-improved-reverse-words-script/</loc>
-    <lastmod>2012-10-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2012/uuid-strings-with-cocoa/</loc>
-    <lastmod>2012-10-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2012/on-live-coding/</loc>
-    <lastmod>2012-08-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2012/coding-conventions/</loc>
-    <lastmod>2012-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2012/book-stack-june-2012/</loc>
-    <lastmod>2012-06-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2012/london-coderdojo/</loc>
-    <lastmod>2012-04-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2012/rotate-a-string-with-haskell/</loc>
-    <lastmod>2012-04-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2012/reverse-words-with-haskell/</loc>
-    <lastmod>2012-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2012/git-ignore-file/</loc>
-    <lastmod>2012-03-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2012/simple-localisation-testing/</loc>
-    <lastmod>2012-03-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2012/hello-octopress/</loc>
-    <lastmod>2012-03-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2011/nscoder-night-london-now-has-its-own-page/</loc>
-    <lastmod>2011-04-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2011/just-enough-gpg-for-git/</loc>
-    <lastmod>2011-01-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2010/staying-flash-free-on-a-macbook-air/</loc>
-    <lastmod>2010-11-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2010/getting-the-address-of-a-shortened-url/</loc>
-    <lastmod>2010-10-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2010/blackjack-and-the-python-dojo/</loc>
-    <lastmod>2010-10-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2010/dvcs-at-lidg/</loc>
-    <lastmod>2010-10-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2010/a-year-of-git/</loc>
-    <lastmod>2010-03-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2010/renaming-an-xcode-project/</loc>
-    <lastmod>2010-03-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2010/a-year-of-objective-c-snippets/</loc>
-    <lastmod>2010-02-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2010/a-simple-answer-is-not-always-best/</loc>
-    <lastmod>2010-01-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2009/some-tips-for-lazy-xcoders/</loc>
-    <lastmod>2009-11-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2009/integrating-git-with-subethaedit-and-changes-app/</loc>
-    <lastmod>2009-11-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2009/nscoder-night-london-report/</loc>
-    <lastmod>2009-09-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/2009/nscoder-night-london/</loc>
-    <lastmod>2009-09-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/</loc>
-    <lastmod>2017-09-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/about/</loc>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/altconf/</loc>
-    <lastmod>2015-06-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/architecture/</loc>
-    <lastmod>2016-09-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/automator/</loc>
-    <lastmod>2015-10-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/blog/</loc>
-    <lastmod>2015-10-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/books/</loc>
-    <lastmod>2012-06-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/carthage/</loc>
-    <lastmod>2016-05-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/cocoa/</loc>
-    <lastmod>2012-07-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/notes/cocoa-coding-conventions/</loc>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/cocoaheads/</loc>
-    <lastmod>2016-05-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/cocoapods/</loc>
-    <lastmod>2014-05-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/codemobile/</loc>
-    <lastmod>2017-04-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/coredata/</loc>
-    <lastmod>2016-09-23T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/dependecies/</loc>
-    <lastmod>2016-05-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/dependencies/</loc>
-    <lastmod>2015-07-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/dojo/</loc>
-    <lastmod>2010-10-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/editing/</loc>
-    <lastmod>2012-11-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/emacs/</loc>
-    <lastmod>2014-01-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/notes/emacs-notes/</loc>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/fizz-buzz/</loc>
-    <lastmod>2014-08-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/frenchkit/</loc>
-    <lastmod>2016-09-23T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/frp/</loc>
-    <lastmod>2017-09-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/git/</loc>
-    <lastmod>2014-05-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/google-code-jam/</loc>
-    <lastmod>2014-04-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/gpg/</loc>
-    <lastmod>2011-01-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/hakyll/</loc>
-    <lastmod>2014-01-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/haskell/</loc>
-    <lastmod>2015-06-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/ios/</loc>
-    <lastmod>2013-01-29T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/ioscon/</loc>
-    <lastmod>2014-05-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/json/</loc>
-    <lastmod>2015-10-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/lisp/</loc>
-    <lastmod>2014-01-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/localisation/</loc>
-    <lastmod>2012-03-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/mac/</loc>
-    <lastmod>2015-10-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/macos/</loc>
-    <lastmod>2013-03-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/meta/</loc>
-    <lastmod>2014-01-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/mvc/</loc>
-    <lastmod>2016-09-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/mvvm/</loc>
-    <lastmod>2016-09-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/notes/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/nsbarcelona/</loc>
-    <lastmod>2016-09-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/nscodernight/</loc>
-    <lastmod>2011-04-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/nslondon/</loc>
-    <lastmod>2015-07-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/nsspain/</loc>
-    <lastmod>2017-09-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/objecive-c/</loc>
-    <lastmod>2012-07-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/objective-c/</loc>
-    <lastmod>2012-12-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/octopress/</loc>
-    <lastmod>2012-03-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/personal/</loc>
-    <lastmod>2012-06-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/programming/</loc>
-    <lastmod>2012-08-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/python/</loc>
-    <lastmod>2010-10-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/ruby/</loc>
-    <lastmod>2012-12-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/rxswift/</loc>
-    <lastmod>2017-09-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/server-side-swift/</loc>
-    <lastmod>2017-04-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/subethaedit/</loc>
-    <lastmod>2009-11-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/submodules/</loc>
-    <lastmod>2014-05-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/swift/</loc>
-    <lastmod>2017-09-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/swiftlondon/</loc>
-    <lastmod>2016-10-25T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/swiftsummit/</loc>
-    <lastmod>2015-03-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/</loc>
-    <lastmod>2015-06-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/talks/</loc>
-    <lastmod>2017-09-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/terminal/</loc>
-    <lastmod>2010-10-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/testing/</loc>
-    <lastmod>2012-03-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/true/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/ua-5015208-5/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/url/</loc>
-    <lastmod>2010-10-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/uuid/</loc>
-    <lastmod>2012-10-25T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/viper/</loc>
-    <lastmod>2016-09-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/wwdc/</loc>
-    <lastmod>2016-06-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://abizern.org/tags/xcode/</loc>
-    <lastmod>2016-05-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://abizern.org/2009/09/21/nscoder-night-london.html</loc>
+<lastmod>2009-09-21T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2009/09/25/nscoder-night-london-report.html</loc>
+<lastmod>2009-09-25T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2009/11/09/integrating-git-with-subethaedit-and-changes.html</loc>
+<lastmod>2009-11-09T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2009/11/11/some-tips-for-lazy-xcoders.html</loc>
+<lastmod>2009-11-11T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2010/01/08/a-simple-answer-is-not-always-best.html</loc>
+<lastmod>2010-01-08T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2010/02/27/a-year-of-objective-c-snippets.html</loc>
+<lastmod>2010-02-27T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2010/03/06/renaming-an-xcode-project.html</loc>
+<lastmod>2010-03-06T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2010/03/24/a-year-of-git.html</loc>
+<lastmod>2010-03-24T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2010/10/08/blackjack-and-the-python-dojo.html</loc>
+<lastmod>2010-10-08T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2010/10/08/dvcs-at-lidg.html</loc>
+<lastmod>2010-10-08T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2010/10/16/getting-the-address-of-a-shortened-url.html</loc>
+<lastmod>2010-10-16T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2010/11/21/staying-flash-free-on-a-macbook-air.html</loc>
+<lastmod>2010-11-21T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2011/01/17/just-enough-gpg-for-git.html</loc>
+<lastmod>2011-01-17T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2011/04/14/nscoder-night-london-now-has-its-own-page.html</loc>
+<lastmod>2011-04-14T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2012/03/17/hello-octopress.html</loc>
+<lastmod>2012-03-17T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2012/03/18/simple-localisation-testing.html</loc>
+<lastmod>2012-03-18T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2012/03/19/git-ignore-file.html</loc>
+<lastmod>2012-03-19T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2012/04/09/reverse-words-with-haskell.html</loc>
+<lastmod>2012-04-09T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2012/04/15/london-coderdojo.html</loc>
+<lastmod>2012-04-15T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2012/04/15/rotate-a-string-with-haskell.html</loc>
+<lastmod>2012-04-15T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2012/06/05/book-stack-june-2012.html</loc>
+<lastmod>2012-06-05T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2012/08/20/on-live-coding.html</loc>
+<lastmod>2012-08-20T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2012/10/25/uuid-strings-with-cocoa.html</loc>
+<lastmod>2012-10-25T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2012/10/31/an-improved-reverse-words-script.html</loc>
+<lastmod>2012-10-31T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2012/11/01/a-reason-to-learn-lisp.html</loc>
+<lastmod>2012-11-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2012/11/02/commanding-your-text-editor.html</loc>
+<lastmod>2012-11-02T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2012/12/30/correcting-brace-layout.html</loc>
+<lastmod>2012-12-30T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2013/01/29/missing-xcode-toolbar.html</loc>
+<lastmod>2013-01-29T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2013/03/31/setting-up-for-lisp-on-os-x.html</loc>
+<lastmod>2013-03-31T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2013/05/30/git-at-london-web-standards.html</loc>
+<lastmod>2013-05-30T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2013/12/26/hello-hakyll.html</loc>
+<lastmod>2013-12-26T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2014/01/05/hakyll-new-post-with-emacs.html</loc>
+<lastmod>2014-01-05T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2014/04/18/gcj-a-magic-trick.html</loc>
+<lastmod>2014-04-18T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2014/04/18/gcj-b-cookie-clicker-alpha.html</loc>
+<lastmod>2014-04-18T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2014/05/15/adding-3rd-party-code-to-your-project.html</loc>
+<lastmod>2014-05-15T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2014/08/28/fizzbuzz-in-swift.html</loc>
+<lastmod>2014-08-28T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2014/12/13/fizz-buzz-in-swift.html</loc>
+<lastmod>2014-12-13T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2015/02/01/debug-logging-in-swift.html</loc>
+<lastmod>2015-02-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2015/03/21/what-haskell-taught-me-about-swift.html</loc>
+<lastmod>2015-03-21T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2015/06/11/what-haskell-teaches-me-about-writing-swift.html</loc>
+<lastmod>2015-06-11T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2015/07/30/carthage.html</loc>
+<lastmod>2015-07-30T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2015/10/10/a-swift-repeating-timer.html</loc>
+<lastmod>2015-10-10T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2015/10/10/easy-json-formatting.html</loc>
+<lastmod>2015-10-10T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2015/10/11/swift-function-overloading-by-return-type.html</loc>
+<lastmod>2015-10-11T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2016/05/02/dependency-management-with-carthage.html</loc>
+<lastmod>2016-05-02T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2016/06/07/swift-london-pre-wwdc-panel.html</loc>
+<lastmod>2016-06-07T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2016/09/21/being-imperfect-in-a-perfect-world.html</loc>
+<lastmod>2016-09-21T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2016/09/23/core-data-its-not-dead-yet.html</loc>
+<lastmod>2016-09-23T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2016/10/25/safer-programming-with-types.html</loc>
+<lastmod>2016-10-25T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2017/04/18/be-your-own-backend-developer.html</loc>
+<lastmod>2017-04-18T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/2017/09/14/the-road-to-damascus-or-frp-and-me.html</loc>
+<lastmod>2017-09-14T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://abizern.org/about/</loc>
+</url>
+<url>
+<loc>http://abizern.org/categories/development</loc>
+</url>
+<url>
+<loc>http://abizern.org/</loc>
+</url>
+<url>
+<loc>http://abizern.org/categories/personal</loc>
+</url>
+<url>
+<loc>http://abizern.org/posts/</loc>
+</url>
+<url>
+<loc>http://abizern.org/categories/presentations</loc>
+</url>
+<url>
+<loc>http://abizern.org/tags/</loc>
+</url>
+<url>
+<loc>http://abizern.org/page2/</loc>
+</url>
+<url>
+<loc>http://abizern.org/page3/</loc>
+</url>
+<url>
+<loc>http://abizern.org/page4/</loc>
+</url>
+<url>
+<loc>http://abizern.org/page5/</loc>
+</url>
+<url>
+<loc>http://abizern.org/page6/</loc>
+</url>
 </urlset>
