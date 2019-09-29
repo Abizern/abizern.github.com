@@ -331,10 +331,12 @@
         <span class="kt">Subscriber</span><span class="o">.</span><span class="kt">Input</span> <span class="o">==</span> <span class="kt">Output</span>
     <span class="p">{</span>
         <span class="kd">private</span> <span class="k">let</span> <span class="nv">subscribers</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyCancellable</span><span class="p">]</span>
+        <span class="kd">private</span> <span class="k">let</span> <span class="nv">queues</span><span class="p">:</span> <span class="p">[</span><span class="kt">Queue</span><span class="o">&lt;</span><span class="kt">Publishers</span><span class="o">.</span><span class="kt">Element</span><span class="o">.</span><span class="kt">Output</span><span class="o">&gt;</span><span class="p">]</span>
 
         <span class="nf">init</span><span class="p">(</span><span class="nv">subscriber</span><span class="p">:</span> <span class="kt">Subscriber</span><span class="p">,</span> <span class="nv">publishers</span><span class="p">:</span> <span class="kt">Publishers</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">var</span> <span class="nv">count</span> <span class="o">=</span> <span class="n">publishers</span><span class="o">.</span><span class="n">count</span>
             <span class="k">var</span> <span class="nv">outputs</span> <span class="o">=</span> <span class="n">publishers</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="kt">Queue</span><span class="o">&lt;</span><span class="kt">Publishers</span><span class="o">.</span><span class="kt">Element</span><span class="o">.</span><span class="kt">Output</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">}</span>
+            <span class="n">queues</span> <span class="o">=</span> <span class="n">outputs</span>
             <span class="k">var</span> <span class="nv">completions</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">var</span> <span class="nv">hasCompleted</span> <span class="o">=</span> <span class="kc">false</span>
             <span class="k">let</span> <span class="nv">lock</span> <span class="o">=</span> <span class="kt">NSLock</span><span class="p">()</span>
@@ -376,6 +378,7 @@
 
         <span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancel</span><span class="p">()</span> <span class="p">{</span>
             <span class="n">subscribers</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">cancel</span><span class="p">()</span> <span class="p">}</span>
+            <span class="n">queues</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">removeAll</span><span class="p">()</span> <span class="p">}</span>
         <span class="p">}</span>
         
         <span class="kd">public</span> <span class="kd">func</span> <span class="nf">request</span><span class="p">(</span><span class="n">_</span> <span class="nv">demand</span><span class="p">:</span> <span class="kt">Subscribers</span><span class="o">.</span><span class="kt">Demand</span><span class="p">)</span> <span class="p">{}</span>
@@ -406,6 +409,10 @@
 <h3 id="closing-thoughts">Closing thoughts</h3>
 
 <p>Is this as efficient as <code class="highlighter-rouge">Combine</code>’s <code class="highlighter-rouge">Zip</code> functions? I Don’t know. At the call site it’s a lot easier to use this rather than trying to turn 24 requests into 6 batches of Zip4 then a Zip3 and then a Zip2 to chain all 24 requests together (I know, because that was what I started to write). So it solves the problem I had in a way that I wanted to write the code. Also, the more of these that I write, the more comfortable I get writing them, which is another benefit.</p>
+
+<h3 id="edit">Edit</h3>
+
+<p>Thanks to <a href="https://twitter.com/_iains">Iain Smith</a> who messaged me to point out that cancellation didn’t clear out the queues I’ve made some minor corrections to the code.</p>
 
 <h3 id="code-repository">Code Repository</h3>
 
