@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<!--
+    Basically Basic Jekyll Theme 1.4.1
+    Copyright 2017-2018 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/jekyll-basically-theme/blob/master/LICENSE.md
+-->
+<html lang="en-GB" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Zip a Collection of Publishers | Abizern.org</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Zip a Collection of Publishers" />
+<meta property="og:locale" content="en_GB" />
+<meta name="description" content="I have an array of publishers: [Publisher&lt;Data, Error&gt;] and want a publisher of the array of their outputs: Publisher&lt;[Data], Error&gt;. The Combine framework provides the Zip family of publishers which only go up to 4 inputs so this won’t suit my needs. I’m going to write about the steps I took to create a publisher that does what I want." />
+<meta property="og:description" content="I have an array of publishers: [Publisher&lt;Data, Error&gt;] and want a publisher of the array of their outputs: Publisher&lt;[Data], Error&gt;. The Combine framework provides the Zip family of publishers which only go up to 4 inputs so this won’t suit my needs. I’m going to write about the steps I took to create a publisher that does what I want." />
+<link rel="canonical" href="http://abizern.org/2019/09/29/zip-a-collection-of-publishers.html" />
+<meta property="og:url" content="http://abizern.org/2019/09/29/zip-a-collection-of-publishers.html" />
+<meta property="og:site_name" content="Abizern.org" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-09-29T15:29:00+01:00" />
+<script type="application/ld+json">
+{"description":"I have an array of publishers: [Publisher&lt;Data, Error&gt;] and want a publisher of the array of their outputs: Publisher&lt;[Data], Error&gt;. The Combine framework provides the Zip family of publishers which only go up to 4 inputs so this won’t suit my needs. I’m going to write about the steps I took to create a publisher that does what I want.","@type":"BlogPosting","url":"http://abizern.org/2019/09/29/zip-a-collection-of-publishers.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://images.abizern.org.s3.amazonaws.com/site/Avatar-100.png"}},"headline":"Zip a Collection of Publishers","dateModified":"2019-09-29T15:29:00+01:00","datePublished":"2019-09-29T15:29:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://abizern.org/2019/09/29/zip-a-collection-of-publishers.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  
+
+  
+    
+    <link rel="alternate" type="application/atom+xml" title="Abizern.org" href="/atom.xml">
+  
+</head>
+
+
+  <body class="layout--post zip-a-collection-of-publishers">
+
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+
+    <div class="sidebar-toggle-wrapper">
+      
+        <button class="search-toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <title>Search</title>
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+      
+
+      <button class="toggle navicon-button larr" type="button">
+        <span class="toggle-inner">
+          <span class="sidebar-toggle-label visually-hidden">Menu</span>
+          <span class="navicon"></span>
+        </span>
+      </button>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+      <div class="inner">
+        <nav id="primary-nav" class="site-nav" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Main navigation">
+  <ul id="menu-main-navigation" class="menu">
+    <!-- Home link -->
+    <li class="menu-item">
+      <a href="/" itemprop="url">
+        <span itemprop="name">Home</span>
+      </a>
+    </li>
+
+    <!-- site.pages links -->
+    
+    
+
+    
+      
+      
+        <li class="menu-item">
+          <a href="/about/" itemprop="url">
+            <span itemprop="name">About</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/categories/development" itemprop="url">
+            <span itemprop="name">Development</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/categories/running" itemprop="url">
+            <span itemprop="name">Running</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/categories/personal" itemprop="url">
+            <span itemprop="name">Personal</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/categories/presentations" itemprop="url">
+            <span itemprop="name">Presentations</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/tags/" itemprop="url">
+            <span itemprop="name">Tags</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/posts/" itemprop="url">
+            <span itemprop="name">Posts</span>
+          </a>
+        </li>
+      
+    
+  </ul>
+</nav>
+
+        <ul class="contact-list">
+  
+    <li>
+      <a href="mailto:abizern@abizern.org">
+        <span class="icon icon--email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="313.1 3.7 16 16"><path d="M318.5 8.9c0-.2.2-.4.4-.4h4.5c.2 0 .4.2.4.4s-.2.4-.4.4h-4.5c-.3 0-.4-.2-.4-.4zm.4 2.1h4.5c.2 0 .4-.2.4-.4s-.2-.4-.4-.4h-4.5c-.2 0-.4.2-.4.4s.1.4.4.4zm3.5 1.2c0-.2-.2-.4-.4-.4h-3.1c-.2 0-.4.2-.4.4s.2.4.4.4h3.1c.2.1.4-.1.4-.4zm-1.5-8.4l-1.7 1.4c-.2.1-.2.4 0 .6s.4.2.6 0l1.4-1.2 1.4 1.2c.2.1.4.1.6 0s.1-.4 0-.6l-1.7-1.4c-.3-.1-.5-.1-.6 0zm7.8 6.2c.1.1.1.2.1.3v7.9c0 .8-.7 1.5-1.5 1.5h-12.5c-.8 0-1.5-.7-1.5-1.5v-7.9c0-.1.1-.2.1-.3l1.6-1.3c.2-.1.4-.1.6 0s.1.4 0 .6l-1.2 1 1.8 1.3v-4c0-.6.5-1.1 1.1-1.1h7.5c.6 0 1.1.5 1.1 1.1v4l1.8-1.3-1.2-1c-.2-.1-.2-.4 0-.6s.4-.2.6 0l1.6 1.3zm-11.6 2.2l4 2.8 4-2.8V7.6c0-.1-.1-.2-.2-.2h-7.5c-.1 0-.2.1-.2.2v4.6zm10.9-1l-4.7 3.4 3.4 2.6c.2.1.2.4.1.6-.1.2-.4.2-.6.1l-3.6-2.8-1.2.8c-.1.1-.3.1-.5 0l-1.2-.8-3.6 2.8c-.2.1-.4.1-.6-.1-.1-.2-.1-.4.1-.6l3.4-2.6-4.7-3.4v7.1c0 .4.3.6.6.6h12.5c.4 0 .6-.3.6-.6v-7.1z"/></svg></span>
+        <span class="label">Email</span>
+      </a>
+    </li>
+  
+
+  
+    <li><a href="https://github.com/Abizern">
+  <span class="icon icon--github"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/></svg></span>
+  <span class="label">GitHub</span>
+</a>
+</li>
+  
+
+  
+    <li><a href="https://twitter.com/abizern">
+  <span class="icon icon--twitter"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z" fill-rule="nonzero"/></svg></span>
+  <span class="label">Twitter</span>
+</a>
+</li>
+  
+
+  <li>
+    
+      <a href="/atom.xml" title="Atom Feed">
+        <span class="icon icon--rss"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194 11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0 13.806c0-1.21.983-2.195 2.194-2.195zM10.606 16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"/></svg></span>
+        <span class="label">Subscribe</span>
+      </a>
+    
+  </li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="canvas">
+      <div class="wrapper">
+        
+
+<header id="masthead">
+  <div class="inner">
+    <div class="title-area">
+      
+        <p class="site-title">
+          <a href="/">
+            <img src="http://images.abizern.org.s3.amazonaws.com/site/Avatar-100.png" alt="" class="site-logo">
+            <span>Abizern.org</span>
+          </a>
+        </p>
+      
+    </div>
+  </div>
+</header>
+
+        <div class="initial-content">
+          <header class="intro">
+  
+
+  <div class="inner">
+    <div class="intro-text">
+      <h1 id="page-title" class="intro-title">Zip a Collection of Publishers
+</h1>
+      
+
+      
+        
+
+        <p class="entry-meta">
+          <span class="byline-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time datetime="2019-09-29T15:29:00+01:00">September 29, 2019</time></span>
+        </p>
+      
+
+      
+        <div class="intro-more">
+          <p>I wrote a publisher that takes an array of publishers and produces a single publisher of the array of their outputs.</p>
+
+        </div>
+      
+
+      
+    </div>
+  </div>
+</header>
+
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+    <article class="entry-wrap">
+      <div class="entry-content">
+        <p>I have an array of publishers: <code class="highlighter-rouge">[Publisher&lt;Data, Error&gt;]</code> and want a publisher of the array of their outputs: <code class="highlighter-rouge">Publisher&lt;[Data], Error&gt;</code>. The Combine framework provides the <code class="highlighter-rouge">Zip</code> family of publishers which only go up to 4 inputs so this won’t suit my needs. I’m going to write about the steps I took to create a publisher that does what I want.</p>
+
+<p>This seems like a daunting task. There is a blog post about creating a <a href="https://danieltull.co.uk/blog/2019/08/04/combine-latest-collection/">Combine Latest publisher</a> which does something similar to what I needed. I could have used that publisher, but I wanted to be more explicit that this was a <code class="highlighter-rouge">Zip</code> type of publisher not a <code class="highlighter-rouge">CombineLatest</code> type of publisher.</p>
+
+<p>At a recent <a href="NSCoderNightLondon.com">NSCoder Night</a> <a href="https://twitter.com/danielctull">Daniel</a> helped me write a publisher that fetched all the pages of a paginated URL. From talking to him and referring to his write up I came to realise that creating a publisher is basically like following a recipe. And more importantly it’s not the Publisher that does the work: when a publisher receives a subscription, it creates an internal <code class="highlighter-rouge">Subscription</code> object which it returns to the subscriber. It is this Subscription object which actually does the work.</p>
+
+<h3 id="why-do-i-need-my-own-publisher">Why do I need my own publisher?</h3>
+
+<p>For an app that I am developing for a client I fetch 24 images from 24 different URLs. I need all the images, and I need them to be ordered for the resulting object that I create to be considered complete. Before you say it would be better if the server could just zip the images into one object that I could fetch with a single request, I agree, however everyone has a backlog it’s not going to be done by the time I need it.</p>
+
+<p>I want to be able to write a chain a like this:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">urls</span>                    <span class="c1">// [String]</span>
+    <span class="o">.</span><span class="nf">map</span><span class="p">(</span><span class="n">convertToURL</span><span class="p">)</span>  <span class="c1">// [URL]</span>
+    <span class="o">.</span><span class="nf">map</span><span class="p">(</span><span class="n">loadURL</span><span class="p">)</span>       <span class="c1">// [Publisher&lt;Data, Error&gt;]</span>
+    <span class="o">.</span><span class="n">zip</span>                <span class="c1">// Publisher&lt;[Data], Error&gt;</span>
+    <span class="o">.</span><span class="n">sink</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>         <span class="c1">// Consume [Data] or handle the error</span>
+</code></pre></div></div>
+
+<h3 id="why-zip-and-not-combinelatest">Why Zip and not CombineLatest?</h3>
+
+<p>As the array of publishers that I have are one-shot publishers, I <em>could</em> use the CombineLatest publisher described in the post above. There is a difference between CombineLatest and Zip. A diagram will help to make this clearer.</p>
+
+<p><img src="http://images.abizern.org/2019/09/CombineLatest.png" alt="CombineLatest" /></p>
+
+<p>CombineLatest publishes the <em>latest</em> outputs of the publishers. Zip publishes pair outputs.</p>
+
+<p><img src="http://images.abizern.org/2019/09/Zip.png" alt="Zip" /></p>
+
+<p>Zip publishes pairs of outputs.</p>
+
+<p>I chose to write the Zip publisher because conceptually, I want to wait for all the matched outputs and using a Zip makes this requirement explicit. And, I wanted an excuse to write a publisher.</p>
+
+<h3 id="step-1-create-a-struct-which-defines-its-output-and-failure-matched-to-the-upstream-output-and-failure">Step 1: Create a struct which defines it’s Output and Failure matched to the upstream Output and Failure</h3>
+
+<p>Let’s start with the Publisher itself. Publishers are <code class="highlighter-rouge">Struct</code>s. In my case it’s just a container to hold the array of publishers so I constrain the generic type to be a <code class="highlighter-rouge">Collection</code> of publishers. I also typealias the Output to be an <code class="highlighter-rouge">Array</code> of the upstream publisher’s Outputs and the Failure to be the upstream publishers Failure type.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ZipCollection</span><span class="o">&lt;</span><span class="kt">Publishers</span><span class="o">&gt;</span>
+    <span class="k">where</span>
+    <span class="kt">Publishers</span><span class="p">:</span> <span class="kt">Collection</span><span class="p">,</span>
+    <span class="kt">Publishers</span><span class="o">.</span><span class="kt">Element</span><span class="p">:</span> <span class="kt">Publisher</span>
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Output</span> <span class="o">=</span> <span class="p">[</span><span class="kt">Publishers</span><span class="o">.</span><span class="kt">Element</span><span class="o">.</span><span class="kt">Output</span><span class="p">]</span>
+    <span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Failure</span> <span class="o">=</span> <span class="kt">Publishers</span><span class="o">.</span><span class="kt">Element</span><span class="o">.</span><span class="kt">Failure</span>
+
+    <span class="kd">private</span> <span class="k">let</span> <span class="nv">publishers</span><span class="p">:</span> <span class="kt">Publishers</span>
+
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">publishers</span><span class="p">:</span> <span class="kt">Publishers</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">publishers</span> <span class="o">=</span> <span class="n">publishers</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="step-2-make-this-struct-conform-to-publisher-matching-the-output-and-failure-to-the-downstream-input-and-failure">Step 2: Make this struct conform to <code class="highlighter-rouge">Publisher</code> matching the Output and Failure to the downstream Input and Failure</h3>
+
+<p>Add an extension to make <code class="highlighter-rouge">Zip</code> conform to <code class="highlighter-rouge">Publisher</code> and implement the required method. This will not compile yet, because the <code class="highlighter-rouge">Subscription</code> type hasn’t been defined. Note that I’m constraining the downstream Output and Failure to <code class="highlighter-rouge">Zip</code>’s Output and Failure. The method simply creates a <code class="highlighter-rouge">Subscription</code>object and passes it along to the subscriber.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">ZipCollection</span><span class="p">:</span> <span class="kt">Publisher</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">func</span> <span class="n">receive</span><span class="o">&lt;</span><span class="kt">Subscriber</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">subscriber</span><span class="p">:</span> <span class="kt">Subscriber</span><span class="p">)</span>
+        <span class="k">where</span>
+        <span class="kt">Subscriber</span><span class="p">:</span> <span class="kt">Combine</span><span class="o">.</span><span class="kt">Subscriber</span><span class="p">,</span>
+        <span class="kt">Subscriber</span><span class="o">.</span><span class="kt">Failure</span> <span class="o">==</span> <span class="kt">Failure</span><span class="p">,</span>
+        <span class="kt">Subscriber</span><span class="o">.</span><span class="kt">Input</span> <span class="o">==</span> <span class="kt">Output</span>
+    <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">subscription</span> <span class="o">=</span> <span class="kt">Subscription</span><span class="p">(</span><span class="nv">subscriber</span><span class="p">:</span> <span class="n">subscriber</span><span class="p">,</span> <span class="nv">publishers</span><span class="p">:</span> <span class="n">publishers</span><span class="p">)</span>
+        <span class="n">subscriber</span><span class="o">.</span><span class="nf">receive</span><span class="p">(</span><span class="nv">subscription</span><span class="p">:</span> <span class="n">subscription</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="step-3-create-a-subscription-object-to-return-to-downstream-subscribers-that-does-the-work-of-transforming-the-upstream-output-and-failure-to-the-downstream-input-and-failure">Step 3: Create a <code class="highlighter-rouge">Subscription</code> object to return to downstream subscribers that does the work of transforming the upstream Output and Failure to the downstream Input and Failure</h3>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">ZipCollection</span> <span class="p">{</span>
+   <span class="kd">fileprivate</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">Subscription</span><span class="o">&lt;</span><span class="kt">Subscriber</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">Combine</span><span class="o">.</span><span class="kt">Subscription</span>
+        <span class="k">where</span>
+        <span class="kt">Subscriber</span><span class="p">:</span> <span class="kt">Combine</span><span class="o">.</span><span class="kt">Subscriber</span><span class="p">,</span>
+        <span class="kt">Subscriber</span><span class="o">.</span><span class="kt">Failure</span> <span class="o">==</span> <span class="kt">Failure</span><span class="p">,</span>
+        <span class="kt">Subscriber</span><span class="o">.</span><span class="kt">Input</span> <span class="o">==</span> <span class="kt">Output</span>
+    <span class="p">{</span>
+        <span class="kd">private</span> <span class="k">let</span> <span class="nv">subscribers</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyCancellable</span><span class="p">]</span>
+
+        <span class="nf">init</span><span class="p">(</span><span class="nv">subscriber</span><span class="p">:</span> <span class="kt">Subscriber</span><span class="p">,</span> <span class="nv">publishers</span><span class="p">:</span> <span class="kt">Publishers</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">var</span> <span class="nv">count</span> <span class="o">=</span> <span class="n">publishers</span><span class="o">.</span><span class="n">count</span>
+            <span class="k">var</span> <span class="nv">outputs</span> <span class="o">=</span> <span class="n">publishers</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="kt">Queue</span><span class="o">&lt;</span><span class="kt">Publishers</span><span class="o">.</span><span class="kt">Element</span><span class="o">.</span><span class="kt">Output</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">}</span>
+            <span class="k">var</span> <span class="nv">completions</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">var</span> <span class="nv">hasCompleted</span> <span class="o">=</span> <span class="kc">false</span>
+            <span class="k">let</span> <span class="nv">lock</span> <span class="o">=</span> <span class="kt">NSLock</span><span class="p">()</span>
+
+            <span class="n">subscribers</span> <span class="o">=</span> <span class="n">publishers</span><span class="o">.</span><span class="nf">enumerated</span><span class="p">()</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">index</span><span class="p">,</span> <span class="n">publisher</span> <span class="k">in</span>
+                <span class="n">publisher</span><span class="o">.</span><span class="nf">sink</span><span class="p">(</span><span class="nv">receiveCompletion</span><span class="p">:</span> <span class="p">{</span> <span class="n">completion</span> <span class="k">in</span>
+                    <span class="n">lock</span><span class="o">.</span><span class="nf">lock</span><span class="p">()</span>
+                    <span class="k">defer</span> <span class="p">{</span> <span class="n">lock</span><span class="o">.</span><span class="nf">unlock</span><span class="p">()</span> <span class="p">}</span>
+
+                    <span class="k">guard</span> <span class="k">case</span> <span class="o">.</span><span class="n">finished</span> <span class="o">=</span> <span class="n">completion</span> <span class="k">else</span> <span class="p">{</span>
+                        <span class="c1">// Any failure causes the entire subscription to fail.</span>
+                        <span class="n">subscriber</span><span class="o">.</span><span class="nf">receive</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="n">completion</span><span class="p">)</span>
+                        <span class="n">hasCompleted</span> <span class="o">=</span> <span class="kc">true</span>
+                        <span class="n">outputs</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="n">queue</span> <span class="k">in</span>
+                            <span class="n">queue</span><span class="o">.</span><span class="nf">removeAll</span><span class="p">()</span>
+                        <span class="p">}</span>
+                        <span class="k">return</span>
+                    <span class="p">}</span>
+
+                    <span class="n">completions</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                    <span class="k">guard</span> <span class="n">completions</span> <span class="o">==</span> <span class="n">count</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+                    <span class="n">subscriber</span><span class="o">.</span><span class="nf">receive</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="n">completion</span><span class="p">)</span>
+                    <span class="n">hasCompleted</span> <span class="o">=</span> <span class="kc">true</span>
+                <span class="p">},</span> <span class="nv">receiveValue</span><span class="p">:</span> <span class="p">{</span> <span class="n">value</span> <span class="k">in</span>
+                    <span class="n">lock</span><span class="o">.</span><span class="nf">lock</span><span class="p">()</span>
+                    <span class="k">defer</span> <span class="p">{</span> <span class="n">lock</span><span class="o">.</span><span class="nf">unlock</span><span class="p">()</span> <span class="p">}</span>
+
+                    <span class="k">guard</span> <span class="o">!</span><span class="n">hasCompleted</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+                    <span class="n">outputs</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="nf">enqueue</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+                    <span class="nf">guard</span> <span class="p">(</span><span class="n">outputs</span><span class="o">.</span><span class="n">compactMap</span><span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">peek</span><span class="p">()</span> <span class="p">}</span><span class="o">.</span><span class="n">count</span><span class="p">)</span> <span class="o">==</span> <span class="n">count</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+                    <span class="n">_</span> <span class="o">=</span> <span class="n">subscriber</span><span class="o">.</span><span class="nf">receive</span><span class="p">(</span><span class="n">outputs</span><span class="o">.</span><span class="nf">compactMap</span><span class="p">({</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">dequeue</span><span class="p">()</span> <span class="p">}))</span>
+                <span class="p">})</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancel</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">subscribers</span><span class="o">.</span><span class="n">forEach</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">cancel</span><span class="p">()</span> <span class="p">}</span>
+        <span class="p">}</span>
+        
+        <span class="kd">public</span> <span class="kd">func</span> <span class="nf">request</span><span class="p">(</span><span class="n">_</span> <span class="nv">demand</span><span class="p">:</span> <span class="kt">Subscribers</span><span class="o">.</span><span class="kt">Demand</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This is a bit more code, because it’s what actually does the work.</p>
+
+<p>The only property is an array of <code class="highlighter-rouge">AnyCancellable</code> which is used to handle the output of the upstream array of publishers. The <code class="highlighter-rouge">init</code> method configures each of these to handle the output of the upstream publishers. I use a <code class="highlighter-rouge">Queue</code> to hold on to the received values, and when at least one value has been received from each of the publishers, I dequeue those results and send them on to the downstream subscriber as an array.</p>
+
+<p>I handle cancellation by sending a <code class="highlighter-rouge">cancel()</code> message to each of the <code class="highlighter-rouge">Cancellables</code>.</p>
+
+<p>As I’m not handling back pressure there is an empty implementation of the required <code class="highlighter-rouge">request(_)</code> method.</p>
+
+<h3 id="make-it-chainable">Make it chainable</h3>
+
+<p>That’s it for the publisher. The only thing left to do is to write some conveniences to allow it to be used with chaining syntax. That’s quite simple:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">Collection</span> <span class="k">where</span> <span class="kt">Element</span><span class="p">:</span> <span class="kt">Publisher</span> <span class="p">{</span>
+    <span class="c1">/// Combine the array of publishers to give a single array of the `Zip ` of their outputs</span>
+    <span class="kd">public</span> <span class="k">var</span> <span class="nv">zip</span><span class="p">:</span> <span class="kt">ZipCollection</span><span class="o">&lt;</span><span class="k">Self</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="kt">ZipCollection</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="closing-thoughts">Closing thoughts</h3>
+
+<p>Is this as efficient as <code class="highlighter-rouge">Combine</code>’s <code class="highlighter-rouge">Zip</code> functions? I Don’t know. At the call site it’s a lot easier to use this rather than trying to turn 24 requests into 6 batches of Zip4 then a Zip3 and then a Zip2 to chain all 24 requests together (I know, because that was what I started to write). So it solves the problem I had in a way that I wanted to write the code. Also, the more of these that I write, the more comfortable I get writing them, which is another benefit.</p>
+
+<h3 id="code-repository">Code Repository</h3>
+
+<p>The code for this is available as part of the <a href="https://github.com/CombineHarvesters/FoundationCombine">FoundationCombine</a> Swift Package available on GitHub. Alongside the <code class="highlighter-rouge">CombineLatest</code> publisher which inspired it.</p>
+
+      </div>
+      
+    </article>
+  </div>
+</main>
+
+        </div>
+
+        <div class="search-content">
+          <div class="inner">
+  <label class="visually-hidden" for="search">Site Search</label>
+        <input type="text" id="search" class="search-input" aria-describedby="results-count" tabindex="-1" placeholder="Enter your search term..." />
+        <div id="results" class="results"></div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer" class="site-footer">
+  <div class="inner">
+    <div class="copyright">
+      
+        <p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+
+      
+    </div>
+  </div>
+</footer>
+
+    
+
+<script async src="/assets/javascripts/main.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="http://abizern.org/assets/javascripts/lunr/lunr.min.js"></script>
+  <script src="http://abizern.org/assets/javascripts/search-data.json"></script>
+  <script>
+    var idx = lunr(function () {
+      
+      // the, the normal lunr index initialization
+      this.field('title')
+      this.field('excerpt')
+      this.field('categories')
+      this.field('tags')
+      this.ref('id')
+
+      this.pipeline.remove(lunr.trimmer)
+
+      // add documents to index
+      for (var item in store) {
+        this.add({
+          title: store[item].title,
+          excerpt: store[item].excerpt,
+          categories: store[item].categories,
+          tags: store[item].tags,
+          id: item
+        })
+      }
+    });
+
+    console.log(jQuery.type(idx));
+
+    $(document).ready(function () {
+      $('input#search').on('keyup', function () {
+        var resultdiv = $('#results');
+        var query = $(this).val().toLowerCase();
+        var result =
+          idx.query(function (q) {
+            query.split(lunr.tokenizer.separator).forEach(function (term) {
+              q.term(term, { boost: 100 })
+              if (query.lastIndexOf(" ") != query.length - 1) {
+                q.term(term, { usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+              }
+              if (term != "") {
+                q.term(term, { usePipeline: false, editDistance: 1, boost: 1 })
+              }
+            })
+          });
+        resultdiv.empty();
+        resultdiv.prepend('<p id="results-count" class="results-found">' + result.length + ' Result(s) found</p>');
+        for (var item in result) {
+          var ref = result[item].ref;
+          var searchitem =
+            '<article class="entry">' +
+              '<h3 class="entry-title">' +
+                '<a href="' + store[ref].url + '">' + store[ref].title + '</a>' +
+              '</h3>' +
+              '<div class="entry-excerpt">' +
+                '<p>' + store[ref].excerpt.split(" ").splice(0, 20).join(" ") + '...</p>' +
+              '</div>' +
+            '</article>';
+          resultdiv.append(searchitem);
+        }
+      });
+    });
+  </script>
+
+
+
+  </body>
+
+</html>

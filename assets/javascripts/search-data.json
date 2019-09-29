@@ -253,4 +253,9 @@ var store = [{
         "excerpt":"I tried to learn about Functional Reactive Programming to see whether I would adopt it in my own code. These are my thoughts about it. Slides   Available on Speaker DeckVideo   Available on the NSSpain Vimeo Channel","categories": ["presentation"],
         "tags": ["nsspain","swift","frp","rxswift"],
         "url": "http://abizern.org/2017/09/14/the-road-to-damascus-or-frp-and-me.html"
+      },{
+        "title": "Zip a Collection of Publishers",
+        "excerpt":"I have an array of publishers: [Publisher&lt;Data, Error&gt;] and want a publisher of the array of their outputs: Publisher&lt;[Data], Error&gt;. The Combine framework provides the Zip family of publishers which only go up to 4 inputs so this won’t suit my needs. I’m going to write about the steps I...","categories": ["development"],
+        "tags": ["combine","publishers","swift"],
+        "url": "http://abizern.org/2019/09/29/zip-a-collection-of-publishers.html"
       }]
