@@ -261,9 +261,7 @@
 
 <h3 id="why-do-i-need-my-own-publisher">Why do I need my own publisher?</h3>
 
-<p>For an app that I am developing for a client I fetch 24 images from 24 different URLs. I need all the images, and I need them to be ordered for the resulting object that I create to be considered complete. Before you say it would be better if the server could just zip the images into one object that I could fetch with a single request, I agree, however everyone has a backlog it’s not going to be done by the time I need it.</p>
-
-<p>I want to be able to write a chain a like this:</p>
+<p>For an app that I am developing for a client I fetch 24 images from 24 different URLs. I need all the images, and I need them to be ordered for the resulting object that I create to be considered complete. I want to be able to write a chain a like this:</p>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">urls</span>                    <span class="c1">// [String]</span>
     <span class="o">.</span><span class="nf">map</span><span class="p">(</span><span class="n">convertToURL</span><span class="p">)</span>  <span class="c1">// [URL]</span>
