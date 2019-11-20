@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--
-    Basically Basic Jekyll Theme 1.4.1
+    Basically Basic Jekyll Theme 1.4.4
     Copyright 2017-2018 Michael Rose - mademistakes.com | @mmistakes
     Free for personal and commercial use under the MIT license
-    https://github.com/mmistakes/jekyll-basically-theme/blob/master/LICENSE.md
+    https://github.com/mmistakes/jekyll-theme-basically-basic/blob/master/LICENSE
 -->
 <html lang="en-GB" class="no-js">
   <head>
@@ -15,7 +15,7 @@
     
     <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Integrating Git with SubEthaEdit and Changes App | Abizern.org</title>
-<meta name="generator" content="Jekyll v3.8.5" />
+<meta name="generator" content="Jekyll v3.8.6" />
 <meta property="og:title" content="Integrating Git with SubEthaEdit and Changes App" />
 <meta property="og:locale" content="en_GB" />
 <meta name="description" content="A while ago, I read a nice write up about using mercurial with SubEthaEdit and Changes. Here’s how to do the same thing with git instead of mercurial, separated into two parts in case you just want to apply one set of changes." />
@@ -359,7 +359,7 @@ the window (⌘-W) for these changes to take effect.</p>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="http://abizern.org/assets/javascripts/lunr/lunr.min.js"></script>
-  <script src="http://abizern.org/assets/javascripts/search-data.json"></script>
+  <script src="http://abizern.org/assets/javascripts/lunr/lunr.store.js"></script>
   <script>
     var idx = lunr(function () {
       
@@ -383,8 +383,6 @@ the window (⌘-W) for these changes to take effect.</p>
         })
       }
     });
-
-    console.log(jQuery.type(idx));
 
     $(document).ready(function () {
       $('input#search').on('keyup', function () {
