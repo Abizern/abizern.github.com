@@ -15,7 +15,7 @@
     
     <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Easy JSON formatting | Abizern.org</title>
-<meta name="generator" content="Jekyll v3.8.7" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Easy JSON formatting" />
 <meta property="og:locale" content="en_GB" />
 <meta name="description" content="Sometimes we want to format some JSON. Here’s an easy way to set up a Service in Automator to make this easier." />
@@ -266,24 +266,24 @@ Automator to make this easier.</p>
 
 <p>In the action box type:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>json_pp | pbcopy
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>json_pp | pbcopy
 </code></pre></div></div>
 
 <p><img src="http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrint.png" alt="" /></p>
 
-<p>This is what actually does the formatting. <code class="highlighter-rouge">json_pp</code> comes with OS X
+<p>This is what actually does the formatting. <code class="language-plaintext highlighter-rouge">json_pp</code> comes with OS X
 . This
 runs the selected text through the tool and puts the result in the
 pasteboard.You can paste your formatted output wherever you like.</p>
 
 <p>Save the action with a name - I’ve called mine <em>JSON Pretty Print</em>. You should
-see the new service installed under <code class="highlighter-rouge">~/Library/Services</code></p>
+see the new service installed under <code class="language-plaintext highlighter-rouge">~/Library/Services</code></p>
 
 <p>Rather than have to paste the result, we can define another service that
 replaces the selected text with the result. Create another service as before
 except that the action doesn’t put the results on the pasteboard.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>json_pp
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>json_pp
 </code></pre></div></div>
 
 <p><img src="http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrintInPlace.png" alt="" /></p>
@@ -324,7 +324,7 @@ get to the action, here’s a lisp function I use to format JSON in place:</p>
 
 <p><strong>Edit</strong></p>
 
-<p>Thanks to <a href="https://twitter.com/chrisridd">Chris Ridd</a> for pointing out that I could use <code class="highlighter-rouge">json_pp</code>.</p>
+<p>Thanks to <a href="https://twitter.com/chrisridd">Chris Ridd</a> for pointing out that I could use <code class="language-plaintext highlighter-rouge">json_pp</code>.</p>
 
       </div>
       

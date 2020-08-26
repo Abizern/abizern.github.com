@@ -15,7 +15,7 @@
     
     <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Swift Function Overloading By Return Type | Abizern.org</title>
-<meta name="generator" content="Jekyll v3.8.7" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Swift Function Overloading By Return Type" />
 <meta property="og:locale" content="en_GB" />
 <meta name="description" content="As Objective-C developers, we often forget that we can overload functions by return type. This can often help us create neat APIs. This is best illustrated by an example." />
@@ -260,24 +260,24 @@ by an example.</p>
 <p>I posted a
 <a href="http://abizern.org/2015/10/10/a-swift-repeating-timer/">wrapper for timer dispatch sources</a>
 yesterday. While I was doing it I noticed a discrepancy with GCD. When creating
-a timer dispatch source, times were passed as nanoseconds as a <code class="highlighter-rouge">UInt64</code>, but the
-<code class="highlighter-rouge">dispatch_after()</code> function took nanoseconds as an <code class="highlighter-rouge">Int64</code>. Such things are what
+a timer dispatch source, times were passed as nanoseconds as a <code class="language-plaintext highlighter-rouge">UInt64</code>, but the
+<code class="language-plaintext highlighter-rouge">dispatch_after()</code> function took nanoseconds as an <code class="language-plaintext highlighter-rouge">Int64</code>. Such things are what
 cause hair-pulling and fighting with the type system.</p>
 
-<p>But most of the time we just want to pass times around as <code class="highlighter-rouge">NSTimeInterval</code>s as
-seconds, but we have to convert this to a <code class="highlighter-rouge">UInt64</code> or an <code class="highlighter-rouge">Int64</code>. It’s a better
+<p>But most of the time we just want to pass times around as <code class="language-plaintext highlighter-rouge">NSTimeInterval</code>s as
+seconds, but we have to convert this to a <code class="language-plaintext highlighter-rouge">UInt64</code> or an <code class="language-plaintext highlighter-rouge">Int64</code>. It’s a better
 idea to wrap these creating methods, and function overloading lets us use the
 same descriptive name for these functions with different return types. So, here
 is some code which you can put in a playground that demonstrates this:</p>
 
 <script src="https://gist.github.com/Abizern/c030bd9674b2ad881b44.js"></script>
 
-<p>I’m extending <code class="highlighter-rouge">NSTimeInterval</code> which is a typealias for <code class="highlighter-rouge">Double</code> just to make it
+<p>I’m extending <code class="language-plaintext highlighter-rouge">NSTimeInterval</code> which is a typealias for <code class="language-plaintext highlighter-rouge">Double</code> just to make it
 clear that these new functions apply to times.</p>
 
-<p>Note that there are two functions called <code class="highlighter-rouge">nSecs()</code>, but they return different
-values. And the strong type system ensures the correct function is used. <code class="highlighter-rouge">dispatch_source_set_timer()</code> uses the  <code class="highlighter-rouge">nSecs() -&gt; UInt64</code> values, and
-the <code class="highlighter-rouge">dispatch_after()</code> uses <code class="highlighter-rouge">nSecs() -&gt; Int64</code> function</p>
+<p>Note that there are two functions called <code class="language-plaintext highlighter-rouge">nSecs()</code>, but they return different
+values. And the strong type system ensures the correct function is used. <code class="language-plaintext highlighter-rouge">dispatch_source_set_timer()</code> uses the  <code class="language-plaintext highlighter-rouge">nSecs() -&gt; UInt64</code> values, and
+the <code class="language-plaintext highlighter-rouge">dispatch_after()</code> uses <code class="language-plaintext highlighter-rouge">nSecs() -&gt; Int64</code> function</p>
 
 <p>This example also demonstrates that we should write functions for such
 translations, which separates the concerns of creating and transforming values

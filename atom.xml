@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-GB"><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://abizern.org/atom.xml" rel="self" type="application/atom+xml" /><link href="http://abizern.org/" rel="alternate" type="text/html" hreflang="en-GB" /><updated>2020-08-26T10:58:38+01:00</updated><id>http://abizern.org/atom.xml</id><title type="html">Abizern.org</title><subtitle>Developer and personal blog of an iOS and Mac Contract developer in London.  I write modern maintainable code in Swift. You can sometimes find me running around South East London. But otherwise, I'm just this guy with opinions, you know?</subtitle><entry><title type="html">Zip a Collection of Publishers</title><link href="http://abizern.org/2019/09/29/zip-a-collection-of-publishers.html" rel="alternate" type="text/html" title="Zip a Collection of Publishers" /><published>2019-09-29T15:29:00+01:00</published><updated>2019-09-29T15:29:00+01:00</updated><id>http://abizern.org/2019/09/29/zip-a-collection-of-publishers</id><content type="html" xml:base="http://abizern.org/2019/09/29/zip-a-collection-of-publishers.html">&lt;p&gt;I have an array of publishers: &lt;code class=&quot;highlighter-rouge&quot;&gt;[Publisher&amp;lt;Data, Error&amp;gt;]&lt;/code&gt; and want a publisher of the array of their outputs: &lt;code class=&quot;highlighter-rouge&quot;&gt;Publisher&amp;lt;[Data], Error&amp;gt;&lt;/code&gt;. The Combine framework provides the &lt;code class=&quot;highlighter-rouge&quot;&gt;Zip&lt;/code&gt; family of publishers which only go up to 4 inputs so this won’t suit my needs. I’m going to write about the steps I took to create a publisher that does what I want.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-GB"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://abizern.org/atom.xml" rel="self" type="application/atom+xml" /><link href="http://abizern.org/" rel="alternate" type="text/html" hreflang="en-GB" /><updated>2020-08-26T11:06:09+01:00</updated><id>http://abizern.org/atom.xml</id><title type="html">Abizern.org</title><subtitle>Developer and personal blog of an iOS and Mac Contract developer in London.  I write modern maintainable code in Swift. You can sometimes find me running around South East London. But otherwise, I'm just this guy with opinions, you know?</subtitle><entry><title type="html">Zip a Collection of Publishers</title><link href="http://abizern.org/2019/09/29/zip-a-collection-of-publishers.html" rel="alternate" type="text/html" title="Zip a Collection of Publishers" /><published>2019-09-29T15:29:00+01:00</published><updated>2019-09-29T15:29:00+01:00</updated><id>http://abizern.org/2019/09/29/zip-a-collection-of-publishers</id><content type="html" xml:base="http://abizern.org/2019/09/29/zip-a-collection-of-publishers.html">&lt;p&gt;I have an array of publishers: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[Publisher&amp;lt;Data, Error&amp;gt;]&lt;/code&gt; and want a publisher of the array of their outputs: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Publisher&amp;lt;[Data], Error&amp;gt;&lt;/code&gt;. The Combine framework provides the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Zip&lt;/code&gt; family of publishers which only go up to 4 inputs so this won’t suit my needs. I’m going to write about the steps I took to create a publisher that does what I want.&lt;/p&gt;
 
-&lt;p&gt;This seems like a daunting task. There is a blog post about creating a &lt;a href=&quot;https://danieltull.co.uk/blog/2019/08/04/combine-latest-collection/&quot;&gt;Combine Latest publisher&lt;/a&gt; which does something similar to what I needed. I could have used that publisher, but I wanted to be more explicit that this was a &lt;code class=&quot;highlighter-rouge&quot;&gt;Zip&lt;/code&gt; type of publisher not a &lt;code class=&quot;highlighter-rouge&quot;&gt;CombineLatest&lt;/code&gt; type of publisher.&lt;/p&gt;
+&lt;p&gt;This seems like a daunting task. There is a blog post about creating a &lt;a href=&quot;https://danieltull.co.uk/blog/2019/08/04/combine-latest-collection/&quot;&gt;Combine Latest publisher&lt;/a&gt; which does something similar to what I needed. I could have used that publisher, but I wanted to be more explicit that this was a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Zip&lt;/code&gt; type of publisher not a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CombineLatest&lt;/code&gt; type of publisher.&lt;/p&gt;
 
-&lt;p&gt;At a recent &lt;a href=&quot;NSCoderNightLondon.com&quot;&gt;NSCoder Night&lt;/a&gt; &lt;a href=&quot;https://twitter.com/danielctull&quot;&gt;Daniel&lt;/a&gt; helped me write a publisher that fetched all the pages of a paginated URL. From talking to him and referring to his write up I came to realise that creating a publisher is basically like following a recipe. And more importantly it’s not the Publisher that does the work: when a publisher receives a subscription, it creates an internal &lt;code class=&quot;highlighter-rouge&quot;&gt;Subscription&lt;/code&gt; object which it returns to the subscriber. It is this Subscription object which actually does the work.&lt;/p&gt;
+&lt;p&gt;At a recent &lt;a href=&quot;NSCoderNightLondon.com&quot;&gt;NSCoder Night&lt;/a&gt; &lt;a href=&quot;https://twitter.com/danielctull&quot;&gt;Daniel&lt;/a&gt; helped me write a publisher that fetched all the pages of a paginated URL. From talking to him and referring to his write up I came to realise that creating a publisher is basically like following a recipe. And more importantly it’s not the Publisher that does the work: when a publisher receives a subscription, it creates an internal &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Subscription&lt;/code&gt; object which it returns to the subscriber. It is this Subscription object which actually does the work.&lt;/p&gt;
 
 &lt;h3 id=&quot;why-do-i-need-my-own-publisher&quot;&gt;Why do I need my own publisher?&lt;/h3&gt;
 
@@ -31,7 +31,7 @@
 
 &lt;h3 id=&quot;step-1-create-a-struct-which-defines-its-output-and-failure-matched-to-the-upstream-output-and-failure&quot;&gt;Step 1: Create a struct which defines it’s Output and Failure matched to the upstream Output and Failure&lt;/h3&gt;
 
-&lt;p&gt;Let’s start with the Publisher itself. Publishers are &lt;code class=&quot;highlighter-rouge&quot;&gt;Struct&lt;/code&gt;s. In my case it’s just a container to hold the array of publishers so I constrain the generic type to be a &lt;code class=&quot;highlighter-rouge&quot;&gt;Collection&lt;/code&gt; of publishers. I also typealias the Output to be an &lt;code class=&quot;highlighter-rouge&quot;&gt;Array&lt;/code&gt; of the upstream publisher’s Outputs and the Failure to be the upstream publishers Failure type.&lt;/p&gt;
+&lt;p&gt;Let’s start with the Publisher itself. Publishers are &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Struct&lt;/code&gt;s. In my case it’s just a container to hold the array of publishers so I constrain the generic type to be a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Collection&lt;/code&gt; of publishers. I also typealias the Output to be an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Array&lt;/code&gt; of the upstream publisher’s Outputs and the Failure to be the upstream publishers Failure type.&lt;/p&gt;
 
 &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;ZipCollection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Publishers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt;
@@ -49,9 +49,9 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;step-2-make-this-struct-conform-to-publisher-matching-the-output-and-failure-to-the-downstream-input-and-failure&quot;&gt;Step 2: Make this struct conform to &lt;code class=&quot;highlighter-rouge&quot;&gt;Publisher&lt;/code&gt; matching the Output and Failure to the downstream Input and Failure&lt;/h3&gt;
+&lt;h3 id=&quot;step-2-make-this-struct-conform-to-publisher-matching-the-output-and-failure-to-the-downstream-input-and-failure&quot;&gt;Step 2: Make this struct conform to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Publisher&lt;/code&gt; matching the Output and Failure to the downstream Input and Failure&lt;/h3&gt;
 
-&lt;p&gt;Add an extension to make &lt;code class=&quot;highlighter-rouge&quot;&gt;Zip&lt;/code&gt; conform to &lt;code class=&quot;highlighter-rouge&quot;&gt;Publisher&lt;/code&gt; and implement the required method. This will not compile yet, because the &lt;code class=&quot;highlighter-rouge&quot;&gt;Subscription&lt;/code&gt; type hasn’t been defined. Note that I’m constraining the downstream Output and Failure to &lt;code class=&quot;highlighter-rouge&quot;&gt;Zip&lt;/code&gt;’s Output and Failure. The method simply creates a &lt;code class=&quot;highlighter-rouge&quot;&gt;Subscription&lt;/code&gt;object and passes it along to the subscriber.&lt;/p&gt;
+&lt;p&gt;Add an extension to make &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Zip&lt;/code&gt; conform to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Publisher&lt;/code&gt; and implement the required method. This will not compile yet, because the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Subscription&lt;/code&gt; type hasn’t been defined. Note that I’m constraining the downstream Output and Failure to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Zip&lt;/code&gt;’s Output and Failure. The method simply creates a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Subscription&lt;/code&gt;object and passes it along to the subscriber.&lt;/p&gt;
 
 &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;ZipCollection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Publisher&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;receive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Subscriber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;subscriber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Subscriber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -66,7 +66,7 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;step-3-create-a-subscription-object-to-return-to-downstream-subscribers-that-does-the-work-of-transforming-the-upstream-output-and-failure-to-the-downstream-input-and-failure&quot;&gt;Step 3: Create a &lt;code class=&quot;highlighter-rouge&quot;&gt;Subscription&lt;/code&gt; object to return to downstream subscribers that does the work of transforming the upstream Output and Failure to the downstream Input and Failure&lt;/h3&gt;
+&lt;h3 id=&quot;step-3-create-a-subscription-object-to-return-to-downstream-subscribers-that-does-the-work-of-transforming-the-upstream-output-and-failure-to-the-downstream-input-and-failure&quot;&gt;Step 3: Create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Subscription&lt;/code&gt; object to return to downstream subscribers that does the work of transforming the upstream Output and Failure to the downstream Input and Failure&lt;/h3&gt;
 
 &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;ZipCollection&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
    &lt;span class=&quot;kd&quot;&gt;fileprivate&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Subscription&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Subscriber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Combine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Subscription&lt;/span&gt;
@@ -133,11 +133,11 @@
 
 &lt;p&gt;This is a bit more code, because it’s what actually does the work.&lt;/p&gt;
 
-&lt;p&gt;The only property is an array of &lt;code class=&quot;highlighter-rouge&quot;&gt;AnyCancellable&lt;/code&gt; which is used to handle the output of the upstream array of publishers. The &lt;code class=&quot;highlighter-rouge&quot;&gt;init&lt;/code&gt; method configures each of these to handle the output of the upstream publishers. I use a &lt;code class=&quot;highlighter-rouge&quot;&gt;Queue&lt;/code&gt; to hold on to the received values, and when at least one value has been received from each of the publishers, I dequeue those results and send them on to the downstream subscriber as an array.&lt;/p&gt;
+&lt;p&gt;The only property is an array of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AnyCancellable&lt;/code&gt; which is used to handle the output of the upstream array of publishers. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;init&lt;/code&gt; method configures each of these to handle the output of the upstream publishers. I use a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Queue&lt;/code&gt; to hold on to the received values, and when at least one value has been received from each of the publishers, I dequeue those results and send them on to the downstream subscriber as an array.&lt;/p&gt;
 
-&lt;p&gt;I handle cancellation by sending a &lt;code class=&quot;highlighter-rouge&quot;&gt;cancel()&lt;/code&gt; message to each of the &lt;code class=&quot;highlighter-rouge&quot;&gt;Cancellables&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I handle cancellation by sending a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cancel()&lt;/code&gt; message to each of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cancellables&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;As I’m not handling back pressure there is an empty implementation of the required &lt;code class=&quot;highlighter-rouge&quot;&gt;request(_)&lt;/code&gt; method.&lt;/p&gt;
+&lt;p&gt;As I’m not handling back pressure there is an empty implementation of the required &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;request(_)&lt;/code&gt; method.&lt;/p&gt;
 
 &lt;h3 id=&quot;make-it-chainable&quot;&gt;Make it chainable&lt;/h3&gt;
 
@@ -153,7 +153,7 @@
 
 &lt;h3 id=&quot;closing-thoughts&quot;&gt;Closing thoughts&lt;/h3&gt;
 
-&lt;p&gt;Is this as efficient as &lt;code class=&quot;highlighter-rouge&quot;&gt;Combine&lt;/code&gt;’s &lt;code class=&quot;highlighter-rouge&quot;&gt;Zip&lt;/code&gt; functions? I Don’t know. At the call site it’s a lot easier to use this rather than trying to turn 24 requests into 6 batches of Zip4 then a Zip3 and then a Zip2 to chain all 24 requests together (I know, because that was what I started to write). So it solves the problem I had in a way that I wanted to write the code. Also, the more of these that I write, the more comfortable I get writing them, which is another benefit.&lt;/p&gt;
+&lt;p&gt;Is this as efficient as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Combine&lt;/code&gt;’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Zip&lt;/code&gt; functions? I Don’t know. At the call site it’s a lot easier to use this rather than trying to turn 24 requests into 6 batches of Zip4 then a Zip3 and then a Zip2 to chain all 24 requests together (I know, because that was what I started to write). So it solves the problem I had in a way that I wanted to write the code. Also, the more of these that I write, the more comfortable I get writing them, which is another benefit.&lt;/p&gt;
 
 &lt;h3 id=&quot;edit&quot;&gt;Edit&lt;/h3&gt;
 
@@ -161,7 +161,7 @@
 
 &lt;h3 id=&quot;code-repository&quot;&gt;Code Repository&lt;/h3&gt;
 
-&lt;p&gt;The code for this is available as part of the &lt;a href=&quot;https://github.com/CombineHarvesters/FoundationCombine&quot;&gt;FoundationCombine&lt;/a&gt; Swift Package available on GitHub. Alongside the &lt;code class=&quot;highlighter-rouge&quot;&gt;CombineLatest&lt;/code&gt; publisher which inspired it.&lt;/p&gt;</content><author><name></name></author><category term="[&quot;development&quot;]" /><category term="combine" /><category term="publishers" /><category term="swift" /><summary type="html">I have an array of publishers: [Publisher&amp;lt;Data, Error&amp;gt;] and want a publisher of the array of their outputs: Publisher&amp;lt;[Data], Error&amp;gt;. The Combine framework provides the Zip family of publishers which only go up to 4 inputs so this won’t suit my needs. I’m going to write about the steps I took to create a publisher that does what I want.</summary></entry><entry><title type="html">The Road to Damascus or FRP and Me</title><link href="http://abizern.org/2017/09/14/the-road-to-damascus-or-frp-and-me.html" rel="alternate" type="text/html" title="The Road to Damascus or FRP and Me" /><published>2017-09-14T00:00:00+01:00</published><updated>2017-09-14T00:00:00+01:00</updated><id>http://abizern.org/2017/09/14/the-road-to-damascus-or-frp-and-me</id><content type="html" xml:base="http://abizern.org/2017/09/14/the-road-to-damascus-or-frp-and-me.html">&lt;p&gt;I tried to learn about Functional Reactive Programming to see whether I would adopt it in my own code. These are my thoughts about it.&lt;/p&gt;
+&lt;p&gt;The code for this is available as part of the &lt;a href=&quot;https://github.com/CombineHarvesters/FoundationCombine&quot;&gt;FoundationCombine&lt;/a&gt; Swift Package available on GitHub. Alongside the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CombineLatest&lt;/code&gt; publisher which inspired it.&lt;/p&gt;</content><author><name></name></author><category term="[&quot;development&quot;]" /><category term="combine" /><category term="publishers" /><category term="swift" /><summary type="html">I have an array of publishers: [Publisher&amp;lt;Data, Error&amp;gt;] and want a publisher of the array of their outputs: Publisher&amp;lt;[Data], Error&amp;gt;. The Combine framework provides the Zip family of publishers which only go up to 4 inputs so this won’t suit my needs. I’m going to write about the steps I took to create a publisher that does what I want.</summary></entry><entry><title type="html">The Road to Damascus or FRP and Me</title><link href="http://abizern.org/2017/09/14/the-road-to-damascus-or-frp-and-me.html" rel="alternate" type="text/html" title="The Road to Damascus or FRP and Me" /><published>2017-09-14T00:00:00+01:00</published><updated>2017-09-14T00:00:00+01:00</updated><id>http://abizern.org/2017/09/14/the-road-to-damascus-or-frp-and-me</id><content type="html" xml:base="http://abizern.org/2017/09/14/the-road-to-damascus-or-frp-and-me.html">&lt;p&gt;I tried to learn about Functional Reactive Programming to see whether I would adopt it in my own code. These are my thoughts about it.&lt;/p&gt;
 
 &lt;h3 id=&quot;slides&quot;&gt;Slides&lt;/h3&gt;
 
@@ -239,24 +239,24 @@ by an example.&lt;/p&gt;
 &lt;p&gt;I posted a
 &lt;a href=&quot;http://abizern.org/2015/10/10/a-swift-repeating-timer/&quot;&gt;wrapper for timer dispatch sources&lt;/a&gt;
 yesterday. While I was doing it I noticed a discrepancy with GCD. When creating
-a timer dispatch source, times were passed as nanoseconds as a &lt;code class=&quot;highlighter-rouge&quot;&gt;UInt64&lt;/code&gt;, but the
-&lt;code class=&quot;highlighter-rouge&quot;&gt;dispatch_after()&lt;/code&gt; function took nanoseconds as an &lt;code class=&quot;highlighter-rouge&quot;&gt;Int64&lt;/code&gt;. Such things are what
+a timer dispatch source, times were passed as nanoseconds as a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UInt64&lt;/code&gt;, but the
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dispatch_after()&lt;/code&gt; function took nanoseconds as an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Int64&lt;/code&gt;. Such things are what
 cause hair-pulling and fighting with the type system.&lt;/p&gt;
 
-&lt;p&gt;But most of the time we just want to pass times around as &lt;code class=&quot;highlighter-rouge&quot;&gt;NSTimeInterval&lt;/code&gt;s as
-seconds, but we have to convert this to a &lt;code class=&quot;highlighter-rouge&quot;&gt;UInt64&lt;/code&gt; or an &lt;code class=&quot;highlighter-rouge&quot;&gt;Int64&lt;/code&gt;. It’s a better
+&lt;p&gt;But most of the time we just want to pass times around as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSTimeInterval&lt;/code&gt;s as
+seconds, but we have to convert this to a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UInt64&lt;/code&gt; or an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Int64&lt;/code&gt;. It’s a better
 idea to wrap these creating methods, and function overloading lets us use the
 same descriptive name for these functions with different return types. So, here
 is some code which you can put in a playground that demonstrates this:&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/Abizern/c030bd9674b2ad881b44.js&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;I’m extending &lt;code class=&quot;highlighter-rouge&quot;&gt;NSTimeInterval&lt;/code&gt; which is a typealias for &lt;code class=&quot;highlighter-rouge&quot;&gt;Double&lt;/code&gt; just to make it
+&lt;p&gt;I’m extending &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSTimeInterval&lt;/code&gt; which is a typealias for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Double&lt;/code&gt; just to make it
 clear that these new functions apply to times.&lt;/p&gt;
 
-&lt;p&gt;Note that there are two functions called &lt;code class=&quot;highlighter-rouge&quot;&gt;nSecs()&lt;/code&gt;, but they return different
-values. And the strong type system ensures the correct function is used. &lt;code class=&quot;highlighter-rouge&quot;&gt;dispatch_source_set_timer()&lt;/code&gt; uses the  &lt;code class=&quot;highlighter-rouge&quot;&gt;nSecs() -&amp;gt; UInt64&lt;/code&gt; values, and
-the &lt;code class=&quot;highlighter-rouge&quot;&gt;dispatch_after()&lt;/code&gt; uses &lt;code class=&quot;highlighter-rouge&quot;&gt;nSecs() -&amp;gt; Int64&lt;/code&gt; function&lt;/p&gt;
+&lt;p&gt;Note that there are two functions called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nSecs()&lt;/code&gt;, but they return different
+values. And the strong type system ensures the correct function is used. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dispatch_source_set_timer()&lt;/code&gt; uses the  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nSecs() -&amp;gt; UInt64&lt;/code&gt; values, and
+the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dispatch_after()&lt;/code&gt; uses &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nSecs() -&amp;gt; Int64&lt;/code&gt; function&lt;/p&gt;
 
 &lt;p&gt;This example also demonstrates that we should write functions for such
 translations, which separates the concerns of creating and transforming values
@@ -274,24 +274,24 @@ Automator to make this easier.&lt;/p&gt;
 
 &lt;p&gt;In the action box type:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;json_pp | pbcopy
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;json_pp | pbcopy
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrint.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;This is what actually does the formatting. &lt;code class=&quot;highlighter-rouge&quot;&gt;json_pp&lt;/code&gt; comes with OS X
+&lt;p&gt;This is what actually does the formatting. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;json_pp&lt;/code&gt; comes with OS X
 . This
 runs the selected text through the tool and puts the result in the
 pasteboard.You can paste your formatted output wherever you like.&lt;/p&gt;
 
 &lt;p&gt;Save the action with a name - I’ve called mine &lt;em&gt;JSON Pretty Print&lt;/em&gt;. You should
-see the new service installed under &lt;code class=&quot;highlighter-rouge&quot;&gt;~/Library/Services&lt;/code&gt;&lt;/p&gt;
+see the new service installed under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/Library/Services&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Rather than have to paste the result, we can define another service that
 replaces the selected text with the result. Create another service as before
 except that the action doesn’t put the results on the pasteboard.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;json_pp
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;json_pp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://images.abizern.org.s3.amazonaws.com/2015/10/JSONPrettyPrintInPlace.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
@@ -332,4 +332,4 @@ get to the action, here’s a lisp function I use to format JSON in place:&lt;/p
 
 &lt;p&gt;&lt;strong&gt;Edit&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Thanks to &lt;a href=&quot;https://twitter.com/chrisridd&quot;&gt;Chris Ridd&lt;/a&gt; for pointing out that I could use &lt;code class=&quot;highlighter-rouge&quot;&gt;json_pp&lt;/code&gt;.&lt;/p&gt;</content><author><name></name></author><category term="[&quot;development&quot;]" /><category term="mac" /><category term="automator" /><category term="json" /><category term="lisp" /><summary type="html">Sometimes we want to format some JSON. Here’s an easy way to set up a Service in Automator to make this easier.</summary></entry></feed>
+&lt;p&gt;Thanks to &lt;a href=&quot;https://twitter.com/chrisridd&quot;&gt;Chris Ridd&lt;/a&gt; for pointing out that I could use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;json_pp&lt;/code&gt;.&lt;/p&gt;</content><author><name></name></author><category term="[&quot;development&quot;]" /><category term="mac" /><category term="automator" /><category term="json" /><category term="lisp" /><summary type="html">Sometimes we want to format some JSON. Here’s an easy way to set up a Service in Automator to make this easier.</summary></entry></feed>

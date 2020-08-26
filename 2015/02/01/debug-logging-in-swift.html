@@ -15,7 +15,7 @@
     
     <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Debug Logging In Swift | Abizern.org</title>
-<meta name="generator" content="Jekyll v3.8.7" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Debug Logging In Swift" />
 <meta property="og:locale" content="en_GB" />
 <meta name="description" content="In the last iOSDevWeekly Dave Verwer listed Art Sabintsev’s PrintLnMagic - a small function that reproduces the common DLog pattern that many use which not only prints a value, but the filename, the function name and the line of the call. Which is really handy in debugging." />
@@ -319,18 +319,18 @@ configurations, which PrintLnMagic does not do.</p>
 
 <p>An updated version of this is available on <a href="https://github.com/JungleCandy/LoggingPrint/">github</a></p>
 
-<p>I’m not overriding <code class="highlighter-rouge">printLn()</code> because I’m not sure clobbering such a widely
+<p>I’m not overriding <code class="language-plaintext highlighter-rouge">printLn()</code> because I’m not sure clobbering such a widely
 used system function is a good idea.</p>
 
 <p>Of course Swift projects don’t work the same way as Objective-C projects, so it
-isn’t enough to just have the debug configuration, this needs to have the <code class="highlighter-rouge">-D
+isn’t enough to just have the debug configuration, this needs to have the <code class="language-plaintext highlighter-rouge">-D
 DEBUG</code> flag set in the “Other Swift Flags” section under Debug.</p>
 
 <p><img src="http://images.abizern.org.s3.amazonaws.com/2015/01/Debug%20flag%20in%20swift.png" alt="" /></p>
 
 <p>Installation is simple enough, this is just a single bare function, so just
-download the file and add it to your project. Call <code class="highlighter-rouge">loggingPrintln()</code>
-just as you would <code class="highlighter-rouge">println()</code>, only passing a value for the first parameter; the
+download the file and add it to your project. Call <code class="language-plaintext highlighter-rouge">loggingPrintln()</code>
+just as you would <code class="language-plaintext highlighter-rouge">println()</code>, only passing a value for the first parameter; the
 defaults will take care of the rest.</p>
 
 <p><strong>Update Feb 5, 2015</strong></p>

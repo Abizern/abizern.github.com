@@ -15,7 +15,7 @@
     
     <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Zip a Collection of Publishers | Abizern.org</title>
-<meta name="generator" content="Jekyll v3.8.7" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Zip a Collection of Publishers" />
 <meta property="og:locale" content="en_GB" />
 <meta name="description" content="I have an array of publishers: [Publisher&lt;Data, Error&gt;] and want a publisher of the array of their outputs: Publisher&lt;[Data], Error&gt;. The Combine framework provides the Zip family of publishers which only go up to 4 inputs so this won’t suit my needs. I’m going to write about the steps I took to create a publisher that does what I want." />
@@ -253,11 +253,11 @@
   <div class="inner">
     <article class="entry-wrap">
       <div class="entry-content">
-        <p>I have an array of publishers: <code class="highlighter-rouge">[Publisher&lt;Data, Error&gt;]</code> and want a publisher of the array of their outputs: <code class="highlighter-rouge">Publisher&lt;[Data], Error&gt;</code>. The Combine framework provides the <code class="highlighter-rouge">Zip</code> family of publishers which only go up to 4 inputs so this won’t suit my needs. I’m going to write about the steps I took to create a publisher that does what I want.</p>
+        <p>I have an array of publishers: <code class="language-plaintext highlighter-rouge">[Publisher&lt;Data, Error&gt;]</code> and want a publisher of the array of their outputs: <code class="language-plaintext highlighter-rouge">Publisher&lt;[Data], Error&gt;</code>. The Combine framework provides the <code class="language-plaintext highlighter-rouge">Zip</code> family of publishers which only go up to 4 inputs so this won’t suit my needs. I’m going to write about the steps I took to create a publisher that does what I want.</p>
 
-<p>This seems like a daunting task. There is a blog post about creating a <a href="https://danieltull.co.uk/blog/2019/08/04/combine-latest-collection/">Combine Latest publisher</a> which does something similar to what I needed. I could have used that publisher, but I wanted to be more explicit that this was a <code class="highlighter-rouge">Zip</code> type of publisher not a <code class="highlighter-rouge">CombineLatest</code> type of publisher.</p>
+<p>This seems like a daunting task. There is a blog post about creating a <a href="https://danieltull.co.uk/blog/2019/08/04/combine-latest-collection/">Combine Latest publisher</a> which does something similar to what I needed. I could have used that publisher, but I wanted to be more explicit that this was a <code class="language-plaintext highlighter-rouge">Zip</code> type of publisher not a <code class="language-plaintext highlighter-rouge">CombineLatest</code> type of publisher.</p>
 
-<p>At a recent <a href="NSCoderNightLondon.com">NSCoder Night</a> <a href="https://twitter.com/danielctull">Daniel</a> helped me write a publisher that fetched all the pages of a paginated URL. From talking to him and referring to his write up I came to realise that creating a publisher is basically like following a recipe. And more importantly it’s not the Publisher that does the work: when a publisher receives a subscription, it creates an internal <code class="highlighter-rouge">Subscription</code> object which it returns to the subscriber. It is this Subscription object which actually does the work.</p>
+<p>At a recent <a href="NSCoderNightLondon.com">NSCoder Night</a> <a href="https://twitter.com/danielctull">Daniel</a> helped me write a publisher that fetched all the pages of a paginated URL. From talking to him and referring to his write up I came to realise that creating a publisher is basically like following a recipe. And more importantly it’s not the Publisher that does the work: when a publisher receives a subscription, it creates an internal <code class="language-plaintext highlighter-rouge">Subscription</code> object which it returns to the subscriber. It is this Subscription object which actually does the work.</p>
 
 <h3 id="why-do-i-need-my-own-publisher">Why do I need my own publisher?</h3>
 
@@ -286,7 +286,7 @@
 
 <h3 id="step-1-create-a-struct-which-defines-its-output-and-failure-matched-to-the-upstream-output-and-failure">Step 1: Create a struct which defines it’s Output and Failure matched to the upstream Output and Failure</h3>
 
-<p>Let’s start with the Publisher itself. Publishers are <code class="highlighter-rouge">Struct</code>s. In my case it’s just a container to hold the array of publishers so I constrain the generic type to be a <code class="highlighter-rouge">Collection</code> of publishers. I also typealias the Output to be an <code class="highlighter-rouge">Array</code> of the upstream publisher’s Outputs and the Failure to be the upstream publishers Failure type.</p>
+<p>Let’s start with the Publisher itself. Publishers are <code class="language-plaintext highlighter-rouge">Struct</code>s. In my case it’s just a container to hold the array of publishers so I constrain the generic type to be a <code class="language-plaintext highlighter-rouge">Collection</code> of publishers. I also typealias the Output to be an <code class="language-plaintext highlighter-rouge">Array</code> of the upstream publisher’s Outputs and the Failure to be the upstream publishers Failure type.</p>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ZipCollection</span><span class="o">&lt;</span><span class="kt">Publishers</span><span class="o">&gt;</span>
     <span class="k">where</span>
@@ -304,9 +304,9 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h3 id="step-2-make-this-struct-conform-to-publisher-matching-the-output-and-failure-to-the-downstream-input-and-failure">Step 2: Make this struct conform to <code class="highlighter-rouge">Publisher</code> matching the Output and Failure to the downstream Input and Failure</h3>
+<h3 id="step-2-make-this-struct-conform-to-publisher-matching-the-output-and-failure-to-the-downstream-input-and-failure">Step 2: Make this struct conform to <code class="language-plaintext highlighter-rouge">Publisher</code> matching the Output and Failure to the downstream Input and Failure</h3>
 
-<p>Add an extension to make <code class="highlighter-rouge">Zip</code> conform to <code class="highlighter-rouge">Publisher</code> and implement the required method. This will not compile yet, because the <code class="highlighter-rouge">Subscription</code> type hasn’t been defined. Note that I’m constraining the downstream Output and Failure to <code class="highlighter-rouge">Zip</code>’s Output and Failure. The method simply creates a <code class="highlighter-rouge">Subscription</code>object and passes it along to the subscriber.</p>
+<p>Add an extension to make <code class="language-plaintext highlighter-rouge">Zip</code> conform to <code class="language-plaintext highlighter-rouge">Publisher</code> and implement the required method. This will not compile yet, because the <code class="language-plaintext highlighter-rouge">Subscription</code> type hasn’t been defined. Note that I’m constraining the downstream Output and Failure to <code class="language-plaintext highlighter-rouge">Zip</code>’s Output and Failure. The method simply creates a <code class="language-plaintext highlighter-rouge">Subscription</code>object and passes it along to the subscriber.</p>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">ZipCollection</span><span class="p">:</span> <span class="kt">Publisher</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kd">func</span> <span class="n">receive</span><span class="o">&lt;</span><span class="kt">Subscriber</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">subscriber</span><span class="p">:</span> <span class="kt">Subscriber</span><span class="p">)</span>
@@ -321,7 +321,7 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h3 id="step-3-create-a-subscription-object-to-return-to-downstream-subscribers-that-does-the-work-of-transforming-the-upstream-output-and-failure-to-the-downstream-input-and-failure">Step 3: Create a <code class="highlighter-rouge">Subscription</code> object to return to downstream subscribers that does the work of transforming the upstream Output and Failure to the downstream Input and Failure</h3>
+<h3 id="step-3-create-a-subscription-object-to-return-to-downstream-subscribers-that-does-the-work-of-transforming-the-upstream-output-and-failure-to-the-downstream-input-and-failure">Step 3: Create a <code class="language-plaintext highlighter-rouge">Subscription</code> object to return to downstream subscribers that does the work of transforming the upstream Output and Failure to the downstream Input and Failure</h3>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">ZipCollection</span> <span class="p">{</span>
    <span class="kd">fileprivate</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">Subscription</span><span class="o">&lt;</span><span class="kt">Subscriber</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">Combine</span><span class="o">.</span><span class="kt">Subscription</span>
@@ -388,11 +388,11 @@
 
 <p>This is a bit more code, because it’s what actually does the work.</p>
 
-<p>The only property is an array of <code class="highlighter-rouge">AnyCancellable</code> which is used to handle the output of the upstream array of publishers. The <code class="highlighter-rouge">init</code> method configures each of these to handle the output of the upstream publishers. I use a <code class="highlighter-rouge">Queue</code> to hold on to the received values, and when at least one value has been received from each of the publishers, I dequeue those results and send them on to the downstream subscriber as an array.</p>
+<p>The only property is an array of <code class="language-plaintext highlighter-rouge">AnyCancellable</code> which is used to handle the output of the upstream array of publishers. The <code class="language-plaintext highlighter-rouge">init</code> method configures each of these to handle the output of the upstream publishers. I use a <code class="language-plaintext highlighter-rouge">Queue</code> to hold on to the received values, and when at least one value has been received from each of the publishers, I dequeue those results and send them on to the downstream subscriber as an array.</p>
 
-<p>I handle cancellation by sending a <code class="highlighter-rouge">cancel()</code> message to each of the <code class="highlighter-rouge">Cancellables</code>.</p>
+<p>I handle cancellation by sending a <code class="language-plaintext highlighter-rouge">cancel()</code> message to each of the <code class="language-plaintext highlighter-rouge">Cancellables</code>.</p>
 
-<p>As I’m not handling back pressure there is an empty implementation of the required <code class="highlighter-rouge">request(_)</code> method.</p>
+<p>As I’m not handling back pressure there is an empty implementation of the required <code class="language-plaintext highlighter-rouge">request(_)</code> method.</p>
 
 <h3 id="make-it-chainable">Make it chainable</h3>
 
@@ -408,7 +408,7 @@
 
 <h3 id="closing-thoughts">Closing thoughts</h3>
 
-<p>Is this as efficient as <code class="highlighter-rouge">Combine</code>’s <code class="highlighter-rouge">Zip</code> functions? I Don’t know. At the call site it’s a lot easier to use this rather than trying to turn 24 requests into 6 batches of Zip4 then a Zip3 and then a Zip2 to chain all 24 requests together (I know, because that was what I started to write). So it solves the problem I had in a way that I wanted to write the code. Also, the more of these that I write, the more comfortable I get writing them, which is another benefit.</p>
+<p>Is this as efficient as <code class="language-plaintext highlighter-rouge">Combine</code>’s <code class="language-plaintext highlighter-rouge">Zip</code> functions? I Don’t know. At the call site it’s a lot easier to use this rather than trying to turn 24 requests into 6 batches of Zip4 then a Zip3 and then a Zip2 to chain all 24 requests together (I know, because that was what I started to write). So it solves the problem I had in a way that I wanted to write the code. Also, the more of these that I write, the more comfortable I get writing them, which is another benefit.</p>
 
 <h3 id="edit">Edit</h3>
 
@@ -416,7 +416,7 @@
 
 <h3 id="code-repository">Code Repository</h3>
 
-<p>The code for this is available as part of the <a href="https://github.com/CombineHarvesters/FoundationCombine">FoundationCombine</a> Swift Package available on GitHub. Alongside the <code class="highlighter-rouge">CombineLatest</code> publisher which inspired it.</p>
+<p>The code for this is available as part of the <a href="https://github.com/CombineHarvesters/FoundationCombine">FoundationCombine</a> Swift Package available on GitHub. Alongside the <code class="language-plaintext highlighter-rouge">CombineLatest</code> publisher which inspired it.</p>
 
       </div>
       

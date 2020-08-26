@@ -15,7 +15,7 @@
     
     <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Development | Abizern.org</title>
-<meta name="generator" content="Jekyll v3.8.7" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Development" />
 <meta property="og:locale" content="en_GB" />
 <meta name="description" content="Developer and personal blog of an iOS and Mac Contract developer in London. I write modern maintainable code in Swift. You can sometimes find me running around South East London. But otherwise, I’m just this guy with opinions, you know?" />
@@ -25,7 +25,7 @@
 <meta property="og:site_name" content="Abizern.org" />
 <meta property="og:image" content="http://images.abizern.org.s3.amazonaws.com/site/monitors.jpg" />
 <script type="application/ld+json">
-{"headline":"Development","description":"Developer and personal blog of an iOS and Mac Contract developer in London. I write modern maintainable code in Swift. You can sometimes find me running around South East London. But otherwise, I’m just this guy with opinions, you know?","url":"http://abizern.org/categories/development","image":"http://images.abizern.org.s3.amazonaws.com/site/monitors.jpg","@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://images.abizern.org.s3.amazonaws.com/site/Avatar-100.png"}},"@context":"https://schema.org"}</script>
+{"headline":"Development","image":"http://images.abizern.org.s3.amazonaws.com/site/monitors.jpg","description":"Developer and personal blog of an iOS and Mac Contract developer in London. I write modern maintainable code in Swift. You can sometimes find me running around South East London. But otherwise, I’m just this guy with opinions, you know?","url":"http://abizern.org/categories/development","@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://images.abizern.org.s3.amazonaws.com/site/Avatar-100.png"}},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -272,8 +272,7 @@
   </footer>
   <div class="entry-excerpt">
     
-      <p>I have an array of publishers: <code class="highlighter-rouge">[Publisher&lt;Data, Error&gt;]</code> and want a publisher of the array of their outputs: <code class="highlighter-rouge">Publisher&lt;[Data], Error&gt;</code>. The Combine framework provides the <code class="highlighter-rouge">Zip</code> family of publishers which only go up to 4 inputs so this won’t suit my needs. I’m going to write about the steps I took to create a publisher that does what I want.</p>
-
+      <p>I have an array of publishers: <code class="language-plaintext highlighter-rouge">[Publisher&lt;Data, Error&gt;]</code> and want a publisher of the array of their outputs: <code class="language-plaintext highlighter-rouge">Publisher&lt;[Data], Error&gt;</code>. The Combine framework provides the <code class="language-plaintext highlighter-rouge">Zip</code> family of publishers which only go up to 4 inputs so this won’t suit my needs. I’m going to write about the steps I took to create a publisher that does what I want.</p>
 
       <p><a href="/2019/09/29/zip-a-collection-of-publishers.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -303,7 +302,6 @@
 return type. This can often help us create neat APIs. This is best illustrated
 by an example.</p>
 
-
       <p><a href="/2015/10/11/swift-function-overloading-by-return-type.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -331,7 +329,6 @@ by an example.</p>
       <p>Sometimes we want to format some JSON. Here’s an easy way to set up a Service in
 Automator to make this easier.</p>
 
-
       <p><a href="/2015/10/10/easy-json-formatting.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -357,7 +354,6 @@ Automator to make this easier.</p>
   <div class="entry-excerpt">
     
       <p>We frequently (excuse the pun) need to schedule a repeated action.</p>
-
 
       <p><a href="/2015/10/10/a-swift-repeating-timer.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -390,7 +386,6 @@ that reproduces the common DLog pattern that many use which not only prints a
 value, but the filename, the function name and the line of the call. Which is
 really handy in debugging.</p>
 
-
       <p><a href="/2015/02/01/debug-logging-in-swift.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -420,7 +415,6 @@ Fizz Buzz in Swift.  The video is
 <a href="http://vimeo.com/105440181">available on Vimeo</a> and proved to be reasonably
 popular and even gained me my first mention in <a href="https://iosdevweekly.com/issues/167">iOS Dev Weekly</a>.</p>
 
-
       <p><a href="/2014/12/13/fizz-buzz-in-swift.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -446,7 +440,6 @@ popular and even gained me my first mention in <a href="https://iosdevweekly.com
   <div class="entry-excerpt">
     
       <p>Another problem from This year’s Google Code Jam.</p>
-
 
       <p><a href="/2014/04/18/gcj-b-cookie-clicker-alpha.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -476,7 +469,6 @@ popular and even gained me my first mention in <a href="https://iosdevweekly.com
 to get through this stage; it’s the first round that I haven’t managed to get
 past yet.</p>
 
-
       <p><a href="/2014/04/18/gcj-a-magic-trick.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -502,10 +494,9 @@ past yet.</p>
   <div class="entry-excerpt">
     
       <p>When this blog was created using Octopress, a new post could be created by
-simply running <code class="highlighter-rouge">rake new_post</code> in the Terminal. There is no such convenience in
+simply running <code class="language-plaintext highlighter-rouge">rake new_post</code> in the Terminal. There is no such convenience in
 Hakyll, which is currently used as the generator. A small thing, but I wanted to
 fix it.</p>
-
 
       <p><a href="/2014/01/05/hakyll-new-post-with-emacs.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -533,7 +524,6 @@ fix it.</p>
     
       <p>This site is now being generated by <a href="http://jaspervdj.be/hakyll/">Hakyll</a>
 instead of <a href="http://octopress.org">Octopress</a></p>
-
 
       <p><a href="/2013/12/26/hello-hakyll.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -563,7 +553,6 @@ instead of <a href="http://octopress.org">Octopress</a></p>
 <a href="http://londonwebstandards.org/2013/05/lws-june-2013-gitdiet/">17th June</a>. I’m
 going to be talking on the topic of “Git’s not what you think it is”.</p>
 
-
       <p><a href="/2013/05/30/git-at-london-web-standards.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -590,7 +579,6 @@ going to be talking on the topic of “Git’s not what you think it is”.</p>
     
       <p>This is how I roll, you might choose a different path.</p>
 
-
       <p><a href="/2013/03/31/setting-up-for-lisp-on-os-x.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -616,7 +604,6 @@ going to be talking on the topic of “Git’s not what you think it is”.</p>
   <div class="entry-excerpt">
     
       <p>I’m sure you’ve been there.</p>
-
 
       <p><a href="/2013/01/29/missing-xcode-toolbar.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -645,7 +632,6 @@ going to be talking on the topic of “Git’s not what you think it is”.</p>
       <p>I wrote a <a href="http://abizern.org/fixbraces/">small rubygem</a> called <em>fixbraces</em> to
 move the opening brace of a conditional to the same line as the opening
 statement.</p>
-
 
       <p><a href="/2012/12/30/correcting-brace-layout.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -676,7 +662,6 @@ statement.</p>
 which has some handy tips for Emacs, Vim, Textmate, Sublime Text and the OS
 X. It’s a short read, and worth the time.</p>
 
-
       <p><a href="/2012/11/02/commanding-your-text-editor.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -702,7 +687,6 @@ X. It’s a short read, and worth the time.</p>
   <div class="entry-excerpt">
     
       <p>A short video from a live demo of Emacs from Web Rebels in Oslo 2012.</p>
-
 
       <p><a href="/2012/11/01/a-reason-to-learn-lisp.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -733,7 +717,6 @@ X. It’s a short read, and worth the time.</p>
 Google Code Jam problem
 <a href="http://code.google.com/codejam/contest/351101/dashboard#s=p1" title="Original problem statement">Reverse Words</a></p>
 
-
       <p><a href="/2012/10/31/an-improved-reverse-words-script.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -761,7 +744,6 @@ Google Code Jam problem
       <p>This used to be a thing until the iOS 6 and OS X 10.8 compatible
 <a href="http://developer.apple.com/library/mac/#documentation/Foundation/Reference/NSUUID_Class/Reference/Reference.html">NSUUID Class</a>
 became available.</p>
-
 
       <p><a href="/2012/10/25/uuid-strings-with-cocoa.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -793,7 +775,6 @@ entertaining to watch smart people solve difficult problems. I think that’s pa
 of the reason why I find watching live coding videos so entertaining - It’s more
 fun to watch someone solve a problem than doing it yourself.</p>
 
-
       <p><a href="/2012/08/20/on-live-coding.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -822,7 +803,6 @@ fun to watch someone solve a problem than doing it yourself.</p>
 answering 3 out of 4 questions. I have no illusions about progressing very far,
 but I’m using it as an excuse to learn some Haskell and to write code faster.</p>
 
-
       <p><a href="/2012/04/15/rotate-a-string-with-haskell.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -849,7 +829,6 @@ but I’m using it as an excuse to learn some Haskell and to write code faster.<
     
       <p>I mentored at <a href="http://zen.coderdojo.com/dojo/74">CoderDojo London</a> this
 weekend. These are just some of my thoughts about it.</p>
-
 
       <p><a href="/2012/04/15/london-coderdojo.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -878,7 +857,6 @@ weekend. These are just some of my thoughts about it.</p>
       <p>As part of my preparation for <a href="http://code.google.com/codejam">Google Code Jam</a>
 I’ve been working through the practice problems with Haskell.</p>
 
-
       <p><a href="/2012/04/09/reverse-words-with-haskell.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -904,10 +882,9 @@ I’ve been working through the practice problems with Haskell.</p>
   <div class="entry-excerpt">
     
       <p>A while ago I answered a couple of questions on Stack Overflow using my
-<code class="highlighter-rouge">.gitignore</code> file as an example. I find it strangely satisfying to find that
+<code class="language-plaintext highlighter-rouge">.gitignore</code> file as an example. I find it strangely satisfying to find that
 there are projects on GitHub that use it, and even the odd blogs has put it up
 as well.</p>
-
 
       <p><a href="/2012/03/19/git-ignore-file.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -936,7 +913,6 @@ as well.</p>
       <p>Sometimes you want to test your localisations but you don’t want to go through the hassle of
 changing the settings on the simulator, or device, or your Mac for each one. There’s always the fear
 of setting some language that you don’t understand.</p>
-
 
       <p><a href="/2012/03/18/simple-localisation-testing.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -968,7 +944,6 @@ hackers">Octopress</a>. It’s been almost a year since I posted anything. And m
 did publish was about <a href="http://nscodernightlondon.com" title="NSCoder
 Night London's page">NSCoder Night</a>.</p>
 
-
       <p><a href="/2012/03/17/hello-octopress.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -998,7 +973,6 @@ London from here, but I’ve now moved it to a site of its own. You can now get
 all the information from
 <a href="http://nscodernightlondon.com">NSCoderNightLondon.com</a>.</p>
 
-
       <p><a href="/2011/04/14/nscoder-night-london-now-has-its-own-page.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -1026,7 +1000,6 @@ all the information from
       <p>It came about that I wanted to do some work with git and signed tags. It’s been
 a while since I had looked at this, I’ve got some old entries up on keyservers
 that date back to 1999, and never on a Mac.</p>
-
 
       <p><a href="/2011/01/17/just-enough-gpg-for-git.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -1058,7 +1031,6 @@ and
 <a href="http://daringfireball.net/2010/11/masquerading_as_mobile_safari">changing the Safari User Agent</a>
 to view some sites that have Flash content.</p>
 
-
       <p><a href="/2010/11/21/staying-flash-free-on-a-macbook-air.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -1087,7 +1059,6 @@ to view some sites that have Flash content.</p>
 at. Here’s a little tip that I picked up from
 <a href="http://tommorris.org">Tom Morris</a>.</p>
 
-
       <p><a href="/2010/10/16/getting-the-address-of-a-shortened-url.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -1114,7 +1085,6 @@ at. Here’s a little tip that I picked up from
     
       <p>“A coding dojo is a safe place to deliberately practice and develop your coding
 skills.”</p>
-
 
       <p><a href="/2010/10/08/blackjack-and-the-python-dojo.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -1144,7 +1114,6 @@ skills.”</p>
 <a href="http://bohemiancoding.com">Bohemian Coding</a> and his
 <a href="http://365Cocoa.tumblr.com">365Cocoa</a> to set up my own contribution.</p>
 
-
       <p><a href="/2010/03/24/a-year-of-git.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -1170,7 +1139,6 @@ skills.”</p>
   <div class="entry-excerpt">
     
       <p>You may have occasion to rename an Xcode project.</p>
-
 
       <p><a href="/2010/03/06/renaming-an-xcode-project.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -1199,7 +1167,6 @@ skills.”</p>
       <p>Pieter Omvlee of <a href="http://www.bohemiancoding.com/">Bohemian Coding</a> has been
 inspired to post a snippet of Objective-C/Cocoa code every day for a year.</p>
 
-
       <p><a href="/2010/02/27/a-year-of-objective-c-snippets.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -1227,7 +1194,6 @@ inspired to post a snippet of Objective-C/Cocoa code every day for a year.</p>
       <p>On New Year’s eve, Dámasa asked me to calculate some fraction of a fraction and
 provide the answer as a fraction in eighths. The post had just arrived so I
 flipped over an envelope and started working it out.</p>
-
 
       <p><a href="/2010/01/08/a-simple-answer-is-not-always-best.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -1259,7 +1225,6 @@ specifications, writing unit tests first, programming in pairs, yadda,
 yadda. But, as developers, we’re only human, and we’re lazy. We have tools to
 make things easy for us. Here are a few tips that you can use to help when
 you’re not as rigorous in your coding as you should be.</p>
-
 
       <p><a href="/2009/11/11/some-tips-for-lazy-xcoders.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -1294,7 +1259,6 @@ with <a href="http://git-scm.com/">git</a> instead of
 <a href="http://mercurial.selenic.com/">mercurial</a>, separated into two parts in case you
 just want to apply one set of changes.</p>
 
-
       <p><a href="/2009/11/09/integrating-git-with-subethaedit-and-changes.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
   </div>
@@ -1320,7 +1284,6 @@ just want to apply one set of changes.</p>
   <div class="entry-excerpt">
     
       <p><a href="http://www.flickr.com/photos/15729248@N00/3952499655"><img src="http://farm3.static.flickr.com/2671/3952499655_33ed3b7b29.jpg" alt="NSCoder Night" /></a></p>
-
 
       <p><a href="/2009/09/25/nscoder-night-london-report.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     
@@ -1350,7 +1313,6 @@ just want to apply one set of changes.</p>
 chapter in London. There is a monthly CocoaHeads meeting in Swindon, and the UK
 Mac Dev meeting once a month in Central London, but I think that there is a gap
 for an evening of coding in a social setting.</p>
-
 
       <p><a href="/2009/09/21/nscoder-night-london.html" class="more-link">Read More <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></p>
     

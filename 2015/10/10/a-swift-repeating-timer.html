@@ -15,7 +15,7 @@
     
     <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>A Swift Repeating Timer | Abizern.org</title>
-<meta name="generator" content="Jekyll v3.8.7" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="A Swift Repeating Timer" />
 <meta property="og:locale" content="en_GB" />
 <meta name="description" content="We frequently (excuse the pun) need to schedule a repeated action." />
@@ -255,8 +255,8 @@
       <div class="entry-content">
         <p>We frequently (excuse the pun) need to schedule a repeated action.</p>
 
-<p>The way to do this was usually to use <code class="highlighter-rouge">NSTimer</code>’s
-<code class="highlighter-rouge">scheduledTimerWithTimeInterval(_:,target:,selector:,userInfo:,repeats:)</code>, which
+<p>The way to do this was usually to use <code class="language-plaintext highlighter-rouge">NSTimer</code>’s
+<code class="language-plaintext highlighter-rouge">scheduledTimerWithTimeInterval(_:,target:,selector:,userInfo:,repeats:)</code>, which
 needed a callback, and had the hidden pitfall of the target being strongly
 referenced by the runloop that this timer was scheduled on. There are extensions
 to NSTimer that allow the used of blocks instead (I even wrote one myself), but
@@ -265,7 +265,7 @@ there is another way.</p>
 <p>Grand Central Dispatch provides
 <a href="https://developer.apple.com/library/mac/documentation/General/Conceptual/ConcurrencyProgrammingGuide/GCDWorkQueues/GCDWorkQueues.html">dispatch sources</a>
 for efficient interaction with the underlying system. One such source type is
-<code class="highlighter-rouge">DISPATCH_SOURCE_TYPE_TIMER</code>. So here as a Swift function that creates and
+<code class="language-plaintext highlighter-rouge">DISPATCH_SOURCE_TYPE_TIMER</code>. So here as a Swift function that creates and
 starts such a timer.</p>
 
 <script src="https://gist.github.com/Abizern/cf26af397ebe66284002.js"></script>
@@ -320,7 +320,7 @@ This is best used for short running timers. Be sure to call `dispatch_source_can
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Since I’m passing in <code class="highlighter-rouge">NSTimeInterval</code>s this is probably best used for short
+<p>Since I’m passing in <code class="language-plaintext highlighter-rouge">NSTimeInterval</code>s this is probably best used for short
 lived timers, but it extracts a lot of the C boilerplate that is needed to
 create the dispatch source.</p>
 

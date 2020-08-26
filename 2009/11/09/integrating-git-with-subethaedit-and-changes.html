@@ -15,7 +15,7 @@
     
     <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Integrating Git with SubEthaEdit and Changes App | Abizern.org</title>
-<meta name="generator" content="Jekyll v3.8.7" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Integrating Git with SubEthaEdit and Changes App" />
 <meta property="og:locale" content="en_GB" />
 <meta name="description" content="A while ago, I read a nice write up about using mercurial with SubEthaEdit and Changes. Here’s how to do the same thing with git instead of mercurial, separated into two parts in case you just want to apply one set of changes." />
@@ -273,8 +273,8 @@ utility”. This will install the chdiff utility which is used by the script.</p
 
 <p>Create a shell script with the following contents.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
-<span class="o">[</span> <span class="nv">$# </span><span class="nt">-eq</span> 7 <span class="o">]</span> <span class="o">&amp;&amp;</span> /usr/bin/env chdiff <span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$5</span><span class="s2">"</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/bin/sh
+[ $# -eq 7 ] &amp;&amp; /usr/bin/env chdiff "$2" "$5"
 </code></pre></div></div>
 
 <p>Where you save this and what you call it is up to you. Mine is called
@@ -283,13 +283,13 @@ is executable.</p>
 
 <p><strong>Step Three: Edit the .gitconfig file to use this script to handle diffs.</strong></p>
 
-<p>Open your <code class="highlighter-rouge">~/.gitconfig</code> file. This should already exist, at the very least it
-will contain you name and email. under the section called <code class="highlighter-rouge">[diff]</code> add the
+<p>Open your <code class="language-plaintext highlighter-rouge">~/.gitconfig</code> file. This should already exist, at the very least it
+will contain you name and email. under the section called <code class="language-plaintext highlighter-rouge">[diff]</code> add the
 location and name of the file.  You may have to edit this to make sure it points
 to the name and location you chose in Step Two. (Make sure to use the correct
 path in your setup)</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[diff]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[diff]
 external = &lt;path to file&gt;/.gitchanges
 </code></pre></div></div>
 
@@ -303,23 +303,23 @@ free to fork it and send me patches.</p>
 
 <p><strong>Step Two: Edit the .gitconfig file to use SebEthaEdit as an external editor.</strong></p>
 
-<p>Open your <code class="highlighter-rouge">~/.gitconfig</code> file. This time, under the <code class="highlighter-rouge">[core]</code> section, add the
+<p>Open your <code class="language-plaintext highlighter-rouge">~/.gitconfig</code> file. This time, under the <code class="language-plaintext highlighter-rouge">[core]</code> section, add the
 following line:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[core]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[core]
 editor = /usr/bin/see -w -r -o new-window -j 'git editor' -m gitCommit -g 1:0
 </code></pre></div></div>
 
-<p>All those flags may seem daunting, but they are quite self-explanatory: the <code class="highlighter-rouge">-w</code>
-flag makes the Terminal wait for a response from SubEthaEdit. <code class="highlighter-rouge">-r</code> brings
-Terminal to the front after you’re done editing. <code class="highlighter-rouge">-o new-window</code> opens a new
+<p>All those flags may seem daunting, but they are quite self-explanatory: the <code class="language-plaintext highlighter-rouge">-w</code>
+flag makes the Terminal wait for a response from SubEthaEdit. <code class="language-plaintext highlighter-rouge">-r</code> brings
+Terminal to the front after you’re done editing. <code class="language-plaintext highlighter-rouge">-o new-window</code> opens a new
 window for editing. I prefer this to having a new tab appear in whatever window
-I was working on. <code class="highlighter-rouge">-j 'git editor</code>’ this sets the text that appears in the title
-bar, which you can change as you wish. <code class="highlighter-rouge">-m gitCommit</code> is what sets the mode to
-be used for editing. and <code class="highlighter-rouge">-g 1:0</code> puts the caret at the beginning of the file.</p>
+I was working on. <code class="language-plaintext highlighter-rouge">-j 'git editor</code>’ this sets the text that appears in the title
+bar, which you can change as you wish. <code class="language-plaintext highlighter-rouge">-m gitCommit</code> is what sets the mode to
+be used for editing. and <code class="language-plaintext highlighter-rouge">-g 1:0</code> puts the caret at the beginning of the file.</p>
 
 <p>Now, when git asks you to write a commit message, or pick commits when running
-<code class="highlighter-rouge">git rebase -i</code> a SubEthaEdit window will open as the commit message
+<code class="language-plaintext highlighter-rouge">git rebase -i</code> a SubEthaEdit window will open as the commit message
 editor. Make whatever changes you need then save the file (⌘-S) and then close
 the window (⌘-W) for these changes to take effect.</p>
 

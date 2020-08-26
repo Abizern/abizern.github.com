@@ -15,7 +15,7 @@
     
     <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>UUID Strings with Cocoa | Abizern.org</title>
-<meta name="generator" content="Jekyll v3.8.7" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="UUID Strings with Cocoa" />
 <meta property="og:locale" content="en_GB" />
 <meta name="description" content="This used to be a thing until the iOS 6 and OS X 10.8 compatible NSUUID Class became available." />
@@ -261,7 +261,7 @@ became available.</p>
 
 <p>This is how you can do it now:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NSString *uuidString = [[NSUUID UUID] UUIDString];
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NSString *uuidString = [[NSUUID UUID] UUIDString];
 // Generates: 7E60066C-C7F3-438A-95B1-DDE8634E1072
 </code></pre></div></div>
 
@@ -284,7 +284,7 @@ it where people have created a category on NSString for this.</p>
 
 <p>And to use it:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NSString *uuidString = [self uuidString];
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NSString *uuidString = [self uuidString];
 // Generates D5CB0560-206F-4581-AA25-1D6A873F3526
 </code></pre></div></div>
 
@@ -292,12 +292,12 @@ it where people have created a category on NSString for this.</p>
 
 <p>A common use for unique strings is to name files and directories
 within a program so that they do not clash. Since iOS 2 and OS X 10.0 there has
-been the <code class="highlighter-rouge">globallyUniqueString</code> method in
+been the <code class="language-plaintext highlighter-rouge">globallyUniqueString</code> method in
 <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSProcessInfo_Class/Reference/Reference.html">NSProcessInfo</a>
 which returns a string that is unique for the network and process. So, for a
 <em>good enough</em> unique string this is probably a better method to use:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NSString *uuidStr = [[NSProcessInfo processInfo] globallyUniqueString];
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NSString *uuidStr = [[NSProcessInfo processInfo] globallyUniqueString];
 // generates 56341C6E-35A7-4C97-9C5E-7AC79673EAB2-539-000001F95B327819
 </code></pre></div></div>
 

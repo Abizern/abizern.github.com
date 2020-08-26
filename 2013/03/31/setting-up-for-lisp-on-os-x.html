@@ -15,7 +15,7 @@
     
     <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Setting up for Lisp on OS X | Abizern.org</title>
-<meta name="generator" content="Jekyll v3.8.7" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Setting up for Lisp on OS X" />
 <meta property="og:locale" content="en_GB" />
 <meta name="description" content="This is how I roll, you might choose a different path." />
@@ -266,32 +266,32 @@ mode</p>
 opinionated emacs environment which is easily configured.</p>
   </li>
   <li>
-    <p>Install clisp. I use homebrew so <code class="highlighter-rouge">brew install clisp</code> takes care of that for
+    <p>Install clisp. I use homebrew so <code class="language-plaintext highlighter-rouge">brew install clisp</code> takes care of that for
 me.</p>
   </li>
   <li>
     <p>Install <a href="http://quicklisp.org">quicklisp</a>; from Terminal go to a temporary
-directory and download quicklisp.lisp with <code class="highlighter-rouge">curl -O
+directory and download quicklisp.lisp with <code class="language-plaintext highlighter-rouge">curl -O
 http://beta.quicklisp.org/quicklisp.lisp</code>. Then run the lisp file from clisp
-with <code class="highlighter-rouge">clisp -i quicklisp.lisp</code>. As the instructions say, evaluate
-<code class="highlighter-rouge">(quicklisp-quickstart:install)</code>, and then evaluate <code class="highlighter-rouge">(ql:add-to-init-file)</code>
+with <code class="language-plaintext highlighter-rouge">clisp -i quicklisp.lisp</code>. As the instructions say, evaluate
+<code class="language-plaintext highlighter-rouge">(quicklisp-quickstart:install)</code>, and then evaluate <code class="language-plaintext highlighter-rouge">(ql:add-to-init-file)</code>
 to load quicklisp along with lisp.</p>
   </li>
   <li>
-    <p>Install Slime. While you have the clisp repl open, evaluate <code class="highlighter-rouge">(ql:quickload
+    <p>Install Slime. While you have the clisp repl open, evaluate <code class="language-plaintext highlighter-rouge">(ql:quickload
 "quicklisp-slime-helper")</code>. After this runs, you will see some
 recommendations for what to put into your .emacs file. You don’t need to do
 this. I did say that Prelude was opinionated, and it’s done this for
 you. However, it’s not set up for clisp, so instead, add this to your
-<code class="highlighter-rouge">personal/personal.el</code> file: <code class="highlighter-rouge">(setq slime-default-lisp 'clisp)</code></p>
+<code class="language-plaintext highlighter-rouge">personal/personal.el</code> file: <code class="language-plaintext highlighter-rouge">(setq slime-default-lisp 'clisp)</code></p>
   </li>
   <li>
     <p>And that should be it. You don’t need to have the clisp repl running in the
-terminal anymore, and you can delete the <code class="highlighter-rouge">quicklisp.lisp</code> file that you
+terminal anymore, and you can delete the <code class="language-plaintext highlighter-rouge">quicklisp.lisp</code> file that you
 downladed, as it’s done it’s job of installation now.</p>
   </li>
   <li>
-    <p>Test the setup from Emacs by running <code class="highlighter-rouge">M-x slime-mode</code> and you’ll be taken to
+    <p>Test the setup from Emacs by running <code class="language-plaintext highlighter-rouge">M-x slime-mode</code> and you’ll be taken to
 the lisp REPL.</p>
   </li>
 </ol>
